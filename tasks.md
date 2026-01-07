@@ -71,6 +71,10 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Add integration test for a small clip generation run (CI artifact)
 - GitHub issue: [#12](https://github.com/cbwinslow/jcsnotfunny/issues/12)
 - GitHub issue: [#13](https://github.com/cbwinslow/jcsnotfunny/issues/13)
+- Follow-ups:
+- [ ] Implement X client (issue: [#14](https://github.com/cbwinslow/jcsnotfunny/issues/14))
+- [ ] Implement YouTube client (issue: [#15](https://github.com/cbwinslow/jcsnotfunny/issues/15))
+- [ ] Implement Scheduler integration (issue: [#16](https://github.com/cbwinslow/jcsnotfunny/issues/16))
 - GitHub issue: [#7](https://github.com/cbwinslow/jcsnotfunny/issues/7)
 
 ---
