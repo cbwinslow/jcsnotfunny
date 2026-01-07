@@ -1,0 +1,30 @@
+- name: area/editing
+  color: f9d0c4
+  description: Issues related to video/audio editing
+- name: area/website
+  color: c5e1a5
+  description: Website and SEO tasks
+- name: area/booking
+  color: a2eeef
+  description: Booking and CRM tasks
+- name: priority/high
+  color: e11d21
+  description: High priority work
+- name: priority/low
+  color: 7057ff
+  description: Low priority work
+- name: status/blocked
+  color: 42526e
+  description: Blocked work
+- name: type/automation
+  color: 0e8a16
+  description: Automation / scripts / agents
+- name: type/ops
+  color: fbcb04
+  description: Operational tasks
+- name: epic
+  color: 84b6eb
+  description: Epic or large initiative
+- name: needs/review
+  color: fbca04
+  description: Needs review or QA
