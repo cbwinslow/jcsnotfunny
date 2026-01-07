@@ -22,6 +22,10 @@ This file converts the project TODO list into actionable tasks, acceptance crite
   - [ ] Review and update SOPs with detailed steps
   - [ ] Add QA script examples to `scripts/`
   - [ ] Finalize and print on-site recording checklist
+- Tests:
+  - [ ] Add unit test for `scripts/transcribe.format_time`
+  - [ ] Add unit test for LUFS/export validation script
+  - [ ] Add CI job to run tests on push
 
 ---
 
@@ -41,6 +45,9 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Update `labels.yml` with new labels
 - [ ] Add `CONTRIBUTING.md` section for issue filing
 - [ ] Create an example issue using the template
+- Tests:
+- [ ] Unit test to validate issue templates parsing
+- [ ] Test that `labels.yml` matches repo labels
 
 ---
 
@@ -59,6 +66,12 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Define inputs/outputs for each agent
 - [ ] Create proof-of-concept scripts for ingest, transcribe, clip-generator, and publish
 - [ ] Document usage in `examples/agents/README.md`
+- Tests:
+- [ ] Add unit tests for `parse_vtt` and `parse_time` (done)
+- [ ] Add integration test for a small clip generation run (CI artifact)
+- GitHub issue: [#12](https://github.com/cbwinslow/jcsnotfunny/issues/12)
+- GitHub issue: [#13](https://github.com/cbwinslow/jcsnotfunny/issues/13)
+- GitHub issue: [#7](https://github.com/cbwinslow/jcsnotfunny/issues/7)
 
 ---
 
@@ -77,6 +90,9 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Add and test `deploy_site.yml`
 - [ ] Add `artifact` job for clips/assets
 - [ ] Document secrets and permissions
+- Tests:
+- [ ] Add CI workflow to build website and upload example artifact
+- [ ] Smoke test GitHub Actions with a sample commit
 
 ---
 
@@ -94,6 +110,9 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Review and update `CLOUDFLARE_SETUP.md`
 - [ ] Add cache rules and security headers
 - [ ] Test Cloudflare Pages deploy
+- Tests:
+- [ ] Add an automated test to validate sitemap & robots
+- [ ] Validate Pages deploy in staging
 
 ---
 
@@ -113,6 +132,9 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Add JSON-LD schemas and meta templates
 - [ ] Create sample episode page with demo data
 - [ ] Test local site build
+- Tests:
+- [ ] Add unit tests for metadata serialization
+- [ ] Add end-to-end smoke test that builds the site locally
 
 ---
 
@@ -130,6 +152,8 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Draft booking form and TOS
 - [ ] Add integrations and automation flows
 - [ ] Document sample calendar integration
+- Tests:
+- [ ] Add an integration test plan for Calendar/Zapier flow
 
 ---
 
@@ -148,6 +172,9 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Draft QA checklist for audio and video
 - [ ] Define KPI plan and data sources
 - [ ] Add sample dashboard wireframe
+- Tests:
+- [ ] Add automated LUFS check script and unit tests
+- [ ] Add sample analytics query tests
 
 ---
 
@@ -165,6 +192,9 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Draft MVP milestone checklist
 - [ ] Create social promo templates
 - [ ] Add comms calendar
+- Tests:
+- [ ] Verify first-5-episodes content exists and pages are linked
+- [ ] Run a pre-launch checklist in CI
 
 ---
 
@@ -182,6 +212,8 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Draft sponsor one-pager and SLA
 - [ ] Add billing/invoicing template
 - [ ] Document ad booking and tracking process
+- Tests:
+- [ ] Add a Financial tracking CSV test and sample invoice generation script
 
 ---
 

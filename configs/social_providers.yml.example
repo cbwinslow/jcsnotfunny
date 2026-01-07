@@ -1,0 +1,15 @@
+# Example social providers config
+# Define preferred publish mode and per-platform settings
+
+mode: api # or mcp
+mcp:
+  endpoint: '' # https://mcp.example/agent/publish
+  api_key: ''
+providers:
+  x:
+    mode: api
+    priority: 1
+  instagram:
+    mode: api
+  yt_short:
+    mode: api
