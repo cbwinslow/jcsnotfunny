@@ -19,6 +19,7 @@ Define release steps for full episodes, clips, and website updates.
 - [ ] Publish episode metadata and transcript to the site.
 - [ ] Confirm episode page renders and links work.
 - [ ] Update RSS feed if applicable.
+- [ ] Attach SEO metadata and JSON-LD for the episode page.
 
 ## Checklist - Social Release
 - [ ] Schedule or publish social posts for each platform.

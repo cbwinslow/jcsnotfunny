@@ -80,3 +80,6 @@ cloudflare:
     api_token_env: "CF_WORKERS_API_TOKEN"
   ai:
     api_token_env: "CF_AI_API_TOKEN"
+
+automation:
+  tools_config: "configs/automation_tools.yml"

@@ -32,7 +32,7 @@ Define how raw footage, masters, and social assets are backed up and archived.
 - Cons: Upfront hardware cost, requires maintenance and monitoring.
 
 ### Option B - Cloud Object Storage
-- Providers: Backblaze B2, AWS S3 + Glacier, Wasabi, Google Cloud Storage.
+- Providers: Cloudflare R2, Backblaze B2, AWS S3 + Glacier, Wasabi, Google Cloud Storage.
 - Pros: Off-site redundancy, scalable, no hardware maintenance.
 - Cons: Monthly cost and egress fees for large restores.
   - Note: Cloudflare R2 is recommended for predictable egress and CDN proximity.

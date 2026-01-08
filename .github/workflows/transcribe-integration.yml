@@ -1,0 +1,46 @@
+name: Transcribe integration
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  transcribe-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install test deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install --upgrade pytest
+
+      - name: Generate fixtures
+        run: python tests/fixtures/transcripts/generate_fixtures.py
+
+      - name: Run transcription-related pytest tests
+        run: pytest tests/test_transcription_fixtures.py tests/test_whisperx_alignment.py tests/test_diarization_accuracy.py tests/test_diar_metrics.py -q
+
+      - name: Simulate pipeline outputs (copy fixtures to outputs)
+        run: |
+          mkdir -p outputs
+          cp tests/fixtures/transcripts/* outputs/
+
+      - name: Compute diarization metrics
+        run: |
+          python scripts/transcribe_agent/compute_diar_metrics.py --expected tests/fixtures/transcripts/two_speaker.diar.json --actual outputs/two_speaker.diar.json --output outputs/metrics.json
+          cat outputs/metrics.json
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcribe-artifacts
+          path: outputs

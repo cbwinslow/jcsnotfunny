@@ -33,6 +33,7 @@ Ensure each deliverable meets quality and compliance standards before release.
 ## Diagnostics
 - [ ] Run `python scripts/diagnostics.py --format text` for a snapshot.
 - [ ] Run `python -m scripts.cli credentials --mode offline` for credential coverage.
+- [ ] Run `python -m scripts.cli troubleshooting --config config.json --config config.toml` for a full report.
 
 ## Issue Logging
 - [ ] Record any QA failures with timestamp and impact.

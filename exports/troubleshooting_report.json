@@ -1,0 +1,372 @@
+{
+  "config_checks": [
+    {
+      "path": "agents/config.json",
+      "status": "ok",
+      "details": ""
+    },
+    {
+      "path": "configs/master_settings.json",
+      "status": "ok",
+      "details": ""
+    },
+    {
+      "path": "configs/automation_tools.json",
+      "status": "ok",
+      "details": ""
+    }
+  ],
+  "credentials": {
+    "summary": {
+      "missing": 22
+    },
+    "results": [
+      {
+        "category": "social",
+        "name": "x",
+        "status": "missing",
+        "details": "missing env: X_ACCESS_SECRET, X_ACCESS_TOKEN, X_API_KEY, X_API_SECRET, X_BEARER_TOKEN",
+        "missing": [
+          "X_API_KEY",
+          "X_API_SECRET",
+          "X_ACCESS_TOKEN",
+          "X_ACCESS_SECRET",
+          "X_BEARER_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "social",
+        "name": "instagram",
+        "status": "missing",
+        "details": "missing env: INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_BUSINESS_ID",
+        "missing": [
+          "INSTAGRAM_ACCESS_TOKEN",
+          "INSTAGRAM_BUSINESS_ID"
+        ],
+        "checked": false
+      },
+      {
+        "category": "social",
+        "name": "tiktok",
+        "status": "missing",
+        "details": "missing env: TIKTOK_ACCESS_TOKEN, TIKTOK_CLIENT_KEY, TIKTOK_CLIENT_SECRET",
+        "missing": [
+          "TIKTOK_CLIENT_KEY",
+          "TIKTOK_CLIENT_SECRET",
+          "TIKTOK_ACCESS_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "social",
+        "name": "youtube",
+        "status": "missing",
+        "details": "missing env: YT_API_KEY, YT_CHANNEL_ID, YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN",
+        "missing": [
+          "YT_API_KEY",
+          "YT_CLIENT_ID",
+          "YT_CLIENT_SECRET",
+          "YT_REFRESH_TOKEN",
+          "YT_CHANNEL_ID"
+        ],
+        "checked": false
+      },
+      {
+        "category": "social",
+        "name": "linkedin",
+        "status": "missing",
+        "details": "missing env: LINKEDIN_ACCESS_TOKEN, LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET",
+        "missing": [
+          "LINKEDIN_CLIENT_ID",
+          "LINKEDIN_CLIENT_SECRET",
+          "LINKEDIN_ACCESS_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "social",
+        "name": "facebook",
+        "status": "missing",
+        "details": "missing env: FACEBOOK_PAGE_ACCESS_TOKEN, FACEBOOK_PAGE_ID",
+        "missing": [
+          "FACEBOOK_PAGE_ID",
+          "FACEBOOK_PAGE_ACCESS_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "social",
+        "name": "yt_short",
+        "status": "missing",
+        "details": "missing env: YT_API_KEY, YT_CHANNEL_ID, YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN",
+        "missing": [
+          "YT_API_KEY",
+          "YT_CLIENT_ID",
+          "YT_CLIENT_SECRET",
+          "YT_REFRESH_TOKEN",
+          "YT_CHANNEL_ID"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "youtube_live",
+        "status": "missing",
+        "details": "missing env: YOUTUBE_RTMP_URL, YOUTUBE_STREAM_KEY",
+        "missing": [
+          "YOUTUBE_RTMP_URL",
+          "YOUTUBE_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "twitch_live",
+        "status": "missing",
+        "details": "missing env: TWITCH_RTMP_URL, TWITCH_STREAM_KEY",
+        "missing": [
+          "TWITCH_RTMP_URL",
+          "TWITCH_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "x_live",
+        "status": "missing",
+        "details": "missing env: X_RTMP_URL, X_STREAM_KEY",
+        "missing": [
+          "X_RTMP_URL",
+          "X_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "facebook_live",
+        "status": "missing",
+        "details": "missing env: FACEBOOK_RTMP_URL, FACEBOOK_STREAM_KEY",
+        "missing": [
+          "FACEBOOK_RTMP_URL",
+          "FACEBOOK_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "instagram_live",
+        "status": "missing",
+        "details": "missing env: INSTAGRAM_RTMP_URL, INSTAGRAM_STREAM_KEY",
+        "missing": [
+          "INSTAGRAM_RTMP_URL",
+          "INSTAGRAM_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "tiktok_live",
+        "status": "missing",
+        "details": "missing env: TIKTOK_RTMP_URL, TIKTOK_STREAM_KEY",
+        "missing": [
+          "TIKTOK_RTMP_URL",
+          "TIKTOK_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "kick_live",
+        "status": "missing",
+        "details": "missing env: KICK_RTMP_URL, KICK_STREAM_KEY",
+        "missing": [
+          "KICK_RTMP_URL",
+          "KICK_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "linkedin_live",
+        "status": "missing",
+        "details": "missing env: LINKEDIN_RTMP_URL, LINKEDIN_STREAM_KEY",
+        "missing": [
+          "LINKEDIN_RTMP_URL",
+          "LINKEDIN_STREAM_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "obs_websocket",
+        "status": "missing",
+        "details": "missing env: OBS_PROFILE, OBS_SCENE_COLLECTION, OBS_WEBSOCKET_HOST, OBS_WEBSOCKET_PORT",
+        "missing": [
+          "OBS_PROFILE",
+          "OBS_SCENE_COLLECTION",
+          "OBS_WEBSOCKET_HOST",
+          "OBS_WEBSOCKET_PORT"
+        ],
+        "checked": false
+      },
+      {
+        "category": "streaming",
+        "name": "restream",
+        "status": "missing",
+        "details": "missing env: RESTREAM_API_KEY",
+        "missing": [
+          "RESTREAM_API_KEY"
+        ],
+        "checked": false
+      },
+      {
+        "category": "cloudflare",
+        "name": "images_token",
+        "status": "missing",
+        "details": "missing env: CF_IMAGES_API_TOKEN",
+        "missing": [
+          "CF_IMAGES_API_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "cloudflare",
+        "name": "stream_token",
+        "status": "missing",
+        "details": "missing env: CF_STREAM_API_TOKEN",
+        "missing": [
+          "CF_STREAM_API_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "cloudflare",
+        "name": "workers_token",
+        "status": "missing",
+        "details": "missing env: CF_WORKERS_API_TOKEN",
+        "missing": [
+          "CF_WORKERS_API_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "cloudflare",
+        "name": "ai_token",
+        "status": "missing",
+        "details": "missing env: CF_AI_API_TOKEN",
+        "missing": [
+          "CF_AI_API_TOKEN"
+        ],
+        "checked": false
+      },
+      {
+        "category": "cloudflare",
+        "name": "r2",
+        "status": "missing",
+        "details": "missing env: CF_R2_ACCESS_KEY_ID, CF_R2_BUCKET, CF_R2_ENDPOINT, CF_R2_SECRET_ACCESS_KEY",
+        "missing": [
+          "CF_R2_ACCESS_KEY_ID",
+          "CF_R2_SECRET_ACCESS_KEY",
+          "CF_R2_BUCKET",
+          "CF_R2_ENDPOINT"
+        ],
+        "checked": false
+      }
+    ]
+  },
+  "diagnostics": {
+    "timestamp": "2026-01-08T03:36:34.560932+00:00",
+    "disk": [
+      {
+        "name": "recordings",
+        "status": "missing",
+        "details": "path not found",
+        "value": null
+      },
+      {
+        "name": "exports",
+        "status": "ok",
+        "details": "free 104.5 GB",
+        "value": 104.4759750366211
+      }
+    ],
+    "obs": {
+      "name": "obs_process",
+      "status": "warn",
+      "details": "obs not detected",
+      "value": null
+    },
+    "network": [
+      {
+        "name": "net:lo",
+        "status": "ok",
+        "details": "rx=13558764048 tx=13558764048",
+        "value": 27117528096.0
+      },
+      {
+        "name": "net:enp4s0f2np2",
+        "status": "ok",
+        "details": "rx=0 tx=0",
+        "value": 0.0
+      },
+      {
+        "name": "net:eno1",
+        "status": "ok",
+        "details": "rx=0 tx=0",
+        "value": 0.0
+      },
+      {
+        "name": "net:wlx90de80296f87",
+        "status": "ok",
+        "details": "rx=90186077887 tx=7211238487",
+        "value": 97397316374.0
+      },
+      {
+        "name": "net:myvpn",
+        "status": "ok",
+        "details": "rx=0 tx=0",
+        "value": 0.0
+      },
+      {
+        "name": "net:ztt6jxripk",
+        "status": "ok",
+        "details": "rx=0 tx=3564866",
+        "value": 3564866.0
+      },
+      {
+        "name": "net:protonvpn",
+        "status": "ok",
+        "details": "rx=608072144 tx=136019332",
+        "value": 744091476.0
+      },
+      {
+        "name": "net:docker0",
+        "status": "ok",
+        "details": "rx=308 tx=307186",
+        "value": 307494.0
+      },
+      {
+        "name": "net:veth537b5d1",
+        "status": "ok",
+        "details": "rx=126 tx=27327",
+        "value": 27453.0
+      }
+    ],
+    "recording": {
+      "name": "recording_file",
+      "status": "skipped",
+      "details": "no path provided",
+      "value": null
+    },
+    "stream_endpoints": [],
+    "notes": [
+      "offline_mode"
+    ]
+  },
+  "log_scan": {
+    "path": "log/codex-tui.log",
+    "status": "missing",
+    "hits": []
+  }
+}

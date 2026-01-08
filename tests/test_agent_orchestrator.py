@@ -14,3 +14,4 @@ def test_agent_orchestrator_report():
     assert "timestamp" in report
     assert "sops_docs" in report
     assert "open_tasks_count" in report
+    assert "automation_config_loaded" in report

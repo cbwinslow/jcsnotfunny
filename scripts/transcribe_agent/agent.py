@@ -12,6 +12,16 @@ import os
 from pathlib import Path
 from typing import Dict, List
 
+# reuse existing helper for VTT timestamp formatting
+try:
+    from scripts.transcribe import format_time
+except Exception:
+    def format_time(seconds):
+        h = int(seconds // 3600)
+        m = int((seconds % 3600) // 60)
+        s = seconds % 60
+        return f"{h:02d}:{m:02d}:{s:06.3f}".replace('.', ',')
+
 logger = logging.getLogger('transcribe_agent')
 logger.setLevel(logging.INFO)
 handler = logging.StreamHandler()
@@ -52,10 +62,65 @@ def transcribe_media(input_file: str, out_dir: str, backend: str = 'whisper') ->
             meta = {'segments': []}
             with open(json_path, 'w') as fh:
                 json.dump(meta, fh)
+
+    elif backend == 'whisperx':
+        # Use whisper + whisperx alignment to produce word-level timestamps
+        try:
+            _whisperx_transcribe_and_align(input_file, vtt_path, json_path)
+        except Exception:
+            logger.exception('whisperx backend failed')
+            raise
+
     else:
-        raise NotImplementedError('Only whisper backend is implemented in prototype')
+        raise NotImplementedError('Only whisper and whisperx backends are implemented in prototype')
 
     return {'vtt': vtt_path, 'json': json_path}
+
+
+def _whisperx_transcribe_and_align(input_file: str, vtt_path: str, json_path: str):
+    """Transcribe with Whisper and align with WhisperX to produce word-level timestamps.
+
+    Writes a VTT file and a JSON sidecar containing segments and word-level segments.
+    """
+    try:
+        import whisper
+        import whisperx
+    except Exception as exc:
+        logger.error('whisperx not available: %s', exc)
+        raise
+
+    logger.info('Loading whisper model for %s', input_file)
+    model = whisper.load_model('small')
+    result = model.transcribe(input_file)
+    segments = result.get('segments', [])
+    language = result.get('language')
+    text = result.get('text')
+
+    logger.info('Loading whisperx align model')
+    align_model, metadata = whisperx.load_align_model(language_code=language, device='cpu')
+    aligned = whisperx.align(segments, align_model, metadata, input_file, device='cpu')
+    # aligned contains 'word_segments'
+    word_segments = aligned.get('word_segments') or []
+
+    # write VTT using segment-level text
+    os.makedirs(os.path.dirname(vtt_path) or '.', exist_ok=True)
+    with open(vtt_path, 'w') as fh:
+        fh.write('WEBVTT\n\n')
+        for s in segments:
+            start = s['start']
+            end = s['end']
+            text_seg = s.get('text', '').strip()
+            fh.write(f"{format_time(start)} --> {format_time(end)}\n{text_seg}\n\n")
+
+    meta = {
+        'language': language,
+        'text': text,
+        'segments': segments,
+        'word_segments': word_segments,
+    }
+    with open(json_path, 'w') as fh:
+        json.dump(meta, fh)
+    logger.info('whisperx alignment complete and written to %s', json_path)
 
 
 def convert_vtt_to_srt(vtt_path: str, srt_path: str):

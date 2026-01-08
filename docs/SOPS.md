@@ -15,6 +15,7 @@ Use this index to navigate the SOPs for each phase of production. Each SOP conta
 - `docs/SOPS_QA.md` - quality checks before release
 - `docs/SOPS_BACKUP_ARCHIVE.md` - storage, backups, and archive strategy
 - `docs/SOPS_CLOUDFLARE.md` - Cloudflare services usage and setup
+- `docs/SOPS_AUTOMATION.md` - automation workflows for thumbnails, SEO, scheduling, and archive
 - `docs/templates/` - fillable templates for show prep, guest info, and checklists
 
 ## Operating Notes
