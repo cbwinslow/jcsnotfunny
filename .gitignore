@@ -18,3 +18,14 @@ cloudflare.token
 
 # supermemory deployment package (enterprise-only)
 deployments/supermemory/
+
+# local build artifacts and caches
+build/
+downloads/
+exports/
+website/.next/
+logs/
+generated_clips/
+.cache/
+__pycache__/
+.pytest_cache/
