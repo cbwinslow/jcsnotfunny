@@ -1,0 +1,14 @@
+[Unit]
+Description=JCS NotFunny Worker
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+User=www-data
+WorkingDirectory=/srv/jcsnotfunny
+ExecStart=/usr/bin/docker compose -f /srv/jcsnotfunny/agents/docker-compose.yml up --no-build
+ExecStop=/usr/bin/docker compose -f /srv/jcsnotfunny/agents/docker-compose.yml down
+
+[Install]
+WantedBy=multi-user.target
