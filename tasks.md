@@ -198,6 +198,132 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 - [ ] Add comms calendar
 - Tests:
 - [ ] Verify first-5-episodes content exists and pages are linked
+
+---
+
+## 10) Production Templates Adoption
+
+- Summary: Fill and operationalize the new planning templates and host profiles for recurring episodes.
+- Subtasks:
+  - Fill `docs/templates/run_of_show.md` for the next episode
+  - Fill `docs/templates/guest_profile.md` and `docs/templates/sponsor_read.md`
+  - Fill `docs/templates/checklist_producer.md` and `docs/templates/checklist_host.md`
+  - Create `configs/host_profiles.yml` from the template
+- Acceptance criteria:
+  - Templates are filled and saved with the episode files
+  - Host profiles are updated and referenced in SOPs
+- Labels: `type/ops`, `area/booking`
+- Estimate: 2–4 hours
+- GitHub issue: [#29](https://github.com/cbwinslow/jcsnotfunny/issues/29)
+- Microgoals:
+  - [ ] Fill run-of-show
+  - [ ] Fill guest bio and sponsor read
+  - [ ] Update host profiles
+- Tests:
+  - [ ] Run `python -m scripts.cli assistant --format json` to verify templates and profiles are detected
+
+---
+
+## 11) Live Diagnostics Baseline
+
+- Summary: Establish baseline diagnostics for streams, storage, and network health.
+- Subtasks:
+  - Set RTMP endpoints in `.env`
+  - Run `python scripts/diagnostics.py --live --format text`
+  - Capture results and set baseline thresholds
+- Acceptance criteria:
+  - Diagnostics report saved for reference
+  - Stream endpoint checks return `ok` or documented `warn` items
+- Labels: `type/automation`, `type/ops`
+- Estimate: 1–2 hours
+- GitHub issue: [#33](https://github.com/cbwinslow/jcsnotfunny/issues/33)
+- Microgoals:
+  - [ ] Populate RTMP env keys
+  - [ ] Run diagnostics snapshot
+  - [ ] Record any warning items and fixes
+- Tests:
+  - [ ] Run `python -m pytest tests/test_diagnostics.py`
+
+---
+
+## 12) OBS Auto-Switch Integration
+
+- Summary: Wire the Live Director Agent into OBS for active-speaker scene switching.
+- Subtasks:
+  - Add OBS WebSocket client integration
+  - Map speaker inputs to scenes
+  - Add cooldown and manual override behaviors
+- Acceptance criteria:
+  - Live Director switches scenes based on audio levels
+  - Manual override always takes priority
+- Labels: `type/automation`, `area/editing`
+- Estimate: 4–8 hours
+- GitHub issue: [#35](https://github.com/cbwinslow/jcsnotfunny/issues/35)
+- Microgoals:
+  - [ ] Connect OBS websocket
+  - [ ] Validate scene switching logic
+  - [ ] Document usage in SOPs
+- Tests:
+- [ ] Run `python -m pytest tests/test_live_director_agent.py`
+
+---
+
+## 13) Troubleshooting Agent Baseline Report
+
+- Summary: Run a baseline troubleshooting report for configs, credentials, and diagnostics.
+- Subtasks:
+  - Run `python -m scripts.cli troubleshooting --config agents/config.json --config configs/master_settings.json --config configs/automation_tools.json`
+  - Capture the report in `exports/troubleshooting_report.json`
+  - Review missing credential flags and plan follow-ups
+- Acceptance criteria:
+  - Report saved and reviewed
+  - Follow-up issues logged for missing credentials or warnings
+- Labels: `type/ops`, `type/automation`
+- Estimate: 1 hour
+- GitHub issue: [#TBD](https://github.com/cbwinslow/jcsnotfunny/issues)
+- Microgoals:
+  - [x] Run troubleshooting report (saved to `exports/troubleshooting_report.json`)
+  - [ ] Document follow-ups
+
+---
+
+## 14) Automation Config Finalization
+
+- Summary: Finalize automation settings for thumbnail, SEO, scheduling, and archive workflows.
+- Subtasks:
+  - Fill `configs/automation_tools.json` provider settings
+  - Fill `configs/master_settings.json` with final paths and providers
+  - Decide thumbnail AI provider and scheduler provider
+- Acceptance criteria:
+  - Configs updated with real providers and no placeholders
+  - `python scripts/automation_runner.py --metadata metadata.json` runs without errors
+- Labels: `type/automation`, `type/ops`
+- Estimate: 2–4 hours
+- GitHub issue: [#TBD](https://github.com/cbwinslow/jcsnotfunny/issues)
+- Microgoals:
+  - [ ] Pick providers
+  - [ ] Update configs
+  - [ ] Run automation runner
+
+---
+
+## 15) Archive Storage Decision + Test Upload
+
+- Summary: Choose a low-cost archive provider and validate uploads.
+- Subtasks:
+  - Pick R2 or B2 for archives
+  - Set env keys in `.env`
+  - Run `python scripts/archive_uploader.py --hash --upload raw_videos/<episode> exports/<episode>`
+- Acceptance criteria:
+  - Manifest created and upload completes
+  - Spot-check download integrity
+- Labels: `type/ops`, `type/automation`
+- Estimate: 1–2 hours
+- GitHub issue: [#TBD](https://github.com/cbwinslow/jcsnotfunny/issues)
+- Microgoals:
+  - [ ] Choose provider
+  - [ ] Configure env keys
+  - [ ] Upload test archive
 - [ ] Run a pre-launch checklist in CI
 
 ---

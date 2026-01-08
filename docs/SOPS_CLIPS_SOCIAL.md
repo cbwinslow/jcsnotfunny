@@ -26,6 +26,11 @@ Define clip creation, social asset prep, and scheduling/validation procedures.
 - [ ] Generate copy from `templates/social_post_templates.md`.
 - [ ] Confirm hashtags and tags for each platform.
 - [ ] Validate metadata placeholders (title, guest, links).
+  - Optional: generate thumbnail brief via `scripts/thumbnail_agent.py`.
+
+## Checklist - SEO Hooks
+- [ ] Generate SEO metadata for episode and clips.
+- [ ] Confirm keywords match the episode topic and guest.
 
 ## Checklist - Scheduling
 - [ ] Use `scripts/social_workflows.py` or `scripts/mcp_publish.py` to schedule.

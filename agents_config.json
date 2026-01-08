@@ -43,12 +43,7 @@
         }
       ],
       "workflows": {
-        "episode_edit": [
-          "video_analysis",
-          "auto_cut", 
-          "add_overlays",
-          "export_final"
-        ],
+        "episode_edit": ["video_analysis", "auto_cut", "add_overlays", "export_final"],
         "short_creation": [
           "video_analysis",
           "create_short",
@@ -167,7 +162,7 @@
           "description": "Update tour schedule on website",
           "parameters": {
             "tour_data": "array",
-            " venues": "array",
+            "venues": "array",
             "ticket_links": "array"
           }
         },
@@ -286,7 +281,13 @@
   "workflows": {
     "episode_production": {
       "description": "Complete episode production from raw footage to distribution",
-      "agents": ["video_editor", "audio_engineer", "sponsorship_manager", "content_distributor", "social_media_manager"],
+      "agents": [
+        "video_editor",
+        "audio_engineer",
+        "sponsorship_manager",
+        "content_distributor",
+        "social_media_manager"
+      ],
       "steps": [
         {
           "agent": "video_editor",
@@ -294,7 +295,7 @@
           "input": "raw_footage"
         },
         {
-          "agent": "audio_engineer", 
+          "agent": "audio_engineer",
           "action": "audio_cleanup",
           "input": "raw_audio"
         },
@@ -363,7 +364,7 @@
       "organization": "${OPENAI_ORG_ID}",
       "models": {
         "primary": "gpt-4o",
-        "vision": "gpt-4o-vision-preview", 
+        "vision": "gpt-4o-vision-preview",
         "audio": "whisper-1",
         "embedding": "text-embedding-3-large"
       }

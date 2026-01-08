@@ -22,6 +22,8 @@ Define how credentials are stored and loaded for streaming and social automation
 - [ ] Confirm `configs/master_settings.yml` points to the correct env keys.
 - [ ] Verify OBS and RTMP targets load with the expected profile.
 - [ ] Run `python -m scripts.cli credentials --mode offline` to confirm env coverage.
+- [ ] Add automation provider tokens (thumbnail/SEO) if used.
+- [ ] Confirm `configs/automation_tools.yml` reflects the chosen providers.
 
 ## Checklist - CI or Automation
 - [ ] Store API tokens in GitHub Actions secrets (if used).

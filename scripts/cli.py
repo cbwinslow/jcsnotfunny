@@ -14,7 +14,11 @@ import sys
 import click
 from scripts import transcribe, clip_generator, publish, mcp_publish
 from scripts.social_publish import render_post
-from scripts.providers.x_client import XClient
+
+# Import agent framework
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'agents'))
+from base_agent import ToolBasedAgent, WorkflowOrchestrator
+from transcription_agent import TranscriptionAgent
 
 @click.group()
 def cli():
@@ -84,6 +88,8 @@ def social(mode, endpoint, platforms, metadata, api_key, dry_run):
 @click.option('--text', default='Hello world')
 def post_x_demo(text):
     """Quick demo: post to X via XClient (stub)"""
+    from scripts.providers.x_client import XClient
+
     client = XClient()
     res = client.post_text(text)
     click.echo(res)
@@ -116,6 +122,171 @@ def assistant(include_credentials, output_format):
         click.echo(orchestrator.format_report(report))
     else:
         click.echo(json.dumps(report, indent=2))
+
+
+@cli.command()
+@click.option('--run-pytest', is_flag=True, default=False)
+@click.option('--pytest-args', default='', help='Comma-separated pytest args')
+@click.option('--config', 'config_paths', multiple=True)
+@click.option('--credential-mode', type=click.Choice(['offline', 'live']), default='offline')
+@click.option('--diagnostics-live', is_flag=True, default=False)
+@click.option('--log-path', default='log/codex-tui.log')
+@click.option('--format', 'output_format', type=click.Choice(['json', 'text']), default='json')
+def troubleshooting(run_pytest, pytest_args, config_paths, credential_mode, diagnostics_live, log_path, output_format):
+    """Run troubleshooting checks and emit a report."""
+    from scripts.testing_agent import TestingAgent
+
+    agent = TestingAgent()
+    report = agent.build_report(
+        run_pytest=run_pytest,
+        pytest_args=[arg for arg in pytest_args.split(',') if arg] if pytest_args else None,
+        config_paths=list(config_paths),
+        credential_mode=credential_mode,
+        diagnostics_live=diagnostics_live,
+        log_path=log_path,
+    )
+    click.echo(json.dumps(report, indent=2))
+
+
+# ===== AGENT FRAMEWORK COMMANDS =====
+
+@cli.group()
+def agent():
+    """Agent framework commands"""
+    pass
+
+
+@agent.command()
+@click.option('--agent', 'agent_name', required=True, help='Name of the agent to use')
+@click.option('--tool', required=True, help='Tool to execute')
+@click.option('--params', required=True, help='JSON parameters for the tool')
+@click.option('--format', 'output_format', type=click.Choice(['text', 'json']), default='text')
+def tool(agent_name, tool, params, output_format):
+    """Execute a specific agent tool"""
+    try:
+        # Parse parameters
+        tool_params = json.loads(params)
+
+        # Get agent based on name
+        if agent_name == 'transcription':
+            agent = TranscriptionAgent()
+        else:
+            agent = ToolBasedAgent(agent_name)
+
+        # Execute tool
+        result = agent.execute_tool(tool, tool_params)
+
+        if output_format == 'json':
+            click.echo(json.dumps(result.to_dict(), indent=2))
+        else:
+            click.echo(f"✅ Tool '{tool}' executed")
+            click.echo(f"   Success: {result.success}")
+            click.echo(f"   Execution time: {result.execution_time:.2f}s")
+            if result.success:
+                click.echo(f"   Result: {result.data}")
+            else:
+                click.echo(f"   Error: {result.error}")
+            if result.warnings:
+                click.echo(f"   Warnings: {', '.join(result.warnings)}")
+
+    except Exception as e:
+        click.echo(f"❌ Error: {str(e)}", err=True)
+
+
+@agent.command()
+@click.option('--agent', 'agent_name', default=None, help='Specific agent to test (optional)')
+def test(agent_name, output_format):
+    """Test agent functionality"""
+    try:
+        if agent_name:
+            if agent_name == 'transcription':
+                agent = TranscriptionAgent()
+            else:
+                agent = ToolBasedAgent(agent_name)
+
+            status = agent.get_status()
+            click.echo(f"Agent: {status['name']}")
+            click.echo(f"Role: {status['role']}")
+            click.echo(f"Tools: {', '.join(status['available_tools'])}")
+            click.echo(f"Success Rate: {status['success_rate']:.1f}%")
+        else:
+            # Test all agents
+            agents_to_test = ['video_editor', 'audio_engineer', 'social_media_manager', 'transcription']
+
+            for agent_name in agents_to_test:
+                try:
+                    if agent_name == 'transcription':
+                        agent = TranscriptionAgent()
+                    else:
+                        agent = ToolBasedAgent(agent_name)
+
+                    status = agent.get_status()
+                    click.echo(f"✅ {agent_name}: {len(status['available_tools'])} tools")
+                except Exception as e:
+                    click.echo(f"❌ {agent_name}: {str(e)}")
+
+    except Exception as e:
+        click.echo(f"❌ Error: {str(e)}", err=True)
+
+
+@agent.command()
+@click.option('--workflow', required=True, help='Workflow name to execute')
+@click.option('--params', required=True, help='JSON parameters for the workflow')
+@click.option('--format', 'output_format', type=click.Choice(['text', 'json']), default='text')
+def workflow(workflow, params, output_format):
+    """Execute a multi-agent workflow"""
+    try:
+        # Parse parameters
+        workflow_params = json.loads(params)
+
+        # Create orchestrator and execute workflow
+        orchestrator = WorkflowOrchestrator()
+        result = orchestrator.execute_workflow(workflow, workflow_params)
+
+        if output_format == 'json':
+            click.echo(json.dumps(result, indent=2))
+        else:
+            click.echo(f"Workflow: {result['workflow']}")
+            click.echo(f"Success: {result['success']}")
+            click.echo(f"Steps executed: {result['steps_executed']}")
+            if not result['success']:
+                click.echo("Failed steps:")
+                for step_name, step_result in result['results'].items():
+                    if not step_result['success']:
+                        click.echo(f"  - {step_name}: {step_result['error']}")
+
+    except Exception as e:
+        click.echo(f"❌ Error: {str(e)}", err=True)
+
+
+@agent.command()
+def list():
+    """List available agents and workflows"""
+    try:
+        orchestrator = WorkflowOrchestrator()
+
+        click.echo("Available Agents:")
+        agents = ['video_editor', 'audio_engineer', 'social_media_manager', 'content_distributor', 'sponsorship_manager', 'tour_manager', 'transcription']
+        for agent_name in agents:
+            try:
+                if agent_name == 'transcription':
+                    agent = TranscriptionAgent()
+                else:
+                    agent = ToolBasedAgent(agent_name)
+                click.echo(f"  - {agent.name}: {len(agent.get_available_tools())} tools")
+            except Exception:
+                click.echo(f"  - {agent_name}: (configuration error)")
+
+        click.echo("\nAvailable Workflows:")
+        workflows = orchestrator.get_available_workflows()
+        for workflow_name in workflows:
+            info = orchestrator.get_workflow_info(workflow_name)
+            if info:
+                click.echo(f"  - {workflow_name}: {info['description']} ({info['steps']} steps)")
+
+    except Exception as e:
+        click.echo(f"❌ Error: {str(e)}", err=True)
+
 
 if __name__ == '__main__':
     cli()

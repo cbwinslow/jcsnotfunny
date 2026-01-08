@@ -1,19 +1,32 @@
 # Master Rules Documentation
 
 ## Overview
-This master document organizes all podcast production and social media management rules. Each section contains non-negotiable standards and absolutes for the podcast production system.
+This master document organizes all podcast production and social media management rules. Each section contains non-negotiable standards and absolutes for podcast production system.
 
 ## Core Documentation Structure
 
 ### 🎯 Production Foundations
 - **[Podcast Norms & Absolutes](./docs/rules/podcast-norms.md)** - Core principles, brand identity, and non-negotiable workflows
 - **[Technical Standards](./docs/rules/technical-standards.md)** - Audio/video specifications, equipment requirements, and quality control
+- **[AI Knowledge Base](./docs/knowledge-base/ai-knowledge-base.md)** - Comprehensive knowledge base for AI agents
 
 ### 📱 Social Media Operations  
 - **[Social Media Standards](./docs/rules/social-media-standards.md)** - Platform-specific rules, content strategy, and community management
+- **[Content Templates](./docs/templates/content-templates.md)** - Complete template library for all platforms
+- **[Configuration Management](./docs/configs/configuration-management.md)** - System configuration and settings management
 
 ### 🤖 Agent & Automation Rules
-- **[Agent Guidelines](./agents.md)** - Agent configurations, capabilities, and workflow standards
+- **[Master Agent Documentation](./agents.md)** - Agent configurations, capabilities, and workflow standards
+- **[Core Production Agent](./docs/agents/core-production-agent.md)** - Production orchestration details
+- **[Specialized Agents](./docs/agents/specialized-agents.md)** - All specialized agent configurations
+- **[Production Prompts](./docs/prompts/production-prompts.md)** - Custom AI prompts and instructions
+
+### 🔧 Technical Infrastructure
+- **[Production Toolsets](./docs/toolsets/production-tools.md)** - Complete tool ecosystem for production
+- **[Gap Analysis](./docs/gap-analysis.md)** - Identified gaps and resolution plans
+- **[GitHub Actions](./.github/workflows/)** - Automated workflows and CI/CD
+
+---
 
 ## Quick Reference Absolutes
 
@@ -157,6 +170,44 @@ This master document organizes all podcast production and social media managemen
 
 ---
 
+## AI Agent Behavior Standards
+
+### Response Patterns
+- **Tone**: Professional yet approachable, brand-aligned
+- **Accuracy**: Fact-based responses, acknowledge uncertainties
+- **Helpfulness**: Actionable advice, clear next steps
+- **Efficiency**: Quick response times, concise communication
+
+### Decision Making
+- **Quality First**: Never sacrifice quality for speed
+- **Brand Alignment**: All actions reflect brand values
+- **Data-Driven**: Use analytics and metrics for decisions
+- **Continuous Improvement**: Learn from all interactions and outcomes
+
+### Communication Standards
+- **Status Updates**: Regular progress reports
+- **Issue Reporting**: Immediate escalation for problems
+- **Success Celebrations**: Share wins and achievements
+- **Learning Documentation**: Capture lessons learned
+
+---
+
+## Configuration Management
+
+### Environment Variables
+- **Production**: `.env.production` with production configs
+- **Development**: `.env.development` with dev configs
+- **Testing**: `.env.testing` with test configs
+- **Secrets**: GitHub Secrets for sensitive data
+
+### Platform Configurations
+- **Social Media**: Complete API integration configurations
+- **Audio/Video**: Processing parameters and standards
+- **CDN/Storage**: Cloudflare and storage settings
+- **Monitoring**: Alert thresholds and notification settings
+
+---
+
 ## Document Version Control
 
 - **Last Updated**: 2025-01-07
@@ -196,6 +247,39 @@ This master document organizes all podcast production and social media managemen
 ✅ **Agent Updates**: New automation requires updated agent instructions  
 
 ### Quality Assurance
-✅ **Test Naming**: Scoped and descriptive (e.g., `tests/test_social_workflows.py`)  
+✅ **Test Naming**: Scoped and descriptive test files  
 ✅ **Coverage Maintenance**: New endpoints/fields expand test coverage  
 ✅ **Diagnostics**: Tests surface actionable errors with clear causes
+
+---
+
+## Missing Components & Gap Resolution
+
+### Identified Gaps
+🔍 **High Priority Missing**:
+- Agent implementations (working Python/Node.js code)
+- Content processing automation scripts
+- Real-time monitoring dashboards
+- Integration testing frameworks
+
+🔧 **Medium Priority Missing**:
+- API integration step-by-step guides
+- Troubleshooting documentation
+- Advanced AI features
+- Performance optimization tools
+
+📋 **Low Priority Missing**:
+- Advanced analytics and prediction
+- Enhanced security features
+- Multi-language support
+- Mobile applications
+
+### Resolution Timeline
+- **Phase 1** (2 weeks): Agent implementations and core scripts
+- **Phase 2** (4 weeks): Monitoring systems and documentation
+- **Phase 3** (6 weeks): Advanced features and optimization
+- **Phase 4** (8 weeks): Full system integration and testing
+
+---
+
+This comprehensive rules document serves as the single source of truth for all podcast production operations, with clear references to detailed documentation and implementation guides.

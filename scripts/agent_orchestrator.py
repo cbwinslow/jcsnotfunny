@@ -96,6 +96,8 @@ class AssistantReport:
     settings_loaded: bool
     profiles_loaded: bool
     audio_presets_loaded: bool
+    automation_config_loaded: bool
+    automation_config_path: Optional[str]
     sops_docs: List[str]
     open_tasks_sample: List[str] = field(default_factory=list)
     open_tasks_count: int = 0
@@ -108,6 +110,8 @@ class AssistantReport:
             'settings_loaded': self.settings_loaded,
             'profiles_loaded': self.profiles_loaded,
             'audio_presets_loaded': self.audio_presets_loaded,
+            'automation_config_loaded': self.automation_config_loaded,
+            'automation_config_path': self.automation_config_path,
             'sops_docs': self.sops_docs,
             'open_tasks_count': self.open_tasks_count,
             'open_tasks_sample': self.open_tasks_sample,
@@ -131,6 +135,15 @@ class AgentOrchestrator:
         if self.audio_presets is None:
             notes.append('audio_presets_not_loaded')
 
+        automation_path = None
+        automation_loaded = False
+        if self.settings:
+            automation_path = self.settings.get('automation', {}).get('tools_config')
+            if automation_path and Path(automation_path).exists():
+                automation_loaded = True
+        if not automation_loaded:
+            notes.append('automation_tools_not_loaded')
+
         sops_docs = parse_sops_index()
         open_tasks = parse_open_tasks()
         report = AssistantReport(
@@ -138,6 +151,8 @@ class AgentOrchestrator:
             settings_loaded=self.settings is not None,
             profiles_loaded=self.profiles is not None,
             audio_presets_loaded=self.audio_presets is not None,
+            automation_config_loaded=automation_loaded,
+            automation_config_path=automation_path,
             sops_docs=sops_docs,
             open_tasks_sample=open_tasks,
             open_tasks_count=len(open_tasks),
@@ -154,6 +169,7 @@ class AgentOrchestrator:
             f"settings_loaded: {report.get('settings_loaded')}",
             f"profiles_loaded: {report.get('profiles_loaded')}",
             f"audio_presets_loaded: {report.get('audio_presets_loaded')}",
+            f"automation_config_loaded: {report.get('automation_config_loaded')}",
             f"sops_docs: {len(report.get('sops_docs', []))}",
             f"open_tasks_count: {report.get('open_tasks_count')}",
         ]

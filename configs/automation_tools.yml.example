@@ -1,0 +1,50 @@
+# Automation tool configuration template (no secrets).
+# Copy to configs/automation_tools.yml and fill placeholders.
+
+thumbnail_agent:
+  enabled: true
+  provider: "cloudflare_ai" # or "openai", "replicate", "local"
+  model: "[PLACEHOLDER]"
+  input_sources:
+    use_transcript: true
+    use_title: true
+    use_summary: true
+    use_keyframes: true
+  style:
+    brand_colors: ["#111111", "#F2C94C"]
+    font_family: "[PLACEHOLDER]"
+    layout_style: "bold_text_left_subject_right"
+  output:
+    width: 1280
+    height: 720
+    format: "png"
+    out_dir: "exports/thumbnails"
+
+seo_assistant:
+  enabled: true
+  provider: "cloudflare_ai" # or "openai", "local"
+  model: "[PLACEHOLDER]"
+  keywords_limit: 12
+  schema_type: "PodcastEpisode"
+  output_dir: "exports/seo"
+
+social_scheduler:
+  enabled: true
+  provider: "scheduler_api" # or "direct_api"
+  default_timezone: "America/New_York"
+  default_offsets_minutes:
+    x: 0
+    instagram: 15
+    youtube: 0
+    tiktok: 30
+    linkedin: 60
+    facebook: 30
+
+archive_uploader:
+  enabled: true
+  provider: "cloudflare_r2" # or "backblaze_b2", "wasabi", "local"
+  bucket_env: "CF_R2_BUCKET"
+  endpoint_env: "CF_R2_ENDPOINT"
+  access_key_id_env: "CF_R2_ACCESS_KEY_ID"
+  secret_access_key_env: "CF_R2_SECRET_ACCESS_KEY"
+  prefix: "archive/"

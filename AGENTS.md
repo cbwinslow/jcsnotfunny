@@ -5,10 +5,11 @@ This document provides comprehensive documentation of all agents and toolsets us
 ## Table of Contents
 
 1. [Agents Overview](#agents-overview)
-2. [MCP Servers](#mcp-servers)
-3. [Toolsets Reference](#toolsets-reference)
-4. [Workflows](#workflows)
-5. [Configuration](#configuration)
+2. [Tool Schemas](#tool-schemas)
+3. [MCP Servers](#mcp-servers)
+4. [Toolsets Reference](#toolsets-reference)
+5. [Workflows](#workflows)
+6. [Configuration](#configuration)
 
 ---
 
@@ -28,10 +29,25 @@ The project uses a centralized agent configuration file located at `agents_confi
       "role": "Brief role description",
       "model": "AI model to use",
       "system_prompt": "System prompt defining agent behavior",
-      "tools": ["list", "of", "tools"],
-      "workflows": {
-        "<workflow_name>": ["step1", "step2", "..."]
-      }
+      "tools": [
+        {
+          "name": "tool_name",
+          "description": "Tool description",
+          "type": "function",
+          "inputSchema": {
+            "type": "object",
+            "required": ["required_param"],
+            "properties": {
+              "param_name": {
+                "type": "string",
+                "description": "Parameter description",
+                "enum": ["value1", "value2"],
+                "default": "value1"
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }
@@ -57,10 +73,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`video_analysis`](agents_config.json:10) - Analyze video footage for speaker detection
-- [`auto_cut`](agents_config.json:18) - Automatically cut between camera angles
-- [`create_short`](agents_config.json:27) - Generate short-form content
-- [`add_overlays`](agents_config.json:37) - Add text overlays and visual elements
+- [`video_analysis`](agents_config.json:11) - Analyze video footage for speaker detection
+- [`auto_cut`](agents_config.json:37) - Automatically cut between camera angles
+- [`create_short`](agents_config.json:65) - Generate short-form content
+- [`add_overlays`](agents_config.json:100) - Add text overlays and visual elements
 
 **Workflows:**
 
@@ -87,10 +103,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`audio_cleanup`](agents_config.json:67) - Remove background noise and artifacts
-- [`voice_enhancement`](agents_config.json:75) - Enhance vocal clarity
-- [`sponsor_insertion`](agents_config.json:83) - Insert sponsor reads at optimal points
-- [`audio_mastering`](agents_config.json:93) - Master final audio for distribution
+- [`audio_cleanup`](agents_config.json:179) - Remove background noise and artifacts
+- [`voice_enhancement`](agents_config.json:214) - Enhance vocal clarity
+- [`sponsor_insertion`](agents_config.json:248) - Insert sponsor reads at optimal points
+- [`audio_mastering`](agents_config.json:287) - Master final audio for distribution
 
 ---
 
@@ -113,10 +129,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`create_content_calendar`](agents_config.json:110) - Generate posting schedule
-- [`schedule_post`](agents_config.json:120) - Schedule posts across platforms
-- [`engage_audience`](agents_config.json:130) - Monitor and respond to interactions
-- [`analyze_performance`](agents_config.json:139) - Analyze post performance
+- [`create_content_calendar`](agents_config.json:339) - Generate posting schedule
+- [`schedule_post`](agents_config.json:383) - Schedule posts across platforms
+- [`engage_audience`](agents_config.json:470) - Monitor and respond to interactions
+- [`analyze_performance`](agents_config.json:510) - Analyze post performance
 
 ---
 
@@ -139,10 +155,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`publish_episode`](agents_config.json:156) - Publish new episode
-- [`update_tour_dates`](agents_config.json:166) - Update tour schedule
-- [`manage_cdn`](agents_config.json:175) - Optimize CDN settings
-- [`seo_optimization`](agents_config.json:183) - Optimize content for search engines
+- [`publish_episode`](agents_config.json:618) - Publish new episode
+- [`update_tour_dates`](agents_config.json:679) - Update tour schedule
+- [`manage_cdn`](agents_config.json:715) - Optimize CDN settings
+- [`seo_optimization`](agents_config.json:745) - Optimize content for search engines
 
 ---
 
@@ -164,10 +180,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`sponsor_research`](agents_config.json:200) - Research potential sponsors
-- [`create_sponsor_read`](agents_config.json:209) - Generate sponsor advertisements
-- [`track_performance`](agents_config.json:218) - Monitor campaign performance
-- [`generate_report`](agents_config.json:227) - Create performance reports
+- [`sponsor_research`](agents_config.json:825) - Research potential sponsors
+- [`create_sponsor_read`](agents_config.json:859) - Generate sponsor advertisements
+- [`track_performance`](agents_config.json:903) - Monitor campaign performance
+- [`generate_report`](agents_config.json:936) - Create performance reports
 
 ---
 
@@ -189,10 +205,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`venue_research`](agents_config.json:244) - Research suitable venues
-- [`create_tour_schedule`](agents_config.json:254) - Generate tour itinerary
-- [`manage_tickets`](agents_config.json:264) - Handle ticket sales
-- [`promote_event`](agents_config.json:274) - Create promotional campaigns
+- [`venue_research`](agents_config.json:980) - Research suitable venues
+- [`create_tour_schedule`](agents_config.json:1014) - Generate tour itinerary
+- [`manage_tickets`](agents_config.json:1047) - Handle ticket sales
+- [`promote_event`](agents_config.json:1080) - Create promotional campaigns
 
 ---
 
@@ -226,6 +242,50 @@ A dedicated agent for monitoring stream quality, network traffic, and system hea
 
 ---
 
+## Tool Schemas
+
+All tools follow JSON Schema format with the following structure:
+
+```json
+{
+  "name": "tool_name",
+  "description": "Clear description of what the tool does",
+  "type": "function",
+  "inputSchema": {
+    "type": "object",
+    "required": ["param1", "param2"],
+    "properties": {
+      "param1": {
+        "type": "string",
+        "description": "Parameter description",
+        "enum": ["value1", "value2"],
+        "default": "value1"
+      },
+      "param2": {
+        "type": "integer",
+        "description": "Numeric parameter with constraints",
+        "minimum": 0,
+        "maximum": 100
+      }
+    }
+  }
+}
+```
+
+### Schema Properties
+
+| Property     | Type   | Description                            |
+| ------------ | ------ | -------------------------------------- |
+| `type`       | string | Always "function" for tool definitions |
+| `required`   | array  | List of required parameter names       |
+| `properties` | object | Parameter definitions                  |
+| `enum`       | array  | Allowed values for parameter           |
+| `default`    | any    | Default value if not provided          |
+| `minimum`    | number | Minimum numeric value                  |
+| `maximum`    | number | Maximum numeric value                  |
+
+---
+
 ## MCP Servers
 
 ### Social Media Manager Server (`mcp-servers/social-media-manager/`)
@@ -238,17 +298,48 @@ Node.js-based MCP server for comprehensive social media management.
 | **Entry Point**  | `mcp-servers/social-media-manager/server.js` |
 | **Node Version** | >=18.0.0                                     |
 
+#### Configuration (`agents_config.json`)
+
+```json
+{
+  "mcp_servers": {
+    "social_media_manager": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["mcp-servers/social-media-manager/server.js"],
+      "env": {
+        "TWITTER_BEARER_TOKEN": "${TWITTER_BEARER_TOKEN}",
+        "INSTAGRAM_ACCESS_TOKEN": "${INSTAGRAM_ACCESS_TOKEN}",
+        "INSTAGRAM_BUSINESS_ID": "${INSTAGRAM_BUSINESS_ID}",
+        "TIKTOK_ACCESS_TOKEN": "${TIKTOK_ACCESS_TOKEN}",
+        "LINKEDIN_ACCESS_TOKEN": "${LINKEDIN_ACCESS_TOKEN}"
+      },
+      "enabled": true,
+      "tools": [
+        "post_to_twitter",
+        "post_to_instagram",
+        "post_to_tiktok",
+        "upload_to_youtube",
+        "post_to_linkedin",
+        "cross_post",
+        "get_analytics"
+      ]
+    }
+  }
+}
+```
+
 #### Available Tools
 
-| Tool                                                                 | Description                | Parameters                                                    |
-| -------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------- |
-| [`post_to_twitter`](mcp-servers/social-media-manager/server.js:34)   | Post content to Twitter/X  | `content`, `media_path`, `schedule_time`                      |
-| [`post_to_instagram`](mcp-servers/social-media-manager/server.js:47) | Post content to Instagram  | `content`, `media_path`, `media_type`                         |
-| [`post_to_tiktok`](mcp-servers/social-media-manager/server.js:60)    | Post content to TikTok     | `content`, `video_path`, `hashtags`                           |
-| [`upload_to_youtube`](mcp-servers/social-media-manager/server.js:73) | Upload content to YouTube  | `title`, `description`, `video_path`, `tags`, `schedule_time` |
-| [`post_to_linkedin`](mcp-servers/social-media-manager/server.js:88)  | Post content to LinkedIn   | `content`, `media_path`                                       |
-| [`cross_post`](mcp-servers/social-media-manager/server.js:100)       | Post to multiple platforms | `content`, `platforms`, `media_path`, `platform_specific`     |
-| [`get_analytics`](mcp-servers/social-media-manager/server.js:118)    | Get analytics data         | `platforms`, `start_date`, `end_date`, `metrics`              |
+| Tool                                                                 | Description                | Input Schema                                              |
+| -------------------------------------------------------------------- | -------------------------- | --------------------------------------------------------- |
+| [`post_to_twitter`](mcp-servers/social-media-manager/server.js:34)   | Post content to Twitter/X  | `{content, media_path?, schedule_time?}`                  |
+| [`post_to_instagram`](mcp-servers/social-media-manager/server.js:47) | Post content to Instagram  | `{content, media_path, media_type}`                       |
+| [`post_to_tiktok`](mcp-servers/social-media-manager/server.js:60)    | Post content to TikTok     | `{content, video_path, hashtags?}`                        |
+| [`upload_to_youtube`](mcp-servers/social-media-manager/server.js:73) | Upload content to YouTube  | `{title, description, video_path, tags?, schedule_time?}` |
+| [`post_to_linkedin`](mcp-servers/social-media-manager/server.js:88)  | Post content to LinkedIn   | `{content, media_path?}`                                  |
+| [`cross_post`](mcp-servers/social-media-manager/server.js:100)       | Post to multiple platforms | `{content, platforms, media_path?, platform_specific?}`   |
+| [`get_analytics`](mcp-servers/social-media-manager/server.js:118)    | Get analytics data         | `{platforms, start_date?, end_date?, metrics?}`           |
 
 #### Dependencies
 
@@ -273,57 +364,57 @@ Node.js-based MCP server for comprehensive social media management.
 
 ### Video Editing Toolsets
 
-| Tool             | Agent        | Description                             |
-| ---------------- | ------------ | --------------------------------------- |
-| `video_analysis` | Video Editor | Analyze footage for speaker detection   |
-| `auto_cut`       | Video Editor | Cut between camera angles automatically |
-| `create_short`   | Video Editor | Generate short-form clips               |
-| `add_overlays`   | Video Editor | Add text overlays and branding          |
+| Tool             | Agent        | Description                             | Schema                         |
+| ---------------- | ------------ | --------------------------------------- | ------------------------------ |
+| `video_analysis` | Video Editor | Analyze footage for speaker detection   | [View](agents_config.json:11)  |
+| `auto_cut`       | Video Editor | Cut between camera angles automatically | [View](agents_config.json:37)  |
+| `create_short`   | Video Editor | Generate short-form clips               | [View](agents_config.json:65)  |
+| `add_overlays`   | Video Editor | Add text overlays and branding          | [View](agents_config.json:100) |
 
 ### Audio Production Toolsets
 
-| Tool                | Agent          | Description                 |
-| ------------------- | -------------- | --------------------------- |
-| `audio_cleanup`     | Audio Engineer | Noise reduction and cleanup |
-| `voice_enhancement` | Audio Engineer | Vocal clarity enhancement   |
-| `sponsor_insertion` | Audio Engineer | Insert sponsor reads        |
-| `audio_mastering`   | Audio Engineer | Final audio mastering       |
+| Tool                | Agent          | Description                 | Schema                         |
+| ------------------- | -------------- | --------------------------- | ------------------------------ |
+| `audio_cleanup`     | Audio Engineer | Noise reduction and cleanup | [View](agents_config.json:179) |
+| `voice_enhancement` | Audio Engineer | Vocal clarity enhancement   | [View](agents_config.json:214) |
+| `sponsor_insertion` | Audio Engineer | Insert sponsor reads        | [View](agents_config.json:248) |
+| `audio_mastering`   | Audio Engineer | Final audio mastering       | [View](agents_config.json:287) |
 
 ### Social Media Toolsets
 
-| Tool                      | Agent                | Description             |
-| ------------------------- | -------------------- | ----------------------- |
-| `create_content_calendar` | Social Media Manager | Plan content schedule   |
-| `schedule_post`           | Social Media Manager | Schedule posts          |
-| `engage_audience`         | Social Media Manager | Respond to interactions |
-| `analyze_performance`     | Social Media Manager | Performance analytics   |
+| Tool                      | Agent                | Description             | Schema                         |
+| ------------------------- | -------------------- | ----------------------- | ------------------------------ |
+| `create_content_calendar` | Social Media Manager | Plan content schedule   | [View](agents_config.json:339) |
+| `schedule_post`           | Social Media Manager | Schedule posts          | [View](agents_config.json:383) |
+| `engage_audience`         | Social Media Manager | Respond to interactions | [View](agents_config.json:470) |
+| `analyze_performance`     | Social Media Manager | Performance analytics   | [View](agents_config.json:510) |
 
 ### Distribution Toolsets
 
-| Tool                | Agent               | Description      |
-| ------------------- | ------------------- | ---------------- |
-| `publish_episode`   | Content Distributor | Publish episodes |
-| `update_tour_dates` | Content Distributor | Update tour info |
-| `manage_cdn`        | Content Distributor | CDN management   |
-| `seo_optimization`  | Content Distributor | SEO optimization |
+| Tool                | Agent               | Description      | Schema                         |
+| ------------------- | ------------------- | ---------------- | ------------------------------ |
+| `publish_episode`   | Content Distributor | Publish episodes | [View](agents_config.json:618) |
+| `update_tour_dates` | Content Distributor | Update tour info | [View](agents_config.json:679) |
+| `manage_cdn`        | Content Distributor | CDN management   | [View](agents_config.json:715) |
+| `seo_optimization`  | Content Distributor | SEO optimization | [View](agents_config.json:745) |
 
 ### Sponsorship Toolsets
 
-| Tool                  | Agent               | Description      |
-| --------------------- | ------------------- | ---------------- |
-| `sponsor_research`    | Sponsorship Manager | Find sponsors    |
-| `create_sponsor_read` | Sponsorship Manager | Create ads       |
-| `track_performance`   | Sponsorship Manager | Track ROI        |
-| `generate_report`     | Sponsorship Manager | Generate reports |
+| Tool                  | Agent               | Description      | Schema                         |
+| --------------------- | ------------------- | ---------------- | ------------------------------ |
+| `sponsor_research`    | Sponsorship Manager | Find sponsors    | [View](agents_config.json:825) |
+| `create_sponsor_read` | Sponsorship Manager | Create ads       | [View](agents_config.json:859) |
+| `track_performance`   | Sponsorship Manager | Track ROI        | [View](agents_config.json:903) |
+| `generate_report`     | Sponsorship Manager | Generate reports | [View](agents_config.json:936) |
 
 ### Tour Management Toolsets
 
-| Tool                   | Agent        | Description     |
-| ---------------------- | ------------ | --------------- |
-| `venue_research`       | Tour Manager | Find venues     |
-| `create_tour_schedule` | Tour Manager | Plan tour       |
-| `manage_tickets`       | Tour Manager | Ticket sales    |
-| `promote_event`        | Tour Manager | Event promotion |
+| Tool                   | Agent        | Description     | Schema                          |
+| ---------------------- | ------------ | --------------- | ------------------------------- |
+| `venue_research`       | Tour Manager | Find venues     | [View](agents_config.json:980)  |
+| `create_tour_schedule` | Tour Manager | Plan tour       | [View](agents_config.json:1014) |
+| `manage_tickets`       | Tour Manager | Ticket sales    | [View](agents_config.json:1047) |
+| `promote_event`        | Tour Manager | Event promotion | [View](agents_config.json:1080) |
 
 ---
 
@@ -394,7 +485,9 @@ CLOUDFLARE_ACCOUNT_ID=${CLOUDFLARE_ACCOUNT_ID}
 # Social Platforms
 TWITTER_API_KEY=${TWITTER_API_KEY}
 TWITTER_API_SECRET=${TWITTER_API_SECRET}
+TWITTER_BEARER_TOKEN=${TWITTER_BEARER_TOKEN}
 INSTAGRAM_ACCESS_TOKEN=${INSTAGRAM_ACCESS_TOKEN}
+INSTAGRAM_BUSINESS_ID=${INSTAGRAM_BUSINESS_ID}
 TIKTOK_ACCESS_TOKEN=${TIKTOK_ACCESS_TOKEN}
 YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
 ```

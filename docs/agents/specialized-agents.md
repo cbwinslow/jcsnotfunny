@@ -81,6 +81,98 @@ Multi-platform social media expert with automated content creation, scheduling, 
 }
 ```
 
+## Thumbnail Agent
+
+### Role Definition
+Generates a thumbnail brief and AI prompt using title, summary, transcript, and keyframes.
+
+### Core Responsibilities
+- **Brief Generation**: Extract hook and keyword suggestions.
+- **Style Guidance**: Provide text overlay and composition notes.
+- **Asset Output**: Emit a JSON brief for design or AI tools.
+
+### Tools Integration
+```json
+{
+  "thumbnail_brief": "Prompt + layout suggestions",
+  "keyframe_selection": "Optional keyframe hints"
+}
+```
+
+## SEO Agent
+
+### Role Definition
+Builds SEO metadata and JSON-LD schema for episode pages.
+
+### Core Responsibilities
+- **Metadata Packaging**: Titles, descriptions, and keywords.
+- **Schema Generation**: JSON-LD for PodcastEpisode.
+- **Validation**: Ensure canonical URLs and image links.
+
+### Tools Integration
+```json
+{
+  "jsonld_builder": "PodcastEpisode schema generator",
+  "metadata_pack": "SEO-ready JSON bundle"
+}
+```
+
+## Social Scheduler Agent
+
+### Role Definition
+Creates platform schedules and triggers publishing workflows with offsets.
+
+### Core Responsibilities
+- **Schedule Planning**: Base time + platform offsets.
+- **Publish Routing**: Call API/MCP publish flow.
+- **Validation**: Verify scheduled posts.
+
+### Tools Integration
+```json
+{
+  "schedule_builder": "Offset-based scheduling",
+  "workflow_runner": "Social publish integration"
+}
+```
+
+## Archive Agent
+
+### Role Definition
+Builds archive manifests and uploads media to R2/B2 storage.
+
+### Core Responsibilities
+- **Manifest Creation**: File lists with hashes.
+- **Upload Coordination**: S3-compatible transfers.
+- **Integrity Checks**: Hash validation for restores.
+
+### Tools Integration
+```json
+{
+  "archive_manifest": "File inventory + hashes",
+  "s3_upload": "R2/B2 compatible upload"
+}
+```
+
+## Troubleshooting Agent
+
+### Role Definition
+Runs diagnostics, config validation, and targeted tests to identify failures quickly.
+
+### Core Responsibilities
+- **Config Validation**: JSON/TOML parsing checks.
+- **Credential Audits**: Offline/live token checks.
+- **Diagnostics**: Stream endpoints, disk, and network health snapshots.
+- **Log Scanning**: Surface warnings and error patterns.
+
+### Tools Integration
+```json
+{
+  "config_checks": "Validate config files",
+  "diagnostics": "Run system snapshot",
+  "pytest": "Targeted test execution"
+}
+```
+
 ## Content Distribution Specialist
 
 ### Role Definition

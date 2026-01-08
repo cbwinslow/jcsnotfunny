@@ -18,6 +18,7 @@ python -m scripts.cli assistant --include-credentials --format text
 - `configs/master_settings.json` or `configs/master_settings.yml`
 - `configs/host_profiles.yml`
 - `configs/audio_presets.yml`
+- `configs/automation_tools.json` or `configs/automation_tools.yml`
 - `docs/SOPS.md`
 - `tasks.md`
 
