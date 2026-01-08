@@ -1,0 +1,62 @@
+# Troubleshooting Follow-ups
+
+Source report: exports/troubleshooting_report.json
+
+## Missing Credentials (from .env)
+- CF_AI_API_TOKEN
+- CF_IMAGES_API_TOKEN
+- CF_R2_ACCESS_KEY_ID
+- CF_R2_BUCKET
+- CF_R2_ENDPOINT
+- CF_R2_SECRET_ACCESS_KEY
+- CF_STREAM_API_TOKEN
+- CF_WORKERS_API_TOKEN
+- FACEBOOK_PAGE_ACCESS_TOKEN
+- FACEBOOK_PAGE_ID
+- FACEBOOK_RTMP_URL
+- FACEBOOK_STREAM_KEY
+- INSTAGRAM_ACCESS_TOKEN
+- INSTAGRAM_BUSINESS_ID
+- INSTAGRAM_RTMP_URL
+- INSTAGRAM_STREAM_KEY
+- KICK_RTMP_URL
+- KICK_STREAM_KEY
+- LINKEDIN_ACCESS_TOKEN
+- LINKEDIN_CLIENT_ID
+- LINKEDIN_CLIENT_SECRET
+- LINKEDIN_RTMP_URL
+- LINKEDIN_STREAM_KEY
+- OBS_PROFILE
+- OBS_SCENE_COLLECTION
+- OBS_WEBSOCKET_HOST
+- OBS_WEBSOCKET_PORT
+- RESTREAM_API_KEY
+- TIKTOK_ACCESS_TOKEN
+- TIKTOK_CLIENT_KEY
+- TIKTOK_CLIENT_SECRET
+- TIKTOK_RTMP_URL
+- TIKTOK_STREAM_KEY
+- TWITCH_RTMP_URL
+- TWITCH_STREAM_KEY
+- X_ACCESS_SECRET
+- X_ACCESS_TOKEN
+- X_API_KEY
+- X_API_SECRET
+- X_BEARER_TOKEN
+- X_RTMP_URL
+- X_STREAM_KEY
+- YOUTUBE_RTMP_URL
+- YOUTUBE_STREAM_KEY
+- YT_API_KEY
+- YT_CHANNEL_ID
+- YT_CLIENT_ID
+- YT_CLIENT_SECRET
+- YT_REFRESH_TOKEN
+
+## Log Scan Status
+- log/codex-tui.log: missing
+
+## Next Actions
+- Fill missing env keys using Bitwarden or your secrets source
+- Re-run `python -m scripts.cli troubleshooting --credential-mode live --diagnostics-live` after env is set
+- If log file is expected, start the CLI once to generate `log/codex-tui.log`
