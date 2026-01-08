@@ -62,6 +62,20 @@ def create_clip(input_video, start, duration, outpath):
         subprocess.run(cmd, check=True)
 
 
+def generate_clips(input_video, transcript, outdir, min_duration=8.0):
+    os.makedirs(outdir, exist_ok=True)
+    segments = parse_vtt(transcript)
+    i = 1
+    for s in segments:
+        duration = s['end'] - s['start']
+        if duration < min_duration:
+            duration = min_duration
+        outpath = os.path.join(outdir, f"clip-{i:03d}.mp4")
+        print(f"Exporting {outpath}: start={s['start']} dur={duration}")
+        create_clip(input_video, s['start'], duration, outpath)
+        i += 1
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
@@ -69,20 +83,7 @@ def main():
     parser.add_argument('--outdir', required=True)
     parser.add_argument('--min_duration', type=float, default=8.0)
     args = parser.parse_args()
-
-    os.makedirs(args.outdir, exist_ok=True)
-    segments = parse_vtt(args.transcript)
-    # Create a clip for each segment longer than min_duration, or extend small segments
-    i = 1
-    for s in segments:
-        duration = s['end'] - s['start']
-        if duration < args.min_duration:
-            # extend to min_duration when possible
-            duration = args.min_duration
-        outpath = os.path.join(args.outdir, f"clip-{i:03d}.mp4")
-        print(f"Exporting {outpath}: start={s['start']} dur={duration}")
-        create_clip(args.input, s['start'], duration, outpath)
-        i += 1
+    generate_clips(args.input, args.transcript, args.outdir, args.min_duration)
 
 if __name__ == '__main__':
     main()

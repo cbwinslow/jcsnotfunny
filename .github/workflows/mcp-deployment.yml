@@ -1,0 +1,138 @@
+name: MCP Server Deployment
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'mcp-servers/**'
+      - 'requirements-mcp.txt'
+  workflow_dispatch:
+    inputs:
+      server_name:
+        description: 'MCP server to deploy'
+        required: true
+        type: choice
+        options:
+          - all
+          - social-media
+          - video-processing
+          - audio-engineering
+          - content-distribution
+          - analytics
+
+jobs:
+  deploy-mcp-servers:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        server: 
+          - social-media-manager
+          - video-processor
+          - audio-engineer
+          - content-distributor
+          - analytics-collector
+      fail-fast: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install MCP dependencies
+        run: |
+          pip install mcp-server fastapi uvicorn pydantic
+          pip install -r requirements-mcp.txt
+
+      - name: Build MCP server Docker image
+        run: |
+          cd mcp-servers/${{ matrix.server }}
+          docker build -t ${{ secrets.REGISTRY_URL }}/mcp-${{ matrix.server }}:${{ github.sha }} .
+          docker tag ${{ secrets.REGISTRY_URL }}/mcp-${{ matrix.server }}:${{ github.sha }} ${{ secrets.REGISTRY_URL }}/mcp-${{ matrix.server }}:latest
+
+      - name: Log in to container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.REGISTRY_URL }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Push Docker image
+        run: |
+          docker push ${{ secrets.REGISTRY_URL }}/mcp-${{ matrix.server }}:${{ github.sha }}
+          docker push ${{ secrets.REGISTRY_URL }}/mcp-${{ matrix.server }}:latest
+
+      - name: Deploy to production
+        env:
+          DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          # Update Kubernetes deployment
+          kubectl set image deployment/mcp-${{ matrix.server }} \
+            server=${{ secrets.REGISTRY_URL }}/mcp-${{ matrix.server }}:${{ github.sha }} \
+            -n podcast-mcp
+
+          # Wait for rollout to complete
+          kubectl rollout status deployment/mcp-${{ matrix.server }} -n podcast-mcp --timeout=300s
+
+      - name: Verify MCP server health
+        run: |
+          # Wait for server to be ready
+          kubectl wait --for=condition=ready pod -l app=mcp-${{ matrix.server }} -n podcast-mcp --timeout=300s
+          
+          # Test MCP server connectivity
+          POD_IP=$(kubectl get pod -l app=mcp-${{ matrix.server }} -n podcast-mcp -o jsonpath='{.items[0].status.podIP}')
+          
+          # Test basic MCP protocol handshake
+          curl -s -X POST http://$POD_IP:3000/mcp/initialize \
+            -H "Content-Type: application/json" \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{"tools":{}}}}' \
+            | jq .
+
+      - name: Update MCP configuration
+        run: |
+          # Update central MCP server registry
+          python scripts/mcp_registry_updater.py \
+            --server ${{ matrix.server }} \
+            --endpoint https://mcp.example.com/${{ matrix.server }} \
+            --version ${{ github.sha }}
+
+  integration-testing:
+    needs: deploy-mcp-servers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: |
+          pip install pytest asyncio websockets
+          pip install mcp-client
+
+      - name: Run MCP server integration tests
+        env:
+          MCP_BASE_URL: https://mcp.example.com
+        run: |
+          python -m pytest tests/mcp_integration/ -v \
+            --mcp-endpoint $MCP_BASE_URL \
+            --timeout 60
+
+      - name: Test agent workflows with MCP servers
+        run: |
+          python tests/agent_workflow_tests.py \
+            --test-workflows episode_production,social_media_posting \
+            --mcp-endpoint $MCP_BASE_URL
+
+      - name: Load testing
+        run: |
+          python tests/mcp_load_tests.py \
+            --concurrent-connections 50 \
+            --requests-per-connection 100 \
+            --duration 300
