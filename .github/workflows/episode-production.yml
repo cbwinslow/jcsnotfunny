@@ -1,0 +1,315 @@
+name: Episode Production Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'episodes/**'
+      - 'assets/raw_footage/**'
+  workflow_dispatch:
+    inputs:
+      episode_number:
+        description: 'Episode number'
+        required: true
+        type: string
+      guest_name:
+        description: 'Guest name'
+        required: false
+        type: string
+      priority:
+        description: 'Priority level'
+        required: true
+        default: 'normal'
+        type: choice
+        options:
+          - low
+          - normal
+          - high
+          - urgent
+
+jobs:
+  setup-production:
+    runs-on: ubuntu-latest
+    outputs:
+      episode_id: ${{ steps.generate-id.outputs.episode_id }}
+      content_dir: ${{ steps.setup.outputs.content_dir }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate episode ID
+        id: generate-id
+        run: |
+          EPISODE_NUM="${{ github.event.inputs.episode_number || '000' }}"
+          TIMESTAMP=$(date +%Y%m%d%H%M%S)
+          echo "episode_id=EP${EPISODE_NUM}_${TIMESTAMP}" >> $GITHUB_OUTPUT
+          echo "Generated episode ID: EP${EPISODE_NUM}_${TIMESTAMP}"
+
+      - name: Setup production directory
+        id: setup
+        run: |
+          EPISODE_DIR="episodes/${{ steps.generate-id.outputs.episode_id }}"
+          mkdir -p "$EPISODE_DIR"/{raw_footage,video_editing,audio_editing,final_output,social_media,assets}
+          echo "content_dir=$EPISODE_DIR" >> $GITHUB_OUTPUT
+          echo "Created directory structure for $EPISODE_DIR"
+
+  video-analysis:
+    needs: setup-production
+    runs-on: ubuntu-latest
+    if: contains(github.event.inputs.priority, 'high') || contains(github.event.inputs.priority, 'urgent')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests opencv-python moviepy pydub
+
+      - name: Analyze video footage
+        run: |
+          python scripts/video_analyzer.py \
+            --input-dir episodes/${{ needs.setup-production.outputs.content_dir }}/raw_footage \
+            --output episodes/${{ needs.setup-production.outputs.content_dir }}/video_analysis.json \
+            --speaker-detection \
+            --engagement-scoring
+
+      - name: Upload analysis results
+        uses: actions/upload-artifact@v3
+        with:
+          name: video-analysis-${{ needs.setup-production.outputs.episode_id }}
+          path: episodes/${{ needs.setup-production.outputs.content_dir }}/video_analysis.json
+
+  audio-processing:
+    needs: setup-production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install audio tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libavcodec-extra
+          pip install pydub librosa numpy scipy
+
+      - name: Process audio tracks
+        run: |
+          python scripts/audio_processor.py \
+            --input-dir episodes/${{ needs.setup-production.outputs.content_dir }}/raw_footage \
+            --output-dir episodes/${{ needs.setup-production.outputs.content_dir }}/audio_editing \
+            --noise-reduction \
+            --voice-enhancement \
+            --normalization
+
+      - name: Generate sponsor integration points
+        run: |
+          python scripts/sponsor_integration.py \
+            --audio-dir episodes/${{ needs.setup-production.outputs.content_dir }}/audio_editing \
+            --output episodes/${{ needs.setup-production.outputs.content_dir }}/sponsor_points.json
+
+      - name: Upload processed audio
+        uses: actions/upload-artifact@v3
+        with:
+          name: processed-audio-${{ needs.setup-production.outputs.episode_id }}
+          path: episodes/${{ needs.setup-production.outputs.content_dir }}/audio_editing
+
+  video-editing:
+    needs: [setup-production, video-analysis, audio-processing]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download analysis results
+        uses: actions/download-artifact@v3
+        with:
+          name: video-analysis-${{ needs.setup-production.outputs.episode_id }}
+          path: episodes/${{ needs.setup-production.outputs.content_dir }}/
+
+      - name: Download processed audio
+        uses: actions/download-artifact@v3
+        with:
+          name: processed-audio-${{ needs.setup-production.outputs.episode_id }}
+          path: episodes/${{ needs.setup-production.outputs.content_dir }}/audio_editing
+
+      - name: Setup Python and video tools
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install moviepy opencv-python
+
+      - name: Create main episode video
+        run: |
+          python scripts/video_editor.py \
+            --analysis episodes/${{ needs.setup-production.outputs.content_dir }}/video_analysis.json \
+            --audio episodes/${{ needs.setup-production.outputs.content_dir }}/audio_editing \
+            --raw-footage episodes/${{ needs.setup-production.outputs.content_dir }}/raw_footage \
+            --output episodes/${{ needs.setup-production.outputs.content_dir }}/video_editing/main_episode.mp4
+
+      - name: Create short-form content
+        run: |
+          python scripts/shorts_creator.py \
+            --source-video episodes/${{ needs.setup-production.outputs.content_dir }}/video_editing/main_episode.mp4 \
+            --output-dir episodes/${{ needs.setup-production.outputs.content_dir }}/social_media \
+            --platforms tiktok,instagram,youtube_shorts \
+            --count 3
+
+      - name: Add branding and overlays
+        run: |
+          python scripts/brand_overlay.py \
+            --input episodes/${{ needs.setup-production.outputs.content_dir }}/video_editing/main_episode.mp4 \
+            --output episodes/${{ needs.setup-production.outputs.content_dir }}/final_output/episode_branded.mp4 \
+            --brand-config config/branding.json
+
+  content-distribution:
+    needs: [setup-production, video-editing]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm install -g @cloudflare/wrangler
+          pip install requests
+
+      - name: Generate episode metadata
+        run: |
+          python scripts/metadata_generator.py \
+            --episode-id ${{ needs.setup-production.outputs.episode_id }} \
+            --guest "${{ github.event.inputs.guest_name }}" \
+            --output episodes/${{ needs.setup-production.outputs.episode_id }}/episode_metadata.json
+
+      - name: Upload to Cloudflare R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          python scripts/cloudflare_uploader.py \
+            --source episodes/${{ needs.setup-production.outputs.content_dir }}/final_output \
+            --bucket podcast-episodes \
+            --episode-id ${{ needs.setup-production.outputs.episode_id }}
+
+      - name: Update website
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          python scripts/website_updater.py \
+            --metadata episodes/${{ needs.setup-production.outputs.episode_id }}/episode_metadata.json \
+            --episode-url https://cdn.example.com/episodes/${{ needs.setup-production.outputs.episode_id }} \
+            --website-url https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/workers/scripts/podcast-website
+
+  social-media-scheduling:
+    needs: [setup-production, video-editing, content-distribution]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [twitter, instagram, tiktok, youtube, linkedin]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create platform-specific content
+        run: |
+          python scripts/content_creator.py \
+            --platform ${{ matrix.platform }} \
+            --source episodes/${{ needs.setup-production.outputs.episode_id }}/social_media \
+            --metadata episodes/${{ needs.setup-production.outputs.episode_id }}/episode_metadata.json \
+            --output episodes/${{ needs.setup-production.outputs.episode_id }}/social_media/${{ matrix.platform }}_content.json
+
+      - name: Schedule posts
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/social_poster.py \
+            --platform ${{ matrix.platform }} \
+            --content episodes/${{ needs.setup-production.outputs.episode_id }}/social_media/${{ matrix.platform }}_content.json \
+            --schedule immediate
+
+  notification-and-reporting:
+    needs: [setup-production, video-editing, content-distribution, social-media-scheduling]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Collect results
+        run: |
+          echo "Episode Production Summary" >> summary.md
+          echo "=========================" >> summary.md
+          echo "Episode ID: ${{ needs.setup-production.outputs.episode_id }}" >> summary.md
+          echo "Status: ${{ job.status }}" >> summary.md
+          echo "" >> summary.md
+          echo "Job Results:" >> summary.md
+          echo "- Video Analysis: ${{ needs.video-analysis.result }}" >> summary.md
+          echo "- Audio Processing: ${{ needs.audio-processing.result }}" >> summary.md
+          echo "- Video Editing: ${{ needs.video-editing.result }}" >> summary.md
+          echo "- Content Distribution: ${{ needs.content-distribution.result }}" >> summary.md
+          echo "- Social Media: ${{ needs.social-media-scheduling.result }}" >> summary.md
+
+      - name: Send Slack notification
+        if: contains(github.event.inputs.priority, 'urgent') || failure()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          text: |
+            Episode Production Complete!
+            Episode ID: ${{ needs.setup-production.outputs.episode_id }}
+            Status: ${{ job.status }}
+            Priority: ${{ github.event.inputs.priority }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Update project board
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.projects.createCard({
+              column_id: 'COLUMN_ID_FOR_COMPLETED_EPISODES',
+              note: `Episode ${{ needs.setup-production.outputs.episode_id }} production complete`
+            });
+
+      - name: Generate production report
+        run: |
+          python scripts/production_reporter.py \
+            --episode-id ${{ needs.setup-production.outputs.episode_id }} \
+            --status ${{ job.status }} \
+            --output episodes/${{ needs.setup-production.outputs.episode_id }}/production_report.json
+
+      - name: Archive episode assets
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: complete-episode-${{ needs.setup-production.outputs.episode_id }}
+          path: episodes/${{ needs.setup-production.outputs.episode_id }}
+          retention-days: 90

@@ -1,0 +1,44 @@
+name: Social publish (dispatch)
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Issue number with metadata (e.g., 7)'
+        required: true
+      platforms:
+        description: 'comma separated list of platforms (x,instagram)'
+        required: true
+
+jobs:
+  render-and-schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+      - name: Render templates
+        run: |
+          python - << 'PY'
+import os, json, sys, subprocess
+issue=int(os.environ['INPUT_ISSUE'])
+# fetch issue content (simplified)
+res=subprocess.run(['gh','issue','view',str(issue),'--repo','cbwinslow/jcsnotfunny','--json','title,body'],capture_output=True,text=True)
+data=json.loads(res.stdout)
+meta={'title': data['title'], 'guest': 'TBD', 'ep_link': 'TBD', 'slug': f'issue-{issue}'}
+from scripts.social_publish import render_post
+for p in os.environ['INPUT_PLATFORMS'].split(','):
+    print('---',p)
+    print(render_post(p.strip(), meta))
+PY
+        env:
+          INPUT_ISSUE: ${{ github.event.inputs.issue }}
+          INPUT_PLATFORMS: ${{ github.event.inputs.platforms }}
+      - name: Schedule (example)
+        run: |
+          echo "Scheduling is provider-specific; set secrets and extend script to call provider API"

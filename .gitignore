@@ -1,0 +1,17 @@
+# common
+.env
+node_modules/
+.DS_Store
+.vscode/
+
+# media
+raw_videos/
+working_projects/
+
+# exports
+edited/
+assets/generated/
+
+# secrets
+secrets.json
+cloudflare.token

@@ -1,0 +1,391 @@
+name: Social Media Automation
+
+on:
+  schedule:
+    # Every 2 hours during peak hours
+    - cron: '0 9,11,13,15,17,19,21 * * *'
+    # Daily content planning at 8 AM
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      action_type:
+        description: 'Type of social media action'
+        required: true
+        default: 'scheduled_post'
+        type: choice
+        options:
+          - scheduled_post
+          - engagement_boost
+          - content_calendar
+          - analytics_report
+          - trend_hijack
+      platform:
+        description: 'Target platform (all if empty)'
+        required: false
+        type: choice
+        options:
+          - all
+          - twitter
+          - instagram
+          - tiktok
+          - youtube
+          - linkedin
+
+jobs:
+  content-calendar-planning:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 8 * * *' || github.event.inputs.action_type == 'content_calendar'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pandas python-dotenv
+          pip install -r requirements.txt
+
+      - name: Generate weekly content calendar
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/content_planner.py \
+            --timeframe "7_days" \
+            --platforms twitter,instagram,tiktok,youtube,linkedin \
+            --content-types episode_promo,behind_scenes,tour_dates,sponsor_content \
+            --output config/content_calendar.json
+
+      - name: Create content assets
+        run: |
+          python scripts/content_generator.py \
+            --calendar config/content_calendar.json \
+            --assets-dir assets/content_creation \
+            --templates-dir templates/social
+
+      - name: Schedule posts for the week
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/batch_scheduler.py \
+            --calendar config/content_calendar.json \
+            --platforms twitter,instagram,tiktok,youtube,linkedin \
+            --immediate-scheduling true
+
+  scheduled-posting:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 9,11,13,15,17,19,21 * * *' || github.event.inputs.action_type == 'scheduled_post'
+    strategy:
+      matrix:
+        platform: [twitter, instagram, tiktok, youtube, linkedin]
+        fail-fast: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check for scheduled content
+        id: check-content
+        run: |
+          python scripts/scheduler_checker.py \
+            --platform ${{ matrix.platform }} \
+            --time-window "2_hours" \
+            --output scheduled_content.json
+
+          echo "has_content=$(cat scheduled_content.json | jq '.content_count > 0')" >> $GITHUB_OUTPUT
+
+      - name: Post scheduled content
+        if: steps.check-content.outputs.has_content == 'true'
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/content_poster.py \
+            --platform ${{ matrix.platform }} \
+            --content-file scheduled_content.json \
+            --auto-engagement true
+
+  engagement-automation:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.action_type == 'engagement_boost'
+    strategy:
+      matrix:
+        platform: [twitter, instagram, tiktok, linkedin]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Monitor and respond to engagement
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/engagement_automator.py \
+            --platform ${{ matrix.platform }} \
+            --response-window "2_hours" \
+            --auto-respond true \
+            --escalation-threshold 5
+
+      - name: Engage with trending content
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+        run: |
+          python scripts/trend_engager.py \
+            --platform ${{ matrix.platform }} \
+            --trending-keywords podcast,comedy,entertainment \
+            --engagement-style smart \
+            --max-engagements 10
+
+  analytics-and-optimization:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.action_type == 'analytics_report'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pandas matplotlib seaborn
+          pip install -r requirements.txt
+
+      - name: Collect analytics from all platforms
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/analytics_collector.py \
+            --platforms twitter,instagram,tiktok,youtube,linkedin \
+            --time-period "7_days" \
+            --metrics engagement,reach,conversion,growth \
+            --output analytics/raw_analytics.json
+
+      - name: Generate analytics report
+        run: |
+          python scripts/analytics_reporter.py \
+            --input analytics/raw_analytics.json \
+            --output analytics/weekly_report.html \
+            --include-charts true \
+            --format html
+
+      - name: Generate optimization recommendations
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/optimizer.py \
+            --analytics analytics/raw_analytics.json \
+            --platforms twitter,instagram,tiktok,youtube,linkedin \
+            --output analytics/optimization_recommendations.json
+
+      - name: Update content strategy based on insights
+        run: |
+          python scripts/strategy_updater.py \
+            --recommendations analytics/optimization_recommendations.json \
+            --strategy-file config/content_strategy.json \
+            --apply-changes true
+
+      - name: Upload analytics reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: social-media-analytics-${{ github.run_number }}
+          path: analytics/
+          retention-days: 30
+
+  trend-monitoring:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.action_type == 'trend_hijack'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests tweepy tiktok-api beautifulsoup4
+          pip install -r requirements.txt
+
+      - name: Monitor trending topics
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: |
+          python scripts/trend_monitor.py \
+            --platforms twitter,tiktok,reddit \
+            --keywords podcast,comedy,entertainment \
+            --niche-relevant true \
+            --output trends/current_trends.json
+
+      - name: Create trend-based content
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/trend_content_creator.py \
+            --trends trends/current_trends.json \
+            --content-dir assets/trend_content \
+            --brand-alignment true \
+            --max-posts 3
+
+      - name: Schedule trend content
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+        run: |
+          python scripts/trend_poster.py \
+            --content-dir assets/trend_content \
+            --immediate-scheduling true \
+            --platforms twitter,tiktok,instagram
+
+  tour-promotion-campaign:
+    runs-on: ubuntu-latest
+    if: contains(github.event.inputs.action_type, 'tour') || github.event.schedule == '0 12 * * *'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check tour dates and create promotion content
+        run: |
+          python scripts/tour_promoter.py \
+            --tour-file config/tour_dates.json \
+            --promotion-window "30_days" \
+            --content-types venue_reveal,ticket_countdown,meet_greet \
+            --output assets/tour_promotion
+
+      - name: Post tour promotion content
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/tour_poster.py \
+            --content-dir assets/tour_promotion \
+            --platforms twitter,instagram,youtube,linkedin \
+            --immediate-scheduling true
+
+  sponsor-content-automation:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 14 * * *'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate sponsor content
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/sponsor_content_generator.py \
+            --sponsor-file config/sponsors.json \
+            --integration-types host_read,product_demo,testimonial \
+            --content-dir assets/sponsor_content \
+            --brand-alignment true
+
+      - name: Schedule sponsor posts
+        env:
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+        run: |
+          python scripts/sponsor_poster.py \
+            --content-dir assets/sponsor_content \
+            --platforms twitter,instagram,linkedin \
+            --immediate-scheduling true \
+            --disclosure-required true
+
+  notification-and-alerts:
+    runs-on: ubuntu-latest
+    needs: [content-calendar-planning, scheduled-posting, analytics-and-optimization]
+    if: always()
+    steps:
+      - name: Collect workflow results
+        run: |
+          echo "Social Media Automation Summary" >> summary.md
+          echo "================================" >> summary.md
+          echo "Workflow: ${{ github.workflow }}" >> summary.md
+          echo "Trigger: ${{ github.event_name }}" >> summary.md
+          echo "Timestamp: $(date)" >> summary.md
+          echo "" >> summary.md
+          echo "Job Results:" >> summary.md
+          echo "- Content Planning: ${{ needs.content-calendar-planning.result }}" >> summary.md
+          echo "- Scheduled Posting: ${{ needs.scheduled-posting.result }}" >> summary.md
+          echo "- Analytics: ${{ needs.analytics-and-optimization.result }}" >> summary.md
+
+      - name: Send Slack notification on failure
+        if: failure()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: failure
+          text: |
+            Social Media Automation Failed!
+            Workflow: ${{ github.workflow }}
+            Action: ${{ github.event.inputs.action_type || 'scheduled' }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Send analytics summary
+        if: github.event.inputs.action_type == 'analytics_report' && success()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: success
+          text: |
+            Weekly Social Media Analytics Report Generated!
+            View the detailed report in the artifacts.
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

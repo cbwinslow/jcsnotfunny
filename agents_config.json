@@ -1,0 +1,406 @@
+{
+  "agents": {
+    "video_editor": {
+      "name": "Podcast Video Editor",
+      "role": "Video production specialist focused on podcast content optimization",
+      "model": "gpt-4o",
+      "system_prompt": "You are an expert video editor specializing in podcast content. Your primary responsibilities include: 1) Analyzing multi-camera footage to identify and cut to active speakers using AI facial detection and voice activity detection, 2) Creating engaging short-form content (60-120 seconds) from long-form episodes, 3) Implementing professional color grading and visual effects, 4) Adding dynamic overlays, lower thirds, and branding elements, 5) Optimizing video for different platforms (YouTube, TikTok, Instagram, etc.). Always maintain consistent branding and focus on viewer engagement.",
+      "tools": [
+        {
+          "name": "video_analysis",
+          "description": "Analyze video footage for speaker detection and optimal cutting points",
+          "parameters": {
+            "video_path": "string",
+            "analysis_type": ["speaker_detection", "engagement_scoring", "optimal_cut_points"]
+          }
+        },
+        {
+          "name": "auto_cut",
+          "description": "Automatically cut between camera angles based on speaker activity",
+          "parameters": {
+            "input_video": "string",
+            "output_video": "string",
+            "cutting_style": ["dynamic", "conservative", "aggressive"]
+          }
+        },
+        {
+          "name": "create_short",
+          "description": "Generate short-form content from long-form podcast",
+          "parameters": {
+            "source_video": "string",
+            "duration": "number",
+            "focus_topic": "string",
+            "platform": ["tiktok", "instagram", "youtube_shorts"]
+          }
+        },
+        {
+          "name": "add_overlays",
+          "description": "Add text overlays, lower thirds, and visual elements",
+          "parameters": {
+            "video_path": "string",
+            "overlay_config": "object"
+          }
+        }
+      ],
+      "workflows": {
+        "episode_edit": [
+          "video_analysis",
+          "auto_cut", 
+          "add_overlays",
+          "export_final"
+        ],
+        "short_creation": [
+          "video_analysis",
+          "create_short",
+          "add_captions",
+          "optimize_for_platform"
+        ]
+      }
+    },
+    "audio_engineer": {
+      "name": "Audio Engineer",
+      "role": "Audio production and enhancement specialist",
+      "model": "gpt-4o",
+      "system_prompt": "You are a professional audio engineer specializing in podcast production. Your responsibilities include: 1) Cleaning up audio tracks using noise reduction, de-essing, and equalization, 2) Balancing multiple audio sources and applying compression, 3) Adding sponsor reads and advertisements seamlessly, 4) Mastering final audio for podcast platforms, 5) Creating audio versions for different platforms (Spotify, Apple Podcasts, etc.). Ensure professional audio quality standards and consistent loudness levels.",
+      "tools": [
+        {
+          "name": "audio_cleanup",
+          "description": "Remove background noise, hum, and unwanted artifacts",
+          "parameters": {
+            "audio_file": "string",
+            "noise_reduction_level": ["light", "medium", "aggressive"]
+          }
+        },
+        {
+          "name": "voice_enhancement",
+          "description": "Enhance vocal clarity and presence",
+          "parameters": {
+            "audio_file": "string",
+            "preset": ["podcast", "interview", "narration"]
+          }
+        },
+        {
+          "name": "sponsor_insertion",
+          "description": "Insert sponsor reads at optimal points",
+          "parameters": {
+            "main_audio": "string",
+            "sponsor_audio": "string",
+            "insertion_points": "array",
+            "transition_style": ["hard_cut", "fade", "crossfade"]
+          }
+        },
+        {
+          "name": "audio_mastering",
+          "description": "Master final audio for distribution",
+          "parameters": {
+            "audio_file": "string",
+            "target_lufs": "number",
+            "platform": ["spotify", "apple_podcasts", "youtube"]
+          }
+        }
+      ]
+    },
+    "social_media_manager": {
+      "name": "Social Media Manager",
+      "role": "Multi-platform social media content management and scheduling",
+      "model": "gpt-4o",
+      "system_prompt": "You are a social media strategist managing podcast promotion across multiple platforms. Your responsibilities include: 1) Creating platform-specific content strategies, 2) Scheduling posts in advance across all platforms, 3) Engaging with audience comments and messages, 4) Analyzing performance metrics and optimizing content, 5) Promoting tour dates and special events, 6) Managing sponsored content partnerships. Maintain consistent brand voice while adapting to each platform's unique style and audience.",
+      "tools": [
+        {
+          "name": "create_content_calendar",
+          "description": "Generate and manage content posting schedule",
+          "parameters": {
+            "start_date": "string",
+            "end_date": "string",
+            "platforms": ["array"],
+            "content_types": ["episode_promo", "behind_scenes", "tour_dates", "sponsor_content"]
+          }
+        },
+        {
+          "name": "schedule_post",
+          "description": "Schedule posts across multiple platforms",
+          "parameters": {
+            "content": "object",
+            "platforms": ["array"],
+            "publish_time": "string",
+            "timezone": "string"
+          }
+        },
+        {
+          "name": "engage_audience",
+          "description": "Monitor and respond to comments and messages",
+          "parameters": {
+            "platform": "string",
+            "engagement_type": ["comments", "dms", "mentions"],
+            "response_style": ["professional", "casual", "humorous"]
+          }
+        },
+        {
+          "name": "analyze_performance",
+          "description": "Analyze post performance and generate insights",
+          "parameters": {
+            "time_period": "string",
+            "platforms": ["array"],
+            "metrics": ["engagement", "reach", "conversion"]
+          }
+        }
+      ]
+    },
+    "content_distributor": {
+      "name": "Content Distribution Manager",
+      "role": "Manage content publishing and website updates via Cloudflare",
+      "model": "gpt-4o",
+      "system_prompt": "You are a content distribution specialist managing the podcast's digital presence. Your responsibilities include: 1) Publishing episodes to the website via Cloudflare Workers/Pages, 2) Updating tour dates and event information, 3) Managing SEO optimization and metadata, 4) Coordinating with podcast platforms (Apple Podcasts, Spotify, etc.), 5) Implementing CDN optimization for fast content delivery, 6) Managing website assets and media files. Ensure fast, reliable content delivery and excellent user experience.",
+      "tools": [
+        {
+          "name": "publish_episode",
+          "description": "Publish new episode to website and podcast platforms",
+          "parameters": {
+            "episode_data": "object",
+            "audio_file": "string",
+            "video_file": "string",
+            "show_notes": "string"
+          }
+        },
+        {
+          "name": "update_tour_dates",
+          "description": "Update tour schedule on website",
+          "parameters": {
+            "tour_data": "array",
+            " venues": "array",
+            "ticket_links": "array"
+          }
+        },
+        {
+          "name": "manage_cdn",
+          "description": "Optimize CDN settings and cache invalidation",
+          "parameters": {
+            "action": ["purge_cache", "update_settings", "analyze_performance"],
+            "targets": ["array"]
+          }
+        },
+        {
+          "name": "seo_optimization",
+          "description": "Optimize content for search engines",
+          "parameters": {
+            "content_type": ["episode", "page", "blog_post"],
+            "target_keywords": "array",
+            "metadata": "object"
+          }
+        }
+      ]
+    },
+    "sponsorship_manager": {
+      "name": "Sponsorship Manager",
+      "role": "Manage sponsor relationships and integration",
+      "model": "gpt-4o",
+      "system_prompt": "You are a sponsorship coordinator managing podcast monetization. Your responsibilities include: 1) Identifying and vetting potential sponsors, 2) Negotiating sponsorship deals and contracts, 3) Creating custom sponsor reads and integration opportunities, 4) Tracking sponsorship performance and ROI, 5) Managing sponsor billing and reporting, 6) Ensuring sponsor content aligns with podcast values and audience interests. Maintain professional relationships while maximizing revenue opportunities.",
+      "tools": [
+        {
+          "name": "sponsor_research",
+          "description": "Research and identify potential sponsors",
+          "parameters": {
+            "target_demographics": "array",
+            "budget_range": "object",
+            "excluded_categories": "array"
+          }
+        },
+        {
+          "name": "create_sponsor_read",
+          "description": "Generate personalized sponsor advertisements",
+          "parameters": {
+            "sponsor_info": "object",
+            "integration_style": ["host_read", "produced_ad", "product_demo"],
+            "duration": "number"
+          }
+        },
+        {
+          "name": "track_performance",
+          "description": "Monitor sponsor campaign performance",
+          "parameters": {
+            "campaign_id": "string",
+            "metrics": ["impressions", "clicks", "conversions", "brand_lift"],
+            "time_period": "string"
+          }
+        },
+        {
+          "name": "generate_report",
+          "description": "Create performance reports for sponsors",
+          "parameters": {
+            "sponsor_id": "string",
+            "report_period": "string",
+            "include_demographics": "boolean"
+          }
+        }
+      ]
+    },
+    "tour_manager": {
+      "name": "Tour & Events Manager",
+      "role": "Manage live events, tour dates, and venue coordination",
+      "model": "gpt-4o",
+      "system_prompt": "You are a tour manager coordinating live podcast events and appearances. Your responsibilities include: 1) Booking venues and managing tour logistics, 2) Coordinating with event promoters and local partners, 3) Managing ticket sales and audience engagement, 4) Creating promotional content for live shows, 5) Handling travel arrangements and scheduling, 6) Integrating tour promotion with podcast content. Ensure smooth execution of all live events while maximizing audience turnout and engagement.",
+      "tools": [
+        {
+          "name": "venue_research",
+          "description": "Research and identify suitable venues",
+          "parameters": {
+            "city": "string",
+            "capacity_range": "object",
+            "budget_constraints": "number",
+            "technical_requirements": "array"
+          }
+        },
+        {
+          "name": "create_tour_schedule",
+          "description": "Generate and manage tour itinerary",
+          "parameters": {
+            "start_date": "string",
+            "end_date": "string",
+            "cities": "array",
+            "event_types": ["live_podcast", "meet_greet", "panel_discussion"]
+          }
+        },
+        {
+          "name": "manage_tickets",
+          "description": "Handle ticket sales and inventory",
+          "parameters": {
+            "event_id": "string",
+            "ticket_types": "array",
+            "pricing_tiers": "object",
+            "sales_platform": "string"
+          }
+        },
+        {
+          "name": "promote_event",
+          "description": "Create promotional materials and campaigns",
+          "parameters": {
+            "event_details": "object",
+            "promotion_channels": ["array"],
+            "budget": "number",
+            "target_audience": "array"
+          }
+        }
+      ]
+    }
+  },
+  "workflows": {
+    "episode_production": {
+      "description": "Complete episode production from raw footage to distribution",
+      "agents": ["video_editor", "audio_engineer", "sponsorship_manager", "content_distributor", "social_media_manager"],
+      "steps": [
+        {
+          "agent": "video_editor",
+          "action": "video_analysis",
+          "input": "raw_footage"
+        },
+        {
+          "agent": "audio_engineer", 
+          "action": "audio_cleanup",
+          "input": "raw_audio"
+        },
+        {
+          "agent": "video_editor",
+          "action": "auto_cut",
+          "input": "analyzed_footage"
+        },
+        {
+          "agent": "sponsorship_manager",
+          "action": "create_sponsor_read",
+          "input": "sponsor_info"
+        },
+        {
+          "agent": "audio_engineer",
+          "action": "sponsor_insertion",
+          "input": "clean_audio + sponsor_read"
+        },
+        {
+          "agent": "video_editor",
+          "action": "create_short",
+          "input": "final_video"
+        },
+        {
+          "agent": "content_distributor",
+          "action": "publish_episode",
+          "input": "final_episode_package"
+        },
+        {
+          "agent": "social_media_manager",
+          "action": "schedule_post",
+          "input": "episode_promo_content"
+        }
+      ]
+    },
+    "tour_promotion": {
+      "description": "Promote tour dates and manage live events",
+      "agents": ["tour_manager", "social_media_manager", "content_distributor"],
+      "steps": [
+        {
+          "agent": "tour_manager",
+          "action": "create_tour_schedule",
+          "input": "tour_dates"
+        },
+        {
+          "agent": "content_distributor",
+          "action": "update_tour_dates",
+          "input": "tour_schedule"
+        },
+        {
+          "agent": "tour_manager",
+          "action": "promote_event",
+          "input": "event_details"
+        },
+        {
+          "agent": "social_media_manager",
+          "action": "schedule_post",
+          "input": "tour_promotion_content"
+        }
+      ]
+    }
+  },
+  "integrations": {
+    "openai": {
+      "api_key": "${OPENAI_API_KEY}",
+      "organization": "${OPENAI_ORG_ID}",
+      "models": {
+        "primary": "gpt-4o",
+        "vision": "gpt-4o-vision-preview", 
+        "audio": "whisper-1",
+        "embedding": "text-embedding-3-large"
+      }
+    },
+    "cloudflare": {
+      "api_token": "${CLOUDFLARE_API_TOKEN}",
+      "account_id": "${CLOUDFLARE_ACCOUNT_ID}",
+      "workers": {
+        "content_publisher": "podcast-publisher-worker",
+        "tour_manager": "tour-events-worker"
+      },
+      "r2": {
+        "bucket": "podcast-media-storage"
+      }
+    },
+    "social_platforms": {
+      "twitter": {
+        "api_key": "${TWITTER_API_KEY}",
+        "api_secret": "${TWITTER_API_SECRET}",
+        "access_token": "${TWITTER_ACCESS_TOKEN}",
+        "access_token_secret": "${TWITTER_ACCESS_TOKEN_SECRET}"
+      },
+      "instagram": {
+        "access_token": "${INSTAGRAM_ACCESS_TOKEN}",
+        "business_account_id": "${INSTAGRAM_BUSINESS_ID}"
+      },
+      "tiktok": {
+        "client_key": "${TIKTOK_CLIENT_KEY}",
+        "client_secret": "${TIKTOK_CLIENT_SECRET}",
+        "access_token": "${TIKTOK_ACCESS_TOKEN}"
+      },
+      "youtube": {
+        "api_key": "${YOUTUBE_API_KEY}",
+        "client_id": "${YOUTUBE_CLIENT_ID}",
+        "client_secret": "${YOUTUBE_CLIENT_SECRET}",
+        "refresh_token": "${YOUTUBE_REFRESH_TOKEN}"
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@
 Implement a robust social publish toolset that supports both MCP agent servers and direct provider APIs. Include provider modules, credential docs, retries, and a GH Action to dispatch posts.
 
 **Checklist**
+
 - [ ] Create `scripts/mcp_publish.py` (done)
 - [ ] Add provider-specific modules (X, Instagram, YouTube) and interfaces
 - [ ] Add `configs/social_providers.yml.example` (done)
