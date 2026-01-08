@@ -1,214 +1,201 @@
-# Podcast Production and Social Media Rules
+# Master Rules Documentation
 
-## Content Guidelines and Rules
+## Overview
+This master document organizes all podcast production and social media management rules. Each section contains non-negotiable standards and absolutes for the podcast production system.
 
-### 1. Content Quality Standards
+## Core Documentation Structure
 
-#### Video Production Rules
-- **Resolution**: Minimum 1080p for main content, 4K preferred for premium episodes
-- **Aspect Ratios**: 
-  - Main episodes: 16:9 (1920x1080)
-  - Shorts: 9:16 (1080x1920) for vertical platforms
-  - Instagram: 1:1 for posts, 16:9 for IGTV
-- **File Formats**: MP4 (H.264), MOV for source footage
-- **Audio Quality**: 48kHz, 24-bit minimum, -16 LUFS target for final output
-- **Subtitles**: Auto-generated with manual review for accuracy
-- **Brand Consistency**: Lower thirds, color grading, and logo placement must follow brand guidelines
+### 🎯 Production Foundations
+- **[Podcast Norms & Absolutes](./docs/rules/podcast-norms.md)** - Core principles, brand identity, and non-negotiable workflows
+- **[Technical Standards](./docs/rules/technical-standards.md)** - Audio/video specifications, equipment requirements, and quality control
 
-#### Audio Production Rules
-- **Noise Floor**: Below -60dB for clean recording
-- **Normalization**: -16 LUFS with True Peak at -1.5dB
-- **Compression**: 2:1 ratio with 3ms attack, 100ms release for spoken word
-- **EQ Settings**: High-pass at 80Hz, presence boost at 4kHz
-- **Sponsor Integration**: Natural transition with 3-5 second fade
-- **Multi-track Processing**: Separate processing for each speaker
+### 📱 Social Media Operations  
+- **[Social Media Standards](./docs/rules/social-media-standards.md)** - Platform-specific rules, content strategy, and community management
 
-### 2. Social Media Platform Rules
+### 🤖 Agent & Automation Rules
+- **[Agent Guidelines](./agents.md)** - Agent configurations, capabilities, and workflow standards
 
-#### Twitter/X Guidelines
-- **Character Limit**: 280 characters for posts, 420 for Premium
-- **Posting Frequency**: Maximum 8 posts/day, minimum 3 posts/week
-- **Engagement Window**: Peak hours 9-11 AM and 7-9 PM EST
-- **Hashtag Rules**: Maximum 3 hashtags per post, mix of trending and branded
-- **Reply Policy**: Respond to mentions within 2 hours during business hours
-- **Content Types**: 
-  - Episode clips: 60-120 seconds
-  - Behind scenes: 30-60 seconds
-  - Tour announcements: Static images with countdown timer
+## Quick Reference Absolutes
 
-#### Instagram Guidelines
-- **Post Types**: Mix of Reels (60%), Posts (25%), Stories (15%)
-- **Reel Duration**: 15-90 seconds for optimal engagement
-- **Story Frequency**: 5-10 stories per day, split into 2-3 sessions
-- **Hashtag Strategy**: 15-30 hashtags per post, mix of popular, niche, and location-based
-- **Engagement**: Respond to comments within 4 hours
-- **Visual Standards**: Consistent filter, brand colors, logo in stories
-- **Tour Content**: Venue showcases, ticket giveaways, countdown posts
+### Content Quality (NON-NEGOTIABLE)
+✅ **Audio**: 48kHz/24-bit minimum, -16 LUFS target  
+✅ **Video**: 4K premium, 1080p minimum, 60fps preferred  
+✅ **Speaker Focus**: 95% AI accuracy on camera switching  
+✅ **Content Authenticity**: Preserve conversation integrity  
 
-#### TikTok Guidelines
-- **Video Duration**: 15-60 seconds optimal, up to 3 minutes acceptable
-- **Content Strategy**: 
-  - Episode clips: 40% of content
-  - Trending formats: 30% of content
-  - Behind scenes: 20% of content
-  - Tour promotion: 10% of content
-- **Trending Audio**: Must use trending sounds when appropriate
-- **Posting Schedule**: 1-3 posts/day during peak hours (7-9 PM EST)
-- **Hashtag Usage**: 3-5 hashtags including #podcast #comedy #tour
+### Workflow Requirements (MANDATORY)
+✅ **Episode Length**: 60-120 min main, 15-30 min mini  
+✅ **Sponsor Cap**: 10% maximum runtime, natural placement  
+✅ **Simultaneous Release**: 30-minute window across platforms  
+✅ **3-2-1 Backup**: 3 copies, 2 media types, 1 offsite  
 
-#### YouTube Guidelines
-- **Video Titles**: Maximum 60 characters, include episode number and guest name
-- **Descriptions**: Minimum 500 characters, include links, timestamps, and keywords
-- **Thumbnails**: 1280x720 resolution, high contrast, text readable at small size
-- **Upload Schedule**: Consistent day/time for new episodes
-- **Chapter Markers**: Include timestamps for each segment
-- **End Screen**: Include subscribe button and next episode preview
-- **Sponsor Integration**: 15-30 second segments at 25% and 75% marks
+### Social Media Standards (REQUIRED)
+✅ **Posting Frequency**: 3-8 posts/day, minimum 3/week  
+✅ **Response Times**: 2 hours mentions, 24 hours DMs  
+✅ **Content Mix**: 40% episode promo, 30% engaging, 20% tour, 10% sponsor  
+✅ **Engagement Standards**: Authentic, humorous, boundary-respecting  
 
-#### LinkedIn Guidelines
-- **Posting Frequency**: Maximum 1 post/day, minimum 3 posts/week
-- **Content Focus**: Professional insights, industry commentary, tour announcements
-- **Article Length**: 500-1000 words for long-form content
-- **Engagement**: Professional tone, industry-specific hashtags
-- **Networking**: Engage with industry peers and sponsors
+### Performance Metrics (MINIMUMS)
+✅ **Engagement Rate**: 3%+ across all platforms  
+✅ **Completion Rate**: 70%+ for video content  
+✅ **Sponsor ROI**: 3:1 minimum return on ad spend  
+✅ **Follower Growth**: 5%+ monthly growth  
 
-### 3. Tour Promotion Rules
+---
 
-#### Event Promotion Timeline
-- **6 Months Out**: Initial announcement, save-the-date posts
-- **3 Months Out**: Ticket sales launch, early bird pricing
-- **2 Months Out**: Venue reveals, guest announcements
-- **1 Month Out**: Daily countdown, backstage content
-- **1 Week Out**: Final ticket push, meet & greet announcements
-- **Event Day**: Live updates, behind scenes content
+## Decision Matrix for Scenarios
 
-#### Content Requirements
-- **Venue Photos**: High-quality exterior and interior shots
-- **Local Promotion**: Tag venue, city, and local influencers
-- **Ticket Information**: Clear pricing tiers, purchase links, availability
-- **Meet & Greet**: Exclusive content for VIP ticket holders
+### 🚨 Crisis Response
+| Level | Response Time | Handler | Escalation |
+|-------|---------------|----------|------------|
+| 1 (Minor) | 4 hours | Social Media Manager | No |
+| 2 (Moderate) | 2 hours | Senior Team | Yes |
+| 3 (Major) | 1 hour | Executive Team | Yes |
+| 4 (Critical) | Immediate | Legal/PR | Immediate |
 
-### 4. Sponsorship Rules
+### 📋 Content Approval Workflow
+1. **Rough Cut** (48hrs) → 2. **Fine Cut** (48hrs) → 3. **Sponsor Review** (72hrs) → 4. **Final Sign-off** (12hrs)
 
-#### Integration Guidelines
-- **Natural Integration**: Sponsor mentions should feel organic to conversation
-- **Maximum Ad Load**: Maximum 10% of total episode time
-- **Disclosure**: Clear sponsorship disclosure required
-- **Content Approval**: All sponsor content requires pre-approval
-- **Brand Safety**: No conflicting sponsors in same episode
+### 🎬 Episode Production Pipeline
+1. **Recording** → 2. **Backup** → 3. **Analysis** → 4. **Editing** → 5. **Review** → 6. **Distribution** → 7. **Promotion**
 
-#### Performance Requirements
-- **Tracking**: Required tracking URLs and discount codes
-- **Reporting**: Weekly performance reports to sponsors
-- **ROI Metrics**: Minimum 3:1 return on ad spend
-- **Contract Compliance**: All deliverables must meet contract specifications
+---
 
-### 5. Content Scheduling Rules
+## Platform-Specific Quick Guides
 
-#### Optimal Posting Times by Platform
-- **Twitter**: 9-11 AM, 1-3 PM, 7-9 PM EST
-- **Instagram**: 11 AM-1 PM, 7-9 PM EST
-- **TikTok**: 7-9 PM EST
-- **YouTube**: 2-4 PM, 8-10 PM EST
-- **LinkedIn**: 8-10 AM, 12-1 PM EST
+### Twitter/X
+- **Limits**: 280 chars (420 Premium)
+- **Optimal**: 9-11 AM, 1-3 PM, 7-9 PM EST
+- **Hashtags**: Max 3, mix trending + branded
+- **Media**: 16:9 video, high-quality images
 
-#### Content Mix Requirements
-- **Weekly Content**: 40% episode promotion, 30% engaging content, 20% tour promotion, 10% sponsor content
-- **Monthly Content**: 2 major announcements, 4 behind-scenes posts, 1 community spotlight
+### Instagram  
+- **Mix**: 60% Reels, 25% Posts, 15% Stories
+- **Reels**: 15-60 seconds, trending audio
+- **Hashtags**: 15-30, all categories
+- **Stories**: 5-10 per day, 2-3 sessions
 
-### 6. Community Engagement Rules
+### TikTok
+- **Length**: 15-60 seconds optimal
+- **Content**: 40% clips, 30% trends, 20% behind scenes
+- **Posting**: 7-9 PM EST peak
+- **Audio**: Use trending sounds when appropriate
 
-#### Response Time Requirements
-- **Comments**: 2-4 hours during business hours
-- **Direct Messages**: 24 hours response time
-- **Mentions**: 1-2 hours for brand mentions
-- **Negative Feedback**: 1 hour response, escalate if serious
+### YouTube
+- **Titles**: Max 60 chars, include episode + guest
+- **Descriptions**: 500+ chars, timestamps, links
+- **Thumbnails**: 1280x720, high contrast
+- **Upload**: Consistent day/time, schedule preferred
 
-#### Engagement Policies
-- **Tone**: Professional yet approachable
-- **Controversy**: Avoid political topics unless directly related
-- **Moderation**: Remove spam and inappropriate content within 1 hour
-- **Community Guidelines**: Post and enforce clear community standards
+### LinkedIn
+- **Frequency**: 3-5 posts/week, max 1/day
+- **Tone**: Professional, industry insights
+- **Articles**: 500-1000 words long-form
+- **Hashtags**: 3-5 professional, industry-specific
 
-### 7. Content Approval Workflow
+---
 
-#### Episode Production Approval
-1. **Rough Cut Review**: 48-hour turnaround for initial feedback
-2. **Fine Cut Review**: 24-hour turnaround for final adjustments
-3. **Sponsor Approval**: 72-hour turnaround for sponsor content
-4. **Final Sign-off**: 12-hour turnaround for final approval
+## Brand Identity Non-Negotiables
 
-#### Social Media Content Approval
-- **Standard Posts**: Auto-approved with AI moderation
-- **Sponsored Posts**: Human approval required within 4 hours
-- **Controversial Content**: Team approval within 8 hours
-- **Emergency Posts**: Immediate approval for urgent matters
+### Visual Standards
+- **Color Palette**: Consistent across all platforms
+- **Logo Usage**: Approved variations only, clear space rules
+- **Typography**: Brand fonts only, consistent hierarchy
+- **Imagery Style**: Professional, authentic, on-brand
 
-### 8. Technical Rules and Standards
+### Voice & Tone
+- **Primary**: Authentic, conversational, curious
+- **Secondary**: Slightly edgy but inclusive
+- **Humor**: Witty, not offensive, self-aware
+- **Authority**: Confident but humble, evidence-based
 
-#### File Management
-- **Naming Convention**: YYYY-MM-DD_EpisodeNumber_GuestName_Version
-- **Storage**: All raw footage stored for 90 days, final content stored indefinitely
-- **Backup**: 3 copies of all content (local, cloud, off-site)
-- **Compression**: H.264 for video, AAC for audio
+### Content Values
+- **Truth-Seeking**: Facts over opinions, research-backed
+- **Curiosity-Driven**: Ask questions, explore deeply
+- **Entertainment**: Engaging, fun, memorable
+- **Inclusivity**: Respectful, diverse perspectives welcome
 
-#### Quality Control
-- **Resolution Check**: All content must meet minimum resolution standards
-- **Audio Quality**: No clipping, proper normalization, consistent levels
-- **Color Grading**: Consistent look across all episodes
-- **Subtitle Quality**: 99% accuracy minimum, proper timing
+---
 
-### 9. Legal and Compliance Rules
+## Technical Infrastructure Requirements
 
-#### Copyright and Licensing
-- **Music**: Proper licensing for all background music
-- **Images**: Commercial licenses for all images used
-- **Guest Releases**: Signed releases for all guest appearances
-- **Location Releases**: Signed releases for all filming locations
+### Hardware Minimums
+- **Cameras**: 4K, 60fps, professional lenses
+- **Audio**: 48kHz/24-bit, XLR connections
+- **Storage**: 50TB RAID, 3-2-1 backup strategy
+- **Network**: Gigabit internet, backup connection
 
-#### Privacy and Data Protection
-- **Personal Information**: Never share private information without consent
-- **GDPR Compliance**: Follow EU data protection regulations
-- **Age Restrictions**: Age-appropriate content warnings when needed
-- **Accessibility**: Closed captions and transcripts available
+### Software Standards
+- **Video**: Adobe Creative Cloud or equivalent
+- **Audio**: Pro Tools or Logic Pro
+- **Project**: Asana/Trello for management
+- **Communication**: Slack internal, approved external platforms
 
-### 10. Performance Metrics and KPIs
+### Security Requirements
+- **Data Encryption**: AES-256 for sensitive data
+- **Access Control**: Role-based with 2FA mandatory
+- **Network**: Firewall, VPN, intrusion detection
+- **Compliance**: GDPR, copyright, privacy laws
 
-#### Content Performance Benchmarks
-- **Engagement Rate**: Minimum 3% across all platforms
-- **View-through Rate**: Minimum 60% for video content
-- **Share Rate**: Minimum 2% for high-quality content
-- **Growth Rate**: Minimum 5% monthly follower growth
+---
 
-#### Tour Performance Metrics
-- **Ticket Sales**: 80% venue capacity minimum target
-- **Social Media Lift**: 20% increase in engagement during tour
-- **Merchandise Sales**: 15% conversion rate at venues
-- **Fan Acquisition**: 500 new email subscribers per show
+## Quality Assurance Checklist
 
-### 11. Crisis Management Rules
+### Pre-Release ✅
+- Audio levels normalized to -16 LUFS
+- Video exported in correct formats
+- All metadata accurate and complete
+- Subtitles/captions 99% accurate
+- Brand elements properly placed
 
-#### Escalation Procedures
-- **Level 1**: Social media manager handles within 2 hours
-- **Level 2**: Senior team reviews within 4 hours
-- **Level 3**: Executive team responds within 8 hours
-- **Level 4**: Legal team involved immediately for serious issues
+### Post-Release ✅
+- Analytics tracking configured
+- Social media posts scheduled
+- Backup completed and verified
+- Archive process documented
+- Performance monitoring active
 
-#### Communication Protocols
-- **Consistent Messaging**: All crisis communication must be consistent
-- **Designated Spokesperson**: Only designated individuals speak publicly
-- **Documentation**: All crisis incidents documented and reviewed
+---
 
-### 12. Automation and AI Rules
+## Document Version Control
 
-#### AI-Generated Content
-- **Human Review**: All AI-generated content requires human review
-- **Brand Voice**: AI must maintain consistent brand voice
-- **Disclosure**: AI assistance disclosed when relevant
-- **Quality Standards**: AI content meets all quality standards
+- **Last Updated**: 2025-01-07
+- **Review Cycle**: Monthly or after major changes
+- **Approval Required**: Executive team for major changes
+- **Distribution**: All team members must acknowledge receipt
 
-#### Automation Limits
-- **Posting Frequency**: Automated posts limited to 60% of total content
-- **Engagement**: Automated engagement limited to simple responses
-- **Approval Process**: All automated workflows include human checkpoints
-- **Error Handling**: Clear procedures for automation failures
+---
+
+## Emergency Contact Protocol
+
+### Production Issues
+- **Audio/Video Engineer**: On-call 24/7
+- **Social Media Manager**: 2-hour response SLA
+- **Executive Producer**: 1-hour escalation path
+- **Legal/PR**: Immediate for critical issues
+
+### Technical Support
+- **IT/Infrastructure**: 4-hour response SLA
+- **Cloud Services**: 99.9% uptime guaranteed
+- **Backup Systems**: Daily verification required
+- **Recovery Testing**: Quarterly drills mandatory
+
+---
+
+## Test Coverage & Automation Requirements
+
+### Testing Standards
+✅ **New Features = New Tests**: Every new workflow, provider, or tool must ship with unit tests and workflow validation tests  
+✅ **Failure-Mode Tests**: API errors, missing credentials, malformed metadata, scheduling drift covered  
+✅ **Validation First**: Tests must cover created, scheduled, delivered, and verified states  
+✅ **Regression Guardrails**: Bug fixes require regression tests  
+
+### Documentation Standards
+✅ **Docs Sync**: New workflows update relevant docs with usage examples  
+✅ **Config Templates**: Update example files when providers/settings change  
+✅ **Agent Updates**: New automation requires updated agent instructions  
+
+### Quality Assurance
+✅ **Test Naming**: Scoped and descriptive (e.g., `tests/test_social_workflows.py`)  
+✅ **Coverage Maintenance**: New endpoints/fields expand test coverage  
+✅ **Diagnostics**: Tests surface actionable errors with clear causes

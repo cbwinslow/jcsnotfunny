@@ -8,11 +8,15 @@ import base64
 
 class TwitterAPI:
     def __init__(self):
-        self.api_key = os.getenv("TWITTER_API_KEY") or ""
-        self.api_secret = os.getenv("TWITTER_API_SECRET") or ""
-        self.access_token = os.getenv("TWITTER_ACCESS_TOKEN") or ""
-        self.access_token_secret = os.getenv("TWITTER_ACCESS_TOKEN_SECRET") or ""
-        self.bearer_token = os.getenv("TWITTER_BEARER_TOKEN") or ""
+        self.api_key = os.getenv("X_API_KEY") or os.getenv("TWITTER_API_KEY") or ""
+        self.api_secret = os.getenv("X_API_SECRET") or os.getenv("TWITTER_API_SECRET") or ""
+        self.access_token = os.getenv("X_ACCESS_TOKEN") or os.getenv("TWITTER_ACCESS_TOKEN") or ""
+        self.access_token_secret = (
+            os.getenv("X_ACCESS_SECRET")
+            or os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
+            or ""
+        )
+        self.bearer_token = os.getenv("X_BEARER_TOKEN") or os.getenv("TWITTER_BEARER_TOKEN") or ""
         self.base_url = "https://api.twitter.com/2"
 
     def post_tweet(
@@ -223,10 +227,14 @@ class TikTokAPI:
 
 class YouTubeAPI:
     def __init__(self):
-        self.api_key = os.getenv("YOUTUBE_API_KEY") or ""
-        self.client_id = os.getenv("YOUTUBE_CLIENT_ID") or ""
-        self.client_secret = os.getenv("YOUTUBE_CLIENT_SECRET") or ""
-        self.refresh_token = os.getenv("YOUTUBE_REFRESH_TOKEN") or ""
+        self.api_key = os.getenv("YT_API_KEY") or os.getenv("YOUTUBE_API_KEY") or ""
+        self.client_id = os.getenv("YT_CLIENT_ID") or os.getenv("YOUTUBE_CLIENT_ID") or ""
+        self.client_secret = (
+            os.getenv("YT_CLIENT_SECRET") or os.getenv("YOUTUBE_CLIENT_SECRET") or ""
+        )
+        self.refresh_token = (
+            os.getenv("YT_REFRESH_TOKEN") or os.getenv("YOUTUBE_REFRESH_TOKEN") or ""
+        )
         self.base_url = "https://www.googleapis.com/youtube/v3"
 
     def get_access_token(self) -> str:

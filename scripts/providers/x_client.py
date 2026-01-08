@@ -11,6 +11,7 @@ Real implementation notes:
 """
 import os
 import logging
+from requests_oauthlib import OAuth1Session
 
 logger = logging.getLogger('x_client')
 logger.setLevel(logging.INFO)
@@ -26,8 +27,22 @@ class XClient:
         self.access_secret = access_secret or os.environ.get('X_ACCESS_SECRET')
 
     def post_text(self, text):
-        """Post text to X. Return a dict with id and url on success.
-        This is a stub that should be implemented using requests or an official SDK."""
-        logger.info('Posting to X: %s', text[:120])
-        # TODO: implement using oauth requests to https://api.twitter.com/2/tweets or v1.1 statuses/update
-        return {'id': 'x_post_123', 'url': 'https://x.com/jaredsnotfunny/status/123'}
+        """Post text to X using OAuth1 session to v1.1 statuses/update
+
+        Returns dict {id, url} on success and raises on error.
+        """
+        if not all([self.api_key, self.api_secret, self.access_token, self.access_secret]):
+            raise RuntimeError('Missing X API credentials')
+        session = OAuth1Session(self.api_key,
+                                client_secret=self.api_secret,
+                                resource_owner_key=self.access_token,
+                                resource_owner_secret=self.access_secret)
+        url = 'https://api.twitter.com/1.1/statuses/update.json'
+        resp = session.post(url, data={'status': text})
+        if resp.status_code != 200:
+            logger.error('X post failed: %s %s', resp.status_code, resp.text[:200])
+            resp.raise_for_status()
+        j = resp.json()
+        post_id = j.get('id_str') or str(j.get('id'))
+        screen_name = j.get('user', {}).get('screen_name', 'unknown')
+        return {'id': post_id, 'url': f'https://x.com/{screen_name}/status/{post_id}'}

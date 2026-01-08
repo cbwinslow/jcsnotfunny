@@ -1,566 +1,231 @@
-# Podcast Production Agents Configuration
+# Master Agent Documentation
 
 ## Overview
-This document defines the specialized agents and their configurations for managing podcast production, social media, and content distribution operations.
+This master document organizes all agent configurations, capabilities, and integration protocols for the podcast production system. Each agent is designed to work independently or as part of integrated workflows.
 
-## Core Agent Types
+## Core Documentation Structure
 
-### 1. Video Production Agent
-**Name**: `video_editor`  
-**Model**: `gpt-4o-vision-preview`  
-**Role**: Intelligent video editing and content optimization
+### 🎯 Core Production Agent
+- **[Core Production Agent](./docs/agents/core-production-agent.md)** - Orchestrates entire production pipeline
 
-**Capabilities**:
-- Multi-angle camera switching using AI speaker detection
-- Automatic focus tracking on active speakers
-- Short-form content creation (60-120 seconds)
-- Color grading and visual enhancement
-- Dynamic overlays and branding
-- Platform-specific optimization
+### 🤖 Specialized Production Agents
+- **[Specialized Agents](./docs/agents/specialized-agents.md)** - Video, Audio, Social Media, Distribution, Sponsorship, and Tour agents
 
-**Tools**:
-```json
-{
-  "video_analysis": {
-    "description": "Analyze footage for optimal cutting points",
-    "parameters": {
-      "video_path": "string",
-      "analysis_type": ["speaker_detection", "engagement_scoring", "optimal_cut_points"],
-      "focus_threshold": "number"
-    }
-  },
-  "smart_cut": {
-    "description": "AI-powered camera angle switching",
-    "parameters": {
-      "input_video": "string", 
-      "output_video": "string",
-      "cutting_style": ["dynamic", "conservative", "aggressive"],
-      "focus_speakers": "array"
-    }
-  },
-  "create_short": {
-    "description": "Generate platform-specific short content",
-    "parameters": {
-      "source_video": "string",
-      "duration": "number",
-      "focus_topic": "string",
-      "platform": ["tiktok", "instagram", "youtube_shorts"],
-      "captions": "boolean"
-    }
-  },
-  "brand_overlay": {
-    "description": "Add consistent branding elements",
-    "parameters": {
-      "video_path": "string",
-      "brand_config": "object",
-      "position": ["top_left", "bottom_right", "center"],
-      "opacity": "number"
-    }
-  }
-}
-```
-
-**Workflow**: `episode_edit` → `short_creation` → `optimization`
+### 🔧 Technical Infrastructure
+- **[MCP Servers](./mcp-servers/)** - Server implementations and API integrations
+- **[API Functions](./scripts/social_media_apis.py)** - Complete social media API implementations
 
 ---
 
-### 2. Audio Engineering Agent
-**Name**: `audio_engineer`  
-**Model**: `gpt-4o`  
-**Role**: Professional audio production and enhancement
+## Agent Configuration Summary
 
-**Capabilities**:
-- Noise reduction and audio cleanup
-- Voice enhancement and equalization
-- Sponsor read integration
-- Multi-source audio balancing
-- Platform-specific mastering
+### Core Production Agent
+**Role**: Production Pipeline Orchestration  
+**Model**: GPT-4o with specialized production knowledge  
+**Responsibilities**:
+- Guest coordination and scheduling
+- Technical setup and oversight
+- Quality assurance and workflow management
+- Cross-agent coordination and communication
 
-**Tools**:
-```json
-{
-  "audio_cleanup": {
-    "description": "Remove background noise and artifacts",
-    "parameters": {
-      "audio_file": "string",
-      "noise_reduction_level": ["light", "medium", "aggressive"],
-      "deessing": "boolean",
-      "normalization": "boolean"
-    }
-  },
-  "voice_enhancement": {
-    "description": "Enhance vocal clarity and presence",
-    "parameters": {
-      "audio_file": "string",
-      "preset": ["podcast", "interview", "narration"],
-      "eq_settings": "object",
-      "compression_ratio": "number"
-    }
-  },
-  "sponsor_integration": {
-    "description": "Seamlessly integrate sponsor content",
-    "parameters": {
-      "main_audio": "string",
-      "sponsor_content": "object",
-      "insertion_points": "array",
-      "transition_style": ["hard_cut", "fade", "crossfade"],
-      "volume_matching": "boolean"
-    }
-  },
-  "master_output": {
-    "description": "Finalize audio for distribution",
-    "parameters": {
-      "audio_file": "string",
-      "target_lufs": "number",
-      "platforms": ["spotify", "apple_podcasts", "youtube"],
-      "metadata": "object"
-    }
-  }
-}
-```
+### Specialized Agents Matrix
 
-**Workflow**: `cleanup` → `enhancement` → `sponsor_integration` → `mastering`
+| Agent | Primary Focus | Key Tools | Integration Points |
+|--------|---------------|------------|-------------------|
+| Video Production | Multi-camera editing, short-form content | AI speaker detection, smart cutting | Core Production, Social Media |
+| Audio Engineering | Audio cleanup, sponsor integration | Noise reduction, voice enhancement | Core Production, Content Distribution |
+| Social Media | Multi-platform posting, engagement | Cross-posting, analytics | All agents for content promotion |
+| Content Distribution | Website publishing, CDN optimization | SEO, syndication | Core Production, Tour Management |
+| Sponsorship | Sponsor relations, content creation | Performance tracking, compliance | Core Production, Social Media |
+| Tour Management | Venue booking, event promotion | Logistics, fan experience | Social Media, Content Distribution |
 
 ---
 
-### 3. Social Media Management Agent
-**Name**: `social_media_manager`  
-**Model**: `gpt-4o`  
-**Role**: Multi-platform content management and audience engagement
+## Agent Capabilities Map
 
-**Capabilities**:
-- Cross-platform content scheduling
-- Audience engagement and community management
-- Performance analytics and optimization
-- Content calendar management
-- Platform-specific content adaptation
+### Production Capabilities
+- **Episode Production**: Complete pipeline from recording to distribution
+- **Quality Assurance**: Multi-stage quality control and review
+- **Workflow Automation**: End-to-end automated workflows
+- **Performance Monitoring**: Real-time performance tracking
 
-**Tools**:
-```json
-{
-  "content_planner": {
-    "description": "Create strategic content calendar",
-    "parameters": {
-      "timeframe": "object",
-      "platforms": "array",
-      "content_types": ["episode_promo", "behind_scenes", "tour_dates", "sponsor_content"],
-      "posting_frequency": "object",
-      "optimal_times": "object"
-    }
-  },
-  "cross_platform_post": {
-    "description": "Publish to multiple platforms simultaneously",
-    "parameters": {
-      "content": "object",
-      "platforms": ["twitter", "instagram", "tiktok", "youtube", "linkedin"],
-      "media_files": "array",
-      "scheduling": "object",
-      "platform_adaptation": "boolean"
-    }
-  },
-  "community_engagement": {
-    "description": "Manage audience interactions",
-    "parameters": {
-      "platform": "string",
-      "engagement_type": ["comments", "dms", "mentions", "tags"],
-      "response_style": ["professional", "casual", "humorous"],
-      "auto_response_rules": "object",
-      "escalation_threshold": "number"
-    }
-  },
-  "performance_analytics": {
-    "description": "Analyze content performance",
-    "parameters": {
-      "time_period": "string",
-      "platforms": "array",
-      "metrics": ["engagement", "reach", "conversion", "sentiment"],
-      "content_type": "array",
-      "comparison_period": "string"
-    }
-  },
-  "viral_optimization": {
-    "description": "Optimize content for virality",
-    "parameters": {
-      "content": "object",
-      "platform": "string",
-      "trending_topics": "array",
-      "hashtag_strategy": "object",
-      "posting_time": "string"
-    }
-  }
-}
-```
+### Content Creation Capabilities
+- **Video Production**: Multi-angle editing with AI assistance
+- **Audio Production**: Professional audio processing and mastering
+- **Short-Form Content**: Platform-specific content optimization
+- **Sponsor Content**: Custom sponsor content generation
 
-**Workflow**: `planning` → `creation` → `scheduling` → `engagement` → `analysis`
+### Distribution Capabilities
+- **Multi-Platform Publishing**: Simultaneous content distribution
+- **Website Management**: Automated content publishing and optimization
+- **Social Media Management**: Complete social media operations
+- **Analytics Collection**: Comprehensive performance analytics
+
+### Business Capabilities
+- **Sponsor Management**: End-to-end sponsor relationship management
+- **Tour Management**: Complete event coordination and promotion
+- **Community Management**: Audience engagement and community building
+- **Revenue Optimization**: Multiple revenue stream management
 
 ---
 
-### 4. Content Distribution Agent
-**Name**: `content_distributor`  
-**Model**: `gpt-4o`  
-**Role**: Website publishing and content delivery management
+## Agent Integration Protocols
 
-**Capabilities**:
-- Website content publishing via Cloudflare
-- SEO optimization and metadata management
-- CDN performance optimization
-- Podcast platform syndication
-- Tour date and event management
+### Communication Standards
+- **Data Exchange**: Structured data formats with validation
+- **Response Times**: 5-second maximum response time
+- **Error Handling**: Comprehensive error detection and recovery
+- **Status Updates**: Real-time status reporting
 
-**Tools**:
-```json
-{
-  "website_publisher": {
-    "description": "Publish content to website via Cloudflare",
-    "parameters": {
-      "content_type": ["episode", "blog_post", "tour_date", "announcement"],
-      "content_data": "object",
-      "seo_config": "object",
-      "cdn_purge": "boolean",
-      "cache_settings": "object"
-    }
-  },
-  "tour_manager": {
-    "description": "Manage tour dates and venue information",
-    "parameters": {
-      "tour_data": "array",
-      "venues": "array",
-      "ticket_links": "array",
-      "promotion_settings": "object",
-      "calendar_integration": "boolean"
-    }
-  },
-  "syndication": {
-    "description": "Distribute to podcast platforms",
-    "parameters": {
-      "episode_data": "object",
-      "platforms": ["apple_podcasts", "spotify", "google_podcasts", "stitcher"],
-      "rss_feed": "string",
-      "embed_codes": "boolean"
-    }
-  },
-  "seo_optimizer": {
-    "description": "Optimize content for search engines",
-    "parameters": {
-      "content": "object",
-      "target_keywords": "array",
-      "meta_description": "string",
-      "structured_data": "object",
-      "image_alt_text": "array"
-    }
-  },
-  "cdn_manager": {
-    "description": "Manage Cloudflare CDN settings",
-    "parameters": {
-      "action": ["purge_cache", "update_settings", "analyze_performance"],
-      "targets": "array",
-      "optimization_level": ["basic", "standard", "aggressive"]
-    }
-  }
-}
-```
+### Workflow Integration
+- **Sequential Handoffs**: Clear handoff points with validation
+- **Parallel Processing**: Concurrent task execution when possible
+- **Dependency Management**: Task dependency tracking and scheduling
+- **Quality Checkpoints**: Quality validation at each stage
 
-**Workflow**: `content_preparation` → `seo_optimization` → `publishing` → `distribution` → `performance_monitoring`
+### Performance Monitoring
+- **Metrics Collection**: Real-time performance data gathering
+- **Health Monitoring**: Agent health and availability monitoring
+- **Load Balancing**: Dynamic workload distribution
+- **Scalability Management**: Automatic scaling based on load
 
 ---
 
-### 5. Sponsorship Management Agent
-**Name**: `sponsorship_manager`  
-**Model**: `gpt-4o`  
-**Role**: Sponsor relationship management and content integration
+## Tool Ecosystem Integration
 
-**Capabilities**:
-- Sponsor research and vetting
-- Custom sponsor content creation
-- Performance tracking and reporting
-- Contract management support
-- Revenue optimization
+### Social Media Platforms
+- **Twitter/X**: Complete API integration with all features
+- **Instagram**: Business API with reels and stories support
+- **TikTok**: Creator API with trending audio support
+- **YouTube**: Data API with upload and scheduling
+- **LinkedIn**: Business API for professional content
 
-**Tools**:
-```json
-{
-  "sponsor_research": {
-    "description": "Identify and evaluate potential sponsors",
-    "parameters": {
-      "criteria": "object",
-      "budget_range": "object",
-      "excluded_categories": "array",
-      "audience_alignment": "number",
-      "brand_safety": "boolean"
-    }
-  },
-  "content_creator": {
-    "description": "Generate personalized sponsor content",
-    "parameters": {
-      "sponsor_info": "object",
-      "integration_style": ["host_read", "produced_ad", "product_demo"],
-      "duration": "number",
-      "tone": ["professional", "casual", "enthusiastic"],
-      "call_to_action": "string"
-    }
-  },
-  "performance_tracker": {
-    "description": "Monitor sponsor campaign effectiveness",
-    "parameters": {
-      "campaign_id": "string",
-      "metrics": ["impressions", "clicks", "conversions", "brand_lift", "roi"],
-      "time_period": "string",
-      "attribution_model": "string"
-    }
-  },
-  "report_generator": {
-    "description": "Create comprehensive sponsor reports",
-    "parameters": {
-      "sponsor_id": "string",
-      "report_period": "string",
-      "include_demographics": "boolean",
-      "format": ["pdf", "excel", "dashboard"],
-      "executive_summary": "boolean"
-    }
-  },
-  "revenue_optimizer": {
-    "description": "Maximize sponsorship revenue",
-    "parameters": {
-      "inventory_analysis": "boolean",
-      "pricing_strategy": "object",
-      "package_deals": "array",
-      "seasonal_adjustments": "object"
-    }
-  }
-}
-```
+### Production Tools
+- **Video Processing**: Professional video editing and processing
+- **Audio Processing**: Advanced audio cleanup and enhancement
+- **Content Generation**: AI-powered content creation tools
+- **Quality Assurance**: Automated quality checking and validation
 
-**Workflow**: `research` → `outreach` → `content_creation` → `tracking` → `reporting` → `optimization`
-
----
-
-### 6. Tour & Events Management Agent
-**Name**: `tour_manager`  
-**Model**: `gpt-4o`  
-**Role**: Live event coordination and tour promotion
-
-**Capabilities**:
-- Venue research and booking
-- Tour itinerary management
-- Ticket sales coordination
-- Event promotion and marketing
-- Travel and logistics planning
-
-**Tools**:
-```json
-{
-  "venue_scanner": {
-    "description": "Find suitable venues for events",
-    "parameters": {
-      "location": "string",
-      "capacity_range": "object",
-      "budget_constraints": "number",
-      "technical_requirements": "array",
-      "date_range": "object",
-      "venue_preferences": "array"
-    }
-  },
-  "tour_scheduler": {
-    "description": "Create optimal tour schedules",
-    "parameters": {
-      "cities": "array",
-      "start_date": "string",
-      "end_date": "string",
-      "travel_time_optimization": "boolean",
-      "back_to_back_events": "boolean",
-      "rest_days": "array"
-    }
-  },
-  "ticket_manager": {
-    "description": "Handle ticket sales and inventory",
-    "parameters": {
-      "event_id": "string",
-      "pricing_tiers": "object",
-      "sales_platforms": "array",
-      "inventory_limits": "object",
-      "early_bird_pricing": "boolean"
-    }
-  },
-  "event_promoter": {
-    "description": "Promote events across channels",
-    "parameters": {
-      "event_details": "object",
-      "promotion_channels": "array",
-      "budget": "number",
-      "target_audience": "array",
-      "promotion_timeline": "object"
-    }
-  },
-  "logistics_coordinator": {
-    "description": "Manage travel and event logistics",
-    "parameters": {
-      "tour_schedule": "array",
-      "travel_preferences": "object",
-      "equipment_needs": "array",
-      "accommodation_requirements": "object",
-      "contingency_planning": "boolean"
-    }
-  }
-}
-```
-
-**Workflow**: `planning` → `venue_booking` → `promotion` → `ticket_sales` → `logistics` → `execution`
-
----
-
-## Integrated Workflows
-
-### Complete Episode Production Pipeline
-```json
-{
-  "name": "full_episode_production",
-  "description": "From raw footage to distribution",
-  "agents": ["video_editor", "audio_engineer", "social_media_manager", "content_distributor"],
-  "steps": [
-    {
-      "step": 1,
-      "agent": "video_editor",
-      "action": "video_analysis",
-      "input": "raw_footage",
-      "output": "footage_analysis"
-    },
-    {
-      "step": 2,
-      "agent": "audio_engineer", 
-      "action": "audio_cleanup",
-      "input": "raw_audio",
-      "output": "clean_audio"
-    },
-    {
-      "step": 3,
-      "agent": "video_editor",
-      "action": "smart_cut",
-      "input": "footage_analysis",
-      "output": "edited_video"
-    },
-    {
-      "step": 4,
-      "agent": "sponsorship_manager",
-      "action": "content_creator",
-      "input": "sponsor_info",
-      "output": "sponsor_content"
-    },
-    {
-      "step": 5,
-      "agent": "audio_engineer",
-      "action": "sponsor_integration",
-      "input": "clean_audio + sponsor_content",
-      "output": "final_audio"
-    },
-    {
-      "step": 6,
-      "agent": "video_editor",
-      "action": "create_short",
-      "input": "edited_video",
-      "output": "short_content"
-    },
-    {
-      "step": 7,
-      "agent": "content_distributor",
-      "action": "website_publisher",
-      "input": "final_episode_package",
-      "output": "published_episode"
-    },
-    {
-      "step": 8,
-      "agent": "social_media_manager",
-      "action": "cross_platform_post",
-      "input": "short_content + episode_info",
-      "output": "social_posts"
-    }
-  ]
-}
-```
-
-### Tour Promotion Campaign
-```json
-{
-  "name": "tour_promotion_campaign",
-  "description": "Comprehensive tour marketing",
-  "agents": ["tour_manager", "social_media_manager", "content_distributor"],
-  "steps": [
-    {
-      "step": 1,
-      "agent": "tour_manager",
-      "action": "tour_scheduler",
-      "input": "tour_requirements",
-      "output": "tour_schedule"
-    },
-    {
-      "step": 2,
-      "agent": "content_distributor",
-      "action": "tour_manager",
-      "input": "tour_schedule",
-      "output": "website_updates"
-    },
-    {
-      "step": 3,
-      "agent": "social_media_manager",
-      "action": "content_planner",
-      "input": "tour_info",
-      "output": "promotion_calendar"
-    },
-    {
-      "step": 4,
-      "agent": "tour_manager",
-      "action": "event_promoter",
-      "input": "tour_schedule",
-      "output": "campaign_content"
-    },
-    {
-      "step": 5,
-      "agent": "social_media_manager",
-      "action": "cross_platform_post",
-      "input": "campaign_content",
-      "output": "live_promotions"
-    }
-  ]
-}
-```
-
----
-
-## Agent Communication Protocols
-
-### Inter-Agent Data Sharing
-- **Video → Audio**: Timestamps for sponsor insertions
-- **Audio → Social**: Audio clips for promotional content  
-- **Social → Content**: Engagement metrics for optimization
-- **Content → Tour**: Website traffic and conversion data
-- **Sponsorship → All**: Integration requirements and restrictions
-
-### Error Handling and Escalation
-- **Tier 1**: Automatic retry with alternative parameters
-- **Tier 2**: Human intervention required
-- **Tier 3**: Critical failure - stop workflow and alert
-
-### Quality Assurance
-- **Content Review**: Automated brand safety and quality checks
-- **Performance Monitoring**: Real-time tracking of key metrics
-- **Feedback Loops**: Continuous improvement based on performance data
+### Distribution Tools
+- **CDN Management**: Cloudflare integration for fast delivery
+- **SEO Optimization**: Automated SEO and metadata management
+- **Analytics Platforms**: Multi-platform analytics integration
+- **Content Syndication**: Automated podcast platform distribution
 
 ---
 
 ## Configuration Management
 
-### Environment Variables
-All agents support environment variable configuration for:
-- API keys and tokens
-- Model selection and parameters
-- Rate limiting and throttling
-- Logging and monitoring settings
+### Environment Configuration
+```json
+{
+  "production_agents": {
+    "core_agent": "gpt-4o",
+    "specialized_agents": "gpt-4o",
+    "mcp_servers": "node_based",
+    "api_integrations": "complete_coverage"
+  },
+  "quality_standards": {
+    "audio": "48kHz_24bit_-16LUFS",
+    "video": "4K_60fps_minimum",
+    "content": "brand_compliant",
+    "performance": "3%_engagement_minimum"
+  },
+  "workflows": {
+    "episode_production": "automated_pipeline",
+    "social_media": "cross_platform_automation",
+    "sponsor_management": "end_to_end_tracking",
+    "tour_management": "complete_coordination"
+  }
+}
+```
 
-### Scalability
-- **Horizontal Scaling**: Multiple agent instances for high-volume workloads
-- **Load Balancing**: Intelligent task distribution
-- **Caching**: Response caching for improved performance
+### Performance Configuration
+```json
+{
+  "response_times": {
+    "agent_response": "5_seconds",
+    "workflow_handoff": "10_seconds",
+    "quality_check": "30_seconds",
+    "error_recovery": "1_minute"
+  },
+  "reliability": {
+    "uptime": "99.9%",
+    "error_rate": "<2%",
+    "success_rate": ">98%",
+    "recovery_time": "<5_minutes"
+  },
+  "scalability": {
+    "concurrent_tasks": 50,
+    "load_multiplier": 10,
+    "auto_scaling": true,
+    "resource_efficiency": "80%_minimum"
+  }
+}
+```
 
-### Monitoring and Analytics
-- **Performance Metrics**: Response times, success rates, error rates
-- **Business Intelligence**: Content performance, ROI, audience growth
-- **Resource Usage**: Compute costs, API usage, storage consumption
+---
+
+## Security and Compliance
+
+### Data Security
+- **Encryption**: AES-256 for all sensitive data
+- **Access Control**: Role-based access with 2FA
+- **Audit Logging**: Complete audit trail for all actions
+- **Data Privacy**: GDPR and privacy law compliance
+
+### Platform Compliance
+- **API Terms**: Compliance with all platform terms of service
+- **Content Guidelines**: Adherence to platform content policies
+- **Rate Limiting**: Respect all API rate limits
+- **Copyright**: Ensure all content usage is properly licensed
+
+### Business Compliance
+- **Sponsor Disclosure**: Proper disclosure of all sponsored content
+- **Guest Releases**: Signed releases for all guest appearances
+- **Location Releases**: Proper releases for filming locations
+- **Contract Compliance**: Adherence to all contractual obligations
+
+---
+
+## Testing and Validation
+
+### Test Coverage Requirements
+- **Unit Tests**: 95%+ code coverage for all agents
+- **Integration Tests**: Complete workflow testing
+- **Performance Tests**: Load testing and scalability validation
+- **Security Tests**: Security vulnerability assessments
+
+### Validation Procedures
+- **Functional Testing**: Complete functionality validation
+- **Performance Testing**: Performance requirement validation
+- **Compliance Testing**: Compliance requirement validation
+- **User Acceptance**: End-user experience validation
+
+### Continuous Improvement
+- **Performance Monitoring**: Real-time performance tracking
+- **Error Analysis**: Root cause analysis for all errors
+- **Optimization**: Continuous performance optimization
+- **Capability Enhancement**: Regular capability expansion
+
+---
+
+## Deployment and Operations
+
+### Deployment Strategy
+- **Blue-Green Deployment**: Zero-downtime deployments
+- **Rollback Capability**: Instant rollback capability
+- **Health Checks**: Comprehensive health monitoring
+- **Performance Monitoring**: Real-time performance tracking
+
+### Operational Procedures
+- **Monitoring**: 24/7 system monitoring
+- **Alerting**: Proactive alerting for issues
+- **Incident Response**: Structured incident response procedures
+- **Maintenance**: Regular maintenance windows and procedures
+
+### Backup and Recovery
+- **Data Backup**: Automated backup systems
+- **Disaster Recovery**: Comprehensive disaster recovery plans
+- **Recovery Testing**: Regular recovery testing
+- **Business Continuity**: Business continuity planning

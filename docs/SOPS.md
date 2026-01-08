@@ -1,31 +1,18 @@
 # SOPs (Standard Operating Procedures)
 
-## Ingest (raw footage)
+Use this index to navigate the SOPs for each phase of production. Each SOP contains its own checklist and placeholders to update as tools and workflows mature.
 
-- Collect all camera files, audio tracks, and timecode logs
-- Rename using format: `YYYYMMDD_episode_x_camera_A.ext` and place in `raw_videos/<episode>/`
-- Generate proxy files for editing (ProRes/Cineform or h264 proxies)
+## SOP Index
+- `docs/SOPS_SHOW_PREP.md` - episode planning, guest info, and show prep checklists
+- `docs/SOPS_SPONSORS_AND_PLUGS.md` - sponsor reads, disclosures, and guest plugs
+- `docs/SOPS_LIVE_PRODUCTION.md` - OBS setup, pre-show checks, and multicast workflow
+- `docs/SOPS_POST_PRODUCTION.md` - editing, audio mix, captions, and exports
+- `docs/SOPS_CLIPS_SOCIAL.md` - clip creation, social copy, scheduling, validation
+- `docs/SOPS_PUBLISHING.md` - release steps for YouTube, website, and socials
+- `docs/SOPS_QA.md` - quality checks before release
+- `docs/SOPS_BACKUP_ARCHIVE.md` - storage, backups, and archive strategy
 
-## Rough Cut
-
-- Create multicam sequence with labeled tracks
-- Remove obvious dead air, long gaps, and redundant tangents
-
-## Audio
-
-- Normalize LUFS to -14 LUFS (podcast/streaming) for final render
-- Clean noise, remove hums, use gating as needed
-
-## Clip creation
-
-- Create short clips 15–90s, captions burned or sidecar .srt/.vtt
-- Export in 1080x1080 (IG), 1080x1350 (feed), and 1920x1080 (YT shorts)
-
-## Deliverable naming
-
-`<episode>-final.mp4`, `<episode>-audio.mp3`, `<episode>-clip-01.mp4`, `<episode>-transcript.vtt`
-
-## Publishing
-
-- Upload to YouTube and schedule the episode
-- Publish show notes & transcript to website and post assets to socials
+## Operating Notes
+- Keep checklists updated when tools or platforms change.
+- Add new SOPs for any new workflow area (and link them here).
+- Use `docs/DELIVERABLES.md` for export specs and targets.

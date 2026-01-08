@@ -13,3 +13,11 @@ providers:
     mode: api
   yt_short:
     mode: api
+  youtube:
+    mode: api
+  tiktok:
+    mode: api
+  linkedin:
+    mode: api
+  facebook:
+    mode: api

@@ -28,8 +28,10 @@ ch.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 logger.addHandler(ch)
 
 
-def publish_via_mcp(endpoint, api_key, platforms, metadata):
+def publish_via_mcp(endpoint, api_key, platforms, metadata, scheduled_for=None):
     payload = {'platforms': platforms, 'metadata': metadata}
+    if scheduled_for:
+        payload['scheduled_for'] = scheduled_for
     headers = {'Content-Type': 'application/json'}
     if api_key:
         headers['Authorization'] = f'Bearer {api_key}'
@@ -39,12 +41,12 @@ def publish_via_mcp(endpoint, api_key, platforms, metadata):
     return resp.json()
 
 
-def publish_via_api(platforms, metadata):
+def publish_via_api(platforms, metadata, scheduled_for=None):
     results = {}
     for p in platforms:
         text = render_post(p, metadata)
         # For now, we schedule immediately (stub); integrate provider APIs here.
-        r = schedule_post(p, metadata)
+        r = schedule_post(p, metadata, when=scheduled_for)
         results[p] = {'rendered': text, 'scheduled': r}
     return results
 
@@ -56,6 +58,7 @@ def main():
     parser.add_argument('--platforms', required=True)
     parser.add_argument('--metadata', required=True, help='JSON file with metadata keys expected by templates')
     parser.add_argument('--api-key', help='Optional API key for MCP')
+    parser.add_argument('--schedule-at', help='ISO-8601 timestamp for scheduling')
     args = parser.parse_args()
 
     platforms = [p.strip() for p in args.platforms.split(',') if p.strip()]
@@ -65,9 +68,15 @@ def main():
     if args.mode == 'mcp':
         if not args.endpoint:
             raise SystemExit('MCP endpoint is required for mode=mcp')
-        out = publish_via_mcp(args.endpoint, args.api_key or os.environ.get('MCP_API_KEY'), platforms, metadata)
+        out = publish_via_mcp(
+            args.endpoint,
+            args.api_key or os.environ.get('MCP_API_KEY'),
+            platforms,
+            metadata,
+            scheduled_for=args.schedule_at,
+        )
     else:
-        out = publish_via_api(platforms, metadata)
+        out = publish_via_api(platforms, metadata, scheduled_for=args.schedule_at)
 
     print(json.dumps(out, indent=2))
 

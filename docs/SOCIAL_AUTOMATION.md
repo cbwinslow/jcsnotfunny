@@ -36,6 +36,13 @@ This document describes the architecture and decision matrix for social publish 
 - Unit tests (rendering, template validation) should run locally without credentials
 - Integration smoke tests should be run in a staging project with test credentials and scheduled in CI
 
+## Workflow utilities
+
+- Use `scripts/social_workflows.py` for unified API/MCP publish, scheduling, and validation helpers.
+- `SocialWorkflow` loads `.env` values on init (no external dependencies) and exposes `publish`, `fetch_recent_posts`, and `validate_post`.
+- Validation utilities (`validate_post_delivery`, `check_release_timing`) help verify scheduled releases and troubleshoot timing drift.
+  - Tests for these live in `tests/test_social_workflows.py`.
+
 ## Example prompts for Copilot/Agents
 
 - "Render social posts for episode `ep05` and schedule to `x,instagram` using metadata in `website/content/ep05.json`"

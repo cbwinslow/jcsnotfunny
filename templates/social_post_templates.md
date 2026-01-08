@@ -13,3 +13,12 @@ YouTube Description (Episode):
 
 YouTube Short (Description):
 "Clip from {title} w/ {guest} — Watch the full episode: {ep_link}"
+
+TikTok (Caption):
+"Clip from {title} — {guest} | {ep_link}"
+
+LinkedIn (Post):
+"{title} — New episode with {guest}. Watch: {ep_link}"
+
+Facebook (Post):
+"{title} — New episode with {guest}. Watch: {ep_link}"

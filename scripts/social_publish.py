@@ -1,7 +1,7 @@
 """Social publish helper (stub)
 
 Generates post text from templates and offers helper methods to post to
-Twitter/X, Instagram, Facebook, or scheduling services (Buffer, Hootsuite).
+X, Instagram, TikTok, LinkedIn, Facebook, or scheduling services (Buffer, Hootsuite).
 
 Environment variables:
 - X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN (for Twitter/X)
@@ -10,7 +10,7 @@ Environment variables:
 """
 import os
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 logger = logging.getLogger('social_publish')
 logger.setLevel(logging.INFO)
@@ -19,9 +19,13 @@ ch.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 logger.addHandler(ch)
 
 POST_TEMPLATES = {
-    'x': "{title} — New episode: {ep_link} | Guest: {guest} | {date} #JaredsNotFunny",
+    'x': "{title} — New episode: {ep_link} | Guest: {guest} #JaredsNotFunny",
     'instagram': "{title}\n\nGuest: {guest}\n\nListen/link in bio: {ep_link}\n\n#podcast #comedy",
     'yt_short': "Clip: {title} — {guest} | Watch full ep: {ep_link}",
+    'youtube': "{title}\nGuest: {guest}\nWatch: {ep_link}",
+    'tiktok': "Clip from {title} — {guest} | {ep_link}",
+    'linkedin': "{title} — New episode with {guest}. Watch: {ep_link}",
+    'facebook': "{title} — New episode with {guest}. Watch: {ep_link}",
 }
 
 
@@ -41,7 +45,7 @@ def render_post(platform, metadata):
 
 def schedule_post(platform, metadata, when=None):
     text = render_post(platform, metadata)
-    when = when or datetime.utcnow().isoformat()
+    when = when or datetime.now(timezone.utc).isoformat()
     logger.info('Scheduling on %s at %s', platform, when)
     logger.debug('\n%s\n', text)
     # Implement API calls to scheduling provider or direct publish
