@@ -120,24 +120,30 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 
 ---
 
-## 6) Website & SEO
+## 6) Website & SEO (UPDATED - WEBSITE EXISTS)
 
-- Summary: Build skeleton site (Next.js/Astro) and SEO checklists with templates for episode pages
+- Summary: **WEBSITE ALREADY EXISTS** at https://www.jaredsnotfunny.com/ - Focus on SEO optimization and analytics integration for existing Google Sites
+- Status: ✅ **WEBSITE COMPLETE** - Professional Google Sites site already operational
 - Subtasks:
-- Scaffold `website/` starter with episode template, sitemap, robots
-- Add JSON-LD schemas and meta templates
-- Add sample episode page using demo data
-- Acceptance criteria: local site build runs and renders sample episode, SEO checklist is in repo
+- [x] ~~Scaffold `website/` starter with episode template, sitemap, robots~~ - **NOT NEEDED**
+- [ ] Add Google Analytics and Search Console integration
+- [ ] Optimize existing site for SEO (meta tags, structured data)
+- [ ] Create automated social media promotion system
+- [ ] Set up performance monitoring and reporting
+- Acceptance criteria: Analytics installed, SEO implemented, social media automation active
 - Labels: `area/website`, `priority/high`
-- Estimate: 3–5 days
-- GitHub issue: [#9](https://github.com/cbwinslow/jcsnotfunny/issues/9)
+- Estimate: 1-2 days (reduced from 3-5 days)
+- GitHub issue: [#9](https://github.com/cbwinslow/jcsnotfunny/issues/9) - **UPDATED**
 - Microgoals:
-- [ ] Scaffold `website/` with episode template
-- [ ] Add JSON-LD schemas and meta templates
-- [ ] Create sample episode page with demo data
-- [ ] Test local site build
+- [x] ~~Scaffold `website/` with episode template~~ - **COMPLETE (website exists)**
+- [ ] Install Google Analytics on existing site
+- [ ] Set up Search Console verification
+- [ ] Create social media automation workflows
+- [ ] Implement SEO optimization for Google Sites
 - Tests:
-- [ ] Add unit tests for metadata serialization
+- [ ] Verify analytics tracking is working
+- [ ] Test social media automation
+- [ ] Validate SEO improvements
 - [ ] Add end-to-end smoke test that builds the site locally
 
 ---

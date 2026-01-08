@@ -310,6 +310,68 @@ class ToolDependencyError(ToolError):
         )
 
 
+# Domain-specific errors (used by higher-level toolsets)
+class VideoAnalysisError(ToolError):
+    """Error raised for video analysis specific failures."""
+
+    def __init__(self, message: str, context: Optional[Dict[str, Any]] = None, original_exception: Optional[Exception] = None):
+        recovery_suggestions = [
+            "Verify the input video file path and accessibility",
+            "Check the installed video processing dependencies",
+            "Ensure sufficient system resources for analysis",
+        ]
+        super().__init__(message=message, error_type="video_analysis", context=context, recovery_suggestions=recovery_suggestions, original_exception=original_exception)
+
+
+class AudioProcessingError(ToolError):
+    """Error raised for audio processing failures."""
+
+    def __init__(self, message: str, context: Optional[Dict[str, Any]] = None, original_exception: Optional[Exception] = None):
+        recovery_suggestions = [
+            "Verify the input audio file format and codecs",
+            "Confirm required audio tooling (ffmpeg, sox) is installed",
+            "Reduce processing quality to fit resource constraints"
+        ]
+        super().__init__(message=message, error_type="audio_processing", context=context, recovery_suggestions=recovery_suggestions, original_exception=original_exception)
+
+
+class SchedulingError(ToolError):
+    """Error raised for general scheduling failures."""
+
+    def __init__(self, message: str, context: Optional[Dict[str, Any]] = None, original_exception: Optional[Exception] = None):
+        recovery_suggestions = [
+            "Check scheduling service availability",
+            "Verify platform API credentials and scopes",
+            "Retry the scheduling operation after a short delay"
+        ]
+        super().__init__(message=message, error_type="scheduling", context=context, recovery_suggestions=recovery_suggestions, original_exception=original_exception)
+
+
+class SchedulingConflictError(SchedulingError):
+    """Raised when a scheduling conflict occurs (overlapping times)."""
+
+    def __init__(self, message: str, conflicting_items: Optional[List[str]] = None, context: Optional[Dict[str, Any]] = None):
+        ctx = context or {}
+        if conflicting_items:
+            ctx['conflicts'] = conflicting_items
+        recovery_suggestions = [
+            "Adjust scheduled times to avoid conflicts",
+            "Check the timezone settings for scheduled items"
+        ]
+        super().__init__(message=message, context=ctx, original_exception=None)
+
+
+class SchedulingValidationError(SchedulingError):
+    """Raised for validation errors related to scheduling input."""
+
+    def __init__(self, message: str, field: Optional[str] = None, value: Optional[str] = None, context: Optional[Dict[str, Any]] = None):
+        ctx = context or {}
+        if field:
+            ctx['field'] = field
+            ctx['invalid_value'] = value
+        super().__init__(message=message, context=ctx, original_exception=None)
+
+
 class ErrorHandler:
     """
     Centralized error handling utility.

@@ -1,0 +1,30 @@
+{
+  "shorts_automation": {
+    "path": "docs/knowledge_base/SHORTS_AUTOMATION.md",
+    "intent": "shorts-automation-summary"
+  },
+  "edl_automation": {
+    "path": "docs/knowledge_base/EDL_AUTOMATION.md",
+    "intent": "edl-selection-rules"
+  },
+  "transcription": {
+    "path": "docs/knowledge_base/TRANSCRIPTION.md",
+    "intent": "transcription-and-diarization"
+  },
+  "mcp_servers": {
+    "path": "docs/knowledge_base/MCP_SERVERS.md",
+    "intent": "mcp-servers-quick"
+  },
+  "agents_tools_index": {
+    "path": "docs/knowledge_base/AGENTS_TOOLS_INDEX.md",
+    "intent": "agents-tools-map"
+  },
+  "links": {
+    "path": "docs/links_and_channels.md",
+    "intent": "social-links"
+  },
+  "growth_playbook": {
+    "path": "docs/growth/GROWTH_PLAYBOOK.md",
+    "intent": "growth-playbook"
+  }
+}

@@ -217,6 +217,36 @@ class PostRecord:
         }
 
 
+class SocialWorkflowManager:
+    """Lightweight manager for scheduling and publishing social posts (test friendly)."""
+
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        self.config = config or {}
+
+    def schedule(self, content: str, platforms: List[str], media_path: Optional[str] = None, schedule_time: Optional[str] = None, dry_run: bool = True) -> Dict[str, Dict[str, Any]]:
+        results: Dict[str, Dict[str, Any]] = {}
+        for p in platforms:
+            platform = normalize_platform(p)
+            try:
+                # Basic validation of media if provided
+                if media_path and not os.path.exists(media_path):
+                    raise FileNotFoundError(f"Media not found: {media_path}")
+
+                # For dry_run, return simulated success
+                if dry_run:
+                    results[platform] = {'status': 'success', 'platform': platform}
+                    continue
+
+                # Otherwise, attempt to schedule with scheduler client if available
+                resp = schedule_post(platform=platform, content=content, media_path=media_path, schedule_time=schedule_time)
+                results[platform] = dict(status='success', platform=platform, response=resp)
+
+            except Exception as e:
+                results[platform] = {'status': 'error', 'error': str(e)}
+
+        return results
+
+
 @dataclass
 class ValidationReport:
     platform: str

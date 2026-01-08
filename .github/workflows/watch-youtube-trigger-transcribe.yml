@@ -1,0 +1,25 @@
+name: Watch YouTube → Trigger Transcribe (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: 'YouTube video id'
+        required: false
+      channel_id:
+        description: 'YouTube channel id'
+        required: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show inputs
+        run: |
+          echo "video_id: ${{ github.event.inputs.video_id }}"
+          echo "channel_id: ${{ github.event.inputs.channel_id }}"
+
+      - name: Example: dispatch transcribe (user action)
+        run: |
+          echo "This workflow demonstrates a manual trigger for transcribe-integration.yml."
+          echo "In production the watcher could call: `gh workflow run transcribe-integration.yml -f video_id=<id>`"
