@@ -29,6 +29,12 @@ jobs:
       - name: Run transcription-related pytest tests
         run: pytest tests/test_transcription_fixtures.py tests/test_whisperx_alignment.py tests/test_diarization_accuracy.py tests/test_diar_metrics.py -q
 
+      - name: Run YouTube Shorts pipeline integration (dry-run)
+        env:
+          WRITE_OUTPUTS: 1
+        run: |
+          python -m pytest tests/test_youtube_shorts_pipeline_integration.py -q
+
       - name: Simulate pipeline outputs (copy fixtures to outputs)
         run: |
           mkdir -p outputs

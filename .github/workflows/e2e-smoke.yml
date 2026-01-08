@@ -29,6 +29,12 @@ jobs:
       - name: Run transcribe integration subset
         run: pytest tests/test_transcription_fixtures.py tests/test_whisperx_alignment.py -q
 
+      - name: Run YouTube Shorts pipeline integration (dry-run)
+        env:
+          WRITE_OUTPUTS: 1
+        run: |
+          python -m pytest tests/test_youtube_shorts_pipeline_integration.py -q
+
       - name: Simulate auto-edit artifact generation (placeholder)
         run: |
           mkdir -p outputs
