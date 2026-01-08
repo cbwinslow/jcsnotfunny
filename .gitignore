@@ -15,3 +15,6 @@ assets/generated/
 # secrets
 secrets.json
 cloudflare.token
+
+# supermemory deployment package (enterprise-only)
+deployments/supermemory/

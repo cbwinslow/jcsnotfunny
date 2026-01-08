@@ -14,6 +14,8 @@ Define clip creation, social asset prep, and scheduling/validation procedures.
 - [ ] Prioritize moments with hooks in the first 3 seconds.
 - [ ] Confirm no spoilers or sensitive content.
 - [ ] Document clip title, platform, and CTA.
+  - Tool: `python scripts/clip_generator.py --mode interesting ...`
+  - URL input supported (downloads via `yt-dlp`).
 
 ## Checklist - Clip Editing
 - [ ] Create 15-90 second clips for each platform.

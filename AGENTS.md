@@ -360,6 +360,46 @@ Node.js-based MCP server for comprehensive social media management.
 
 ---
 
+### Supermemory Memory Server (remote MCP)
+
+Memory-focused MCP server backed by Supermemory for cross-agent recall.
+For enterprise self-hosting, follow `docs/SUPERMEMORY_SELF_HOSTING.md`.
+
+| Property        | Value                                                    |
+| --------------- | -------------------------------------------------------- |
+| **Type**        | Stdio-based MCP Server                                   |
+| **Entry Point** | `npx @iflow-mcp/supermemoryai_supermemory-mcp@latest`     |
+| **Notes**       | Prefer latest setup from `https://app.supermemory.ai`     |
+
+#### Configuration (`agents_config.json`)
+
+```json
+{
+  "mcp_servers": {
+    "supermemory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@iflow-mcp/supermemoryai_supermemory-mcp@latest"],
+      "env": {
+        "SUPERMEMORY_API_KEY": "${SUPERMEMORY_API_KEY}",
+        "SUPERMEMORY_PROJECT": "${SUPERMEMORY_PROJECT}"
+      },
+      "enabled": true,
+      "tools": []
+    }
+  }
+}
+```
+
+To use the hosted Supermemory MCP instead of a local/stdio instance, set `mcpServers.supermemory.url` in `configs/master_settings.json` to `https://mcp.supermemory.ai/mcp`.
+
+
+#### Available Tools
+
+Tooling is discovered at runtime; use your MCP client to list available memory tools.
+
+---
+
 ## Toolsets Reference
 
 ### Video Editing Toolsets

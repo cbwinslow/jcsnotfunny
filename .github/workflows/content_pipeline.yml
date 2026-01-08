@@ -1,0 +1,53 @@
+name: Content Pipeline
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [youtube_upload]
+  schedule:
+    - cron: '0 * * * *' # every hour (fallback poll)
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  run-content-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          pip install -r requirements.txt
+
+      - name: Parse event
+        id: parse
+        run: |
+          echo "EPISODE_ID=$(jq -r '.client_payload.episode_id // env.EPISODE_ID' <<< "${{ toJson(github.event) }}")" >> $GITHUB_ENV || true
+
+      - name: Run production launcher
+        env:
+          GITHUB_REPO_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPO_NAME: ${{ github.event.repository.name || github.repository }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python production_launcher.py --episode-id "$EPISODE_ID"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated_clips
+          path: generated_clips/**
+
+      - name: Notify
+        if: failure()
+        run: |
+          echo "Notify team: pipeline failed for $EPISODE_ID" && exit 0

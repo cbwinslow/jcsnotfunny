@@ -37,7 +37,8 @@ class YouTubeShortsPipeline:
         self.funny_moment_agent = FunnyMomentAgent()
 
     def run_pipeline(self, youtube_url: str, output_dir: str = "youtube_shorts",
-                    min_clip_duration: float = 8.0, max_clip_duration: float = 60.0) -> Dict[str, Any]:
+                    min_clip_duration: float = 8.0, max_clip_duration: float = 60.0,
+                    dry_run: bool = True) -> Dict[str, Any]:
         """Run the complete YouTube shorts creation pipeline."""
         logger.info(f"Starting YouTube Shorts pipeline for: {youtube_url}")
 
@@ -59,16 +60,17 @@ class YouTubeShortsPipeline:
         funny_moments = self._analyze_funny_moments(transcript_info['vtt_file'], min_clip_duration, max_clip_duration)
         logger.info(f"Found {funny_moments['total_segments']} funny segments")
 
-        # Step 4: Identify and create funny clips
-        logger.info("Step 4/5: Creating funny clips...")
+        # Step 4: Identify and create funny clips (EDL + shorts generation)
+        logger.info("Step 4/6: Creating funny clips via EDL...")
         clips_info = self._create_funny_clips(
             video_info['video_path'],
             transcript_info['vtt_file'],
             output_dir,
             min_clip_duration,
-            max_clip_duration
+            max_clip_duration,
+            dry_run=dry_run
         )
-        logger.info(f"Created {clips_info['total_clips']} funny clips")
+        logger.info("Created %d funny clips" % clips_info.get('total_clips', 0))
 
         # Step 5: Generate pipeline report
         logger.info("Step 5/5: Generating pipeline report...")
@@ -168,31 +170,60 @@ class YouTubeShortsPipeline:
             raise
 
     def _create_funny_clips(self, video_path: str, transcript_path: str, output_dir: str,
-                           min_duration: float, max_duration: float) -> Dict[str, Any]:
-        """Create funny clips from video."""
+                           min_duration: float, max_duration: float, dry_run: bool = True) -> Dict[str, Any]:
+        """Create funny clips from video using EDL generator and shorts generator."""
         try:
             clips_output_dir = os.path.join(output_dir, "funny_clips")
             Path(clips_output_dir).mkdir(parents=True, exist_ok=True)
 
-            # Identify funny clips
-            clip_params = {
-                "video_path": video_path,
+            # First attempt to get candidate segments from the funny moment analyzer
+            analysis_params = {
                 "transcript_path": transcript_path,
-                "output_dir": clips_output_dir,
-                "min_clip_duration": min_duration,
-                "max_clip_duration": max_duration
+                "min_duration": min_duration,
+                "max_duration": max_duration
             }
 
-            result = self.funny_moment_agent.execute_tool("identify_funny_clips", clip_params)
+            analysis_result = self.funny_moment_agent.execute_tool("analyze_transcript", analysis_params)
+            segments = analysis_result.get("funny_segments", [])
 
-            # Actually create the video clips
-            self._generate_video_clips(result["funny_clips"])
+            # Use EDL selection to pick best candidate clips
+            try:
+                from scripts.auto_edit.edl_generator import select_candidate_clips, write_edl
+                from scripts.shorts.generate_short import generate_clips_from_edl
+            except Exception:
+                # If import fails, fall back to using the agent-identified clips
+                segments = segments or []
+
+            edl_path = os.path.join(output_dir, "edl.json")
+            clips = select_candidate_clips(segments, min_duration=min_duration, max_duration=max_duration)
+            write_edl(clips, edl_path)
+
+            # Generate clips (dry-run creates placeholders)
+            generated = generate_clips_from_edl(video_path, clips, clips_output_dir, dry_run=dry_run)
+
+            # Normalize clip dicts to expected schema (start_time, end_time, duration)
+            normalized_clips = []
+            for c, g in zip(clips, generated):
+                start = c.get("start") or c.get("start_time")
+                end = c.get("end") or c.get("end_time")
+                duration = c.get("duration") or (end - start if (start is not None and end is not None) else None)
+                clip_id = c.get("clip_id") or c.get("id") or None
+                normalized_clips.append({
+                    "clip_id": clip_id,
+                    "start_time": start,
+                    "end_time": end,
+                    "duration": duration,
+                    "funny_score": c.get("funny_score"),
+                    "text": c.get("text", ""),
+                    "video_path": video_path,
+                    "output_path": g,
+                })
 
             return {
-                "funny_clips": result["funny_clips"],
-                "total_clips": result["total_clips"],
-                "output_dir": result["output_dir"],
-                "clips_info_file": result["clips_info_file"]
+                "funny_clips": normalized_clips,
+                "total_clips": len(normalized_clips),
+                "output_dir": clips_output_dir,
+                "clips_info_file": edl_path
             }
 
         except Exception as e:
@@ -302,7 +333,7 @@ def main():
             max_clip_duration=args.max_duration
         )
 
-        logger.info(f"\n=== PIPELINE COMPLETED ===")
+        logger.info("\n=== PIPELINE COMPLETED ===")
         logger.info(f"YouTube URL: {args.url}")
         logger.info(f"Funny segments found: {result['funny_moment_analysis']['total_segments']}")
         logger.info(f"Clips created: {result['clips_created']['total_clips']}")

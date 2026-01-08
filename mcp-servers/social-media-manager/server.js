@@ -79,7 +79,11 @@ class SocialMediaMCPServer {
                 description: { type: 'string', description: 'Video description' },
                 video_path: { type: 'string', description: 'Path to video file' },
                 tags: { type: 'array', items: { type: 'string' }, description: 'Video tags' },
-                schedule_time: { type: 'string', description: 'ISO datetime for scheduling (optional)' }
+                schedule_time: { type: 'string', description: 'ISO datetime for scheduling (optional)' },
+                YOUTUBE_API_KEY: { type: 'string', description: 'YouTube Data API Key (optional, typically from ENV)' },
+                YOUTUBE_CLIENT_ID: { type: 'string', description: 'YouTube OAuth Client ID (optional, typically from ENV)' },
+                YOUTUBE_CLIENT_SECRET: { type: 'string', description: 'YouTube OAuth Client Secret (optional, typically from ENV)' },
+                YOUTUBE_REFRESH_TOKEN: { type: 'string', description: 'YouTube OAuth Refresh Token (optional, typically from ENV)' }
               },
               required: ['title', 'description', 'video_path']
             }
@@ -127,6 +131,21 @@ class SocialMediaMCPServer {
               },
               required: ['platforms']
             }
+          },
+          {
+            name: 'search_youtube_videos',
+            description: 'Search for YouTube videos by query',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                query: { type: 'string', description: 'Search query' },
+                max_results: { type: 'number', description: 'Maximum number of results (default 5)', default: 5 },
+                order: { type: 'string', enum: ['relevance', 'date', 'viewCount', 'rating'], description: 'Order of results (default relevance)', default: 'relevance' },
+                published_after: { type: 'string', description: 'ISO datetime to search for videos published after' },
+                YOUTUBE_API_KEY: { type: 'string', description: 'YouTube Data API Key (optional, typically from ENV)' }
+              },
+              required: ['query']
+            }
           }
         ]
       };
@@ -145,6 +164,8 @@ class SocialMediaMCPServer {
             return await this.postToTikTok(args);
           case 'upload_to_youtube':
             return await this.uploadToYouTube(args);
+          case 'search_youtube_videos': // Added this new case
+            return await this.searchYouTubeVideos(args); // Added new function call
           case 'post_to_linkedin':
             return await this.postToLinkedIn(args);
           case 'cross_post':
@@ -312,12 +333,28 @@ class SocialMediaMCPServer {
     try {
       const { title, description, video_path, tags, schedule_time } = args;
       
-      // This would implement YouTube upload logic
-      // For now, return a placeholder response
+      const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || process.env.YT_API_KEY;
+      const YOUTUBE_CLIENT_ID = process.env.YOUTUBE_CLIENT_ID || process.env.YT_CLIENT_ID;
+      const YOUTUBE_CLIENT_SECRET = process.env.YOUTUBE_CLIENT_SECRET || process.env.YT_CLIENT_SECRET;
+      const YOUTUBE_REFRESH_TOKEN = process.env.YOUTUBE_REFRESH_TOKEN || process.env.YT_REFRESH_TOKEN;
+
+      if (!YOUTUBE_API_KEY || !YOUTUBE_CLIENT_ID || !YOUTUBE_CLIENT_SECRET || !YOUTUBE_REFRESH_TOKEN) {
+        throw new Error('Missing YouTube API credentials (YOUTUBE_API_KEY, YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN)');
+      }
+
+      // TODO: Implement actual YouTube upload logic using googleapis client library
+      // For a real implementation, you would:
+      // 1. Authenticate using OAuth2 with the provided client_id, client_secret, and refresh_token.
+      // 2. Obtain an access token.
+      // 3. Use the YouTube Data API (e.g., videos.insert) to upload the video file.
+      // 4. Handle resumable uploads for large files.
+      // 5. Set title, description, tags, and scheduling options.
+
       const result = {
         video_id: `youtube_${Date.now()}`,
         title: title,
-        status: schedule_time ? 'scheduled' : 'uploaded'
+        status: schedule_time ? 'scheduled' : 'uploaded',
+        message: 'YouTube upload functionality is a placeholder. Real implementation needed.'
       };
 
       return {
@@ -521,6 +558,64 @@ class SocialMediaMCPServer {
           {
             type: 'text',
             text: JSON.stringify({ success: true, analytics }, null, 2)
+          }
+        ]
+      };
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({ success: false, error: error.message }, null, 2)
+          }
+        ]
+      };
+    }
+  }
+
+  async searchYouTubeVideos(args) {
+    try {
+      const { query, max_results = 5, order = 'relevance', published_after, YOUTUBE_API_KEY } = args;
+
+      const api_key = YOUTUBE_API_KEY || process.env.YOUTUBE_API_KEY || process.env.YT_API_KEY;
+
+      if (!api_key) {
+        throw new Error('Missing YouTube API Key (YOUTUBE_API_KEY or YT_API_KEY)');
+      }
+
+      // TODO: Implement actual YouTube Data API v3 search here
+      // This would involve making an axios.get call to the YouTube Data API search endpoint
+      // Example endpoint: https://www.googleapis.com/youtube/v3/search
+      // Parameters: part=snippet, q=query, type=video, maxResults=max_results, order=order, publishedAfter=published_after
+
+      const mockResults = [
+        {
+          id: { videoId: 'mockVideo1' },
+          snippet: {
+            title: `Mock Video 1 for "${query}"`,
+            description: 'A placeholder video result.',
+            publishedAt: '2023-01-01T00:00:00Z',
+            channelTitle: 'Mock Channel',
+          },
+          link: 'https://www.youtube.com/watch?v=mockVideo1'
+        },
+        {
+          id: { videoId: 'mockVideo2' },
+          snippet: {
+            title: `Mock Video 2 for "${query}"`,
+            description: 'Another placeholder video result.',
+            publishedAt: '2023-02-01T00:00:00Z',
+            channelTitle: 'Mock Channel',
+          },
+          link: 'https://www.youtube.com/watch?v=mockVideo2'
+        },
+      ];
+
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({ success: true, results: mockResults, message: 'YouTube search functionality is a placeholder. Real implementation needed.' }, null, 2)
           }
         ]
       };

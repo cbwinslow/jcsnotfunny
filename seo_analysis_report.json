@@ -1,0 +1,166 @@
+{
+  "site_analysis": {
+    "current_pages": [
+      "Home (index)",
+      "Contact page",
+      "Upcoming shows (Linktree)",
+      "Stand-up TikTok",
+      "Podcast Episodes (YouTube)",
+      "Podcast Clips (TikTok)",
+      "T-Shirts (Canva)"
+    ],
+    "navigation_analysis": {
+      "issues": [
+        "External links in main navigation"
+      ],
+      "recommendation": "Consider internal linking strategy"
+    },
+    "mobile_optimization": {
+      "status": "Good (Google Sites mobile-friendly)",
+      "score": 85
+    }
+  },
+  "content_optimization": {
+    "missing_pages": [
+      "About page with detailed bio",
+      "Episode archive with timestamps",
+      "Guest profiles",
+      "Blog/content section",
+      "Newsletter signup"
+    ],
+    "content_gaps": [
+      "Detailed episode descriptions",
+      "Guest information and bios",
+      "Show notes and links",
+      "Transcript availability",
+      "Behind-the-scenes content"
+    ],
+    "keyword_opportunities": [
+      "roanoke comedy podcast",
+      "virginia stand up interviews",
+      "local comedian podcast",
+      "comedy conversations youtube",
+      "funny interviews viral clips",
+      "stand up comedy stories",
+      "podcast comedy clips tiktok",
+      "jared christianson comedy"
+    ]
+  },
+  "technical_seo": {
+    "google_sites_benefits": [
+      "Mobile-responsive design",
+      "Fast loading (Google infrastructure)",
+      "SSL certificate included",
+      "Basic SEO features built-in",
+      "Google Search Console integration"
+    ],
+    "limitations": [
+      "Limited customization options",
+      "Restricted plugin/app integration",
+      "Basic analytics only",
+      "Limited schema markup options"
+    ],
+    "optimization_priority": "Focus on content and YouTube integration"
+  },
+  "youtube_integration": {
+    "current_status": {
+      "channel": "@JaredsNotFunny",
+      "subscribers": 85,
+      "video_count": 4,
+      "total_views": 292
+    },
+    "optimization_opportunities": [
+      "Add end screens linking to website",
+      "Include website URL in video descriptions",
+      "Use consistent branding across platforms",
+      "Create playlists by topic/guest type",
+      "Add cards linking to social media",
+      "Optimize video titles for search",
+      "Add relevant tags to videos",
+      "Create custom thumbnails"
+    ],
+    "video_optimization_suggestions": [
+      "Title format: 'JAREDSNOTFUNNY feat [Guest Name] - [Topic] | [Year]'",
+      "Description structure: Hook + guest info + links + hashtags",
+      "Tags: comedy, podcast, [guest name], stand up, interviews",
+      "Timestamps for different topics",
+      "Call-to-action for website/socials"
+    ]
+  },
+  "local_seo": {
+    "local_keywords": [
+      "roanoke comedy",
+      "virginia comedian",
+      "roanoke entertainment",
+      "local comedy shows",
+      "southwest virginia events",
+      "roanoke valley entertainment"
+    ],
+    "local_seo_opportunities": [
+      "Google Business Profile optimization",
+      "Local event listings",
+      "Comedy club partnerships",
+      "Local media coverage",
+      "Community engagement",
+      "Local business directories"
+    ],
+    "geographic_targeting": [
+      "Roanoke, VA",
+      "Southwest Virginia",
+      "Virginia comedy scene",
+      "Blue Ridge Mountains area"
+    ]
+  },
+  "recommendations": [
+    {
+      "category": "Content",
+      "priority": "High",
+      "recommendation": "Create detailed show notes for each episode",
+      "steps": [
+        "Guest bio and background",
+        "Key discussion topics with timestamps",
+        "Mentioned resources and links",
+        "Relevant hashtags and keywords",
+        "Call-to-action for website"
+      ],
+      "impact": "Improves search visibility and user engagement"
+    },
+    {
+      "category": "YouTube Integration",
+      "priority": "High",
+      "recommendation": "Optimize YouTube videos for SEO",
+      "steps": [
+        "Consistent title formatting",
+        "Keyword-rich descriptions",
+        "Timestamps for topics",
+        "End screens with website links",
+        "Relevant tags and hashtags"
+      ],
+      "impact": "Drives traffic from YouTube search"
+    },
+    {
+      "category": "Local SEO",
+      "priority": "Medium",
+      "recommendation": "Target local comedy community",
+      "steps": [
+        "Google Business Profile setup",
+        "Local event promotion",
+        "Local keyword targeting",
+        "Community partnerships"
+      ],
+      "impact": "Builds local audience and show attendance"
+    },
+    {
+      "category": "Cross-Platform",
+      "priority": "Medium",
+      "recommendation": "Strengthen social media integration",
+      "steps": [
+        "Consistent branding across platforms",
+        "Cross-promotion between platforms",
+        "Social proof indicators on website",
+        "Social media automation setup"
+      ],
+      "impact": "Increases brand recognition and engagement"
+    }
+  ]
+}

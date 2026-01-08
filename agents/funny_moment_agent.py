@@ -157,9 +157,9 @@ class TranscriptAnalysisTool(RobustTool):
         """Check if text contains funny content."""
         text_lower = text.lower()
 
-        # Check for keywords
+        # Check for keywords using word boundaries to avoid substring false positives
         for keyword in keywords:
-            if keyword in text_lower:
+            if re.search(r"\b" + re.escape(keyword) + r"\b", text_lower):
                 return True
 
         # Check for patterns
@@ -174,9 +174,9 @@ class TranscriptAnalysisTool(RobustTool):
         score = 0.0
         text_lower = text.lower()
 
-        # Score based on keywords
+        # Score based on keywords (use word boundaries)
         for keyword in keywords:
-            if keyword in text_lower:
+            if re.search(r"\b" + re.escape(keyword) + r"\b", text_lower):
                 score += 0.5
 
         # Score based on patterns

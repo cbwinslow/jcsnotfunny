@@ -1,7 +1,7 @@
 # Project v2 Board — Automation Roadmap
 
-## Current Status: Automation Scaffolding Complete (January 2026)
-The foundational structure for our automation workflows has been laid out. All Python scripts identified in the `episode-production.yml` and `social-media-automation.yml` GitHub Actions workflows have been created as placeholders in the `scripts/` directory. This establishes the complete file architecture and command-line interfaces, enabling end-to-end testing of the workflow logic before core functionality is implemented.
+## Current Status: Automation Scaffolding & Initial MCP Setup Complete (January 2026)
+The foundational structure for our automation workflows has been laid out, and initial steps for MCP server configuration and Docker integration are complete. Placeholder Python scripts have been created, Dockerfiles have been generated for the Node.js social media manager and a new Python media processing server, and a `docker-compose.yml` file now orchestrates their deployment along with a Supabase MCP server. This establishes the complete file architecture and containerization strategy for our AI agents.
 
 ## Key Automation Areas & Next Steps:
 
@@ -41,5 +41,44 @@ The foundational structure for our automation workflows has been laid out. All P
 - **Validation & Quality Control:** Implement automated checks to ensure the quality and correctness of content at various stages.
 - **Externalize Configuration:** Refactor workflows to use externalized configuration (GitHub Secrets/Variables, config files) instead of hardcoded values.
 - **AI Agent Integration:** Introduce AI agents to enhance intelligent decision-making, such as advanced clip selection and dynamic content generation.
+
+---
+
+## MCP Server Configuration Plan
+
+This plan outlines the setup and integration of various Model Context Protocol (MCP) servers and Gemini CLI extensions to enhance automation and AI agent capabilities in your project.
+
+### 1. Node.js `social-media-manager` MCP Server
+
+*   **Description:** Unified tools for social media posting across Twitter (X), Instagram, TikTok, LinkedIn, YouTube uploads/search, and basic analytics.
+*   **Status:** Server structure, base tools, and Dockerfile are set up. YouTube upload/search/analytics tools are placeholders needing full implementation.
+*   **Key Tasks:** Implement full YouTube Data API v3 integration for uploads and search. Implement full analytics fetching for all integrated social platforms.
+
+### 2. New Python-based Media Processing MCP Server
+
+*   **Description:** Exposes Python-based tools for media processing tasks like transcription/subtitle generation and video analysis.
+*   **Status:** Directory, basic `server.py` with placeholder tools for `transcribe_media` and `analyze_video_content`, and Dockerfile are set up.
+*   **Key Tasks:** Implement `transcribe_media` (wrapping `scripts/transcribe.py`) and `analyze_video_content` (wrapping `scripts/video_analyzer.py`).
+
+### 3. Gemini CLI Extensions
+
+*   **Cloudflare MCP Extension:**
+    *   **Installation:** `gemini extensions install <Actual_GitHub_URL_for_Cloudflare_MCP_Extension>` (URL needs to be confirmed by user).
+    *   **Purpose:** Interact with Cloudflare Workers, R2, DNS, Logs.
+*   **PostgreSQL MCP Extension:**
+    *   **Installation:** `gemini extensions install https://github.com/gemini-cli-extensions/postgres`.
+    *   **Purpose:** Interact with PostgreSQL databases.
+*   **Supabase MCP Server (Node.js version):**
+    *   **Installation:** `npx -y @supabase/mcp-server-supabase@latest` (can be run via Docker Compose).
+    *   **Purpose:** CRUD operations, advanced querying, project management on Supabase.
+    *   **Security Note:** Recommended for development purposes only.
+
+### 4. Docker Integration
+
+*   **Description:** `docker-compose.yml` orchestrates the deployment of `social-media-mcp`, `media-processing-mcp`, and `supabase-mcp` as Docker containers.
+*   **Status:** `docker-compose.yml` and necessary Dockerfiles have been created.
+*   **Key Tasks:** Ensure all required environment variables are set in the host environment or a `.env` file for `docker-compose`.
+
+This plan provides a structured approach to integrating all the requested MCP capabilities.
 
 Further details on individual script implementations and cross-cutting enhancements can be found in the newly generated GitHub issue markdown files in the `github_issues_md/` directory.

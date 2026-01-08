@@ -5,6 +5,8 @@ const Header = () => {
     <header>
       <nav>
         <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/episodes">Episodes</Link>
         <Link href="/tour">Tour Dates</Link>
         <Link href="/gallery">Gallery</Link>
         <Link href="/contact">Contact</Link>

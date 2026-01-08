@@ -41,14 +41,51 @@ def transcribe_cmd(input_file, output_file, backend):
 @click.option('--input', '-i', 'input_video', required=True)
 @click.option('--transcript', '-t', 'transcript', required=True)
 @click.option('--outdir', '-o', 'outdir', required=True)
-def clips(input_video, transcript, outdir):
+@click.option('--mode', type=click.Choice(['all', 'interesting']), default='all')
+@click.option('--max-clips', type=int, default=10)
+@click.option('--min-duration', type=float, default=8.0)
+@click.option('--max-duration', type=float, default=None)
+@click.option('--pad-before', type=float, default=0.0)
+@click.option('--pad-after', type=float, default=0.0)
+@click.option('--diarization', default=None)
+@click.option('--report', default=None)
+@click.option('--download-dir', default='downloads')
+@click.option('--format', 'download_format', default='bestvideo[height<=2160]+bestaudio/best')
+def clips(
+    input_video,
+    transcript,
+    outdir,
+    mode,
+    max_clips,
+    min_duration,
+    max_duration,
+    pad_before,
+    pad_after,
+    diarization,
+    report,
+    download_dir,
+    download_format,
+):
     """Generate clips from video using transcript"""
     click.echo(f"Generating clips from {input_video} using {transcript}")
     clip_generator.main_args = lambda: None  # compatibility in case
     clip_generator.main.__call__ = None
     # call entrypoint
     # Use the library function to generate clips
-    clip_generator.generate_clips(input_video, transcript, outdir)
+    input_path = clip_generator.resolve_input(input_video, download_dir, download_format)
+    clip_generator.generate_clips(
+        input_path,
+        transcript,
+        outdir,
+        min_duration=min_duration,
+        max_duration=max_duration,
+        mode=mode,
+        max_clips=max_clips,
+        pad_before=pad_before,
+        pad_after=pad_after,
+        diarization_path=diarization,
+        report_path=report,
+    )
 
 @cli.command()
 @click.option('--video', required=True)

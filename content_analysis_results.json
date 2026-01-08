@@ -1,0 +1,225 @@
+{
+  "channel_analysis": {
+    "channel_info": {
+      "channel_id": "@JaredsNotFunny",
+      "subscriber_count": 85,
+      "video_count": 4,
+      "total_views": 292
+    },
+    "content_analysis": {
+      "content_frequency": {
+        "total_videos": 4,
+        "avg_views": 73.0,
+        "view_range": {
+          "min": 31,
+          "max": 131
+        }
+      },
+      "guest_analysis": {
+        "total_guests": 4,
+        "guest_names": [
+          "Toron Rodgers",
+          "Arthur Stump",
+          "Christinia Tynes",
+          "Jacob Davidson"
+        ],
+        "repeat_guests": []
+      },
+      "topic_analysis": [
+        "comedy",
+        "life experiences",
+        "career",
+        "food",
+        "local"
+      ],
+      "duration_analysis": {
+        "avg_duration": 57.5,
+        "duration_range": {
+          "min": 38.166666666666664,
+          "max": 68.66666666666667
+        },
+        "unit": "minutes"
+      },
+      "posting_frequency": {
+        "frequency": "weekly",
+        "consistency_score": 0.8,
+        "suggested_schedule": "Every Thursday"
+      }
+    },
+    "optimization_suggestions": [
+      "Focus on keyword optimization in titles and descriptions",
+      "Create more engaging thumbnails",
+      "Add relevant hashtags to improve discoverability",
+      "Replicate format of top video: JAREDSNOTFUNNY Feat Toron Rodgers #6",
+      "Create short-form clips from high-engagement segments",
+      "Optimize for YouTube SEO with relevant keywords",
+      "Add timestamps for better user experience"
+    ],
+    "top_performers": [
+      {
+        "video_id": "yCPDYXORg-A",
+        "title": "JAREDSNOTFUNNY Feat Toron Rodgers #6",
+        "description": "Jared Christianson sits down with Toron Rodgers as they discuss performing stand up comedy, production and life experiences.",
+        "view_count": 131,
+        "duration": "1:08:40",
+        "publish_date": "2025-09-10"
+      },
+      {
+        "video_id": "r3-HsQ6m6bs",
+        "title": "JAREDSNOTFUNNY Feat Arthur Stump #9",
+        "description": "JAREDSNOTFUNNY is proud to present one of Jared's most laid back and funniest comedians in the Roanoke valley Arthur Stump.",
+        "view_count": 88,
+        "duration": "58:40",
+        "publish_date": "2025-09-15"
+      },
+      {
+        "video_id": "QkPG-c5TjPc",
+        "title": "JAREDSNOTFUNNY feat Christinia Tynes",
+        "description": "Jared Christianson sits down with fellow local comedian Christinia Tynes and discuss all sorts of things while eating Bean Boozled.",
+        "view_count": 42,
+        "duration": "1:04:30",
+        "publish_date": "2025-12-10"
+      }
+    ]
+  },
+  "generated_content": [
+    {
+      "segment_index": 0,
+      "tiktok": {
+        "platform": "TikTok",
+        "content": {
+          "hook": "\ud83d\udd25 Hilarious reaction to pickle balls challenge...",
+          "body": "From podcast with Toron Rodgers",
+          "cta": "Follow @jaredsnotfunny for more!",
+          "hashtags": [
+            "#jaredsnotfunny",
+            "#podcast",
+            "#comedy",
+            "#fyp",
+            "#foryou",
+            "#viral",
+            "#foodchallenge"
+          ],
+          "duration": 60,
+          "timestamp": 480
+        },
+        "editing_instructions": {
+          "start_time": 480,
+          "end_time": 540,
+          "text_overlays": [
+            "Hilarious reaction to pickle b"
+          ],
+          "background_music": "trending comedy audio",
+          "subtitles": true,
+          "aspect_ratio": "9:16"
+        },
+        "metadata": {
+          "source_video": "yCPDYXORg-A",
+          "segment_score": 9.2,
+          "topic": "food challenge"
+        }
+      },
+      "youtube_short": {
+        "platform": "YouTube Shorts",
+        "content": {
+          "title": "Hilarious reaction to pickle balls chall... #shorts #podcast",
+          "description": "Clip from JAREDSNOTFUNNY podcast episode with Toron Rodgers\\n\\nFull episode: https://youtu.be/yCPDYXORg-A",
+          "hashtags": [
+            "#jaredsnotfunny",
+            "#podcast",
+            "#comedy",
+            "#shorts",
+            "#podcastclips",
+            "#foodchallenge"
+          ],
+          "duration": 60,
+          "timestamp": 480
+        },
+        "editing_instructions": {
+          "start_time": 480,
+          "end_time": 540,
+          "text_overlays": [
+            "JAREDSNOTFUNNY PODCAST",
+            "Hilarious reaction to pickle balls chall"
+          ],
+          "subtitles": true,
+          "aspect_ratio": "9:16"
+        },
+        "metadata": {
+          "source_video": "yCPDYXORg-A",
+          "segment_score": 9.2,
+          "topic": "food challenge"
+        }
+      }
+    },
+    {
+      "segment_index": 1,
+      "tiktok": {
+        "platform": "TikTok",
+        "content": {
+          "hook": "\ud83d\udd25 Funniest moment about comedy career...",
+          "body": "From podcast with Toron Rodgers",
+          "cta": "Follow @jaredsnotfunny for more!",
+          "hashtags": [
+            "#jaredsnotfunny",
+            "#podcast",
+            "#comedy",
+            "#fyp",
+            "#foryou",
+            "#viral",
+            "#comedy"
+          ],
+          "duration": 60,
+          "timestamp": 120
+        },
+        "editing_instructions": {
+          "start_time": 120,
+          "end_time": 180,
+          "text_overlays": [
+            "Funniest moment about comedy c"
+          ],
+          "background_music": "trending comedy audio",
+          "subtitles": true,
+          "aspect_ratio": "9:16"
+        },
+        "metadata": {
+          "source_video": "yCPDYXORg-A",
+          "segment_score": 8.5,
+          "topic": "comedy"
+        }
+      },
+      "youtube_short": {
+        "platform": "YouTube Shorts",
+        "content": {
+          "title": "Funniest moment about comedy career... #shorts #podcast",
+          "description": "Clip from JAREDSNOTFUNNY podcast episode with Toron Rodgers\\n\\nFull episode: https://youtu.be/yCPDYXORg-A",
+          "hashtags": [
+            "#jaredsnotfunny",
+            "#podcast",
+            "#comedy",
+            "#shorts",
+            "#podcastclips",
+            "#comedy"
+          ],
+          "duration": 60,
+          "timestamp": 120
+        },
+        "editing_instructions": {
+          "start_time": 120,
+          "end_time": 180,
+          "text_overlays": [
+            "JAREDSNOTFUNNY PODCAST",
+            "Funniest moment about comedy career"
+          ],
+          "subtitles": true,
+          "aspect_ratio": "9:16"
+        },
+        "metadata": {
+          "source_video": "yCPDYXORg-A",
+          "segment_score": 8.5,
+          "topic": "comedy"
+        }
+      }
+    }
+  ]
+}

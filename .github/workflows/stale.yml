@@ -1,0 +1,19 @@
+name: Stale Issues
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # daily
+  workflow_dispatch:
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 30
+          days-before-close: 7
+          stale-label: stale
+          exempt-labels: 'pinned'
+          operations-per-run: 50

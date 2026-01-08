@@ -14,7 +14,7 @@ This document explains secure options for granting access to platform APIs (YouT
 ## Bitwarden (recommended)
 
 - Create an organization and a collection (e.g. `jareds-not-funny`).
-- Add items for each credential, e.g. `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN`, `X_API_KEY`, etc.
+- Add items for each credential, e.g. `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN`, `X_API_KEY`, `SUPERMEMORY_API_KEY`, etc.
 - Use the Bitwarden UI or the CLI (`bw`) to grant access, audit logs, and rotate keys.
 - Use Bitwarden Send for one-time transfers or collection shares for ongoing use.
 
@@ -57,7 +57,21 @@ Add secrets to the repository settings for CI use (Settings → Secrets → Acti
 - `YOUTUBE_CLIENT_ID`
 - `YOUTUBE_CLIENT_SECRET`
 - `YOUTUBE_REFRESH_TOKEN`
+- `SUPERMEMORY_API_KEY`
 - `GITHUB_TOKEN` (already provided by GitHub Actions, but consider a dedicated token for operations)
+
+### Supermemory self-hosting (enterprise)
+
+Store these separately from the repo and never commit the deployment package:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+- `NEXT_PUBLIC_HOST_ID`
+- `BETTER_AUTH_SECRET`
+- `BETTER_AUTH_URL`
+- `DATABASE_URL`
+- `OPENAI_API_KEY`
+- `RESEND_API_KEY`
 
 When possible, prefer short-lived tokens and OIDC where supported.
 

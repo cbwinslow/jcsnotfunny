@@ -1,0 +1,3 @@
+text,label,source_id,start,end,notes
+"[PLACEHOLDER] This line was funny in context.",1,episode_12,1140.7,1148.7,"crowd laugh"
+"[PLACEHOLDER] Neutral discussion or setup.",0,episode_12,1130.2,1138.2,"no laugh"

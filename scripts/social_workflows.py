@@ -246,6 +246,10 @@ class SocialWorkflowManager:
 
         return results
 
+    def schedule_post(self, platform: str, content: str, media_path: Optional[str] = None, schedule_time: Optional[str] = None):
+        """Compatibility wrapper used by some tests to patch scheduling behavior."""
+        return schedule_post(platform=platform, content=content, media_path=media_path, schedule_time=schedule_time)
+
 
 @dataclass
 class ValidationReport:

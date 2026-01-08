@@ -91,5 +91,10 @@
   },
   "automation": {
     "tools_config": "configs/automation_tools.json"
+  },
+  "mcpServers": {
+    "supermemory": {
+      "url": "https://mcp.supermemory.ai/mcp"
+    }
   }
 }

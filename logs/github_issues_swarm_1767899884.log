@@ -1,0 +1,454 @@
+2026-01-08 14:18:04,744 - __main__ - INFO - 🚀 Starting Democratic Agent Swarm on GitHub Issues
+2026-01-08 14:18:04,744 - __main__ - INFO - ================================================================================
+2026-01-08 14:18:04,745 - swarm_observability - WARNING - OpenTelemetry not available - install with: pip install opentelemetry-sdk opentelemetry-exporter-jaeger opentelemetry-exporter-prometheus
+2026-01-08 14:18:04,745 - swarm_observability - WARNING - LangSmith not available - install with: pip install langsmith
+2026-01-08 14:18:04,745 - swarm_observability - WARNING - LangFuse not available - install with: pip install langfuse
+2026-01-08 14:18:04,745 - swarm_observability - WARNING - Unsupported queue type rabbitmq, falling back to memory
+2026-01-08 14:18:04,745 - swarm_observability - INFO - Using in-memory message queue
+2026-01-08 14:18:04,747 - production_swarm_launcher - INFO - Initializing DemocraticAISwarm v1.0.0
+2026-01-08 14:18:04,749 - base_agent.video_editor - INFO - Initialized agent 'Podcast Video Editor' with 4 tools
+2026-01-08 14:18:04,749 - swarm_communication - INFO - Registered agent: video_editor
+2026-01-08 14:18:05,140 - swarm_observability - INFO - Agent video_editor registered with full observability
+2026-01-08 14:18:05,141 - production_swarm_launcher - INFO - ✓ Loaded agent: Podcast Video Editor
+2026-01-08 14:18:05,144 - base_agent.audio_engineer - INFO - Initialized agent 'Audio Engineer' with 4 tools
+2026-01-08 14:18:05,144 - swarm_communication - INFO - Registered agent: audio_engineer
+2026-01-08 14:18:05,481 - swarm_observability - INFO - Agent audio_engineer registered with full observability
+2026-01-08 14:18:05,481 - production_swarm_launcher - INFO - ✓ Loaded agent: Audio Engineer
+2026-01-08 14:18:05,484 - base_agent.social_media_manager - INFO - Initialized agent 'Social Media Manager' with 4 tools
+2026-01-08 14:18:05,484 - swarm_communication - INFO - Registered agent: social_media_manager
+2026-01-08 14:18:05,850 - swarm_observability - INFO - Agent social_media_manager registered with full observability
+2026-01-08 14:18:05,851 - production_swarm_launcher - INFO - ✓ Loaded agent: Social Media Manager
+2026-01-08 14:18:05,852 - base_agent.content_distributor - INFO - Initialized agent 'Content Distribution Manager' with 4 tools
+2026-01-08 14:18:05,852 - swarm_communication - INFO - Registered agent: content_distributor
+2026-01-08 14:18:06,148 - swarm_observability - INFO - Agent content_distributor registered with full observability
+2026-01-08 14:18:06,148 - production_swarm_launcher - INFO - ✓ Loaded agent: Content Distribution Manager
+2026-01-08 14:18:06,149 - base_agent.sponsorship_manager - INFO - Initialized agent 'Sponsorship Manager' with 4 tools
+2026-01-08 14:18:06,149 - swarm_communication - INFO - Registered agent: sponsorship_manager
+2026-01-08 14:18:06,494 - swarm_observability - INFO - Agent sponsorship_manager registered with full observability
+2026-01-08 14:18:06,494 - production_swarm_launcher - INFO - ✓ Loaded agent: Sponsorship Manager
+2026-01-08 14:18:06,495 - base_agent.tour_manager - INFO - Initialized agent 'Tour & Events Manager' with 4 tools
+2026-01-08 14:18:06,495 - swarm_communication - INFO - Registered agent: tour_manager
+2026-01-08 14:18:06,831 - swarm_observability - INFO - Agent tour_manager registered with full observability
+2026-01-08 14:18:06,832 - production_swarm_launcher - INFO - ✓ Loaded agent: Tour & Events Manager
+2026-01-08 14:18:06,833 - base_agent.swarm_orchestrator - INFO - Initialized agent 'Swarm Orchestrator' with 5 tools
+2026-01-08 14:18:06,833 - swarm_communication - INFO - Registered agent: swarm_orchestrator
+2026-01-08 14:18:07,109 - swarm_observability - INFO - Agent swarm_orchestrator registered with full observability
+2026-01-08 14:18:07,109 - production_swarm_launcher - INFO - ✓ Loaded agent: Swarm Orchestrator
+2026-01-08 14:18:07,111 - base_agent.communication_liaison - INFO - Initialized agent 'Communication Liaison' with 4 tools
+2026-01-08 14:18:07,112 - swarm_communication - INFO - Registered agent: communication_liaison
+2026-01-08 14:18:07,448 - swarm_observability - INFO - Agent communication_liaison registered with full observability
+2026-01-08 14:18:07,448 - production_swarm_launcher - INFO - ✓ Loaded agent: Communication Liaison
+2026-01-08 14:18:07,450 - base_agent.monitoring_overseer - INFO - Initialized agent 'Monitoring Overseer' with 5 tools
+2026-01-08 14:18:07,450 - swarm_communication - INFO - Registered agent: monitoring_overseer
+2026-01-08 14:18:07,706 - swarm_observability - INFO - Agent monitoring_overseer registered with full observability
+2026-01-08 14:18:07,706 - production_swarm_launcher - INFO - ✓ Loaded agent: Monitoring Overseer
+2026-01-08 14:18:07,707 - base_agent.quality_assurance_agent - INFO - Initialized agent 'Quality Assurance Agent' with 3 tools
+2026-01-08 14:18:07,707 - swarm_communication - INFO - Registered agent: quality_assurance_agent
+2026-01-08 14:18:07,931 - swarm_observability - INFO - Agent quality_assurance_agent registered with full observability
+2026-01-08 14:18:07,932 - production_swarm_launcher - INFO - ✓ Loaded agent: Quality Assurance Agent
+2026-01-08 14:18:07,933 - base_agent.resource_manager - INFO - Initialized agent 'Resource Manager' with 3 tools
+2026-01-08 14:18:07,933 - swarm_communication - INFO - Registered agent: resource_manager
+2026-01-08 14:18:08,148 - swarm_observability - INFO - Agent resource_manager registered with full observability
+2026-01-08 14:18:08,148 - production_swarm_launcher - INFO - ✓ Loaded agent: Resource Manager
+2026-01-08 14:18:08,149 - base_agent.data_analyst_agent - INFO - Initialized agent 'Data Analyst Agent' with 5 tools
+2026-01-08 14:18:08,149 - swarm_communication - INFO - Registered agent: data_analyst_agent
+2026-01-08 14:18:08,400 - swarm_observability - INFO - Agent data_analyst_agent registered with full observability
+2026-01-08 14:18:08,400 - production_swarm_launcher - INFO - ✓ Loaded agent: Data Analyst Agent
+2026-01-08 14:18:08,402 - base_agent.security_agent - INFO - Initialized agent 'Security Agent' with 4 tools
+2026-01-08 14:18:08,403 - swarm_communication - INFO - Registered agent: security_agent
+2026-01-08 14:18:08,848 - swarm_observability - INFO - Agent security_agent registered with full observability
+2026-01-08 14:18:08,848 - production_swarm_launcher - INFO - ✓ Loaded agent: Security Agent
+2026-01-08 14:18:08,849 - swarm_monitoring - INFO - Swarm monitoring started
+2026-01-08 14:18:08,849 - production_swarm_launcher - INFO - ✓ Monitoring system started
+2026-01-08 14:18:08,850 - production_swarm_launcher - INFO - ✓ Swarm initialized with 13 agents
+2026-01-08 14:18:08,850 - __main__ - INFO - ✅ Swarm initialized for GitHub issue processing
+2026-01-08 14:18:09,442 - __main__ - INFO - Loaded 25 GitHub issues
+2026-01-08 14:18:09,443 - __main__ - INFO - 📋 Loaded 25 GitHub issues for processing:
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #2: Auto-Edit / Multi-Cam Edit Agent (Priority: 2) (high priority)
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #12: Issue: Social Automation — MCP & API Providers (high priority)
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #4: Issue: CI & Deploy — site build + artifacts (medium priority)
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #3: Live Streaming & Multi-Platform Archival Agent (Priority: 3) (high priority)
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #18: Issue: CLI & Utilities — orchestrator and helpers (medium priority)
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #5: Issue: Cloudflare & CDN setup (medium priority)
+2026-01-08 14:18:09,443 - __main__ - INFO -   - Issue #9: Issue: Launch plan (MVP) (high priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #4: Post-publish automation: Trigger transcription & auto-edit on published episodes (high priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #9: Website integration & media test harness (high priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #16: Issue: Scheduler integration (Buffer / Hootsuite / Later) (high priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #10: Issue: Growth & Ads — sponsorship materials and process (low priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #14: Issue: Implement X (Twitter) client module (high priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #6: Issue: Website & SEO (high priority)
+2026-01-08 14:18:09,444 - __main__ - INFO -   - Issue #None: Example Episode Request (low priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #8: Issue: Quality checklist & KPIs (low priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #7: Issue: Booking / Workflow CRM (medium priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #7: End-to-end integration smoke test for publish -> transcribe -> auto-edit (high priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #1: Transcription & Captioning Agent (Priority: 1) (high priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #5: RAG store & index connectors (FAISS local + managed) (high priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #8: 24/7 Worker: scaffold, runbook, and deployment (Priority: high) (high priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #6: Publish pipeline: Wire transcription, auto-edit and publish hooks (high priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #15: Issue: Implement YouTube client (uploads) (high priority)
+2026-01-08 14:18:09,445 - __main__ - INFO -   - Issue #3: Issue: Automation agents (ingest, transcribe, clip-generator, publish) (medium priority)
+2026-01-08 14:18:09,446 - __main__ - INFO -   - Issue #2: Issue: Issue templates & label taxonomy (high priority)
+2026-01-08 14:18:09,446 - __main__ - INFO -   - Issue #1: 01 Deliverables And Sops (low priority)
+2026-01-08 14:18:09,446 - __main__ - INFO - 🎯 Assigning GitHub issues as swarm tasks...
+2026-01-08 14:18:09,581 - swarm_communication - INFO - Assigned task github_issue_2 to agent sponsorship_manager
+2026-01-08 14:18:09,581 - __main__ - INFO - ✓ Assigned issue #2 'Auto-Edit / Multi-Cam Edit Agent (Priority: 2)' to sponsorship_manager
+2026-01-08 14:18:09,802 - swarm_communication - INFO - Assigned task github_issue_12 to agent swarm_orchestrator
+2026-01-08 14:18:09,802 - __main__ - INFO - ✓ Assigned issue #12 'Issue: Social Automation — MCP & API Providers' to swarm_orchestrator
+2026-01-08 14:18:09,914 - swarm_communication - INFO - Assigned task github_issue_4 to agent communication_liaison
+2026-01-08 14:18:09,915 - __main__ - INFO - ✓ Assigned issue #4 'Issue: CI & Deploy — site build + artifacts' to communication_liaison
+2026-01-08 14:18:10,105 - swarm_communication - INFO - Assigned task github_issue_3 to agent monitoring_overseer
+2026-01-08 14:18:10,105 - __main__ - INFO - ✓ Assigned issue #3 'Live Streaming & Multi-Platform Archival Agent (Priority: 3)' to monitoring_overseer
+2026-01-08 14:18:10,248 - swarm_communication - INFO - Assigned task github_issue_18 to agent quality_assurance_agent
+2026-01-08 14:18:10,248 - __main__ - INFO - ✓ Assigned issue #18 'Issue: CLI & Utilities — orchestrator and helpers' to quality_assurance_agent
+2026-01-08 14:18:10,375 - swarm_communication - INFO - Assigned task github_issue_5 to agent data_analyst_agent
+2026-01-08 14:18:10,375 - __main__ - INFO - ✓ Assigned issue #5 'Issue: Cloudflare & CDN setup' to data_analyst_agent
+2026-01-08 14:18:10,483 - swarm_communication - INFO - Assigned task github_issue_9 to agent security_agent
+2026-01-08 14:18:10,484 - __main__ - INFO - ✓ Assigned issue #9 'Issue: Launch plan (MVP)' to security_agent
+2026-01-08 14:18:10,643 - swarm_communication - INFO - Assigned task github_issue_4 to agent video_editor
+2026-01-08 14:18:10,644 - __main__ - INFO - ✓ Assigned issue #4 'Post-publish automation: Trigger transcription & auto-edit on published episodes' to video_editor
+2026-01-08 14:18:10,820 - swarm_communication - INFO - Assigned task github_issue_9 to agent communication_liaison
+2026-01-08 14:18:10,821 - __main__ - INFO - ✓ Assigned issue #9 'Website integration & media test harness' to communication_liaison
+2026-01-08 14:18:10,956 - swarm_communication - INFO - Assigned task github_issue_16 to agent security_agent
+2026-01-08 14:18:10,956 - __main__ - INFO - ✓ Assigned issue #16 'Issue: Scheduler integration (Buffer / Hootsuite / Later)' to security_agent
+2026-01-08 14:18:11,156 - swarm_communication - INFO - Assigned task github_issue_10 to agent audio_engineer
+2026-01-08 14:18:11,157 - __main__ - INFO - ✓ Assigned issue #10 'Issue: Growth & Ads — sponsorship materials and process' to audio_engineer
+2026-01-08 14:18:11,306 - swarm_communication - INFO - Assigned task github_issue_14 to agent social_media_manager
+2026-01-08 14:18:11,306 - __main__ - INFO - ✓ Assigned issue #14 'Issue: Implement X (Twitter) client module' to social_media_manager
+2026-01-08 14:18:11,443 - swarm_communication - INFO - Assigned task github_issue_6 to agent content_distributor
+2026-01-08 14:18:11,443 - __main__ - INFO - ✓ Assigned issue #6 'Issue: Website & SEO' to content_distributor
+2026-01-08 14:18:11,581 - swarm_communication - INFO - Assigned task github_issue_1767899889 to agent tour_manager
+2026-01-08 14:18:11,581 - __main__ - INFO - ✓ Assigned issue #None 'Example Episode Request' to tour_manager
+2026-01-08 14:18:11,712 - swarm_communication - INFO - Assigned task github_issue_8 to agent resource_manager
+2026-01-08 14:18:11,712 - __main__ - INFO - ✓ Assigned issue #8 'Issue: Quality checklist & KPIs' to resource_manager
+2026-01-08 14:18:11,712 - __main__ - WARNING - ✗ No suitable agent found for issue #7 'Issue: Booking / Workflow CRM'
+2026-01-08 14:18:11,712 - __main__ - WARNING - ✗ No suitable agent found for issue #7 'End-to-end integration smoke test for publish -> transcribe -> auto-edit'
+2026-01-08 14:18:11,712 - __main__ - WARNING - ✗ No suitable agent found for issue #1 'Transcription & Captioning Agent (Priority: 1)'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #5 'RAG store & index connectors (FAISS local + managed)'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #8 '24/7 Worker: scaffold, runbook, and deployment (Priority: high)'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #6 'Publish pipeline: Wire transcription, auto-edit and publish hooks'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #15 'Issue: Implement YouTube client (uploads)'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #3 'Issue: Automation agents (ingest, transcribe, clip-generator, publish)'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #2 'Issue: Issue templates & label taxonomy'
+2026-01-08 14:18:11,713 - __main__ - WARNING - ✗ No suitable agent found for issue #1 '01 Deliverables And Sops'
+2026-01-08 14:18:11,713 - __main__ - INFO - 📊 Assigned 15/25 issues to swarm agents
+2026-01-08 14:18:11,714 - __main__ - INFO - 📊 Monitoring swarm progress on GitHub issues...
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #2 'Auto-Edit / Multi-Cam Edit Agent (Priority: 2)' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #12 'Issue: Social Automation — MCP & API Providers' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #4 'Issue: CI & Deploy — site build + artifacts' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #3 'Live Streaming & Multi-Platform Archival Agent (Priority: 3)' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #18 'Issue: CLI & Utilities — orchestrator and helpers' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #5 'Issue: Cloudflare & CDN setup' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #9 'Issue: Launch plan (MVP)' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #4 'Post-publish automation: Trigger transcription & auto-edit on published episodes' marked as completed
+2026-01-08 14:18:11,714 - __main__ - INFO - ✅ Issue #9 'Website integration & media test harness' marked as completed
+2026-01-08 14:18:11,715 - __main__ - INFO - ✅ Issue #16 'Issue: Scheduler integration (Buffer / Hootsuite / Later)' marked as completed
+2026-01-08 14:18:11,715 - __main__ - INFO - ✅ Issue #10 'Issue: Growth & Ads — sponsorship materials and process' marked as completed
+2026-01-08 14:18:11,715 - __main__ - INFO - ✅ Issue #14 'Issue: Implement X (Twitter) client module' marked as completed
+2026-01-08 14:18:11,715 - __main__ - INFO - ✅ Issue #6 'Issue: Website & SEO' marked as completed
+2026-01-08 14:18:11,715 - __main__ - INFO - ✅ Issue #None 'Example Episode Request' marked as completed
+2026-01-08 14:18:11,715 - __main__ - INFO - ✅ Issue #8 'Issue: Quality checklist & KPIs' marked as completed
+2026-01-08 14:18:11,717 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:18:11,718 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:18:11,718 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:19:11,721 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:19:11,721 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:19:11,721 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:20:03,898 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 14:20:11,726 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:20:11,726 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:20:11,726 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:21:11,730 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:21:11,730 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:21:11,731 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:22:11,735 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:22:11,735 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:22:11,735 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:23:11,739 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:23:11,739 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:23:11,739 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:24:11,744 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:24:11,745 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:24:11,745 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:25:11,748 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:25:11,748 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:25:11,749 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:26:11,752 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:26:11,752 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:26:11,752 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:27:11,757 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:27:11,757 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:27:11,757 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:28:11,760 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:28:11,760 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:28:11,760 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:29:11,763 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:29:11,764 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:29:11,764 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:30:11,767 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:30:11,767 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:30:11,767 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:31:11,770 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:31:11,770 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:31:11,771 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:32:11,774 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:32:11,775 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:32:11,775 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:33:11,779 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:33:11,779 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:33:11,779 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:34:11,784 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:34:11,784 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:34:11,785 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:35:11,789 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:35:11,789 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:35:11,789 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:36:11,792 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:36:11,792 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:36:11,792 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:37:11,797 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:37:11,798 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:37:11,798 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:38:11,802 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:38:11,802 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:38:11,802 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:39:11,808 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:39:11,808 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:39:11,808 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:40:11,811 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:40:11,811 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:40:11,811 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:41:11,815 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:41:11,815 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:41:11,815 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:42:11,828 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:42:11,828 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:42:11,829 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:43:11,834 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:43:11,834 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:43:11,834 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:44:11,838 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:44:11,838 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:44:11,838 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:45:11,843 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:45:11,843 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:45:11,843 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:46:11,847 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:46:11,847 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:46:11,847 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:47:11,851 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:47:11,851 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:47:11,851 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:48:11,855 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:48:11,855 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:48:11,855 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:49:11,858 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:49:11,858 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:49:11,858 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:50:11,863 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:50:11,863 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:50:11,863 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:51:11,867 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:51:11,867 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:51:11,867 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:52:11,872 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:52:11,872 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:52:11,872 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:53:11,876 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:53:11,876 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:53:11,877 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:54:11,880 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:54:11,880 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:54:11,880 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:55:11,884 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:55:11,884 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:55:11,884 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:56:11,889 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:56:11,890 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:56:11,890 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:57:11,893 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:57:11,893 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:57:11,893 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:58:11,896 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:58:11,897 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:58:11,897 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 14:59:11,900 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 14:59:11,900 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 14:59:11,900 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:00:11,905 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:00:11,905 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:00:11,905 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:01:11,909 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:01:11,910 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:01:11,910 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:02:11,914 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:02:11,915 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:02:11,915 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:03:11,920 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:03:11,920 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:03:11,920 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:04:11,923 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:04:11,923 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:04:11,923 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:05:11,926 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:05:11,926 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:05:11,926 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:06:11,931 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:06:11,931 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:06:11,931 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:07:11,935 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:07:11,935 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:07:11,935 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:08:11,938 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:08:11,938 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:08:11,938 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:09:11,943 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:09:11,943 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:09:11,944 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:10:11,948 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:10:11,949 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:10:11,949 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:11:11,954 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:11:11,954 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:11:11,954 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:11:20,766 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 15:12:11,957 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:12:11,958 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:12:11,958 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:13:11,961 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:13:11,961 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:13:11,961 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:14:11,966 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:14:11,966 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:14:11,967 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:15:11,972 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:15:11,972 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:15:11,972 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:16:11,976 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:16:11,976 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:16:11,976 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:17:11,979 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:17:11,979 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:17:11,979 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:18:09,439 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:18:11,984 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:18:11,984 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:18:11,984 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:19:09,520 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:19:11,989 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:19:11,989 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:19:11,990 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:20:09,709 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:20:11,992 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:20:11,992 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:20:11,992 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:21:09,931 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:21:11,996 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:21:11,996 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:21:11,996 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:22:10,036 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:22:12,000 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:22:12,000 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:22:12,000 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:23:10,150 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:23:12,003 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:23:12,003 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:23:12,003 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:24:10,330 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:24:12,006 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:24:12,006 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:24:12,007 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:25:10,443 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:25:12,012 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:25:12,012 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:25:12,013 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:26:10,741 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:26:12,020 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:26:12,020 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:26:12,020 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:27:10,905 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:27:12,024 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:27:12,025 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:27:12,025 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:28:11,119 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:28:12,029 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:28:12,030 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:28:12,030 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:29:11,349 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:29:12,035 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:29:12,035 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:29:12,035 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:30:11,463 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:30:12,039 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:30:12,039 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:30:12,039 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:31:11,544 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:31:12,044 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:31:12,044 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:31:12,044 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:32:11,674 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:32:12,048 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:32:12,048 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:32:12,048 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:33:11,788 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:33:12,051 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:33:12,052 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:33:12,052 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:34:11,893 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:34:12,056 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:34:12,056 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:34:12,057 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:35:11,999 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:35:12,061 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:35:12,061 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:35:12,061 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:35:13,673 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 15:36:12,117 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:36:12,144 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:36:12,144 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:36:12,144 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:37:12,305 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:37:12,328 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:37:12,328 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:37:12,328 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:38:12,407 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:38:12,412 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:38:12,412 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:38:12,412 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:39:12,496 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:39:12,497 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:39:12,497 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:39:12,498 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:40:12,503 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:40:12,503 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:40:12,504 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:40:12,585 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:40:23,918 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 15:41:12,509 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:41:12,510 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:41:12,510 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:41:14,635 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 15:41:15,098 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:42:12,514 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:42:12,514 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:42:12,514 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:42:15,212 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:43:12,518 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:43:12,518 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:43:12,518 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:43:18,409 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:44:12,523 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:44:12,523 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:44:12,523 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:44:18,501 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:45:12,526 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:45:12,527 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:45:12,527 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:45:18,662 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:46:12,530 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:46:12,530 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:46:12,530 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:46:18,979 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)
+2026-01-08 15:47:12,534 - __main__ - INFO - 📈 Progress: 15/25 issues completed, 0 active
+2026-01-08 15:47:12,535 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:47:12,535 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:47:22,559 - swarm_monitoring - WARNING - Alert raised: Swarm Termination Recommended (severity: warning)

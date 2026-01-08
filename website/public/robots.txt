@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
+Allow: /audio/
+Allow: /images/
+Allow: /transcripts/
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
 
 Sitemap: https://jcsnotfunny.com/sitemap.xml
+
+# Allow Googlebot specifically
+User-agent: Googlebot
+Allow: /
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

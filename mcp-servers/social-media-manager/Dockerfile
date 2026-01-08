@@ -1,44 +1,21 @@
+# Use an official Node.js runtime as a parent image
 FROM node:18-alpine
 
+# Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies
-RUN apk add --no-cache \
-    ffmpeg \
-    imagemagick \
-    curl
-
-# Copy package files
+# Copy package.json and package-lock.json (if available)
 COPY package*.json ./
 
-# Install Node.js dependencies
-RUN npm ci --only=production
+# Install dependencies
+RUN npm install
 
-# Copy server code
-COPY server.js ./
+# Copy the rest of the application code
+COPY . .
 
-# Create necessary directories
-RUN mkdir -p /app/logs /app/temp /app/uploads
+# Expose the port the app runs on (if applicable, e.g., for HTTP transport)
+# The MCP server itself uses stdio transport by default, but if it exposes HTTP endpoints, this would be needed.
+# EXPOSE 3000
 
-# Set environment variables
-ENV NODE_ENV=production
-ENV LOG_LEVEL=info
-
-# Add non-root user for security
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001
-
-# Change ownership of app directory
-RUN chown -R nextjs:nodejs /app
-
-USER nextjs
-
-# Expose port
-EXPOSE 3000
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:3000/health || exit 1
-
-# Start the server
+# Run the server
 CMD ["node", "server.js"]
