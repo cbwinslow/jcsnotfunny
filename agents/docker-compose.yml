@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  worker:
+    build: .
+    image: jcsnotfunny-worker:latest
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - GITHUB_PROJECT_ID=${GITHUB_PROJECT_ID}
+    volumes:
+      - ./:/app
+    restart: unless-stopped
