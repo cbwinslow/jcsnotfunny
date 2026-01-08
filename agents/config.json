@@ -1,0 +1,26 @@
+{
+  "base_dir": "/home/cbwinslow/Documents/jcsnotfunny",
+  "docs_dir": "docs",
+  "scripts_dir": "scripts",
+  "github_dir": ".github",
+  "check_files": ["README.md", "CONTRIBUTING.md", "tasks.md", "ROADMAP.md", "agents.md"],
+  "check_docs": [
+    "SOPS.md",
+    "DELIVERABLES.md",
+    "ASSETS_INVENTORY.md",
+    "SOCIAL_AUTOMATION.md",
+    "SOPS.md"
+  ],
+  "check_scripts": [
+    "cli.py",
+    "create_issues.sh",
+    "ingest.py",
+    "transcribe.py",
+    "clip_generator.py",
+    "publish.py",
+    "mcp_publish.py",
+    "social_publish.py",
+    "social_workflows.py",
+    "social_media_apis.py"
+  ]
+}

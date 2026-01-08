@@ -25,6 +25,7 @@ Standardize sponsor read handling, guest plugs, and disclosure requirements.
 - [ ] Add a short CTA and link mention.
 - [ ] Add fallback copy if sponsor changes last minute.
 - [ ] Store final copy in a shared folder.
+  - Template: `docs/templates/sponsor_read.md`
 
 ## Checklist - Guest Plugs and Dates
 - [ ] Ask for 2-3 prioritized plugs (site, tour, merch).

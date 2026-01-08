@@ -13,6 +13,7 @@ Define how raw footage, masters, and social assets are backed up and archived.
 - [ ] Store raw footage under `raw_videos/<episode>/`.
 - [ ] Store project files under `projects/<episode>/`.
 - [ ] Store masters and exports under `exports/<episode>/`.
+- [ ] Store social media exports under `exports/<episode>/social/`.
 - [ ] Use consistent naming conventions from `docs/SOPS_POST_PRODUCTION.md`.
 - [ ] Compress long-term archives to save space.
 
@@ -34,6 +35,7 @@ Define how raw footage, masters, and social assets are backed up and archived.
 - Providers: Backblaze B2, AWS S3 + Glacier, Wasabi, Google Cloud Storage.
 - Pros: Off-site redundancy, scalable, no hardware maintenance.
 - Cons: Monthly cost and egress fees for large restores.
+  - Note: Cloudflare R2 is recommended for predictable egress and CDN proximity.
 
 ### Option C - Hybrid (Recommended)
 - Local server or NAS for primary storage + cloud for off-site redundancy.

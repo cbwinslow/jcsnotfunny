@@ -221,6 +221,103 @@ This file converts the project TODO list into actionable tasks, acceptance crite
 
 ---
 
+## 11) Transcription & Captioning Agent (PRIORITY 1)
+
+- Summary: Build a robust transcription/captioning agent that produces accurate WebVTT/SRT, speaker diarization, JSON transcripts, and embeddings for RAG indexing for every media item (audio/video/streams). This is the highest priority to enable search, clipping, and RAG pipelines.
+- Subtasks:
+  - Implement `scripts/transcribe_agent` (CLI, agent orchestration) — prototype exists
+  - Integrate word-level alignment (whisperx) and speaker diarization (pyannote or equivalent)
+  - Produce VTT/SRT, JSON transcript, diarization `.diar.json`, and embedding index (FAISS or JSON fallback)
+  - Add synthetic test assets (1v1.wav, 2speaker.wav) with ground-truth captions for automated tests
+  - Add CI job to run transcribe on sample assets and validate outputs
+- Acceptance criteria (measurable):
+  - On the provided synthetic test assets, the agent produces `*.vtt`, `*.json`, and `*.diar.json` files and the VTT contains the expected sample lines (assert exact matches in tests)
+  - Diarization test asserts correct number of speaker segments for 2-speaker synthetic file and that segment boundaries differ from ground-truth by <= 0.5s on average (measured in unit test)
+  - Embedding index is created and a small nearest-neighbor lookup returns the expected nearest sentence for a given query (testable with FAISS or JSON fallback)
+  - A CI job `transcribe-integration.yml` runs on a push and passes on the sample dataset
+- Labels: `type/automation`, `area/editing`, `priority/high`
+- Estimate: 2–5 days (prototype + tests)
+- Microgoals:
+  - [ ] Add synthetic single-speaker and multi-speaker test WAVs and ground-truth captions
+  - [ ] Integrate whisperx alignment and wire into `scripts/transcribe_agent`
+  - [ ] Add pyannote or fallback diarization and unit tests for diarization accuracy
+  - [ ] Add embedding creation and a test for NN lookup
+  - [ ] Add CI workflow to run integration test on sample assets
+- Tests:
+  - [ ] `tests/test_transcribe_agent.py` (unit): validate VTT/SRT creation and JSON sidecars
+  - [ ] `tests/test_diarization_accuracy.py` (integration): run diarization on 2-speaker synthetic audio and assert speaker counts and timing accuracy
+  - [ ] `tests/test_embeddings_index.py` (unit): ensure embeddings are produced and NN lookup returns expected id
+  - [ ] Add CI job `transcribe-integration.yml` (runs only on `push` and `workflow_dispatch`) to validate outputs
+
+---
+
+## 12) Auto-Edit / Multi-Cam Edit Agent (PRIORITY 2)
+
+- Summary: Build an automated multi-camera editor that takes camera feeds + audio + transcripts/CC and produces an EDL and a rendered video that focuses on the active speaker, with rules for reaction shots, wide shots, and scene-interest switching.
+- Subtasks:
+  - Create `scripts/auto_edit/` skeleton with modules: `ingest.py`, `sync.py`, `audio.py` (VAD/diarization hooks), `vision.py` (face detection & tracking), `mapper.py` (lip-sync mapping), `edl.py` (shot selection rules), and `renderer.py` (ffmpeg-based render)
+  - Implement synthetic test videos for 1v1 and 3-way scenarios with ground-truth shot list
+  - Implement face tracking (MediaPipe) and lip-motion correlation; include fallback when per-camera audio exists
+  - Implement EDL generator with configurable min_shot_length, guard_time, hysteresis, and reaction-shot rules
+  - Add CLI `scripts/auto_edit/cli.py` and session `session_config.yml` template
+- Acceptance criteria (measurable):
+  - For the provided synthetic 1v1 test, the EDL JSON generated matches ground-truth shot list within a tolerance of +/- 0.5s per cut (tested in CI)
+  - EDL covers >= 95% of the speaker-active intervals (speech time) for the test set
+  - Unit tests assert min_shot_length enforcement and that rapid speaker switches are smoothed according to guard_time/hysteresis rules
+  - Render step produces an MP4 (or a verified simulated render) artifact and a CI job uploads it as an artifact for manual review
+- Labels: `type/automation`, `area/editing`, `priority/high`
+- Estimate: 4–8 days (PoC + tests)
+- Microgoals:
+  - [ ] Skeleton `scripts/auto_edit/` with CLI and config templates
+  - [ ] Implement VAD & diarization hooks (re-use `scripts/transcribe_agent`) and tests
+  - [ ] Implement face detection & tracker and unit tests on synthetic frames
+  - [ ] Implement mapping and EDL generator with unit tests
+  - [ ] Implement renderer proof-of-concept with ffmpeg and CI artifact upload
+- Tests:
+  - [ ] `tests/test_edl_generator.py` (unit): validate shot rules and constraints
+  - [ ] `tests/test_face_tracker.py` (unit): run tracker over synthetic frames and assert stable track IDs
+  - [ ] `tests/test_auto_edit_integration.py` (integration): run full pipeline on synthetic 1v1 and assert EDL and rendered artifact presence
+
+---
+
+## 13) Live Streaming & Multi-Platform Archival Agent (PRIORITY 3)
+
+- Summary: Implement a live-controller capable of programmatically switching scenes (OBS WebSocket integration), pushing to a relay (Nginx-RTMP/SRS or Restream), and ensuring recordings are archived and post-processed (triggering transcription & auto-edit pipelines post-stream).
+- Subtasks:
+  - Implement `scripts/live_controller` with an OBS WebSocket client example and a control API that accepts a decision stream (JSON with timestamps/actions)
+  - Build a local RTMP relay docker-compose example (Nginx-RTMP) for CI/testing and a publish module to send to multiple endpoints
+  - Implement archiving hooks: ensure local or cloud recording is saved as a master file and post-processing job is triggered on completion
+  - Provide an ad-read & chapters logging helper (emit timestamps to metadata JSON for downstream baking)
+- Acceptance criteria (measurable):
+  - A test demo script `scripts/live_controller/demo.py` when run against a mocked OBS WebSocket returns success and logs scene change requests in the expected order (unit test mocks WebSocket and asserts call sequence)
+  - A simulated streaming run against the local RTMP relay produces a recorded file and triggers `scripts/transcribe_agent` on the recorded file (this can be a mocked CI smoke test checking that the trigger is invoked)
+  - Recorded file metadata includes ad-read timestamps and chapters JSON
+- Labels: `type/automation`, `area/website`, `priority/medium`
+- Estimate: 3–6 days (PoC + tests)
+- Microgoals:
+  - [ ] Add docker-compose example for Nginx-RTMP as a test relay
+  - [ ] Implement OBS WebSocket demo controller and unit tests with mocks
+  - [ ] Implement archiver trigger and a smoke test that asserts downstream pipeline trigger
+  - [ ] Document multi-stream configuration and secrets needed for endpoints
+- Tests:
+  - [ ] `tests/test_live_controller_mock.py` (unit): mock WebSocket and assert scene change calls
+  - [ ] `tests/test_stream_archival_trigger.py` (integration): mock recording completion and assert transcribe agent invoked
+
+---
+
+## Cross-cutting: Media Ingest & Metadata (ALL AGENTS)
+
+- Summary: Ensure all agents accept and normalize common media types (camera MP4/ProRes, audio WAV, per-camera audio, VTT/SRT, JSON metadata, clips) and produce consistent artifact naming & metadata JSON for traceability.
+- Microgoals:
+  - [ ] Define `session_config.yml` schema for camera roles, audio mapping, timecode offsets, and priorities
+  - [ ] Implement `scripts/ingest.normalize()` that outputs canonical media objects and checksums
+  - [ ] Add tests: ensure ingestion of each supported media type produces expected metadata fields
+- Acceptance criteria (measurable):
+  - Ingest normalization unit tests pass and return canonical metadata for all supported inputs
+  - All generated artifacts (EDL, transcripts, renders) include a `metadata.json` that references original checksums
+
+---
+
 ## Notes / Next steps
 
-- After you review this `tasks.md`, I can create Project v2 board items and convert these task drafts into real GitHub issues via the GitHub UI/API. If you'd like, I can also add issue drafts under `.github/issues/` so they're ready for creating issues.
+- After you review this `tasks.md`, I can create prioritized Project v2 board items and convert these task drafts into GitHub issues under `.github/issues/` so they're ready to be created. Priorities are: 1) Transcription & Captioning Agent, 2) Auto-Edit Agent, 3) Live Streaming & Archival Agent.

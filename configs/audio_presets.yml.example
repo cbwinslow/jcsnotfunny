@@ -1,0 +1,204 @@
+# Audio mixing presets template (no secrets).
+# Copy to configs/audio_presets.yml and tune by ear per mic/room.
+
+global_targets:
+  target_lufs: -14
+  true_peak_db: -1.0
+  sample_rate_hz: 48000
+
+presets:
+  male_standard:
+    input_gain_db: 0.0
+    high_pass_hz: 80
+    eq:
+      low_shelf_db: 1.5
+      low_shelf_hz: 120
+      mid_db: -2.0
+      mid_hz: 350
+      high_shelf_db: 2.0
+      high_shelf_hz: 4500
+    de_esser:
+      freq_hz: 5500
+      amount_db: 3.0
+    compressor:
+      ratio: 3.0
+      threshold_db: -18.0
+      attack_ms: 10
+      release_ms: 120
+      makeup_db: 2.0
+    gate:
+      threshold_db: -45.0
+      attack_ms: 5
+      hold_ms: 60
+      release_ms: 150
+    noise_reduction_db: 6.0
+    limiter_ceiling_db: -1.0
+    notes: "Start here for average male voice."
+
+  female_standard:
+    input_gain_db: 0.0
+    high_pass_hz: 100
+    eq:
+      low_shelf_db: 1.0
+      low_shelf_hz: 150
+      mid_db: -1.5
+      mid_hz: 450
+      high_shelf_db: 2.5
+      high_shelf_hz: 5500
+    de_esser:
+      freq_hz: 6500
+      amount_db: 3.5
+    compressor:
+      ratio: 3.0
+      threshold_db: -20.0
+      attack_ms: 8
+      release_ms: 110
+      makeup_db: 2.0
+    gate:
+      threshold_db: -48.0
+      attack_ms: 5
+      hold_ms: 60
+      release_ms: 150
+    noise_reduction_db: 6.0
+    limiter_ceiling_db: -1.0
+    notes: "Start here for average female voice."
+
+  high_pitch:
+    input_gain_db: -1.0
+    high_pass_hz: 110
+    eq:
+      low_shelf_db: 0.5
+      low_shelf_hz: 160
+      mid_db: -2.5
+      mid_hz: 500
+      high_shelf_db: 1.5
+      high_shelf_hz: 6000
+    de_esser:
+      freq_hz: 7000
+      amount_db: 4.0
+    compressor:
+      ratio: 3.5
+      threshold_db: -20.0
+      attack_ms: 8
+      release_ms: 100
+      makeup_db: 2.0
+    gate:
+      threshold_db: -50.0
+      attack_ms: 5
+      hold_ms: 60
+      release_ms: 140
+    noise_reduction_db: 6.0
+    limiter_ceiling_db: -1.0
+    notes: "For bright/high voices; watch sibilance."
+
+  low_pitch:
+    input_gain_db: 0.5
+    high_pass_hz: 70
+    eq:
+      low_shelf_db: 2.0
+      low_shelf_hz: 100
+      mid_db: -1.5
+      mid_hz: 300
+      high_shelf_db: 1.0
+      high_shelf_hz: 4200
+    de_esser:
+      freq_hz: 5200
+      amount_db: 2.5
+    compressor:
+      ratio: 2.5
+      threshold_db: -18.0
+      attack_ms: 12
+      release_ms: 130
+      makeup_db: 2.0
+    gate:
+      threshold_db: -44.0
+      attack_ms: 6
+      hold_ms: 70
+      release_ms: 160
+    noise_reduction_db: 5.0
+    limiter_ceiling_db: -1.0
+    notes: "For deeper voices; avoid boominess."
+
+  bassy_voice:
+    input_gain_db: 0.0
+    high_pass_hz: 60
+    eq:
+      low_shelf_db: 0.0
+      low_shelf_hz: 90
+      mid_db: -3.0
+      mid_hz: 250
+      high_shelf_db: 1.0
+      high_shelf_hz: 4000
+    de_esser:
+      freq_hz: 5000
+      amount_db: 2.0
+    compressor:
+      ratio: 2.5
+      threshold_db: -16.0
+      attack_ms: 15
+      release_ms: 150
+      makeup_db: 1.5
+    gate:
+      threshold_db: -43.0
+      attack_ms: 6
+      hold_ms: 70
+      release_ms: 170
+    noise_reduction_db: 5.0
+    limiter_ceiling_db: -1.0
+    notes: "Tighten lows and reduce mud."
+
+  pitchy_voice:
+    input_gain_db: -0.5
+    high_pass_hz: 90
+    eq:
+      low_shelf_db: 1.0
+      low_shelf_hz: 140
+      mid_db: -2.0
+      mid_hz: 500
+      high_shelf_db: 1.5
+      high_shelf_hz: 5200
+    de_esser:
+      freq_hz: 6500
+      amount_db: 3.0
+    compressor:
+      ratio: 3.0
+      threshold_db: -19.0
+      attack_ms: 10
+      release_ms: 120
+      makeup_db: 2.0
+    gate:
+      threshold_db: -46.0
+      attack_ms: 5
+      hold_ms: 60
+      release_ms: 150
+    noise_reduction_db: 6.0
+    limiter_ceiling_db: -1.0
+    notes: "General bright voice preset."
+
+  guest_remote:
+    input_gain_db: 0.0
+    high_pass_hz: 120
+    eq:
+      low_shelf_db: 0.0
+      low_shelf_hz: 160
+      mid_db: -2.0
+      mid_hz: 600
+      high_shelf_db: 2.0
+      high_shelf_hz: 6500
+    de_esser:
+      freq_hz: 7000
+      amount_db: 4.0
+    compressor:
+      ratio: 3.5
+      threshold_db: -21.0
+      attack_ms: 8
+      release_ms: 100
+      makeup_db: 2.0
+    gate:
+      threshold_db: -52.0
+      attack_ms: 5
+      hold_ms: 60
+      release_ms: 140
+    noise_reduction_db: 8.0
+    limiter_ceiling_db: -1.0
+    notes: "For remote calls; increase NR and HPF."

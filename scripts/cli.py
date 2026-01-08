@@ -88,5 +88,34 @@ def post_x_demo(text):
     res = client.post_text(text)
     click.echo(res)
 
+
+@cli.command()
+@click.option('--mode', type=click.Choice(['offline', 'live']), default='offline')
+@click.option('--format', 'output_format', type=click.Choice(['text', 'json']), default='text')
+def credentials(mode, output_format):
+    """Audit credentials for social, streaming, and Cloudflare."""
+    from scripts.credential_checks import audit_credentials, format_report, results_to_json
+
+    results = audit_credentials(mode=mode)
+    if output_format == 'json':
+        click.echo(results_to_json(results))
+    else:
+        click.echo(format_report(results))
+
+
+@cli.command()
+@click.option('--include-credentials', is_flag=True, default=False)
+@click.option('--format', 'output_format', type=click.Choice(['json', 'text']), default='json')
+def assistant(include_credentials, output_format):
+    """Generate an assistant status report snapshot."""
+    from scripts.agent_orchestrator import AgentOrchestrator
+
+    orchestrator = AgentOrchestrator()
+    report = orchestrator.status_report(include_credentials=include_credentials)
+    if output_format == 'text':
+        click.echo(orchestrator.format_report(report))
+    else:
+        click.echo(json.dumps(report, indent=2))
+
 if __name__ == '__main__':
     cli()

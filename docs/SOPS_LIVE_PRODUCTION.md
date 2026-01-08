@@ -7,6 +7,7 @@ Define the live production setup for recording and streaming with OBS and multic
 - OBS Studio for capture, scene switching, and local recording.
 - Optional: Stream Deck or hotkeys for scene control.
 - Multicast options: Restream, StreamYard, Castr, or OBS Multi-RTMP plugin.
+  - Optional automation: OBS WebSocket for one-click start/stop.
 
 ## Inputs
 - Run-of-show, final sponsor reads, stream keys, and platform titles/descriptions.
@@ -26,6 +27,7 @@ Define the live production setup for recording and streaming with OBS and multic
 - [ ] Streaming destination test page opened.
 - [ ] Backup recording path confirmed (local disk and/or SD card).
 - [ ] Scene transitions verified.
+  - Template: `docs/templates/pre_show_tech_check.md`
 
 ## Checklist - OBS Setup
 - [ ] Create scenes: Intro, Main, Guest, Screen Share, Break, Outro.
@@ -36,12 +38,20 @@ Define the live production setup for recording and streaming with OBS and multic
 - [ ] Configure stream settings: RTMP endpoint(s), stream key(s).
 - [ ] Save and export the OBS profile and scene collection.
 
+## Checklist - Credentials and Profiles
+- [ ] Load `.env` from Bitwarden or approved secrets source.
+- [ ] Confirm `configs/master_settings.yml` includes all stream targets.
+- [ ] Apply `configs/host_profiles.yml` for host/guest inputs.
+- [ ] Confirm OBS profile and scene collection names match `.env`.
+- [ ] If using auto-switch, configure `scripts/live_director_agent.py` scene map.
+
 ## Checklist - Multicast Setup
 - [ ] Create scheduled events for each platform.
 - [ ] Collect RTMP URLs and stream keys.
 - [ ] Use a multicast service or OBS Multi-RTMP plugin.
 - [ ] Match titles/descriptions across platforms.
 - [ ] Add thumbnails and tags where supported.
+- [ ] Optional: enable auto scene switching (see `docs/agents/live-director-agent.md`).
 
 ### Target Platforms (configure as available)
 - YouTube Live
@@ -59,6 +69,8 @@ Define the live production setup for recording and streaming with OBS and multic
 - [ ] Confirm each platform shows live status.
 - [ ] Monitor CPU/GPU and dropped frames in OBS.
 - [ ] Assign chat moderation and cues.
+- [ ] Optional: start Live Director Agent for auto scene switching.
+  - Diagnostics: `python scripts/diagnostics.py --live`
 
 ## Checklist - Post-Live
 - [ ] Stop stream, then stop local recording.

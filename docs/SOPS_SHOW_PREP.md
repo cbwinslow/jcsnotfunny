@@ -23,6 +23,7 @@ Define the planning steps and checklists required before recording or streaming 
 - [ ] Identify CTA and desired audience action.
 - [ ] Create a shared folder for show assets.
 - [ ] Draft episode slug/title (placeholder until final).
+  - Template: `docs/templates/run_of_show.md`
 
 ## Checklist - Guest Bio and Info
 - [ ] Full name, preferred pronunciation, and title.
@@ -33,6 +34,8 @@ Define the planning steps and checklists required before recording or streaming 
 - [ ] Consent for recording and usage (release form placeholder).
 - [ ] Tech details: mic, camera, lighting, and internet quality.
 - [ ] Backup contact method (phone/email).
+- [ ] Add or update guest profile in `configs/host_profiles.yml`.
+  - Template: `docs/templates/guest_profile.md`
 
 ## Checklist - Host Prep
 - [ ] Talking points and questions finalized.
@@ -40,6 +43,15 @@ Define the planning steps and checklists required before recording or streaming 
 - [ ] Cold open and intro draft.
 - [ ] Outro and CTA drafted (subscribe, website, tickets).
 - [ ] Confirm wardrobe/appearance notes if video is public.
+  - Template: `docs/templates/checklist_host.md`
+
+## Templates
+- `docs/templates/checklist_producer.md`
+- `docs/templates/checklist_host.md`
+- `docs/templates/run_of_show.md`
+- `docs/templates/guest_profile.md`
+- `docs/templates/host_profiles.md`
+- `docs/templates/communications_log.md`
 
 ## Placeholders
 - [PLACEHOLDER: guest release template location]

@@ -1,22 +1,489 @@
-# Repository Guidelines
+# Agents and Toolsets Documentation
 
-## Project Structure & Module Organization
-This repository stores Codex CLI runtime metadata rather than application code. Root-level configuration lives in `config.toml`, `config.json`, and `version.json`, which the CLI reads on startup. Session transcripts are grouped under `sessions/YYYY/MM/DD/*.jsonl`, while operational logs live in `log/codex-tui.log`. Treat `history.jsonl` and `internal_storage.json` as append-only archives; rotate them only after taking a backup.
+This document provides comprehensive documentation of all agents and toolsets used in the podcast production workflow.
 
-## Build, Test, and Development Commands
-There is no build pipeline; focus on validating configuration edits.
-- `python -m json.tool config.json` validates JSON formatting.
-- `python - <<'PY'` … `tomllib.loads(pathlib.Path("config.toml").read_text())` checks TOML with Python 3.11+.
-- `codex --config config.toml` starts the CLI so you can confirm MCP reconnects and no new errors appear in `log/codex-tui.log`.
+## Table of Contents
 
-## Coding Style & Naming Conventions
-Use two-space indentation in JSON and one setting per line in TOML files. Prefer lower_snake_case keys (for example, `sandbox_mode`, `approval_policy`) and single-quoted string literals in TOML. When documenting paths or commands, use absolute or repo-relative paths such as `sessions/2025/11/05/...` so others can copy them directly.
+1. [Agents Overview](#agents-overview)
+2. [MCP Servers](#mcp-servers)
+3. [Toolsets Reference](#toolsets-reference)
+4. [Workflows](#workflows)
+5. [Configuration](#configuration)
 
-## Testing Guidelines
-Rely on smoke tests: restart the CLI, trigger an MCP handshake, and inspect the tail of `log/codex-tui.log` for warnings. For larger edits, validate a representative session replay by copying a prior `.jsonl` entry into a new session file and confirming the tool rehydrates it.
+---
 
-## Commit & Pull Request Guidelines
-Use Conventional Commit prefixes like `docs:`, `config:`, and `chore:`. Keep commits small and bundle related config edits with their validation notes. Pull requests should explain why the change is needed, reference related session dates when applicable, and include a short checklist of manual verifications (for example, "✅ CLI restart passes, ✅ model selection persists").
+## Agents Overview
 
-## Security & Configuration Tips
-Never place API tokens directly in `auth.json`; use local secret stores and document placeholder keys instead. If you add new trusted project roots in `config.toml`, note whether they require heightened sandbox permissions and why. Before sharing logs, scrub user-identifying data from `sessions/**/*.jsonl` or provide redacted excerpts only.
+### Agent Configuration (`agents_config.json`)
+
+The project uses a centralized agent configuration file located at `agents_config.json`. This file defines all production agents, their roles, available tools, and workflows.
+
+#### Agent Structure
+
+```json
+{
+  "agents": {
+    "<agent_name>": {
+      "name": "Human-readable name",
+      "role": "Brief role description",
+      "model": "AI model to use",
+      "system_prompt": "System prompt defining agent behavior",
+      "tools": ["list", "of", "tools"],
+      "workflows": {
+        "<workflow_name>": ["step1", "step2", "..."]
+      }
+    }
+  }
+}
+```
+
+### Core Agents
+
+#### 1. Video Editor Agent
+
+| Property  | Value                                                               |
+| --------- | ------------------------------------------------------------------- |
+| **Name**  | Podcast Video Editor                                                |
+| **Role**  | Video production specialist focused on podcast content optimization |
+| **Model** | gpt-4o                                                              |
+
+**Responsibilities:**
+
+- Analyzing multi-camera footage to identify and cut to active speakers
+- Creating engaging short-form content (60-120 seconds) from long-form episodes
+- Implementing professional color grading and visual effects
+- Adding dynamic overlays, lower thirds, and branding elements
+- Optimizing video for different platforms (YouTube, TikTok, Instagram, etc.)
+
+**Tools:**
+
+- [`video_analysis`](agents_config.json:10) - Analyze video footage for speaker detection
+- [`auto_cut`](agents_config.json:18) - Automatically cut between camera angles
+- [`create_short`](agents_config.json:27) - Generate short-form content
+- [`add_overlays`](agents_config.json:37) - Add text overlays and visual elements
+
+**Workflows:**
+
+- `episode_edit`: video_analysis → auto_cut → add_overlays → export_final
+- `short_creation`: video_analysis → create_short → add_captions → optimize_for_platform
+
+---
+
+#### 2. Audio Engineer Agent
+
+| Property  | Value                                       |
+| --------- | ------------------------------------------- |
+| **Name**  | Audio Engineer                              |
+| **Role**  | Audio production and enhancement specialist |
+| **Model** | gpt-4o                                      |
+
+**Responsibilities:**
+
+- Cleaning up audio tracks using noise reduction, de-essing, and equalization
+- Balancing multiple audio sources and applying compression
+- Adding sponsor reads and advertisements seamlessly
+- Mastering final audio for podcast platforms
+- Creating audio versions for different platforms
+
+**Tools:**
+
+- [`audio_cleanup`](agents_config.json:67) - Remove background noise and artifacts
+- [`voice_enhancement`](agents_config.json:75) - Enhance vocal clarity
+- [`sponsor_insertion`](agents_config.json:83) - Insert sponsor reads at optimal points
+- [`audio_mastering`](agents_config.json:93) - Master final audio for distribution
+
+---
+
+#### 3. Social Media Manager Agent
+
+| Property  | Value                                                         |
+| --------- | ------------------------------------------------------------- |
+| **Name**  | Social Media Manager                                          |
+| **Role**  | Multi-platform social media content management and scheduling |
+| **Model** | gpt-4o                                                        |
+
+**Responsibilities:**
+
+- Creating platform-specific content strategies
+- Scheduling posts in advance across all platforms
+- Engaging with audience comments and messages
+- Analyzing performance metrics and optimizing content
+- Promoting tour dates and special events
+- Managing sponsored content partnerships
+
+**Tools:**
+
+- [`create_content_calendar`](agents_config.json:110) - Generate posting schedule
+- [`schedule_post`](agents_config.json:120) - Schedule posts across platforms
+- [`engage_audience`](agents_config.json:130) - Monitor and respond to interactions
+- [`analyze_performance`](agents_config.json:139) - Analyze post performance
+
+---
+
+#### 4. Content Distribution Manager Agent
+
+| Property  | Value                                                        |
+| --------- | ------------------------------------------------------------ |
+| **Name**  | Content Distribution Manager                                 |
+| **Role**  | Manage content publishing and website updates via Cloudflare |
+| **Model** | gpt-4o                                                       |
+
+**Responsibilities:**
+
+- Publishing episodes to the website via Cloudflare Workers/Pages
+- Updating tour dates and event information
+- Managing SEO optimization and metadata
+- Coordinating with podcast platforms
+- Implementing CDN optimization
+- Managing website assets and media files
+
+**Tools:**
+
+- [`publish_episode`](agents_config.json:156) - Publish new episode
+- [`update_tour_dates`](agents_config.json:166) - Update tour schedule
+- [`manage_cdn`](agents_config.json:175) - Optimize CDN settings
+- [`seo_optimization`](agents_config.json:183) - Optimize content for search engines
+
+---
+
+#### 5. Sponsorship Manager Agent
+
+| Property  | Value                                        |
+| --------- | -------------------------------------------- |
+| **Name**  | Sponsorship Manager                          |
+| **Role**  | Manage sponsor relationships and integration |
+| **Model** | gpt-4o                                       |
+
+**Responsibilities:**
+
+- Identifying and vetting potential sponsors
+- Negotiating sponsorship deals and contracts
+- Creating custom sponsor reads
+- Tracking sponsorship performance and ROI
+- Managing sponsor billing and reporting
+
+**Tools:**
+
+- [`sponsor_research`](agents_config.json:200) - Research potential sponsors
+- [`create_sponsor_read`](agents_config.json:209) - Generate sponsor advertisements
+- [`track_performance`](agents_config.json:218) - Monitor campaign performance
+- [`generate_report`](agents_config.json:227) - Create performance reports
+
+---
+
+#### 6. Tour & Events Manager Agent
+
+| Property  | Value                                                  |
+| --------- | ------------------------------------------------------ |
+| **Name**  | Tour & Events Manager                                  |
+| **Role**  | Manage live events, tour dates, and venue coordination |
+| **Model** | gpt-4o                                                 |
+
+**Responsibilities:**
+
+- Booking venues and managing tour logistics
+- Coordinating with event promoters and local partners
+- Managing ticket sales and audience engagement
+- Creating promotional content for live shows
+- Handling travel arrangements and scheduling
+
+**Tools:**
+
+- [`venue_research`](agents_config.json:244) - Research suitable venues
+- [`create_tour_schedule`](agents_config.json:254) - Generate tour itinerary
+- [`manage_tickets`](agents_config.json:264) - Handle ticket sales
+- [`promote_event`](agents_config.json:274) - Create promotional campaigns
+
+---
+
+### Monitoring Agent (`agents/monitoring_agent.py`)
+
+A dedicated agent for monitoring stream quality, network traffic, and system health.
+
+| Property  | Value                        |
+| --------- | ---------------------------- |
+| **File**  | `agents/monitoring_agent.py` |
+| **Class** | `MonitoringAgent`            |
+
+**Responsibilities:**
+
+- Checking stream quality for configured URLs
+- Monitoring network traffic on specified interfaces
+- Checking system health metrics (CPU, memory, disk)
+
+**Configuration Options:**
+
+```json
+{
+  "base_dir": "/path/to/project",
+  "log_dir": "logs",
+  "interval": 60,
+  "stream_urls": [],
+  "network_interfaces": ["eth0", "wlan0"],
+  "system_metrics": ["cpu", "memory", "disk"]
+}
+```
+
+---
+
+## MCP Servers
+
+### Social Media Manager Server (`mcp-servers/social-media-manager/`)
+
+Node.js-based MCP server for comprehensive social media management.
+
+| Property         | Value                                        |
+| ---------------- | -------------------------------------------- |
+| **Type**         | Stdio-based MCP Server                       |
+| **Entry Point**  | `mcp-servers/social-media-manager/server.js` |
+| **Node Version** | >=18.0.0                                     |
+
+#### Available Tools
+
+| Tool                                                                 | Description                | Parameters                                                    |
+| -------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------- |
+| [`post_to_twitter`](mcp-servers/social-media-manager/server.js:34)   | Post content to Twitter/X  | `content`, `media_path`, `schedule_time`                      |
+| [`post_to_instagram`](mcp-servers/social-media-manager/server.js:47) | Post content to Instagram  | `content`, `media_path`, `media_type`                         |
+| [`post_to_tiktok`](mcp-servers/social-media-manager/server.js:60)    | Post content to TikTok     | `content`, `video_path`, `hashtags`                           |
+| [`upload_to_youtube`](mcp-servers/social-media-manager/server.js:73) | Upload content to YouTube  | `title`, `description`, `video_path`, `tags`, `schedule_time` |
+| [`post_to_linkedin`](mcp-servers/social-media-manager/server.js:88)  | Post content to LinkedIn   | `content`, `media_path`                                       |
+| [`cross_post`](mcp-servers/social-media-manager/server.js:100)       | Post to multiple platforms | `content`, `platforms`, `media_path`, `platform_specific`     |
+| [`get_analytics`](mcp-servers/social-media-manager/server.js:118)    | Get analytics data         | `platforms`, `start_date`, `end_date`, `metrics`              |
+
+#### Dependencies
+
+```json
+{
+  "@modelcontextprotocol/sdk": "^1.0.0",
+  "express": "^4.18.2",
+  "axios": "^1.6.0",
+  "multer": "^1.4.5-lts.1",
+  "sharp": "^0.33.0",
+  "fluent-ffmpeg": "^2.1.2",
+  "node-cron": "^3.0.3",
+  "dotenv": "^16.3.1",
+  "winston": "^3.11.0",
+  "joi": "^17.11.0"
+}
+```
+
+---
+
+## Toolsets Reference
+
+### Video Editing Toolsets
+
+| Tool             | Agent        | Description                             |
+| ---------------- | ------------ | --------------------------------------- |
+| `video_analysis` | Video Editor | Analyze footage for speaker detection   |
+| `auto_cut`       | Video Editor | Cut between camera angles automatically |
+| `create_short`   | Video Editor | Generate short-form clips               |
+| `add_overlays`   | Video Editor | Add text overlays and branding          |
+
+### Audio Production Toolsets
+
+| Tool                | Agent          | Description                 |
+| ------------------- | -------------- | --------------------------- |
+| `audio_cleanup`     | Audio Engineer | Noise reduction and cleanup |
+| `voice_enhancement` | Audio Engineer | Vocal clarity enhancement   |
+| `sponsor_insertion` | Audio Engineer | Insert sponsor reads        |
+| `audio_mastering`   | Audio Engineer | Final audio mastering       |
+
+### Social Media Toolsets
+
+| Tool                      | Agent                | Description             |
+| ------------------------- | -------------------- | ----------------------- |
+| `create_content_calendar` | Social Media Manager | Plan content schedule   |
+| `schedule_post`           | Social Media Manager | Schedule posts          |
+| `engage_audience`         | Social Media Manager | Respond to interactions |
+| `analyze_performance`     | Social Media Manager | Performance analytics   |
+
+### Distribution Toolsets
+
+| Tool                | Agent               | Description      |
+| ------------------- | ------------------- | ---------------- |
+| `publish_episode`   | Content Distributor | Publish episodes |
+| `update_tour_dates` | Content Distributor | Update tour info |
+| `manage_cdn`        | Content Distributor | CDN management   |
+| `seo_optimization`  | Content Distributor | SEO optimization |
+
+### Sponsorship Toolsets
+
+| Tool                  | Agent               | Description      |
+| --------------------- | ------------------- | ---------------- |
+| `sponsor_research`    | Sponsorship Manager | Find sponsors    |
+| `create_sponsor_read` | Sponsorship Manager | Create ads       |
+| `track_performance`   | Sponsorship Manager | Track ROI        |
+| `generate_report`     | Sponsorship Manager | Generate reports |
+
+### Tour Management Toolsets
+
+| Tool                   | Agent        | Description     |
+| ---------------------- | ------------ | --------------- |
+| `venue_research`       | Tour Manager | Find venues     |
+| `create_tour_schedule` | Tour Manager | Plan tour       |
+| `manage_tickets`       | Tour Manager | Ticket sales    |
+| `promote_event`        | Tour Manager | Event promotion |
+
+---
+
+## Workflows
+
+### Episode Production Workflow
+
+```mermaid
+graph TD
+    A[Raw Footage] --> B[Video Editor]
+    B --> C[video_analysis]
+    C --> D[auto_cut]
+    D --> E[add_overlays]
+
+    F[Raw Audio] --> G[Audio Engineer]
+    G --> H[audio_cleanup]
+
+    I[Sponsor Info] --> J[Sponsorship Manager]
+    J --> K[create_sponsor_read]
+
+    H --> L[sponsor_insertion]
+    K --> L
+
+    L --> M[audio_mastering]
+    E --> N[create_short]
+    M --> O[final_video]
+    N --> O
+
+    O --> P[Content Distributor]
+    P --> Q[publish_episode]
+
+    Q --> R[Social Media Manager]
+    R --> S[schedule_post]
+```
+
+### Tour Promotion Workflow
+
+```mermaid
+graph TD
+    A[Tour Dates] --> B[Tour Manager]
+    B --> C[create_tour_schedule]
+    C --> D[promote_event]
+
+    C --> E[Content Distributor]
+    E --> F[update_tour_dates]
+
+    D --> G[Social Media Manager]
+    G --> H[schedule_post]
+```
+
+---
+
+## Configuration
+
+### Environment Variables
+
+All sensitive configuration uses environment variables:
+
+```bash
+# OpenAI
+OPENAI_API_KEY=${OPENAI_API_KEY}
+OPENAI_ORG_ID=${OPENAI_ORG_ID}
+
+# Cloudflare
+CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+CLOUDFLARE_ACCOUNT_ID=${CLOUDFLARE_ACCOUNT_ID}
+
+# Social Platforms
+TWITTER_API_KEY=${TWITTER_API_KEY}
+TWITTER_API_SECRET=${TWITTER_API_SECRET}
+INSTAGRAM_ACCESS_TOKEN=${INSTAGRAM_ACCESS_TOKEN}
+TIKTOK_ACCESS_TOKEN=${TIKTOK_ACCESS_TOKEN}
+YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+```
+
+### Model Configuration
+
+| Model Type | Model Name               |
+| ---------- | ------------------------ |
+| Primary    | `gpt-4o`                 |
+| Vision     | `gpt-4o-vision-preview`  |
+| Audio      | `whisper-1`              |
+| Embedding  | `text-embedding-3-large` |
+
+---
+
+## Dependencies
+
+### Python Dependencies (`requirements.txt`)
+
+- `click` - CLI framework
+- `requests` - HTTP library
+- `pytest` - Testing framework
+- `requests-oauthlib` - OAuth support
+- `google-auth` - Google authentication
+- `google-api-python-client` - Google APIs
+- `whisperx` - Audio transcription
+- `sentence-transformers` - Text embeddings
+- `faiss-cpu` - Vector similarity search
+
+### MCP Server Dependencies (`requirements-mcp.txt`)
+
+- `fastapi==0.104.1`
+- `uvicorn==0.24.0`
+- `pydantic==2.5.0`
+- `requests==2.31.0`
+- `aiohttp==3.9.0`
+- `python-multipart==0.0.6`
+- `Pillow==10.1.0`
+- `moviepy==1.0.3`
+- `pydub==0.25.1`
+- `mcp-server==1.0.0`
+- `asyncio-mqtt==0.16.1`
+- `redis==5.0.1`
+- `aioredis==2.0.1`
+- `schedule==1.2.0`
+- `python-dotenv==1.0.0`
+
+---
+
+## Validation
+
+### Configuration Validation Commands
+
+```bash
+# Validate JSON configuration
+python -m json.tool agents_config.json > /dev/null && echo "Valid JSON"
+
+# Validate TOML configuration
+python -c "import tomllib; tomllib.loads(open('config.toml').read())"
+
+# Test MCP server
+cd mcp-servers/social-media-manager && npm install && npm test
+```
+
+---
+
+## Agent Configuration File (`agents/config.json`)
+
+This file configures agent paths and validation:
+
+```json
+{
+  "base_dir": "/home/cbwinslow/Documents/jcsnotfunny",
+  "docs_dir": "docs",
+  "scripts_dir": "scripts",
+  "github_dir": ".github",
+  "check_files": ["README.md", "CONTRIBUTING.md", "tasks.md", "ROADMAP.md", "agents.md"],
+  "check_docs": ["SOPS.md", "DELIVERABLES.md", "ASSETS_INVENTORY.md", "SOCIAL_AUTOMATION.md"],
+  "check_scripts": [
+    "cli.py",
+    "create_issues.sh",
+    "ingest.py",
+    "transcribe.py",
+    "clip_generator.py",
+    "publish.py",
+    "mcp_publish.py",
+    "social_publish.py",
+    "social_workflows.py",
+    "social_media_apis.py"
+  ]
+}
+```

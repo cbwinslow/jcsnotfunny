@@ -1,0 +1,17 @@
+[project]
+name = "jcsnotfunny"
+version = "0.1.0"
+description = "Podcast production system with AI agents for automated content creation and distribution"
+requires-python = ">=3.13"
+dependencies = [
+    "click",
+    "requests",
+    "pytest",
+    "requests-oauthlib",
+    "google-auth",
+    "google-auth-oauthlib",
+    "google-api-python-client",
+    "whisperx",
+    "sentence-transformers",
+    "faiss-cpu",
+]

@@ -30,6 +30,10 @@ Ensure each deliverable meets quality and compliance standards before release.
 - [ ] Links resolve to the correct destination.
 - [ ] Scheduled time matches target release window.
 
+## Diagnostics
+- [ ] Run `python scripts/diagnostics.py --format text` for a snapshot.
+- [ ] Run `python -m scripts.cli credentials --mode offline` for credential coverage.
+
 ## Issue Logging
 - [ ] Record any QA failures with timestamp and impact.
 - [ ] Flag blocking issues before publish.

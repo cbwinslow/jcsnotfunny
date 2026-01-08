@@ -7,6 +7,7 @@ Define editing steps for episodes, including audio mix, captions, and exports.
 - Capture: OBS Studio (recording and scene switching).
 - Editing: [PLACEHOLDER: primary NLE, e.g., DaVinci Resolve or Premiere].
 - Audio cleanup: [PLACEHOLDER: plugin suite or DAW].
+  - Presets: `configs/audio_presets.yml` and `docs/SOPS_AUDIO_MIXING.md`.
 
 ## Inputs
 - Local recording files (video and audio), sponsor read notes, run-of-show.

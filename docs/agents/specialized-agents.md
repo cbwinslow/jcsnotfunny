@@ -119,6 +119,35 @@ Business development and sponsorship expert managing sponsor relationships, cont
 - **Performance Tracking**: ROI analysis and performance reporting
 - **Contract Management**: Sponsor agreement management and compliance
 
+## Live Director Agent
+
+### Role Definition
+Automates live scene switching based on audio activity to keep the camera on the active speaker.
+
+### Core Responsibilities
+- **Speaker Detection**: Monitor per-mic audio levels.
+- **Scene Switching**: Trigger OBS scene changes with cooldown control.
+- **Override Handling**: Allow manual override for host or emergency scenes.
+
+### Tools Integration
+```json
+{
+  "obs_websocket": "Scene switching control",
+  "audio_metering": "Active speaker detection",
+  "cooldown": "Prevent rapid scene changes"
+}
+```
+
+## Assistant Orchestrator
+
+### Role Definition
+Central assistant that summarizes system status and routes tasks to agents.
+
+### Core Responsibilities
+- **Status Reporting**: Surface configs, SOPs, and open tasks.
+- **Credential Health**: Run offline checks and optional live checks.
+- **Workflow Routing**: Delegate tasks to agents and scripts.
+
 ### Technical Capabilities
 - **Automated Prospecting**: AI-powered sponsor identification and vetting
 - **Custom Content Generation**: Brand-aligned sponsor content creation

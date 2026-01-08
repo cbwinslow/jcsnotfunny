@@ -1,0 +1,82 @@
+# Master configuration template (no secrets).
+# Copy to configs/master_settings.yml and fill placeholders.
+
+project:
+  name: "Jared's Not Funny"
+  timezone: "America/New_York"
+  default_language: "en"
+
+paths:
+  raw_videos_dir: "raw_videos"
+  projects_dir: "projects"
+  exports_dir: "exports"
+  recordings_dir: "recordings"
+
+secrets:
+  source: "bitwarden" # or "cloudflare" or "local_env"
+  env_file: ".env"
+  bitwarden:
+    collection: "jcsnotfunny"
+    item_name: "social-credentials"
+  notes: "Never commit secrets. Use Bitwarden or Cloudflare secrets."
+
+streaming:
+  tool: "obs"
+  multicast:
+    mode: "restream" # or "streamyard", "castr", "multi_rtmp"
+    restream_api_key_env: "RESTREAM_API_KEY"
+  destinations:
+    youtube:
+      rtmp_url_env: "YOUTUBE_RTMP_URL"
+      stream_key_env: "YOUTUBE_STREAM_KEY"
+    twitch:
+      rtmp_url_env: "TWITCH_RTMP_URL"
+      stream_key_env: "TWITCH_STREAM_KEY"
+    x:
+      rtmp_url_env: "X_RTMP_URL"
+      stream_key_env: "X_STREAM_KEY"
+    facebook:
+      rtmp_url_env: "FACEBOOK_RTMP_URL"
+      stream_key_env: "FACEBOOK_STREAM_KEY"
+    instagram:
+      rtmp_url_env: "INSTAGRAM_RTMP_URL"
+      stream_key_env: "INSTAGRAM_STREAM_KEY"
+    tiktok:
+      rtmp_url_env: "TIKTOK_RTMP_URL"
+      stream_key_env: "TIKTOK_STREAM_KEY"
+    kick:
+      rtmp_url_env: "KICK_RTMP_URL"
+      stream_key_env: "KICK_STREAM_KEY"
+    linkedin:
+      rtmp_url_env: "LINKEDIN_RTMP_URL"
+      stream_key_env: "LINKEDIN_STREAM_KEY"
+
+social:
+  publish_mode: "api" # or "mcp"
+  mcp_endpoint_env: "MCP_ENDPOINT"
+  platforms:
+    - "x"
+    - "instagram"
+    - "youtube"
+    - "tiktok"
+    - "linkedin"
+    - "facebook"
+
+cloudflare:
+  account_id_env: "CF_ACCOUNT_ID"
+  pages_project: "jareds-not-funny"
+  r2:
+    bucket_env: "CF_R2_BUCKET"
+    endpoint_env: "CF_R2_ENDPOINT"
+    access_key_id_env: "CF_R2_ACCESS_KEY_ID"
+    secret_access_key_env: "CF_R2_SECRET_ACCESS_KEY"
+  images:
+    account_id_env: "CF_IMAGES_ACCOUNT_ID"
+    api_token_env: "CF_IMAGES_API_TOKEN"
+  stream:
+    account_id_env: "CF_ACCOUNT_ID"
+    api_token_env: "CF_STREAM_API_TOKEN"
+  workers:
+    api_token_env: "CF_WORKERS_API_TOKEN"
+  ai:
+    api_token_env: "CF_AI_API_TOKEN"

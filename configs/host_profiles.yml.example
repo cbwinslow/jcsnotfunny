@@ -1,0 +1,50 @@
+# Host and guest profile templates (no secrets).
+# Copy to configs/host_profiles.yml and fill placeholders.
+
+profiles:
+  jared:
+    role: "host"
+    display_name: "Jared"
+    pronouns: "[PLACEHOLDER]"
+    mic_input: "XLR-1"
+    camera_input: "Cam-1"
+    obs_scene: "Main"
+    socials:
+      x: "@[PLACEHOLDER]"
+      instagram: "@[PLACEHOLDER]"
+      youtube: "[PLACEHOLDER]"
+    notes: "Primary host profile."
+  me:
+    role: "producer"
+    display_name: "[PLACEHOLDER]"
+    pronouns: "[PLACEHOLDER]"
+    mic_input: "XLR-2"
+    camera_input: "Cam-2"
+    obs_scene: "Producer"
+    socials:
+      x: "@[PLACEHOLDER]"
+      instagram: "@[PLACEHOLDER]"
+    notes: "Producer/operator profile."
+  rachel:
+    role: "partner"
+    display_name: "Rachel"
+    pronouns: "[PLACEHOLDER]"
+    mic_input: "XLR-3"
+    camera_input: "Cam-3"
+    obs_scene: "Guest"
+    socials:
+      x: "@[PLACEHOLDER]"
+      instagram: "@[PLACEHOLDER]"
+    notes: "Partner/co-host profile."
+  guest_default:
+    role: "guest"
+    display_name: "[PLACEHOLDER]"
+    pronouns: "[PLACEHOLDER]"
+    mic_input: "XLR-4"
+    camera_input: "Cam-4"
+    obs_scene: "Guest"
+    socials:
+      x: "@[PLACEHOLDER]"
+      instagram: "@[PLACEHOLDER]"
+      website: "https://[PLACEHOLDER]"
+    notes: "Default guest template."
