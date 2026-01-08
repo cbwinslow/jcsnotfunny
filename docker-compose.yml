@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  social-media-mcp:
+    build:
+      context: ./mcp-servers/social-media-manager
+      dockerfile: Dockerfile
+    ports:
+      - "MCP_SOCIAL_MEDIA_PORT:3000" # Maps container port 3000 to host's MCP_SOCIAL_MEDIA_PORT
+    environment:
+      # Pass through required environment variables from your host or a .env file
+      - TWITTER_BEARER_TOKEN=${TWITTER_BEARER_TOKEN}
+      - INSTAGRAM_ACCESS_TOKEN=${INSTAGRAM_ACCESS_TOKEN}
+      - INSTAGRAM_BUSINESS_ID=${INSTAGRAM_BUSINESS_ID}
+      - TIKTOK_ACCESS_TOKEN=${TIKTOK_ACCESS_TOKEN}
+      - LINKEDIN_ACCESS_TOKEN=${LINKEDIN_ACCESS_TOKEN}
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+      - YOUTUBE_CLIENT_ID=${YOUTUBE_CLIENT_ID}
+      - YOUTUBE_CLIENT_SECRET=${YOUTUBE_CLIENT_SECRET}
+      - YOUTUBE_REFRESH_TOKEN=${YOUTUBE_REFRESH_TOKEN}
+    restart: unless-stopped
+    # Use stdio transport over docker's exec feature
+    command: ["node", "server.js"]
+
+  media-processing-mcp:
+    build:
+      context: ./mcp-servers/media-processing-mcp
+      dockerfile: Dockerfile
+    ports:
+      - "MCP_MEDIA_PROCESSING_PORT:3001" # Maps container port 3001 to host's MCP_MEDIA_PROCESSING_PORT
+    environment:
+      # Pass through required environment variables for transcription API backend
+      - TRANSCRIBE_BACKEND=${TRANSCRIBE_BACKEND}
+      - TRANSCRIBE_API_URL=${TRANSCRIBE_API_URL}
+      - TRANSCRIBE_API_KEY=${TRANSCRIBE_API_KEY}
+    volumes:
+      # Mount the project's scripts and episodes directories into the container
+      # This allows the media-processing-mcp to access the Python scripts and media files
+      - ./scripts:/app/scripts
+      - ./episodes:/app/episodes # Assuming episodes are in the project root
+    restart: unless-stopped
+    command: ["python", "server.py"]
+
+  supabase-mcp:
+    image: node:18-alpine # Or a custom image with @supabase/mcp-server-supabase installed
+    command: npx @supabase/mcp-server-supabase@latest
+    ports:
+      - "MCP_SUPABASE_PORT:3002" # Maps container port 3002 to host's MCP_SUPABASE_PORT
+    environment:
+      - SUPABASE_ACCESS_TOKEN=${SUPABASE_ACCESS_TOKEN}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+    restart: unless-stopped
+    # Use a .env file for these variables in the same directory as docker-compose.yml
+    # Or ensure they are set in the host environment.
+
+  supermemory-mcp:
+    image: node:18-alpine
+    command: npx @iflow-mcp/supermemoryai_supermemory-mcp@latest
+    ports:
+      - "MCP_SUPERMEMORY_PORT:3003" # Maps container port 3003 to host's MCP_SUPERMEMORY_PORT
+    environment:
+      - SUPERMEMORY_API_KEY=${SUPERMEMORY_API_KEY}
+      - SUPERMEMORY_PROJECT=${SUPERMEMORY_PROJECT}
+    restart: unless-stopped

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Jared's Not Funny</title>
+    <description>A comedy podcast exploring technology, culture, and everything in between. Join Jared Christianson for weekly episodes featuring tech insights, cultural commentary, and hilarious conversations.</description>
+    <link>https://jcsnotfunny.com</link>
+    <language>en-us</language>
+    <copyright>© 2025 Jared Christianson</copyright>
+    <lastBuildDate>Thu, 08 Jan 2026 10:02:46 GMT</lastBuildDate>
+    <pubDate>2025-01-08T10:00:00Z</pubDate>
+    <generator>JCS Not Funny RSS Generator</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <itunes:author>Jared Christianson</itunes:author>
+    <itunes:subtitle>Comedy meets Technology</itunes:subtitle>
+    <itunes:summary>A comedy podcast exploring technology, culture, and everything in between.</itunes:summary>
+    <itunes:owner>
+      <itunes:name>Jared Christianson</itunes:name>
+      <itunes:email>jared@jcsnotfunny.com</itunes:email>
+    </itunes:owner>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:image href="https://jcsnotfunny.com/images/podcast-cover.jpg" />
+    <itunes:category text="Comedy">
+      <itunes:category text="Technology" />
+    </itunes:category>
+    <image>
+      <url>https://jcsnotfunny.com/images/podcast-cover.jpg</url>
+      <title>Jared's Not Funny</title>
+      <link>https://jcsnotfunny.com</link>
+      <width>1400</width>
+      <height>1400</height>
+    </image>
+    <item>
+      <title>Episode 125: SEO Strategies for Podcasts in 2025</title>
+      <link>https://jcsnotfunny.com/episodes/episode-125-seo-strategies</link>
+      <guid isPermaLink="true">https://jcsnotfunny.com/episodes/episode-125-seo-strategies</guid>
+      <pubDate>Wed, 08 Jan 2025 10:00:00 GMT</pubDate>
+      <description><![CDATA[Deep dive into podcast SEO best practices, including GA4 setup, schema markup, and technical SEO requirements.]]></description>
+      <content:encoded><![CDATA[
+        <p><strong>Show Notes:</strong></p>
+        Deep dive into podcast SEO best practices, including GA4 setup, schema markup, and technical SEO requirements.
+        
+        <p><strong>Listen:</strong> <a href="https://jcsnotfunny.com/audio/episode-125.mp3">Download Episode</a></p>
+        
+        <p><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=example">YouTube Video</a></p>
+        
+        <p><strong>Guests:</strong> SEO Expert</p>
+      ]]></content:encoded>
+      
+      <enclosure 
+        url="https://jcsnotfunny.com/audio/episode-125.mp3" 
+        type="audio/mpeg" 
+        length="43543244"
+      />
+      
+      <itunes:author>Jared Christianson with SEO Expert</itunes:author>
+      
+      <itunes:subtitle>Episode 125: SEO Strategies for Podcasts in 2025</itunes:subtitle>
+      <itunes:summary>Deep dive into podcast SEO best practices, including GA4 setup, schema markup, and technical SEO requirements....</itunes:summary>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:duration>00:45:30</itunes:duration>
+      
+      <itunes:image href="https://jcsnotfunny.com/images/episodes/ep125-cover.jpg" />
+      
+      <category>SEO</category><category>Marketing</category><category>Technology</category><category>Podcasting</category>
+    </item>
+  </channel>
+</rss>

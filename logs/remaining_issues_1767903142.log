@@ -1,0 +1,32 @@
+2026-01-08 15:12:22,735 - __main__ - INFO - Loaded 25 GitHub issues
+2026-01-08 15:12:22,735 - __main__ - INFO - 📋 Loaded 25 issues to process individually
+2026-01-08 15:12:22,735 - __main__ - INFO - 🚀 Starting individual issue processing
+2026-01-08 15:12:22,735 - __main__ - INFO - ================================================================================
+2026-01-08 15:12:22,735 - __main__ - INFO - 📊 Processing issue 1/25
+2026-01-08 15:12:22,735 - __main__ - INFO - 🎯 Processing issue #2: Auto-Edit / Multi-Cam Edit Agent (Priority: 2)
+2026-01-08 15:12:22,736 - swarm_observability - WARNING - OpenTelemetry not available - install with: pip install opentelemetry-sdk opentelemetry-exporter-jaeger opentelemetry-exporter-prometheus
+2026-01-08 15:12:22,736 - swarm_observability - WARNING - LangSmith not available - install with: pip install langsmith
+2026-01-08 15:12:22,736 - swarm_observability - WARNING - LangFuse not available - install with: pip install langfuse
+2026-01-08 15:12:22,736 - swarm_observability - WARNING - Unsupported queue type rabbitmq, falling back to memory
+2026-01-08 15:12:22,736 - swarm_observability - INFO - Using in-memory message queue
+2026-01-08 15:12:22,737 - production_swarm_launcher - INFO - Initializing DemocraticAISwarm v1.0.0
+2026-01-08 15:12:22,738 - base_agent.video_editor - INFO - Initialized agent 'Podcast Video Editor' with 4 tools
+2026-01-08 15:12:22,738 - swarm_communication - INFO - Registered agent: video_editor
+2026-01-08 15:12:23,301 - swarm_observability - INFO - Agent video_editor registered with full observability
+2026-01-08 15:12:23,301 - production_swarm_launcher - INFO - ✓ Loaded agent: Podcast Video Editor
+2026-01-08 15:12:23,304 - base_agent.swarm_orchestrator - INFO - Initialized agent 'Swarm Orchestrator' with 5 tools
+2026-01-08 15:12:23,305 - swarm_communication - INFO - Registered agent: swarm_orchestrator
+2026-01-08 15:12:23,949 - swarm_observability - INFO - Agent swarm_orchestrator registered with full observability
+2026-01-08 15:12:23,949 - production_swarm_launcher - INFO - ✓ Loaded agent: Swarm Orchestrator
+2026-01-08 15:12:23,950 - base_agent.quality_assurance_agent - INFO - Initialized agent 'Quality Assurance Agent' with 3 tools
+2026-01-08 15:12:23,950 - swarm_communication - INFO - Registered agent: quality_assurance_agent
+2026-01-08 15:12:24,228 - swarm_observability - INFO - Agent quality_assurance_agent registered with full observability
+2026-01-08 15:12:24,228 - production_swarm_launcher - INFO - ✓ Loaded agent: Quality Assurance Agent
+2026-01-08 15:12:24,229 - swarm_monitoring - INFO - Swarm monitoring started
+2026-01-08 15:12:24,229 - production_swarm_launcher - INFO - ✓ Monitoring system started
+2026-01-08 15:12:24,230 - production_swarm_launcher - INFO - ✓ Swarm initialized with 3 agents
+2026-01-08 15:12:24,230 - __main__ - INFO - ✅ Swarm initialized with 3 agents for video_editing
+2026-01-08 15:12:24,473 - swarm_communication - INFO - Assigned task github_issue_2 to agent swarm_orchestrator
+2026-01-08 15:12:24,473 - __main__ - INFO - ✓ Assigned to swarm_orchestrator
+2026-01-08 15:12:47,703 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 15:34:48,911 - production_swarm_launcher - INFO - Received signal 15, initiating graceful shutdown...

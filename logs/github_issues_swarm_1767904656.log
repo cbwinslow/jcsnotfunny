@@ -1,0 +1,905 @@
+2026-01-08 15:37:36,296 - __main__ - INFO - 🚀 Starting Democratic Agent Swarm on GitHub Issues
+2026-01-08 15:37:36,296 - __main__ - INFO - ================================================================================
+2026-01-08 15:37:36,296 - swarm_observability - WARNING - OpenTelemetry not available - install with: pip install opentelemetry-sdk opentelemetry-exporter-jaeger opentelemetry-exporter-prometheus
+2026-01-08 15:37:36,296 - swarm_observability - WARNING - LangSmith not available - install with: pip install langsmith
+2026-01-08 15:37:36,296 - swarm_observability - WARNING - LangFuse not available - install with: pip install langfuse
+2026-01-08 15:37:36,296 - swarm_observability - WARNING - Unsupported queue type rabbitmq, falling back to memory
+2026-01-08 15:37:36,296 - swarm_observability - INFO - Using in-memory message queue
+2026-01-08 15:37:36,298 - production_swarm_launcher - INFO - Initializing DemocraticAISwarm v1.0.0
+2026-01-08 15:37:36,298 - base_agent.video_editor - INFO - Initialized agent 'Podcast Video Editor' with 4 tools
+2026-01-08 15:37:36,298 - swarm_communication - INFO - Registered agent: video_editor
+2026-01-08 15:37:36,703 - swarm_observability - INFO - Agent video_editor registered with full observability
+2026-01-08 15:37:36,703 - production_swarm_launcher - INFO - ✓ Loaded agent: Podcast Video Editor
+2026-01-08 15:37:36,706 - base_agent.audio_engineer - INFO - Initialized agent 'Audio Engineer' with 4 tools
+2026-01-08 15:37:36,706 - swarm_communication - INFO - Registered agent: audio_engineer
+2026-01-08 15:37:37,169 - swarm_observability - INFO - Agent audio_engineer registered with full observability
+2026-01-08 15:37:37,169 - production_swarm_launcher - INFO - ✓ Loaded agent: Audio Engineer
+2026-01-08 15:37:37,170 - base_agent.social_media_manager - INFO - Initialized agent 'Social Media Manager' with 4 tools
+2026-01-08 15:37:37,170 - swarm_communication - INFO - Registered agent: social_media_manager
+2026-01-08 15:37:37,702 - swarm_observability - INFO - Agent social_media_manager registered with full observability
+2026-01-08 15:37:37,703 - production_swarm_launcher - INFO - ✓ Loaded agent: Social Media Manager
+2026-01-08 15:37:37,704 - base_agent.content_distributor - INFO - Initialized agent 'Content Distribution Manager' with 4 tools
+2026-01-08 15:37:37,704 - swarm_communication - INFO - Registered agent: content_distributor
+2026-01-08 15:37:37,936 - swarm_observability - INFO - Agent content_distributor registered with full observability
+2026-01-08 15:37:37,936 - production_swarm_launcher - INFO - ✓ Loaded agent: Content Distribution Manager
+2026-01-08 15:37:37,937 - base_agent.sponsorship_manager - INFO - Initialized agent 'Sponsorship Manager' with 4 tools
+2026-01-08 15:37:37,938 - swarm_communication - INFO - Registered agent: sponsorship_manager
+2026-01-08 15:37:38,119 - swarm_observability - INFO - Agent sponsorship_manager registered with full observability
+2026-01-08 15:37:38,119 - production_swarm_launcher - INFO - ✓ Loaded agent: Sponsorship Manager
+2026-01-08 15:37:38,120 - base_agent.tour_manager - INFO - Initialized agent 'Tour & Events Manager' with 4 tools
+2026-01-08 15:37:38,120 - swarm_communication - INFO - Registered agent: tour_manager
+2026-01-08 15:37:38,336 - swarm_observability - INFO - Agent tour_manager registered with full observability
+2026-01-08 15:37:38,336 - production_swarm_launcher - INFO - ✓ Loaded agent: Tour & Events Manager
+2026-01-08 15:37:38,338 - base_agent.swarm_orchestrator - INFO - Initialized agent 'Swarm Orchestrator' with 5 tools
+2026-01-08 15:37:38,339 - swarm_communication - INFO - Registered agent: swarm_orchestrator
+2026-01-08 15:37:38,544 - swarm_observability - INFO - Agent swarm_orchestrator registered with full observability
+2026-01-08 15:37:38,545 - production_swarm_launcher - INFO - ✓ Loaded agent: Swarm Orchestrator
+2026-01-08 15:37:38,546 - base_agent.communication_liaison - INFO - Initialized agent 'Communication Liaison' with 4 tools
+2026-01-08 15:37:38,546 - swarm_communication - INFO - Registered agent: communication_liaison
+2026-01-08 15:37:38,750 - swarm_observability - INFO - Agent communication_liaison registered with full observability
+2026-01-08 15:37:38,750 - production_swarm_launcher - INFO - ✓ Loaded agent: Communication Liaison
+2026-01-08 15:37:38,751 - base_agent.monitoring_overseer - INFO - Initialized agent 'Monitoring Overseer' with 5 tools
+2026-01-08 15:37:38,752 - swarm_communication - INFO - Registered agent: monitoring_overseer
+2026-01-08 15:37:39,108 - swarm_observability - INFO - Agent monitoring_overseer registered with full observability
+2026-01-08 15:37:39,109 - production_swarm_launcher - INFO - ✓ Loaded agent: Monitoring Overseer
+2026-01-08 15:37:39,110 - base_agent.quality_assurance_agent - INFO - Initialized agent 'Quality Assurance Agent' with 3 tools
+2026-01-08 15:37:39,110 - swarm_communication - INFO - Registered agent: quality_assurance_agent
+2026-01-08 15:37:39,452 - swarm_observability - INFO - Agent quality_assurance_agent registered with full observability
+2026-01-08 15:37:39,453 - production_swarm_launcher - INFO - ✓ Loaded agent: Quality Assurance Agent
+2026-01-08 15:37:39,455 - base_agent.resource_manager - INFO - Initialized agent 'Resource Manager' with 3 tools
+2026-01-08 15:37:39,455 - swarm_communication - INFO - Registered agent: resource_manager
+2026-01-08 15:37:39,759 - swarm_observability - INFO - Agent resource_manager registered with full observability
+2026-01-08 15:37:39,759 - production_swarm_launcher - INFO - ✓ Loaded agent: Resource Manager
+2026-01-08 15:37:39,761 - base_agent.data_analyst_agent - INFO - Initialized agent 'Data Analyst Agent' with 5 tools
+2026-01-08 15:37:39,761 - swarm_communication - INFO - Registered agent: data_analyst_agent
+2026-01-08 15:37:40,008 - swarm_observability - INFO - Agent data_analyst_agent registered with full observability
+2026-01-08 15:37:40,009 - production_swarm_launcher - INFO - ✓ Loaded agent: Data Analyst Agent
+2026-01-08 15:37:40,011 - base_agent.security_agent - INFO - Initialized agent 'Security Agent' with 4 tools
+2026-01-08 15:37:40,011 - swarm_communication - INFO - Registered agent: security_agent
+2026-01-08 15:37:40,327 - swarm_observability - INFO - Agent security_agent registered with full observability
+2026-01-08 15:37:40,328 - production_swarm_launcher - INFO - ✓ Loaded agent: Security Agent
+2026-01-08 15:37:40,329 - swarm_monitoring - INFO - Swarm monitoring started
+2026-01-08 15:37:40,329 - production_swarm_launcher - INFO - ✓ Monitoring system started
+2026-01-08 15:37:40,330 - production_swarm_launcher - INFO - ✓ Swarm initialized with 13 agents
+2026-01-08 15:37:40,330 - __main__ - INFO - ✅ Swarm initialized for GitHub issue processing
+2026-01-08 15:37:40,335 - __main__ - INFO - Loaded 25 GitHub issues
+2026-01-08 15:37:40,335 - __main__ - INFO - 📋 Loaded 25 GitHub issues for processing:
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #2: Auto-Edit / Multi-Cam Edit Agent (Priority: 2) (high priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #12: Issue: Social Automation — MCP & API Providers (high priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #4: Issue: CI & Deploy — site build + artifacts (medium priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #3: Live Streaming & Multi-Platform Archival Agent (Priority: 3) (high priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #18: Issue: CLI & Utilities — orchestrator and helpers (medium priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #5: Issue: Cloudflare & CDN setup (medium priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #9: Issue: Launch plan (MVP) (high priority)
+2026-01-08 15:37:40,335 - __main__ - INFO -   - Issue #4: Post-publish automation: Trigger transcription & auto-edit on published episodes (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #9: Website integration & media test harness (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #16: Issue: Scheduler integration (Buffer / Hootsuite / Later) (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #10: Issue: Growth & Ads — sponsorship materials and process (low priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #14: Issue: Implement X (Twitter) client module (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #6: Issue: Website & SEO (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #None: Example Episode Request (low priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #8: Issue: Quality checklist & KPIs (low priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #7: Issue: Booking / Workflow CRM (medium priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #7: End-to-end integration smoke test for publish -> transcribe -> auto-edit (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #1: Transcription & Captioning Agent (Priority: 1) (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #5: RAG store & index connectors (FAISS local + managed) (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #8: 24/7 Worker: scaffold, runbook, and deployment (Priority: high) (high priority)
+2026-01-08 15:37:40,336 - __main__ - INFO -   - Issue #6: Publish pipeline: Wire transcription, auto-edit and publish hooks (high priority)
+2026-01-08 15:37:40,337 - __main__ - INFO -   - Issue #15: Issue: Implement YouTube client (uploads) (high priority)
+2026-01-08 15:37:40,337 - __main__ - INFO -   - Issue #3: Issue: Automation agents (ingest, transcribe, clip-generator, publish) (medium priority)
+2026-01-08 15:37:40,337 - __main__ - INFO -   - Issue #2: Issue: Issue templates & label taxonomy (high priority)
+2026-01-08 15:37:40,337 - __main__ - INFO -   - Issue #1: 01 Deliverables And Sops (low priority)
+2026-01-08 15:37:40,337 - __main__ - INFO - 🎯 Assigning GitHub issues as swarm tasks...
+2026-01-08 15:37:40,337 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,337 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,337 - __main__ - INFO - ✓ Assigned issue #2 'Auto-Edit / Multi-Cam Edit Agent (Priority: 2)' to swarm_orchestrator
+2026-01-08 15:37:40,337 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,337 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,337 - __main__ - INFO - ✓ Assigned issue #12 'Issue: Social Automation — MCP & API Providers' to swarm_orchestrator
+2026-01-08 15:37:40,337 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,337 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,337 - __main__ - INFO - ✓ Assigned issue #4 'Issue: CI & Deploy — site build + artifacts' to swarm_orchestrator
+2026-01-08 15:37:40,338 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,338 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,338 - __main__ - INFO - ✓ Assigned issue #3 'Live Streaming & Multi-Platform Archival Agent (Priority: 3)' to swarm_orchestrator
+2026-01-08 15:37:40,338 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,338 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,338 - __main__ - INFO - ✓ Assigned issue #18 'Issue: CLI & Utilities — orchestrator and helpers' to swarm_orchestrator
+2026-01-08 15:37:40,338 - __main__ - INFO - 🎯 Orchestrator recommends: video_editor
+2026-01-08 15:37:40,338 - __main__ - INFO - ✅ Consensus reached: video_editor (4/4 votes)
+2026-01-08 15:37:40,338 - __main__ - INFO - ✓ Assigned issue #5 'Issue: Cloudflare & CDN setup' to video_editor
+2026-01-08 15:37:40,338 - __main__ - INFO - 🎯 Orchestrator recommends: social_media_manager
+2026-01-08 15:37:40,338 - __main__ - INFO - ✅ Consensus reached: social_media_manager (4/4 votes)
+2026-01-08 15:37:40,338 - __main__ - INFO - ✓ Assigned issue #9 'Issue: Launch plan (MVP)' to social_media_manager
+2026-01-08 15:37:40,338 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,338 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,339 - __main__ - INFO - ✓ Assigned issue #4 'Post-publish automation: Trigger transcription & auto-edit on published episodes' to swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,339 - __main__ - INFO - ✓ Assigned issue #9 'Website integration & media test harness' to swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,339 - __main__ - INFO - ✓ Assigned issue #16 'Issue: Scheduler integration (Buffer / Hootsuite / Later)' to swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - 🎯 Orchestrator recommends: communication_liaison
+2026-01-08 15:37:40,339 - __main__ - INFO - ✅ Consensus reached: communication_liaison (2/2 votes)
+2026-01-08 15:37:40,339 - __main__ - INFO - ✓ Assigned issue #10 'Issue: Growth & Ads — sponsorship materials and process' to communication_liaison
+2026-01-08 15:37:40,339 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,339 - __main__ - INFO - ✓ Assigned issue #14 'Issue: Implement X (Twitter) client module' to swarm_orchestrator
+2026-01-08 15:37:40,339 - __main__ - INFO - 🎯 Orchestrator recommends: content_distributor
+2026-01-08 15:37:40,340 - __main__ - INFO - ✅ Consensus reached: content_distributor (4/4 votes)
+2026-01-08 15:37:40,340 - __main__ - INFO - ✓ Assigned issue #6 'Issue: Website & SEO' to content_distributor
+2026-01-08 15:37:40,340 - __main__ - INFO - 🎯 Orchestrator recommends: communication_liaison
+2026-01-08 15:37:40,340 - __main__ - INFO - ✅ Consensus reached: communication_liaison (2/2 votes)
+2026-01-08 15:37:40,340 - __main__ - INFO - ✓ Assigned issue #None 'Example Episode Request' to communication_liaison
+2026-01-08 15:37:40,340 - __main__ - INFO - 🎯 Orchestrator recommends: video_editor
+2026-01-08 15:37:40,340 - __main__ - INFO - ✅ Consensus reached: video_editor (4/4 votes)
+2026-01-08 15:37:40,340 - __main__ - INFO - ✓ Assigned issue #8 'Issue: Quality checklist & KPIs' to video_editor
+2026-01-08 15:37:40,340 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,340 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,340 - __main__ - INFO - ✓ Assigned issue #7 'Issue: Booking / Workflow CRM' to swarm_orchestrator
+2026-01-08 15:37:40,340 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,340 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,340 - __main__ - INFO - ✓ Assigned issue #7 'End-to-end integration smoke test for publish -> transcribe -> auto-edit' to swarm_orchestrator
+2026-01-08 15:37:40,340 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,340 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,340 - __main__ - INFO - ✓ Assigned issue #1 'Transcription & Captioning Agent (Priority: 1)' to swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,341 - __main__ - INFO - ✓ Assigned issue #5 'RAG store & index connectors (FAISS local + managed)' to swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,341 - __main__ - INFO - ✓ Assigned issue #8 '24/7 Worker: scaffold, runbook, and deployment (Priority: high)' to swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,341 - __main__ - INFO - ✓ Assigned issue #6 'Publish pipeline: Wire transcription, auto-edit and publish hooks' to swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,341 - __main__ - INFO - ✓ Assigned issue #15 'Issue: Implement YouTube client (uploads)' to swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - 🎯 Orchestrator recommends: swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - ✅ Consensus reached: swarm_orchestrator (4/4 votes)
+2026-01-08 15:37:40,341 - __main__ - INFO - ✓ Assigned issue #3 'Issue: Automation agents (ingest, transcribe, clip-generator, publish)' to swarm_orchestrator
+2026-01-08 15:37:40,341 - __main__ - INFO - 🎯 Orchestrator recommends: communication_liaison
+2026-01-08 15:37:40,341 - __main__ - INFO - ✅ Consensus reached: communication_liaison (3/3 votes)
+2026-01-08 15:37:40,342 - __main__ - INFO - ✓ Assigned issue #2 'Issue: Issue templates & label taxonomy' to communication_liaison
+2026-01-08 15:37:40,342 - __main__ - INFO - 🎯 Orchestrator recommends: video_editor
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Consensus reached: video_editor (4/4 votes)
+2026-01-08 15:37:40,342 - __main__ - INFO - ✓ Assigned issue #1 '01 Deliverables And Sops' to video_editor
+2026-01-08 15:37:40,342 - __main__ - INFO - 📊 Assigned 25/25 issues to swarm agents
+2026-01-08 15:37:40,342 - __main__ - INFO - 📊 Monitoring swarm progress on GitHub issues...
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #2 'Auto-Edit / Multi-Cam Edit Agent (Priority: 2)' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #12 'Issue: Social Automation — MCP & API Providers' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #4 'Issue: CI & Deploy — site build + artifacts' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #3 'Live Streaming & Multi-Platform Archival Agent (Priority: 3)' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #18 'Issue: CLI & Utilities — orchestrator and helpers' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #5 'Issue: Cloudflare & CDN setup' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #9 'Issue: Launch plan (MVP)' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #4 'Post-publish automation: Trigger transcription & auto-edit on published episodes' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #9 'Website integration & media test harness' marked as completed
+2026-01-08 15:37:40,342 - __main__ - INFO - ✅ Issue #16 'Issue: Scheduler integration (Buffer / Hootsuite / Later)' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #10 'Issue: Growth & Ads — sponsorship materials and process' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #14 'Issue: Implement X (Twitter) client module' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #6 'Issue: Website & SEO' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #None 'Example Episode Request' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #8 'Issue: Quality checklist & KPIs' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #7 'Issue: Booking / Workflow CRM' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #7 'End-to-end integration smoke test for publish -> transcribe -> auto-edit' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #1 'Transcription & Captioning Agent (Priority: 1)' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #5 'RAG store & index connectors (FAISS local + managed)' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #8 '24/7 Worker: scaffold, runbook, and deployment (Priority: high)' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #6 'Publish pipeline: Wire transcription, auto-edit and publish hooks' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #15 'Issue: Implement YouTube client (uploads)' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #3 'Issue: Automation agents (ingest, transcribe, clip-generator, publish)' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #2 'Issue: Issue templates & label taxonomy' marked as completed
+2026-01-08 15:37:40,343 - __main__ - INFO - ✅ Issue #1 '01 Deliverables And Sops' marked as completed
+2026-01-08 15:37:40,345 - __main__ - INFO - 📈 Progress: 25/25 issues completed, 0 active
+2026-01-08 15:37:40,345 - __main__ - INFO - 🤖 Swarm: 7/13 agents active
+2026-01-08 15:37:40,345 - __main__ - INFO - ⚡ Tasks: 0 active, 0 completed today
+2026-01-08 15:37:40,345 - __main__ - INFO - 🎉 All GitHub issues have been processed!
+2026-01-08 15:37:40,347 - __main__ - INFO - 📊 Final Report:
+2026-01-08 15:37:40,347 - __main__ - INFO - {
+  "processing_summary": {
+    "total_issues": 25,
+    "completed_issues": 25,
+    "completion_rate": 100.0,
+    "processing_time_seconds": -2.288818359375e-05,
+    "average_time_per_issue": -9.34600830078125e-07
+  },
+  "priority_breakdown": {
+    "high": {
+      "total": 16,
+      "completed": 16
+    },
+    "medium": {
+      "total": 5,
+      "completed": 5
+    },
+    "low": {
+      "total": 4,
+      "completed": 4
+    }
+  },
+  "agent_performance": {
+    "swarm_orchestrator": 17,
+    "video_editor": 3,
+    "social_media_manager": 1,
+    "communication_liaison": 3,
+    "content_distributor": 1
+  },
+  "completed_issues": [
+    {
+      "number": 2,
+      "title": "Auto-Edit / Multi-Cam Edit Agent (Priority: 2)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3425303
+    },
+    {
+      "number": 12,
+      "title": "Issue: Social Automation \u2014 MCP & API Providers",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3425865
+    },
+    {
+      "number": 4,
+      "title": "Issue: CI & Deploy \u2014 site build + artifacts",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3426385
+    },
+    {
+      "number": 3,
+      "title": "Live Streaming & Multi-Platform Archival Agent (Priority: 3)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.342687
+    },
+    {
+      "number": 18,
+      "title": "Issue: CLI & Utilities \u2014 orchestrator and helpers",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3427343
+    },
+    {
+      "number": 5,
+      "title": "Issue: Cloudflare & CDN setup",
+      "assigned_agent": "video_editor",
+      "completed_at": 1767904660.3427825
+    },
+    {
+      "number": 9,
+      "title": "Issue: Launch plan (MVP)",
+      "assigned_agent": "social_media_manager",
+      "completed_at": 1767904660.3428307
+    },
+    {
+      "number": 4,
+      "title": "Post-publish automation: Trigger transcription & auto-edit on published episodes",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3428786
+    },
+    {
+      "number": 9,
+      "title": "Website integration & media test harness",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3429248
+    },
+    {
+      "number": 16,
+      "title": "Issue: Scheduler integration (Buffer / Hootsuite / Later)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3429725
+    },
+    {
+      "number": 10,
+      "title": "Issue: Growth & Ads \u2014 sponsorship materials and process",
+      "assigned_agent": "communication_liaison",
+      "completed_at": 1767904660.3430202
+    },
+    {
+      "number": 14,
+      "title": "Issue: Implement X (Twitter) client module",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3430676
+    },
+    {
+      "number": 6,
+      "title": "Issue: Website & SEO",
+      "assigned_agent": "content_distributor",
+      "completed_at": 1767904660.3431246
+    },
+    {
+      "number": null,
+      "title": "Example Episode Request",
+      "assigned_agent": "communication_liaison",
+      "completed_at": 1767904660.343173
+    },
+    {
+      "number": 8,
+      "title": "Issue: Quality checklist & KPIs",
+      "assigned_agent": "video_editor",
+      "completed_at": 1767904660.343223
+    },
+    {
+      "number": 7,
+      "title": "Issue: Booking / Workflow CRM",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.343275
+    },
+    {
+      "number": 7,
+      "title": "End-to-end integration smoke test for publish -> transcribe -> auto-edit",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.343322
+    },
+    {
+      "number": 1,
+      "title": "Transcription & Captioning Agent (Priority: 1)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.343381
+    },
+    {
+      "number": 5,
+      "title": "RAG store & index connectors (FAISS local + managed)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.343429
+    },
+    {
+      "number": 8,
+      "title": "24/7 Worker: scaffold, runbook, and deployment (Priority: high)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3434775
+    },
+    {
+      "number": 6,
+      "title": "Publish pipeline: Wire transcription, auto-edit and publish hooks",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3435256
+    },
+    {
+      "number": 15,
+      "title": "Issue: Implement YouTube client (uploads)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.343572
+    },
+    {
+      "number": 3,
+      "title": "Issue: Automation agents (ingest, transcribe, clip-generator, publish)",
+      "assigned_agent": "swarm_orchestrator",
+      "completed_at": 1767904660.3436198
+    },
+    {
+      "number": 2,
+      "title": "Issue: Issue templates & label taxonomy",
+      "assigned_agent": "communication_liaison",
+      "completed_at": 1767904660.343668
+    },
+    {
+      "number": 1,
+      "title": "01 Deliverables And Sops",
+      "assigned_agent": "video_editor",
+      "completed_at": 1767904660.3437252
+    }
+  ],
+  "swarm_final_status": {
+    "config": {
+      "name": "DemocraticAISwarm",
+      "version": "1.0.0",
+      "max_agents": 20
+    },
+    "state": {
+      "running": false,
+      "maintenance_mode": false,
+      "emergency_stop": false,
+      "uptime_seconds": 4
+    },
+    "agents": {
+      "total": 13,
+      "active": 7,
+      "details": {
+        "video_editor": {
+          "role": "Video production specialist focused on podcast content optimization",
+          "confidence": 0.06999999999999999,
+          "tools": 4
+        },
+        "audio_engineer": {
+          "role": "Audio production and enhancement specialist",
+          "confidence": 0.06999999999999999,
+          "tools": 4
+        },
+        "social_media_manager": {
+          "role": "Multi-platform social media content management and scheduling",
+          "confidence": 0.06999999999999999,
+          "tools": 4
+        },
+        "content_distributor": {
+          "role": "Manage content publishing and website updates via Cloudflare",
+          "confidence": 0.06999999999999999,
+          "tools": 4
+        },
+        "sponsorship_manager": {
+          "role": "Manage sponsor relationships and integration",
+          "confidence": 0.5,
+          "tools": 4
+        },
+        "tour_manager": {
+          "role": "Manage live events, tour dates, and venue coordination",
+          "confidence": 0.06999999999999999,
+          "tools": 4
+        },
+        "swarm_orchestrator": {
+          "role": "Central coordinator for the democratic agent swarm",
+          "confidence": 0.5,
+          "tools": 5
+        },
+        "communication_liaison": {
+          "role": "Manage inter-agent communication and conversation flow",
+          "confidence": 0.5,
+          "tools": 4
+        },
+        "monitoring_overseer": {
+          "role": "Monitor swarm performance, detect anomalies, and predict issues",
+          "confidence": 0.5,
+          "tools": 5
+        },
+        "quality_assurance_agent": {
+          "role": "Ensure output quality and conduct validation checks",
+          "confidence": 0.5,
+          "tools": 3
+        },
+        "resource_manager": {
+          "role": "Manage swarm resources and prevent exhaustion",
+          "confidence": 0.06999999999999999,
+          "tools": 3
+        },
+        "data_analyst_agent": {
+          "role": "Analyze performance data and extract insights",
+          "confidence": 0.5,
+          "tools": 5
+        },
+        "security_agent": {
+          "role": "Monitor security threats and ensure swarm integrity",
+          "confidence": 0.5,
+          "tools": 4
+        }
+      }
+    },
+    "tasks": {
+      "active": 0,
+      "completed_today": 0
+    },
+    "system": {
+      "telemetry": {
+        "runtime_seconds": 4.048999309539795,
+        "total_events": 26,
+        "event_counts": {
+          "a2a_message_sent": 13,
+          "agent_registered": 13
+        },
+        "active_agents": 14,
+        "integrations": {
+          "opentelemetry": false,
+          "langsmith": false,
+          "langfuse": false
+        }
+      },
+      "message_bus": {
+        "registered_agents": 13,
+        "active_channels": 15,
+        "message_history_size": 13
+      },
+      "voting_system": {
+        "active_proposals": 0,
+        "completed_proposals": 0
+      },
+      "coordinator": {
+        "active_tasks": 0,
+        "completed_tasks": 0,
+        "total_tasks": 0,
+        "success_rate": 0,
+        "runtime": 4.048975944519043,
+        "iterations": 0,
+        "should_terminate": false,
+        "termination_reason": "",
+        "agents": 13
+      },
+      "a2a_protocol": {
+        "registered_agents": 13,
+        "active_conversations": 0,
+        "supported_protocols": [
+          "A2A/1.0",
+          "A2A/1.1"
+        ],
+        "capabilities": {
+          "messaging": true,
+          "voting": true,
+          "task_coordination": true,
+          "knowledge_sharing": true,
+          "telemetry": true
+        }
+      },
+      "persistent_queue": {
+        "type": "memory",
+        "status": "active"
+      }
+    },
+    "monitoring": {
+      "monitoring_active": true,
+      "conversation_logs": 26,
+      "active_alerts": {
+        "total": 0,
+        "by_severity": {}
+      },
+      "performance_analysis": {
+        "time_period_hours": 1,
+        "overall_health": "healthy",
+        "issues": [],
+        "recommendations": [],
+        "metrics": {
+          "time_period_hours": 1,
+          "total_messages": 21,
+          "messages_by_type": {
+            "agent_handshake": 19,
+            "task_assignment": 2
+          },
+          "active_conversations": 21,
+          "task_completion": {
+            "successful": 0,
+            "failed": 0,
+            "total": 0,
+            "success_rate": 0
+          }
+        },
+        "communication_issues": [],
+        "communication_recommendations": [],
+        "task_issues": [
+          {
+            "type": "high_failure_rate",
+            "severity": "high",
+            "description": "Task success rate is 0.0%, below acceptable threshold"
+          }
+        ],
+        "task_recommendations": [
+          "Investigate failing tasks and agent performance"
+        ]
+      },
+      "system_metrics": {
+        "time_period_hours": 1,
+        "total_messages": 21,
+        "messages_by_type": {
+          "agent_handshake": 19,
+          "task_assignment": 2
+        },
+        "active_conversations": 21,
+        "task_completion": {
+          "successful": 0,
+          "failed": 0,
+          "total": 0,
+          "success_rate": 0
+        }
+      },
+      "alert_history": [
+        {
+          "alert_id": "alert_1767904632_99124f60",
+          "timestamp": 1767904632.1227672,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904632.0
+        },
+        {
+          "alert_id": "alert_1767904572_d78aed14",
+          "timestamp": 1767904572.0049593,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904572.0
+        },
+        {
+          "alert_id": "alert_1767904511_34d8ac02",
+          "timestamp": 1767904511.8992302,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904511.0
+        },
+        {
+          "alert_id": "alert_1767904451_f46c2158",
+          "timestamp": 1767904451.7939286,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904451.0
+        },
+        {
+          "alert_id": "alert_1767904391_a5c35ede",
+          "timestamp": 1767904391.6808147,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904391.0
+        },
+        {
+          "alert_id": "alert_1767904331_2baaf1f5",
+          "timestamp": 1767904331.549624,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904331.0
+        },
+        {
+          "alert_id": "alert_1767904271_c1d19934",
+          "timestamp": 1767904271.4690087,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904271.0
+        },
+        {
+          "alert_id": "alert_1767904211_00158156",
+          "timestamp": 1767904211.355608,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904211.0
+        },
+        {
+          "alert_id": "alert_1767904151_25701d8b",
+          "timestamp": 1767904151.1275277,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904151.0
+        },
+        {
+          "alert_id": "alert_1767904090_f1b7ce42",
+          "timestamp": 1767904090.9124153,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904090.0
+        },
+        {
+          "alert_id": "alert_1767904030_e97a05ed",
+          "timestamp": 1767904030.7517085,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767904030.0
+        },
+        {
+          "alert_id": "alert_1767903970_74bf58e8",
+          "timestamp": 1767903970.4505692,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903970.0
+        },
+        {
+          "alert_id": "alert_1767903910_b1b0aaa9",
+          "timestamp": 1767903910.3480237,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903910.0
+        },
+        {
+          "alert_id": "alert_1767903850_6b8985e4",
+          "timestamp": 1767903850.1563523,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903850.0
+        },
+        {
+          "alert_id": "alert_1767903790_2a9622e6",
+          "timestamp": 1767903790.0430367,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903790.0
+        },
+        {
+          "alert_id": "alert_1767903729_430ccd5c",
+          "timestamp": 1767903729.936614,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903729.0
+        },
+        {
+          "alert_id": "alert_1767903669_a4dfb537",
+          "timestamp": 1767903669.718738,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903669.0
+        },
+        {
+          "alert_id": "alert_1767903609_11363864",
+          "timestamp": 1767903609.5287585,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903609.0
+        },
+        {
+          "alert_id": "alert_1767903549_409efd0f",
+          "timestamp": 1767903549.447282,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903549.0
+        },
+        {
+          "alert_id": "alert_1767903489_4ea12736",
+          "timestamp": 1767903489.351216,
+          "severity": "warning",
+          "alert_type": "agent_failure",
+          "title": "Swarm Termination Recommended",
+          "description": "Coordinator recommends swarm termination: maximum runtime exceeded",
+          "agent_name": null,
+          "metadata": "{\"reason\": \"maximum runtime exceeded\"}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767903489.0
+        },
+        {
+          "alert_id": "alert_1767897085_d7f1eed8",
+          "timestamp": 1767897085.4026456,
+          "severity": "critical",
+          "alert_type": "agent_failure",
+          "title": "No Active Agents",
+          "description": "No agents are currently active in the swarm",
+          "agent_name": null,
+          "metadata": "{\"agents_count\": 0}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767897085.0
+        },
+        {
+          "alert_id": "alert_1767896248_fb297d17",
+          "timestamp": 1767896248.0585065,
+          "severity": "critical",
+          "alert_type": "agent_failure",
+          "title": "No Active Agents",
+          "description": "No agents are currently active in the swarm",
+          "agent_name": null,
+          "metadata": "{\"agents_count\": 0}",
+          "resolved": 0,
+          "resolved_at": null,
+          "resolution_note": null,
+          "created_at": 1767896248.0
+        }
+      ]
+    }
+  }
+}
+2026-01-08 15:37:40,348 - production_swarm_launcher - INFO - Initiating swarm shutdown...
+2026-01-08 15:37:45,662 - swarm_monitoring - INFO - Swarm monitoring stopped
+2026-01-08 15:37:46,331 - production_swarm_launcher - INFO - Final report saved to logs/swarm_report_1767904666.json
+2026-01-08 15:37:46,332 - production_swarm_launcher - INFO - Swarm Statistics: {
+  "swarm_name": "DemocraticAISwarm",
+  "version": "1.0.0",
+  "runtime_seconds": 10.033417701721191,
+  "agents_loaded": 13,
+  "tasks_completed": 0,
+  "messages_processed": 0,
+  "alerts_raised": 0,
+  "final_status": "shutdown_complete"
+}
+2026-01-08 15:37:46,332 - production_swarm_launcher - INFO - Swarm shutdown complete
+2026-01-08 15:37:46,332 - __main__ - INFO - GitHub issue processing complete

@@ -11,11 +11,121 @@ from __future__ import annotations
 
 import json
 import logging
+import time
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional, Callable
 from pathlib import Path
+from collections import defaultdict
+from dataclasses import dataclass, field
 
 from agents.robust_tool import RobustTool, ToolResult
+
+
+@dataclass
+class ConfidenceMetrics:
+    """Tracks confidence metrics for democratic decision making."""
+
+    # Overall confidence score (0-1)
+    overall: float = 0.5
+
+    # Domain-specific confidence scores
+    domains: Dict[str, float] = field(default_factory=dict)
+
+    # Tool-specific confidence scores
+    tools: Dict[str, float] = field(default_factory=dict)
+
+    # Recent performance tracking (last N operations)
+    recent_performance: List[bool] = field(default_factory=list)
+    max_recent_history: int = 50
+
+    # Voting history
+    total_votes: int = 0
+    successful_votes: int = 0
+
+    # Communication history
+    total_communications: int = 0
+    effective_communications: int = 0
+
+    def update_overall_confidence(self) -> None:
+        """Recalculate overall confidence based on various factors."""
+        factors = []
+
+        # Recent performance (40% weight)
+        if self.recent_performance:
+            recent_success_rate = sum(self.recent_performance) / len(self.recent_performance)
+            factors.append((recent_success_rate, 0.4))
+
+        # Voting accuracy (30% weight)
+        if self.total_votes > 0:
+            voting_accuracy = self.successful_votes / self.total_votes
+            factors.append((voting_accuracy, 0.3))
+
+        # Communication effectiveness (20% weight)
+        if self.total_communications > 0:
+            comm_effectiveness = self.effective_communications / self.total_communications
+            factors.append((comm_effectiveness, 0.2))
+
+        # Domain expertise average (10% weight)
+        if self.domains:
+            domain_avg = sum(self.domains.values()) / len(self.domains)
+            factors.append((domain_avg, 0.1))
+
+        if factors:
+            self.overall = sum(score * weight for score, weight in factors)
+        else:
+            self.overall = 0.5  # Default neutral confidence
+
+        # Clamp to [0, 1]
+        self.overall = max(0.0, min(1.0, self.overall))
+
+    def update_recent_performance(self, success: bool) -> None:
+        """Update recent performance tracking."""
+        self.recent_performance.append(success)
+        if len(self.recent_performance) > self.max_recent_history:
+            self.recent_performance.pop(0)
+
+    def get_domain_confidence(self, domain: str) -> float:
+        """Get confidence for a specific domain."""
+        return self.domains.get(domain, 0.5)
+
+    def get_tool_confidence(self, tool: str) -> float:
+        """Get confidence for a specific tool."""
+        return self.tools.get(tool, 0.5)
+
+    def should_abstain(self, context: str = "", threshold: float = 0.3) -> bool:
+        """Determine if agent should abstain from decision/vote."""
+        # Abstain if overall confidence is too low
+        if self.overall < threshold:
+            return True
+
+        # Abstain if domain-specific confidence is too low
+        if context and self.get_domain_confidence(context) < threshold:
+            return True
+
+        return False
+
+    def get_voting_weight(self, context: str = "") -> float:
+        """Calculate voting weight for democratic decisions."""
+        base_weight = self.overall
+
+        # Boost weight for domain expertise
+        if context:
+            domain_boost = self.get_domain_confidence(context) * 0.2
+            base_weight += domain_boost
+
+        return max(0.1, min(2.0, base_weight))  # Clamp between 0.1 and 2.0
+
+    def record_vote(self, success: bool) -> None:
+        """Record the outcome of a vote."""
+        self.total_votes += 1
+        if success:
+            self.successful_votes += 1
+
+    def record_communication(self, effective: bool) -> None:
+        """Record communication effectiveness."""
+        self.total_communications += 1
+        if effective:
+            self.effective_communications += 1
 
 
 class AgentTool:
@@ -110,7 +220,193 @@ class BaseAgent(ABC):
         self.state = {}
         self.execution_history: List[Dict[str, Any]] = []
 
+        # Confidence metrics for democratic decision making
+        self.confidence = ConfidenceMetrics()
+
+        # Initialize domain confidence based on role
+        self._initialize_domain_confidence()
+
         self.logger.info(f"Initialized agent '{self.name}' with {len(self.tools)} tools")
+
+    def _initialize_domain_confidence(self) -> None:
+        """Initialize domain confidence based on agent role and tools."""
+        # Base confidence for different domains
+        role_lower = self.role.lower()
+
+        if 'video' in role_lower or 'editing' in role_lower:
+            self.confidence.domains['video_editing'] = 0.8
+            self.confidence.domains['content_creation'] = 0.6
+        elif 'audio' in role_lower or 'sound' in role_lower:
+            self.confidence.domains['audio_production'] = 0.8
+            self.confidence.domains['music'] = 0.6
+        elif 'social' in role_lower or 'media' in role_lower:
+            self.confidence.domains['social_media'] = 0.8
+            self.confidence.domains['marketing'] = 0.6
+        elif 'content' in role_lower or 'distribution' in role_lower:
+            self.confidence.domains['content_distribution'] = 0.8
+            self.confidence.domains['seo'] = 0.6
+        elif 'sponsorship' in role_lower or 'business' in role_lower:
+            self.confidence.domains['sponsorship'] = 0.8
+            self.confidence.domains['business_development'] = 0.6
+        elif 'tour' in role_lower or 'event' in role_lower:
+            self.confidence.domains['event_management'] = 0.8
+            self.confidence.domains['logistics'] = 0.6
+
+        # Initialize tool confidence
+        for tool_name in self.get_available_tools():
+            self.confidence.tools[tool_name] = 0.7  # Default high confidence for own tools
+
+    def update_confidence_after_execution(self, tool_name: str, success: bool) -> None:
+        """Update confidence metrics after tool execution.
+
+        Args:
+            tool_name: Name of the tool that was executed
+            success: Whether the execution was successful
+        """
+        # Update recent performance
+        self.confidence.update_recent_performance(success)
+
+        # Update tool-specific confidence
+        if tool_name in self.confidence.tools:
+            current = self.confidence.tools[tool_name]
+            # Exponential moving average
+            alpha = 0.1  # Learning rate
+            target = 1.0 if success else 0.0
+            self.confidence.tools[tool_name] = current + alpha * (target - current)
+
+        # Update overall confidence
+        self.confidence.update_overall_confidence()
+
+    def get_confidence_report(self) -> Dict[str, Any]:
+        """Get comprehensive confidence report.
+
+        Returns:
+            Dictionary with confidence metrics
+        """
+        return {
+            'overall_confidence': self.confidence.overall,
+            'domain_confidence': dict(self.confidence.domains),
+            'tool_confidence': dict(self.confidence.tools),
+            'recent_performance_rate': (
+                sum(self.confidence.recent_performance) / len(self.confidence.recent_performance)
+                if self.confidence.recent_performance else 0.0
+            ),
+            'voting_accuracy': (
+                self.confidence.successful_votes / self.confidence.total_votes
+                if self.confidence.total_votes > 0 else 0.0
+            ),
+            'communication_effectiveness': (
+                self.confidence.effective_communications / self.confidence.total_communications
+                if self.confidence.total_communications > 0 else 0.0
+            )
+        }
+
+    # Democratic Decision Making Methods
+
+    def should_abstain_from_vote(self, context: str = "", threshold: float = 0.3) -> bool:
+        """Determine if agent should abstain from voting on a decision.
+
+        Args:
+            context: Domain or context of the decision
+            threshold: Minimum confidence required to participate
+
+        Returns:
+            True if agent should abstain
+        """
+        return self.confidence.should_abstain(context, threshold)
+
+    def get_voting_weight(self, context: str = "") -> float:
+        """Get voting weight for democratic decisions.
+
+        Args:
+            context: Domain or context of the decision
+
+        Returns:
+            Voting weight (0.1 to 2.0)
+        """
+        return self.confidence.get_voting_weight(context)
+
+    def cast_vote(self, option: str, context: str = "") -> Dict[str, Any]:
+        """Cast a vote on a proposal for a specific option.
+
+        Args:
+            option: The option to vote for
+            context: Domain context of the vote
+
+        Returns:
+            Vote result with decision and weight
+        """
+        if self.should_abstain_from_vote(context):
+            return {
+                'decision': 'abstain',
+                'weight': 0.0,
+                'reason': 'low_confidence',
+                'confidence': self.confidence.overall
+            }
+
+        # Use the provided option as the decision
+        return {
+            'decision': option,
+            'weight': self.get_voting_weight(context),
+            'confidence': self.confidence.overall,
+            'context_confidence': self.confidence.get_domain_confidence(context)
+        }
+
+    def record_vote_outcome(self, vote_success: bool) -> None:
+        """Record the outcome of a vote for confidence tracking.
+
+        Args:
+            vote_success: Whether the voted-upon decision was successful
+        """
+        self.confidence.record_vote(vote_success)
+
+    def send_message(self, recipient: str, message: Dict[str, Any]) -> bool:
+        """Send a message to another agent (placeholder for communication system).
+
+        Args:
+            recipient: Recipient agent name
+            message: Message content
+
+        Returns:
+            True if message sent successfully
+        """
+        # This is a placeholder - actual implementation would use message bus
+        self.logger.info(f"Sending message to {recipient}: {message}")
+        self.confidence.record_communication(True)  # Assume effective for now
+        return True
+
+    def receive_message(self, sender: str, message: Dict[str, Any]) -> None:
+        """Receive a message from another agent.
+
+        Args:
+            sender: Sender agent name
+            message: Message content
+        """
+        self.logger.info(f"Received message from {sender}: {message}")
+        # Process message based on type
+        message_type = message.get('type', 'unknown')
+
+        if message_type == 'vote_request':
+            # Handle voting request
+            proposal = message.get('proposal')
+            context = message.get('context', '')
+            vote = self.cast_vote(proposal, context)
+            # Send vote back
+            response = {
+                'type': 'vote_response',
+                'proposal_id': message.get('proposal_id'),
+                'vote': vote
+            }
+            self.send_message(sender, response)
+        elif message_type == 'status_request':
+            # Send status update
+            status = self.get_status()
+            response = {
+                'type': 'status_response',
+                'status': status,
+                'confidence': self.get_confidence_report()
+            }
+            self.send_message(sender, response)
 
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration from agents_config.json.
@@ -168,6 +464,9 @@ class BaseAgent(ABC):
             'success': result.success
         }
         self.execution_history.append(execution_record)
+
+        # Update confidence metrics based on execution result
+        self.update_confidence_after_execution(tool_name, result.success)
 
         if result.success:
             self.logger.info(f"Tool '{tool_name}' executed successfully")

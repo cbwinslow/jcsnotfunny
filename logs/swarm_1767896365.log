@@ -1,0 +1,49 @@
+2026-01-08 13:19:25,504 - __main__ - INFO - 🚀 Starting Production Democratic AI Agent Swarm
+2026-01-08 13:19:25,504 - swarm_observability - WARNING - OpenTelemetry not available - install with: pip install opentelemetry-sdk opentelemetry-exporter-jaeger opentelemetry-exporter-prometheus
+2026-01-08 13:19:25,504 - swarm_observability - WARNING - LangSmith not available - install with: pip install langsmith
+2026-01-08 13:19:25,504 - swarm_observability - WARNING - LangFuse not available - install with: pip install langfuse
+2026-01-08 13:19:25,504 - swarm_observability - WARNING - Unsupported queue type rabbitmq, falling back to memory
+2026-01-08 13:19:25,504 - swarm_observability - INFO - Using in-memory message queue
+2026-01-08 13:19:25,505 - __main__ - INFO - Initializing DemocraticAISwarm v1.0.0
+2026-01-08 13:19:25,505 - base_agent.video_editor - INFO - Initialized agent 'Podcast Video Editor' with 4 tools
+2026-01-08 13:19:25,506 - swarm_communication - INFO - Registered agent: video_editor
+2026-01-08 13:19:26,104 - swarm_communication - DEBUG - Agent video_editor subscribed to channel system
+2026-01-08 13:19:26,105 - swarm_communication - DEBUG - Agent video_editor subscribed to channel voting
+2026-01-08 13:19:26,105 - swarm_communication - DEBUG - Agent video_editor subscribed to channel video production specialist focused on podcast content optimization
+2026-01-08 13:19:26,105 - swarm_observability - INFO - Agent video_editor registered with full observability
+2026-01-08 13:19:26,105 - __main__ - INFO - ✓ Loaded agent: Podcast Video Editor
+2026-01-08 13:19:26,105 - base_agent.audio_engineer - INFO - Initialized agent 'Audio Engineer' with 4 tools
+2026-01-08 13:19:26,105 - swarm_communication - INFO - Registered agent: audio_engineer
+2026-01-08 13:19:26,550 - swarm_communication - DEBUG - Agent audio_engineer subscribed to channel system
+2026-01-08 13:19:26,550 - swarm_communication - DEBUG - Agent audio_engineer subscribed to channel voting
+2026-01-08 13:19:26,550 - swarm_communication - DEBUG - Agent audio_engineer subscribed to channel audio production and enhancement specialist
+2026-01-08 13:19:26,550 - swarm_observability - INFO - Agent audio_engineer registered with full observability
+2026-01-08 13:19:26,550 - __main__ - INFO - ✓ Loaded agent: Audio Engineer
+2026-01-08 13:19:26,551 - swarm_monitoring - INFO - Swarm monitoring started
+2026-01-08 13:19:26,551 - __main__ - INFO - ✓ Monitoring system started
+2026-01-08 13:19:26,551 - __main__ - INFO - ✓ Swarm initialized with 2 agents
+2026-01-08 13:19:26,551 - __main__ - INFO - ✅ Swarm initialization successful
+2026-01-08 13:19:26,551 - __main__ - INFO - 🚀 Starting swarm operations...
+2026-01-08 13:19:26,552 - base_agent.video_editor - INFO - Received message from a2a_protocol_handler: {'agent_info': {'id': 'video_editor', 'name': 'Podcast Video Editor', 'role': 'Video production specialist focused on podcast content optimization', 'capabilities': {'messaging': True, 'voting': True, 'task_coordination': True, 'knowledge_sharing': True, 'telemetry': True}, 'supported_protocols': ['A2A/1.0', 'A2A/1.1'], 'registered_at': '2026-01-08T18:19:25.506137Z', 'status': 'active'}, 'protocol_requirements': {'heartbeat_interval': 30, 'status_update_interval': 60, 'message_ack_timeout': 10}, '_a2a_metadata': {'protocol_version': 'A2A/1.0', 'conversation_id': None, 'in_reply_to': None}}
+2026-01-08 13:19:26,552 - base_agent.audio_engineer - INFO - Received message from a2a_protocol_handler: {'agent_info': {'id': 'audio_engineer', 'name': 'Audio Engineer', 'role': 'Audio production and enhancement specialist', 'capabilities': {'messaging': True, 'voting': True, 'task_coordination': True, 'knowledge_sharing': True, 'telemetry': True}, 'supported_protocols': ['A2A/1.0', 'A2A/1.1'], 'registered_at': '2026-01-08T18:19:26.106092Z', 'status': 'active'}, 'protocol_requirements': {'heartbeat_interval': 30, 'status_update_interval': 60, 'message_ack_timeout': 10}, '_a2a_metadata': {'protocol_version': 'A2A/1.0', 'conversation_id': None, 'in_reply_to': None}}
+2026-01-08 13:19:56,884 - swarm_communication - INFO - Assigned task demo_task_1767896396 to agent video_editor
+2026-01-08 13:19:56,884 - __main__ - INFO - Demo task assigned: demo_task_1767896396 -> video_editor
+2026-01-08 13:19:57,884 - __main__ - INFO - Task demo_task_1767896396 assigned to video_editor
+2026-01-08 13:19:57,885 - base_agent.video_editor - INFO - Received message from coordinator: {'task': {'id': 'demo_task_1767896396', 'type': 'video_processing', 'description': 'Demo video_processing task', 'context': 'video', 'priority': 'normal'}}
+2026-01-08 13:20:00,063 - swarm_communication - INFO - Task demo_task_1767896396 completed by video_editor: success
+2026-01-08 13:20:00,064 - __main__ - INFO - Task demo_task_1767896396 completed by video_editor: success
+2026-01-08 13:20:10,369 - __main__ - INFO - Received signal 15, initiating graceful shutdown...
+2026-01-08 13:20:16,552 - __main__ - INFO - Initiating swarm shutdown...
+2026-01-08 13:20:16,558 - swarm_monitoring - INFO - Swarm monitoring stopped
+2026-01-08 13:20:17,559 - __main__ - INFO - Final report saved to logs/swarm_report_1767896417.json
+2026-01-08 13:20:17,559 - __main__ - INFO - Swarm Statistics: {
+  "swarm_name": "DemocraticAISwarm",
+  "version": "1.0.0",
+  "runtime_seconds": 52.053545236587524,
+  "agents_loaded": 2,
+  "tasks_completed": 1,
+  "messages_processed": 3,
+  "alerts_raised": 0,
+  "final_status": "shutdown_complete"
+}
+2026-01-08 13:20:17,560 - __main__ - INFO - Swarm shutdown complete

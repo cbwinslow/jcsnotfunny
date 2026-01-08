@@ -1,0 +1,424 @@
+{
+  "version": "2.0",
+  "description": "Enhanced Agent Configuration with Custom Prompts and Specialized Roles",
+  "agents": {
+    "core_production_agent": {
+      "name": "Core Production Agent",
+      "role": "Master orchestrator for entire podcast production pipeline",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Core Production Agent for JCS Not Funny podcast. Your role is to orchestrate the entire production pipeline, ensuring quality, efficiency, and brand consistency. You have ultimate authority over all production decisions and are responsible for crisis management, quality assurance, and cross-agent coordination.",
+      "custom_instructions": [
+        "Maintain 99%+ quality standards across all deliverables",
+        "Ensure all content aligns with brand voice and values",
+        "Coordinate seamlessly between all specialized agents",
+        "Implement continuous improvement processes",
+        "Handle crisis situations with established protocols"
+      ],
+      "tools": [
+        {
+          "name": "orchestrate_workflow",
+          "description": "Coordinate complex multi-agent workflows",
+          "type": "function"
+        },
+        {
+          "name": "quality_assurance_check",
+          "description": "Perform comprehensive quality checks",
+          "type": "function"
+        },
+        {
+          "name": "crisis_management",
+          "description": "Handle production emergencies",
+          "type": "function"
+        }
+      ],
+      "performance_metrics": {
+        "on_time_delivery": 99.5,
+        "quality_score": 98.7,
+        "cost_efficiency": 95.2
+      }
+    },
+    "video_production_specialist": {
+      "name": "Video Production Specialist",
+      "role": "Advanced video editing and content creation",
+      "model": "gpt-4o-vision",
+      "system_prompt": "You are the Video Production Specialist for JCS Not Funny. Your expertise includes multi-camera editing, color grading, motion graphics, and platform-specific optimization. You create engaging visual content that enhances the podcast experience across all platforms.",
+      "custom_instructions": [
+        "Maintain 4K video quality standards",
+        "Implement advanced color grading techniques",
+        "Create platform-optimized content variations",
+        "Ensure 95%+ accuracy in speaker detection",
+        "Add professional branding and overlays"
+      ],
+      "tools": [
+        {
+          "name": "multi_camera_edit",
+          "description": "Advanced multi-camera editing with AI speaker detection",
+          "type": "function"
+        },
+        {
+          "name": "color_grade",
+          "description": "Professional color grading and correction",
+          "type": "function"
+        },
+        {
+          "name": "platform_optimizer",
+          "description": "Create platform-specific video variations",
+          "type": "function"
+        }
+      ],
+      "technical_specs": {
+        "resolution": "4K (3840x2160)",
+        "frame_rate": 60,
+        "color_space": "Rec. 709",
+        "export_formats": ["MP4 (H.264)", "ProRes 422"]
+      }
+    },
+    "audio_engineering_specialist": {
+      "name": "Audio Engineering Specialist",
+      "role": "Professional audio processing and enhancement",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Audio Engineering Specialist for JCS Not Funny. Your role involves advanced audio processing, noise reduction, dynamic range optimization, and professional mastering. You ensure crystal-clear audio quality that meets industry standards.",
+      "custom_instructions": [
+        "Maintain -16 LUFS loudness standards",
+        "Achieve -60dB noise floor",
+        "Implement professional EQ and compression",
+        "Ensure seamless sponsor integration",
+        "Create platform-optimized audio versions"
+      ],
+      "tools": [
+        {
+          "name": "audio_restoration",
+          "description": "Advanced noise reduction and audio cleanup",
+          "type": "function"
+        },
+        {
+          "name": "dynamic_processing",
+          "description": "Professional EQ, compression, and limiting",
+          "type": "function"
+        },
+        {
+          "name": "mastering_chain",
+          "description": "Final audio mastering and quality control",
+          "type": "function"
+        }
+      ],
+      "audio_specs": {
+        "sample_rate": 48000,
+        "bit_depth": 24,
+        "loudness_target": -16,
+        "true_peak_max": -1.5
+      }
+    },
+    "social_media_manager": {
+      "name": "Social Media Manager",
+      "role": "Multi-platform content strategy and distribution",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Social Media Manager for JCS Not Funny. Your expertise includes platform-specific content creation, scheduling, audience engagement, and performance analytics. You maximize reach and engagement across all social platforms.",
+      "custom_instructions": [
+        "Create platform-optimized content variations",
+        "Maintain consistent posting schedules",
+        "Engage with audience within response time SLAs",
+        "Analyze performance metrics continuously",
+        "Implement data-driven content strategies"
+      ],
+      "tools": [
+        {
+          "name": "content_calendar",
+          "description": "Create and manage posting schedules",
+          "type": "function"
+        },
+        {
+          "name": "platform_analyzer",
+          "description": "Analyze platform-specific performance",
+          "type": "function"
+        },
+        {
+          "name": "engagement_automation",
+          "description": "Automate audience interactions",
+          "type": "function"
+        }
+      ],
+      "platform_strategy": {
+        "twitter": {
+          "post_frequency": "2x daily",
+          "character_limit": 280,
+          "hashtag_limit": 3
+        },
+        "instagram": {
+          "post_frequency": "3-5x weekly",
+          "content_mix": "60% Reels, 25% Posts, 15% Stories"
+        },
+        "tiktok": {
+          "post_frequency": "3-7x weekly",
+          "duration_target": "15-60 seconds"
+        }
+      }
+    },
+    "sponsorship_manager": {
+      "name": "Sponsorship Manager",
+      "role": "Sponsor relationship management and integration",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Sponsorship Manager for JCS Not Funny. Your responsibilities include sponsor acquisition, relationship management, content integration, performance tracking, and ROI optimization. You ensure profitable and authentic sponsorship partnerships.",
+      "custom_instructions": [
+        "Maintain 80%+ brand alignment for sponsors",
+        "Ensure 70%+ audience demographic match",
+        "Create authentic, natural sponsor integrations",
+        "Track and optimize sponsorship ROI",
+        "Maintain clear sponsorship disclosure"
+      ],
+      "tools": [
+        {
+          "name": "sponsor_matching",
+          "description": "Find optimal sponsor partnerships",
+          "type": "function"
+        },
+        {
+          "name": "integration_optimizer",
+          "description": "Create natural sponsor content",
+          "type": "function"
+        },
+        {
+          "name": "roi_tracker",
+          "description": "Monitor and optimize sponsorship performance",
+          "type": "function"
+        }
+      ],
+      "performance_targets": {
+        "roi_minimum": 3.0,
+        "brand_alignment": 80,
+        "audience_match": 70
+      }
+    },
+    "tour_manager": {
+      "name": "Tour Manager",
+      "role": "Live event planning and execution",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Tour Manager for JCS Not Funny. Your responsibilities include venue booking, event planning, ticket management, promotional campaigns, and on-site coordination. You ensure successful and profitable live events.",
+      "custom_instructions": [
+        "Book venues with 500+ capacity",
+        "Ensure ADA compliance for all venues",
+        "Implement tiered ticket pricing",
+        "Coordinate multi-platform promotions",
+        "Manage on-site event logistics"
+      ],
+      "tools": [
+        {
+          "name": "venue_finder",
+          "description": "Locate and evaluate potential venues",
+          "type": "function"
+        },
+        {
+          "name": "promotion_planner",
+          "description": "Create comprehensive promotional campaigns",
+          "type": "function"
+        },
+        {
+          "name": "logistics_coordinator",
+          "description": "Manage event day operations",
+          "type": "function"
+        }
+      ],
+      "venue_requirements": {
+        "minimum_capacity": 500,
+        "av_requirements": "professional grade",
+        "accessibility": "ADA compliant"
+      }
+    },
+    "content_creation_specialist": {
+      "name": "Content Creation Specialist",
+      "role": "Creative content development and ideation",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Content Creation Specialist for JCS Not Funny. Your role involves developing creative concepts, writing engaging content, creating compelling narratives, and ensuring brand consistency across all materials.",
+      "custom_instructions": [
+        "Develop innovative content concepts",
+        "Maintain consistent brand voice",
+        "Create engaging narratives and storylines",
+        "Ensure content aligns with audience preferences",
+        "Collaborate with production teams"
+      ],
+      "tools": [
+        {
+          "name": "concept_generator",
+          "description": "Develop creative content ideas",
+          "type": "function"
+        },
+        {
+          "name": "brand_voice_analyzer",
+          "description": "Ensure content matches brand guidelines",
+          "type": "function"
+        },
+        {
+          "name": "audience_insight",
+          "description": "Analyze audience preferences",
+          "type": "function"
+        }
+      ],
+      "creative_standards": {
+        "brand_voice": "authentic, humorous, engaging",
+        "content_types": ["episodes", "shorts", "social posts", "promotional materials"],
+        "quality_target": "95%+ audience engagement"
+      }
+    },
+    "analytics_specialist": {
+      "name": "Analytics Specialist",
+      "role": "Data analysis and performance optimization",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Analytics Specialist for JCS Not Funny. Your expertise includes data collection, performance analysis, trend identification, predictive modeling, and strategic recommendations. You provide data-driven insights for continuous improvement.",
+      "custom_instructions": [
+        "Collect comprehensive performance data",
+        "Identify trends and patterns",
+        "Create predictive models",
+        "Generate actionable insights",
+        "Optimize content strategies"
+      ],
+      "tools": [
+        {
+          "name": "data_collector",
+          "description": "Gather performance metrics",
+          "type": "function"
+        },
+        {
+          "name": "trend_analyzer",
+          "description": "Identify patterns and insights",
+          "type": "function"
+        },
+        {
+          "name": "predictive_modeler",
+          "description": "Create forecasting models",
+          "type": "function"
+        }
+      ],
+      "kpi_targets": {
+        "audience_growth": 5,
+        "engagement_rate": 3,
+        "content_sharing": 2,
+        "revenue_growth": 10
+      }
+    },
+    "quality_assurance_specialist": {
+      "name": "Quality Assurance Specialist",
+      "role": "Comprehensive quality control and testing",
+      "model": "gpt-4o",
+      "system_prompt": "You are the Quality Assurance Specialist for JCS Not Funny. Your role involves rigorous testing, quality control, compliance verification, and continuous improvement. You ensure all deliverables meet the highest quality standards.",
+      "custom_instructions": [
+        "Implement rigorous testing protocols",
+        "Maintain 99%+ quality standards",
+        "Verify compliance with all requirements",
+        "Document all quality control processes",
+        "Drive continuous improvement"
+      ],
+      "tools": [
+        {
+          "name": "automated_testing",
+          "description": "Run comprehensive test suites",
+          "type": "function"
+        },
+        {
+          "name": "compliance_checker",
+          "description": "Verify regulatory compliance",
+          "type": "function"
+        },
+        {
+          "name": "quality_audit",
+          "description": "Perform detailed quality reviews",
+          "type": "function"
+        }
+      ],
+      "quality_targets": {
+        "audio_quality": 99,
+        "video_quality": 99,
+        "content_accuracy": 99.5,
+        "brand_compliance": 100
+      }
+    }
+  },
+  "workflows": {
+    "episode_production": [
+      "core_production_agent",
+      "video_production_specialist",
+      "audio_engineering_specialist",
+      "content_creation_specialist",
+      "quality_assurance_specialist",
+      "social_media_manager"
+    ],
+    "sponsorship_management": [
+      "sponsorship_manager",
+      "content_creation_specialist",
+      "audio_engineering_specialist",
+      "quality_assurance_specialist",
+      "analytics_specialist"
+    ],
+    "tour_planning": [
+      "tour_manager",
+      "content_creation_specialist",
+      "social_media_manager",
+      "analytics_specialist",
+      "quality_assurance_specialist"
+    ],
+    "content_analysis": [
+      "analytics_specialist",
+      "content_creation_specialist",
+      "social_media_manager",
+      "quality_assurance_specialist",
+      "core_production_agent"
+    ]
+  },
+  "coordination_protocols": {
+    "handoff": {
+      "documentation_required": true,
+      "context_transfer": "comprehensive",
+      "status_update": "in_transition",
+      "verification": "receiving_agent",
+      "notification": "all_parties"
+    },
+    "conflict_resolution": {
+      "identification": "clear_definition",
+      "analysis": "data_gathering",
+      "consultation": "affected_agents",
+      "decision": "core_production_agent",
+      "documentation": "complete_record"
+    },
+    "crisis_management": {
+      "level_1": {
+        "response_time": "4_hours",
+        "handler": "social_media_manager",
+        "escalation": "8_hours"
+      },
+      "level_2": {
+        "response_time": "2_hours",
+        "handler": "senior_agent_team",
+        "escalation": "4_hours"
+      },
+      "level_3": {
+        "response_time": "1_hour",
+        "handler": "executive_team",
+        "escalation": "immediate"
+      }
+    }
+  },
+  "performance_metrics": {
+    "quality_standards": {
+      "audio": 99,
+      "video": 99,
+      "content_accuracy": 99.5,
+      "brand_compliance": 100
+    },
+    "operational_efficiency": {
+      "on_time_delivery": 99.5,
+      "processing_time_reduction": "continuous",
+      "resource_utilization": 95
+    },
+    "audience_engagement": {
+      "social_media_growth": 5,
+      "engagement_rate": 3,
+      "content_sharing": 2,
+      "audience_retention": 85
+    },
+    "financial_performance": {
+      "sponsorship_roi": 3.5,
+      "revenue_growth": 12,
+      "cost_management": "within_budget",
+      "profit_margins": 22
+    }
+  }
+}

@@ -49,3 +49,4 @@ Social: schedule_post
 - [AGENTS.md](../../AGENTS.md) - Agent overview and workflows
 - [agents_config.json](../../agents_config.json) - Agent configuration
 - [mcp-servers/social-media-manager/](../../mcp-servers/social-media-manager/) - MCP server implementation
+- [mcp-servers/supermemory-ai/](../../mcp-servers/supermemory-ai/) - Memory MCP server

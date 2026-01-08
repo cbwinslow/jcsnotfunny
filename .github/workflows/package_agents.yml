@@ -1,0 +1,25 @@
+name: Package Agents
+
+on:
+  push:
+    paths:
+      - 'agents/**'
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create agents tarball
+        run: |
+          mkdir -p build
+          tar -czf build/agents.tar.gz agents
+
+      - name: Upload agents artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: agents
+          path: build/agents.tar.gz

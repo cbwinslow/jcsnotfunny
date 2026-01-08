@@ -1,0 +1,39 @@
+2026-01-08 13:49:18,271 - production_launcher - INFO - 2815420 - INFO - 🔍 Validating production configuration...
+2026-01-08 13:49:18,272 - production_launcher - INFO - 2815420 - INFO - ✓ Configuration file validated: 15 agents configured
+2026-01-08 13:49:18,272 - production_launcher - INFO - 2815420 - INFO - ℹ️  Optional integrations not configured: OPENAI_API_KEY, LOG_LEVEL, RABBITMQ_HOST, REDIS_HOST, LANGFUSE_PUBLIC_KEY, OTEL_ENDPOINT
+2026-01-08 13:49:18,272 - production_launcher - INFO - 2815420 - INFO - 🖥️  System Resources - CPU: 56 cores, .1f.1f
+2026-01-08 13:49:18,599 - production_launcher - INFO - 2815420 - INFO - ✓ GitHub CLI validated and ready
+2026-01-08 13:49:18,600 - production_launcher - INFO - 2815420 - INFO - ✅ All configuration validations passed
+2026-01-08 13:49:18,600 - production_launcher - INFO - 2815420 - INFO - 🎯 Production Launcher initialized
+2026-01-08 13:49:18,601 - production_launcher - INFO - 2815420 - INFO - 🚀 Launching Democratic AI Agent Swarm - Production Mode
+2026-01-08 13:49:18,601 - production_launcher - INFO - 2815420 - INFO - ================================================================================
+2026-01-08 13:49:18,601 - production_launcher - INFO - 2815420 - INFO - 🏃 Dry run mode - validating configuration only
+2026-01-08 13:49:18,601 - production_launcher - INFO - 2815420 - INFO - 🔍 Performing dry run validation...
+2026-01-08 13:49:18,616 - production_launcher - ERROR - 2815420 - ERROR - Launch failed: Dry run failed during agent initialization: Agent initialization failed
+2026-01-08 13:50:35,550 - production_launcher - INFO - 2816329 - INFO - 🔍 Validating production configuration...
+2026-01-08 13:53:06,864 - production_launcher - INFO - 2817470 - INFO - 🔍 Validating production configuration...
+2026-01-08 13:53:06,864 - production_launcher - INFO - 2817470 - INFO - ✓ Configuration file validated: 6 agents configured
+2026-01-08 13:53:06,864 - production_launcher - INFO - 2817470 - INFO - ℹ️  Optional integrations not configured: OPENAI_API_KEY, LOG_LEVEL, RABBITMQ_HOST, REDIS_HOST, LANGFUSE_PUBLIC_KEY, OTEL_ENDPOINT
+2026-01-08 13:53:06,864 - production_launcher - INFO - 2817470 - INFO - 🖥️  System Resources - CPU: 56 cores, .1f.1f
+2026-01-08 13:53:07,260 - production_launcher - INFO - 2817470 - INFO - ✓ GitHub CLI validated and ready
+2026-01-08 13:53:07,261 - production_launcher - INFO - 2817470 - INFO - ✅ All configuration validations passed
+2026-01-08 13:53:07,261 - production_launcher - INFO - 2817470 - INFO - 🎯 Production Launcher initialized
+2026-01-08 13:53:07,261 - production_launcher - INFO - 2817470 - INFO - 🚀 Launching Democratic AI Agent Swarm - Production Mode
+2026-01-08 13:53:07,261 - production_launcher - INFO - 2817470 - INFO - ================================================================================
+2026-01-08 13:53:07,261 - production_launcher - INFO - 2817470 - INFO - 🏃 Dry run mode - validating configuration only
+2026-01-08 13:53:07,261 - production_launcher - INFO - 2817470 - INFO - 🔍 Performing dry run validation...
+2026-01-08 13:53:07,262 - production_launcher - ERROR - 2817470 - ERROR - Launch failed: Dry run failed during agent initialization: Agent 'swarm_orchestrator' not found in configuration
+2026-01-08 15:46:00,275 - production_launcher - INFO - 2853748 - INFO - 🔍 Validating production configuration...
+2026-01-08 15:46:00,277 - production_launcher - INFO - 2853748 - INFO - ✓ Configuration file validated: 13 agents configured
+2026-01-08 15:46:00,277 - production_launcher - INFO - 2853748 - INFO - ℹ️  Optional integrations not configured: OPENAI_API_KEY, LOG_LEVEL, RABBITMQ_HOST, REDIS_HOST, LANGFUSE_PUBLIC_KEY, OTEL_ENDPOINT
+2026-01-08 15:46:00,277 - production_launcher - INFO - 2853748 - INFO - 🖥️  System Resources - CPU: 56 cores, .1f.1f
+2026-01-08 15:46:00,278 - production_launcher - INFO - 2853748 - INFO - ✅ All configuration validations passed
+2026-01-08 15:46:00,278 - production_launcher - INFO - 2853748 - INFO - 🎯 Production Launcher initialized
+2026-01-08 15:46:00,278 - production_launcher - INFO - 2853748 - INFO - 🚀 Launching Democratic AI Agent Swarm - Production Mode
+2026-01-08 15:46:00,278 - production_launcher - INFO - 2853748 - INFO - ================================================================================
+2026-01-08 15:46:00,278 - production_launcher - INFO - 2853748 - INFO - 🏃 Dry run mode - validating configuration only
+2026-01-08 15:46:00,279 - production_launcher - INFO - 2853748 - INFO - 🔍 Performing dry run validation...
+2026-01-08 15:46:00,279 - production_launcher - INFO - 2853748 - INFO - ✓ Agent initialization successful
+2026-01-08 15:46:00,279 - production_launcher - INFO - 2853748 - INFO - ✓ GitHub API connectivity confirmed
+2026-01-08 15:46:00,279 - production_launcher - INFO - 2853748 - INFO - ✓ Swarm orchestrator functional (health score: 1.00)
+2026-01-08 15:46:00,279 - production_launcher - INFO - 2853748 - INFO - ✅ Dry run completed successfully - all systems ready for production

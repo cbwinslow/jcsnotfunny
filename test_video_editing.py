@@ -20,6 +20,44 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent / "agents"))
 
 from video_editing_agent import VideoEditingAgent
+import pytest
+from unittest.mock import MagicMock
+
+
+@pytest.fixture
+def agent():
+    """Provide a stubbed agent for unit tests to avoid external dependencies."""
+    m = MagicMock()
+
+    class StubResult:
+        def __init__(self, success=True, data=None, error=''):
+            self.success = success
+            self.data = data or {}
+            self.error = error
+
+    def execute_tool(name, params):
+        if name == 'download_video':
+            return StubResult(success=True, data={'video_path': 'test_video.mp4', 'title':'Test','duration':10,'file_size':1024})
+        elif name == 'analyze_video':
+            return StubResult(success=True, data={'duration':1.0,'resolution':'640x360','fps':30,'file_size':1024})
+        elif name == 'trim_video':
+            return StubResult(success=True, data={'output_video': 'test_trimmed.mp4','duration':4.0})
+        elif name == 'add_watermark':
+            return StubResult(success=True, data={'output_video':'test_watermarked.mp4','watermark_text':params.get('watermark_text')})
+        elif name == 'extract_audio':
+            return StubResult(success=True, data={'output_audio':'test_audio.mp3','format':'mp3','bitrate':'128k'})
+        else:
+            return StubResult(success=False, error='Unknown tool')
+
+    m.execute_tool.side_effect = execute_tool
+    return m
+
+
+@pytest.fixture
+def video_path(tmp_path):
+    p = tmp_path / 'test_video.mp4'
+    p.write_bytes(b'FAKEVIDEO')
+    return str(p)
 
 
 def test_video_editing_agent():

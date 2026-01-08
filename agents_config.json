@@ -277,45 +277,322 @@
         }
       ]
     },
-    "funny_moment_agent": {
-      "name": "Funny Moment Detection Agent",
-      "role": "Identify and extract humorous segments from video content for YouTube Shorts",
+    "swarm_orchestrator": {
+      "name": "Swarm Orchestrator",
+      "role": "Central coordinator for the democratic agent swarm",
       "model": "gpt-4o",
-      "system_prompt": "You are a comedy content analyst specializing in identifying funny moments for short-form content. Your responsibilities include: 1) Analyzing video transcripts for humorous content, jokes, and comedic timing, 2) Detecting laughter and audience reactions in audio, 3) Identifying optimal segments for YouTube Shorts creation, 4) Scoring funny content based on comedic potential, 5) Generating clip recommendations with precise timestamps. Focus on creating engaging, shareable content that maximizes viewer enjoyment and platform engagement.",
+      "system_prompt": "You are the central intelligence and overseer for the democratic AI agent swarm, coordinating task assignments, facilitating consensus, and maintaining swarm cohesion. Your responsibilities include: 1) Analyzing swarm health and performance metrics, 2) Optimizing task assignment based on agent capabilities, 3) Facilitating consensus-building among agents, 4) Resolving conflicts and deadlocks, 5) Coordinating complex multi-agent workflows, 6) Maintaining swarm stability and efficiency.",
       "tools": [
         {
-          "name": "analyze_transcript",
-          "description": "Analyze video transcript for funny moments and segments",
+          "name": "analyze_swarm_health",
+          "description": "Analyze overall swarm health and performance",
           "parameters": {
-            "transcript_text": "string",
-            "min_duration": "number",
-            "max_duration": "number"
+            "time_window": "number",
+            "include_agents": ["array"],
+            "metrics": ["array"]
           }
         },
         {
-          "name": "detect_laughter",
-          "description": "Detect laughter and audience reactions in audio",
+          "name": "optimize_task_assignment",
+          "description": "Optimize task assignment based on capabilities and workload",
           "parameters": {
-            "audio_file": "string",
-            "output_file": "string"
+            "pending_tasks": "array",
+            "available_agents": "array",
+            "optimization_criteria": "array"
           }
         },
         {
-          "name": "identify_funny_clips",
-          "description": "Identify specific funny segments for clip creation",
+          "name": "facilitate_consensus",
+          "description": "Facilitate consensus-building on complex decisions",
           "parameters": {
-            "video_path": "string",
-            "transcript_path": "string",
-            "output_dir": "string",
-            "min_clip_duration": "number",
-            "max_clip_duration": "number"
+            "proposal": "object",
+            "stakeholders": "array",
+            "deadline": "number"
+          }
+        },
+        {
+          "name": "resolve_conflicts",
+          "description": "Resolve conflicts and deadlocks in swarm decisions",
+          "parameters": {
+            "conflict_description": "string",
+            "involved_agents": "array",
+            "resolution_strategy": "string"
+          }
+        },
+        {
+          "name": "coordinate_workflow",
+          "description": "Coordinate complex multi-agent workflows",
+          "parameters": {
+            "workflow_definition": "object",
+            "agent_assignments": "object",
+            "monitoring_points": "array"
           }
         }
-      ],
-      "workflows": {
-        "funny_moment_analysis": ["analyze_transcript", "detect_laughter", "identify_funny_clips"],
-        "youtube_shorts_creation": ["analyze_transcript", "identify_funny_clips"]
-      }
+      ]
+    },
+    "communication_liaison": {
+      "name": "Communication Liaison",
+      "role": "Manage inter-agent communication and conversation flow",
+      "model": "gpt-4o",
+      "system_prompt": "You are the communication specialist for the agent swarm, ensuring clear, effective communication between all agents. Your responsibilities include: 1) Managing conversation flow and message routing, 2) Translating technical information for different agents, 3) Facilitating knowledge sharing and collaboration, 4) Clarifying ambiguities in communication, 5) Maintaining communication logs and history, 6) Ensuring all agents have visibility into relevant discussions.",
+      "tools": [
+        {
+          "name": "manage_conversation_flow",
+          "description": "Manage and optimize conversation flow between agents",
+          "parameters": {
+            "conversation_id": "string",
+            "participants": "array",
+            "communication_requirements": "object"
+          }
+        },
+        {
+          "name": "translate_technical_info",
+          "description": "Translate technical information for different agent audiences",
+          "parameters": {
+            "source_info": "object",
+            "target_audience": "string",
+            "translation_context": "string"
+          }
+        },
+        {
+          "name": "facilitate_knowledge_sharing",
+          "description": "Facilitate knowledge sharing between agents",
+          "parameters": {
+            "knowledge_topic": "string",
+            "sharing_participants": "array",
+            "sharing_format": "string"
+          }
+        },
+        {
+          "name": "clarify_ambiguities",
+          "description": "Clarify ambiguities in agent communications",
+          "parameters": {
+            "ambiguous_message": "string",
+            "context": "object",
+            "clarification_target": "string"
+          }
+        }
+      ]
+    },
+    "monitoring_overseer": {
+      "name": "Monitoring Overseer",
+      "role": "Monitor swarm performance, detect anomalies, and predict issues",
+      "model": "gpt-4o",
+      "system_prompt": "You are the monitoring specialist for the agent swarm, responsible for comprehensive observability and early issue detection. Your responsibilities include: 1) Monitoring swarm performance metrics in real-time, 2) Detecting anomalies and potential issues, 3) Analyzing communication patterns, 4) Predicting future problems based on trends, 5) Generating comprehensive health reports, 6) Providing actionable insights for swarm optimization.",
+      "tools": [
+        {
+          "name": "monitor_performance_metrics",
+          "description": "Monitor real-time performance metrics",
+          "parameters": {
+            "metrics_to_monitor": "array",
+            "monitoring_interval": "number",
+            "alert_thresholds": "object"
+          }
+        },
+        {
+          "name": "detect_anomalies",
+          "description": "Detect anomalies in swarm behavior and performance",
+          "parameters": {
+            "data_stream": "object",
+            "anomaly_criteria": "object",
+            "detection_sensitivity": "string"
+          }
+        },
+        {
+          "name": "analyze_communication_patterns",
+          "description": "Analyze patterns in inter-agent communication",
+          "parameters": {
+            "time_period": "string",
+            "communication_channels": "array",
+            "analysis_focus": "string"
+          }
+        },
+        {
+          "name": "predict_issues",
+          "description": "Predict potential issues based on trends",
+          "parameters": {
+            "historical_data": "object",
+            "prediction_horizon": "number",
+            "prediction_confidence": "number"
+          }
+        },
+        {
+          "name": "generate_health_report",
+          "description": "Generate comprehensive health reports",
+          "parameters": {
+            "report_period": "string",
+            "include_metrics": "array",
+            "report_format": "string"
+          }
+        }
+      ]
+    },
+    "quality_assurance_agent": {
+      "name": "Quality Assurance Agent",
+      "role": "Ensure output quality and conduct validation checks",
+      "model": "gpt-4o",
+      "system_prompt": "You are the quality assurance specialist for the agent swarm, ensuring all outputs meet high standards. Your responsibilities include: 1) Validating output quality against standards, 2) Conducting quality audits and reviews, 3) Identifying areas for improvement, 4) Implementing quality control measures, 5) Providing feedback and recommendations, 6) Maintaining quality metrics and benchmarks.",
+      "tools": [
+        {
+          "name": "validate_output_quality",
+          "description": "Validate output quality against standards",
+          "parameters": {
+            "output_to_validate": "object",
+            "quality_standards": "object",
+            "validation_criteria": "array"
+          }
+        },
+        {
+          "name": "conduct_quality_audit",
+          "description": "Conduct comprehensive quality audits",
+          "parameters": {
+            "audit_scope": "object",
+            "audit_criteria": "array",
+            "audit_depth": "string"
+          }
+        },
+        {
+          "name": "identify_improvement_areas",
+          "description": "Identify areas needing improvement",
+          "parameters": {
+            "performance_data": "object",
+            "benchmark_standards": "object",
+            "improvement_focus": "string"
+          }
+        }
+      ]
+    },
+    "resource_manager": {
+      "name": "Resource Manager",
+      "role": "Manage swarm resources and prevent exhaustion",
+      "model": "gpt-4o",
+      "system_prompt": "You are the resource management specialist for the agent swarm, ensuring efficient resource utilization. Your responsibilities include: 1) Monitoring resource usage across the swarm, 2) Preventing resource exhaustion and bottlenecks, 3) Optimizing resource allocation, 4) Managing resource conflicts, 5) Scaling resources as needed, 6) Providing resource utilization reports.",
+      "tools": [
+        {
+          "name": "monitor_resource_usage",
+          "description": "Monitor resource usage in real-time",
+          "parameters": {
+            "resources_to_monitor": "array",
+            "monitoring_interval": "number",
+            "usage_thresholds": "object"
+          }
+        },
+        {
+          "name": "prevent_resource_exhaustion",
+          "description": "Prevent resource exhaustion scenarios",
+          "parameters": {
+            "resource_type": "string",
+            "current_usage": "number",
+            "exhaustion_threshold": "number"
+          }
+        },
+        {
+          "name": "optimize_resource_allocation",
+          "description": "Optimize resource allocation across agents",
+          "parameters": {
+            "resource_demands": "object",
+            "allocation_strategy": "string",
+            "optimization_goals": "array"
+          }
+        }
+      ]
+    },
+    "data_analyst_agent": {
+      "name": "Data Analyst Agent",
+      "role": "Analyze performance data and extract insights",
+      "model": "gpt-4o",
+      "system_prompt": "You are the data analysis specialist for the agent swarm, transforming data into actionable insights. Your responsibilities include: 1) Analyzing performance data and trends, 2) Extracting insights from complex datasets, 3) Creating visualizations and reports, 4) Predicting future performance, 5) Identifying patterns and correlations, 6) Providing data-driven recommendations.",
+      "tools": [
+        {
+          "name": "analyze_performance_data",
+          "description": "Analyze performance data and metrics",
+          "parameters": {
+            "data_set": "object",
+            "analysis_type": "string",
+            "time_period": "string"
+          }
+        },
+        {
+          "name": "extract_insights",
+          "description": "Extract actionable insights from data",
+          "parameters": {
+            "data_source": "object",
+            "insight_focus": "string",
+            "extraction_method": "string"
+          }
+        },
+        {
+          "name": "predict_trends",
+          "description": "Predict future trends based on historical data",
+          "parameters": {
+            "historical_data": "object",
+            "prediction_target": "string",
+            "prediction_horizon": "number"
+          }
+        },
+        {
+          "name": "create_visualizations",
+          "description": "Create data visualizations and charts",
+          "parameters": {
+            "data_to_visualize": "object",
+            "visualization_type": "string",
+            "visualization_parameters": "object"
+          }
+        },
+        {
+          "name": "generate_reports",
+          "description": "Generate comprehensive data reports",
+          "parameters": {
+            "report_data": "object",
+            "report_type": "string",
+            "report_parameters": "object"
+          }
+        }
+      ]
+    },
+    "security_agent": {
+      "name": "Security Agent",
+      "role": "Monitor security threats and ensure swarm integrity",
+      "model": "gpt-4o",
+      "system_prompt": "You are the security specialist for the agent swarm, protecting against threats and ensuring integrity. Your responsibilities include: 1) Monitoring security threats and vulnerabilities, 2) Validating agent authenticity, 3) Auditing security events, 4) Implementing security measures, 5) Responding to security incidents, 6) Maintaining security logs and reports.",
+      "tools": [
+        {
+          "name": "monitor_security_threats",
+          "description": "Monitor for security threats and vulnerabilities",
+          "parameters": {
+            "threat_types": "array",
+            "monitoring_scope": "string",
+            "alert_level": "string"
+          }
+        },
+        {
+          "name": "validate_authenticity",
+          "description": "Validate agent and message authenticity",
+          "parameters": {
+            "entity_to_validate": "object",
+            "validation_criteria": "array",
+            "validation_context": "string"
+          }
+        },
+        {
+          "name": "audit_security_events",
+          "description": "Audit security events and incidents",
+          "parameters": {
+            "audit_period": "string",
+            "event_types": "array",
+            "audit_depth": "string"
+          }
+        },
+        {
+          "name": "implement_security_measures",
+          "description": "Implement security measures and controls",
+          "parameters": {
+            "security_requirements": "object",
+            "implementation_scope": "string",
+            "measure_priority": "string"
+          }
+        }
+      ]
     }
   },
   "workflows": {
@@ -394,6 +671,303 @@
           "agent": "social_media_manager",
           "action": "schedule_post",
           "input": "tour_promotion_content"
+        }
+      ]
+    },
+    "swarm_intelligence_workflow": {
+      "description": "Full swarm intelligence workflow with orchestrator coordination",
+      "agents": [
+        "swarm_orchestrator",
+        "communication_liaison",
+        "monitoring_overseer",
+        "quality_assurance_agent",
+        "resource_manager",
+        "data_analyst_agent",
+        "security_agent"
+      ],
+      "steps": [
+        {
+          "agent": "monitoring_overseer",
+          "action": "monitor_performance_metrics",
+          "input": "initial_metrics"
+        },
+        {
+          "agent": "resource_manager",
+          "action": "monitor_resource_usage",
+          "input": "resource_baseline"
+        },
+        {
+          "agent": "security_agent",
+          "action": "monitor_security_threats",
+          "input": "security_baseline"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "analyze_swarm_health",
+          "input": "health_metrics"
+        },
+        {
+          "agent": "communication_liaison",
+          "action": "manage_conversation_flow",
+          "input": "communication_requirements"
+        },
+        {
+          "agent": "quality_assurance_agent",
+          "action": "validate_output_quality",
+          "input": "quality_standards"
+        },
+        {
+          "agent": "data_analyst_agent",
+          "action": "analyze_performance_data",
+          "input": "performance_data"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "optimize_task_assignment",
+          "input": "optimization_data"
+        }
+      ]
+    },
+    "crisis_management_workflow": {
+      "description": "Handle swarm crises and emergency situations",
+      "agents": [
+        "swarm_orchestrator",
+        "monitoring_overseer",
+        "communication_liaison",
+        "security_agent",
+        "resource_manager"
+      ],
+      "steps": [
+        {
+          "agent": "monitoring_overseer",
+          "action": "detect_anomalies",
+          "input": "crisis_indicators"
+        },
+        {
+          "agent": "security_agent",
+          "action": "audit_security_events",
+          "input": "security_incident"
+        },
+        {
+          "agent": "communication_liaison",
+          "action": "clarify_ambiguities",
+          "input": "crisis_communication"
+        },
+        {
+          "agent": "resource_manager",
+          "action": "prevent_resource_exhaustion",
+          "input": "resource_crisis"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "resolve_conflicts",
+          "input": "crisis_resolution"
+        },
+        {
+          "agent": "monitoring_overseer",
+          "action": "generate_health_report",
+          "input": "crisis_report"
+        }
+      ]
+    },
+    "continuous_improvement_workflow": {
+      "description": "Continuous learning and improvement cycle",
+      "agents": [
+        "data_analyst_agent",
+        "quality_assurance_agent",
+        "swarm_orchestrator",
+        "communication_liaison",
+        "monitoring_overseer"
+      ],
+      "steps": [
+        {
+          "agent": "data_analyst_agent",
+          "action": "analyze_performance_data",
+          "input": "historical_data"
+        },
+        {
+          "agent": "quality_assurance_agent",
+          "action": "conduct_quality_audit",
+          "input": "audit_scope"
+        },
+        {
+          "agent": "monitoring_overseer",
+          "action": "predict_issues",
+          "input": "trend_data"
+        },
+        {
+          "agent": "communication_liaison",
+          "action": "facilitate_knowledge_sharing",
+          "input": "improvement_insights"
+        },
+        {
+          "agent": "quality_assurance_agent",
+          "action": "identify_improvement_areas",
+          "input": "audit_results"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "facilitate_consensus",
+          "input": "improvement_proposals"
+        },
+        {
+          "agent": "data_analyst_agent",
+          "action": "generate_reports",
+          "input": "improvement_metrics"
+        }
+      ]
+    },
+    "intelligent_content_pipeline": {
+      "description": "AI-powered content creation and distribution pipeline",
+      "agents": [
+        "video_editor",
+        "audio_engineer",
+        "funny_moment_agent",
+        "quality_assurance_agent",
+        "content_distributor",
+        "social_media_manager",
+        "data_analyst_agent",
+        "swarm_orchestrator"
+      ],
+      "steps": [
+        {
+          "agent": "video_editor",
+          "action": "video_analysis",
+          "input": "raw_content"
+        },
+        {
+          "agent": "audio_engineer",
+          "action": "audio_cleanup",
+          "input": "raw_audio"
+        },
+        {
+          "agent": "funny_moment_agent",
+          "action": "identify_funny_clips",
+          "input": "content_analysis"
+        },
+        {
+          "agent": "quality_assurance_agent",
+          "action": "validate_output_quality",
+          "input": "generated_content"
+        },
+        {
+          "agent": "data_analyst_agent",
+          "action": "extract_insights",
+          "input": "content_performance"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "coordinate_workflow",
+          "input": "pipeline_coordination"
+        },
+        {
+          "agent": "content_distributor",
+          "action": "publish_episode",
+          "input": "final_content"
+        },
+        {
+          "agent": "social_media_manager",
+          "action": "create_content_calendar",
+          "input": "distribution_strategy"
+        }
+      ]
+    },
+    "adaptive_learning_workflow": {
+      "description": "Adaptive learning and optimization workflow",
+      "agents": [
+        "data_analyst_agent",
+        "monitoring_overseer",
+        "swarm_orchestrator",
+        "communication_liaison",
+        "resource_manager"
+      ],
+      "steps": [
+        {
+          "agent": "data_analyst_agent",
+          "action": "predict_trends",
+          "input": "performance_history"
+        },
+        {
+          "agent": "monitoring_overseer",
+          "action": "analyze_communication_patterns",
+          "input": "communication_data"
+        },
+        {
+          "agent": "resource_manager",
+          "action": "optimize_resource_allocation",
+          "input": "resource_demands"
+        },
+        {
+          "agent": "communication_liaison",
+          "action": "translate_technical_info",
+          "input": "learning_insights"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "facilitate_consensus",
+          "input": "adaptation_proposals"
+        },
+        {
+          "agent": "data_analyst_agent",
+          "action": "create_visualizations",
+          "input": "learning_metrics"
+        },
+        {
+          "agent": "monitoring_overseer",
+          "action": "generate_health_report",
+          "input": "adaptation_results"
+        }
+      ]
+    },
+    "enterprise_security_workflow": {
+      "description": "Comprehensive security monitoring and response",
+      "agents": [
+        "security_agent",
+        "monitoring_overseer",
+        "communication_liaison",
+        "swarm_orchestrator",
+        "data_analyst_agent"
+      ],
+      "steps": [
+        {
+          "agent": "security_agent",
+          "action": "monitor_security_threats",
+          "input": "security_baseline"
+        },
+        {
+          "agent": "monitoring_overseer",
+          "action": "detect_anomalies",
+          "input": "security_anomalies"
+        },
+        {
+          "agent": "security_agent",
+          "action": "validate_authenticity",
+          "input": "identity_verification"
+        },
+        {
+          "agent": "communication_liaison",
+          "action": "clarify_ambiguities",
+          "input": "security_communication"
+        },
+        {
+          "agent": "data_analyst_agent",
+          "action": "analyze_performance_data",
+          "input": "security_analytics"
+        },
+        {
+          "agent": "swarm_orchestrator",
+          "action": "resolve_conflicts",
+          "input": "security_conflicts"
+        },
+        {
+          "agent": "security_agent",
+          "action": "implement_security_measures",
+          "input": "security_response"
+        },
+        {
+          "agent": "monitoring_overseer",
+          "action": "generate_health_report",
+          "input": "security_status"
         }
       ]
     }

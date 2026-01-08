@@ -48,6 +48,19 @@ class ToolResult:
             'metadata': self.metadata
         }
 
+    def __contains__(self, key: object) -> bool:
+        """Allow 'in' checks to inspect underlying data (for tests)."""
+        try:
+            return key in self.data
+        except Exception:
+            return False
+
+    def __getitem__(self, key: str) -> Any:
+        """Allow mapping-like access to ToolResult.data for convenience."""
+        if isinstance(self.data, dict):
+            return self.data.get(key)
+        raise TypeError("ToolResult data is not subscriptable")
+
 
 @dataclass
 class RetryPolicy:
@@ -218,6 +231,10 @@ class RobustTool(ABC):
             return result
 
         except Exception as e:
+            # Re-raise obvious client-facing errors so callers/tests can catch them
+            if isinstance(e, (FileNotFoundError, ValidationError)):
+                raise
+
             execution_time = time.time() - start_time
             self.failure_count += 1
             self._update_execution_stats(execution_time)

@@ -1,0 +1,23 @@
+{
+  "model_name": "distilroberta-base",
+  "output_dir": "models/humor_classifier",
+  "local_dataset": "docs/templates/humor_labels.csv",
+  "hf_dataset": "jayavibhav/urfunnyv2_transcripts",
+  "hf_split": "train",
+  "text_field": "text",
+  "label_field": "label",
+  "validation_ratio": 0.1,
+  "max_length": 256,
+  "batch_size": 8,
+  "eval_batch_size": 8,
+  "learning_rate": 5e-5,
+  "epochs": 3,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "seed": 42,
+  "full_finetune": false,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "lora_target_modules": "query,value"
+}

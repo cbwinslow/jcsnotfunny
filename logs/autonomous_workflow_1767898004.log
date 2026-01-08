@@ -1,0 +1,52 @@
+2026-01-08 13:46:44,120 - swarm_observability - WARNING - OpenTelemetry not available - install with: pip install opentelemetry-sdk opentelemetry-exporter-jaeger opentelemetry-exporter-prometheus
+2026-01-08 13:46:44,120 - swarm_observability - WARNING - LangSmith not available - install with: pip install langsmith
+2026-01-08 13:46:44,120 - swarm_observability - WARNING - LangFuse not available - install with: pip install langfuse
+2026-01-08 13:46:44,120 - swarm_observability - WARNING - Unsupported queue type rabbitmq, falling back to memory
+2026-01-08 13:46:44,120 - swarm_observability - INFO - Using in-memory message queue
+2026-01-08 13:46:44,121 - swarm_orchestrator_agent.swarm_orchestrator - INFO - Initialized agent 'Swarm Orchestrator Agent' with 5 tools
+2026-01-08 13:46:44,121 - swarm_orchestrator_agent - INFO - Swarm Orchestrator Agent initialized
+2026-01-08 13:46:44,121 - github_agent.github_agent - INFO - Initialized agent 'GitHub Integration Agent' with 4 tools
+2026-01-08 13:46:44,122 - github_agent - INFO - GitHub Agent initialized
+2026-01-08 13:46:44,122 - __main__ - INFO - 🚀 Initializing Autonomous GitHub Issues Workflow System
+2026-01-08 13:46:44,123 - base_agent.video_editor - INFO - Initialized agent 'Podcast Video Editor' with 4 tools
+2026-01-08 13:46:44,123 - swarm_communication - INFO - Registered agent: video_editor
+2026-01-08 13:46:44,123 - swarm_observability - INFO - Agent video_editor registered with full observability
+2026-01-08 13:46:44,123 - __main__ - INFO - ✓ Initialized agent: Podcast Video Editor
+2026-01-08 13:46:44,124 - base_agent.audio_engineer - INFO - Initialized agent 'Audio Engineer' with 4 tools
+2026-01-08 13:46:44,124 - swarm_communication - INFO - Registered agent: audio_engineer
+2026-01-08 13:46:44,124 - swarm_observability - INFO - Agent audio_engineer registered with full observability
+2026-01-08 13:46:44,124 - __main__ - INFO - ✓ Initialized agent: Audio Engineer
+2026-01-08 13:46:44,124 - base_agent.social_media_manager - INFO - Initialized agent 'Social Media Manager' with 4 tools
+2026-01-08 13:46:44,125 - swarm_communication - INFO - Registered agent: social_media_manager
+2026-01-08 13:46:44,125 - swarm_observability - INFO - Agent social_media_manager registered with full observability
+2026-01-08 13:46:44,125 - __main__ - INFO - ✓ Initialized agent: Social Media Manager
+2026-01-08 13:46:44,125 - base_agent.content_distributor - INFO - Initialized agent 'Content Distribution Manager' with 4 tools
+2026-01-08 13:46:44,125 - swarm_communication - INFO - Registered agent: content_distributor
+2026-01-08 13:46:44,125 - swarm_observability - INFO - Agent content_distributor registered with full observability
+2026-01-08 13:46:44,125 - __main__ - INFO - ✓ Initialized agent: Content Distribution Manager
+2026-01-08 13:46:44,126 - base_agent.sponsorship_manager - INFO - Initialized agent 'Sponsorship Manager' with 4 tools
+2026-01-08 13:46:44,126 - swarm_communication - INFO - Registered agent: sponsorship_manager
+2026-01-08 13:46:44,126 - swarm_observability - INFO - Agent sponsorship_manager registered with full observability
+2026-01-08 13:46:44,126 - __main__ - INFO - ✓ Initialized agent: Sponsorship Manager
+2026-01-08 13:46:44,127 - base_agent.tour_manager - INFO - Initialized agent 'Tour & Events Manager' with 4 tools
+2026-01-08 13:46:44,127 - swarm_communication - INFO - Registered agent: tour_manager
+2026-01-08 13:46:44,127 - swarm_observability - INFO - Agent tour_manager registered with full observability
+2026-01-08 13:46:44,127 - __main__ - INFO - ✓ Initialized agent: Tour & Events Manager
+2026-01-08 13:46:44,128 - base_agent.funny_moment_agent - INFO - Initialized agent 'Funny Moment Detection Agent' with 3 tools
+2026-01-08 13:46:44,128 - swarm_communication - INFO - Registered agent: funny_moment_agent
+2026-01-08 13:46:44,128 - swarm_observability - INFO - Agent funny_moment_agent registered with full observability
+2026-01-08 13:46:44,128 - __main__ - INFO - ✓ Initialized agent: Funny Moment Detection Agent
+2026-01-08 13:46:44,129 - base_agent.communication_liaison - INFO - Initialized agent 'Communication Liaison Agent' with 4 tools
+2026-01-08 13:46:44,129 - swarm_communication - INFO - Registered agent: communication_liaison
+2026-01-08 13:46:44,129 - swarm_observability - INFO - Agent communication_liaison registered with full observability
+2026-01-08 13:46:44,129 - __main__ - INFO - ✓ Initialized agent: Communication Liaison Agent
+2026-01-08 13:46:44,129 - base_agent.monitoring_overseer - INFO - Initialized agent 'Monitoring Overseer Agent' with 5 tools
+2026-01-08 13:46:44,129 - swarm_communication - INFO - Registered agent: monitoring_overseer
+2026-01-08 13:46:44,130 - swarm_observability - INFO - Agent monitoring_overseer registered with full observability
+2026-01-08 13:46:44,130 - __main__ - INFO - ✓ Initialized agent: Monitoring Overseer Agent
+2026-01-08 13:46:44,130 - base_agent.quality_assurance_agent - INFO - Initialized agent 'Quality Assurance Agent' with 5 tools
+2026-01-08 13:46:44,130 - swarm_communication - INFO - Registered agent: quality_assurance_agent
+2026-01-08 13:46:44,130 - swarm_observability - INFO - Agent quality_assurance_agent registered with full observability
+2026-01-08 13:46:44,130 - __main__ - INFO - ✓ Initialized agent: Quality Assurance Agent
+2026-01-08 13:46:44,131 - __main__ - ERROR - ✗ Failed to initialize agent resource_manager: 'str' object has no attribute 'get'
+2026-01-08 13:46:44,131 - __main__ - ERROR - ❌ Failed to initialize autonomous workflow system

@@ -1,0 +1,4 @@
+# Directives for Large Language Model (LLM) crawlers
+
+User-agent: *
+Allow: /
