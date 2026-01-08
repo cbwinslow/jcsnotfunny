@@ -1,0 +1,44 @@
+name: E2E Smoke Test
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 3 * * *' # run nightly at 03:00 UTC
+
+jobs:
+  e2e-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Generate fixtures
+        run: python tests/fixtures/transcripts/generate_fixtures.py
+
+      - name: Run transcribe integration subset
+        run: pytest tests/test_transcription_fixtures.py tests/test_whisperx_alignment.py -q
+
+      - name: Simulate auto-edit artifact generation (placeholder)
+        run: |
+          mkdir -p outputs
+          echo '{"edl": []}' > outputs/sample.edl.json
+
+      - name: Compute diar metrics
+        run: python scripts/transcribe_agent/compute_diar_metrics.py --expected tests/fixtures/transcripts/two_speaker.diar.json --actual tests/fixtures/transcripts/two_speaker.diar.json --output outputs/metrics.json
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-artifacts
+          path: outputs
