@@ -1,0 +1,260 @@
+2026-01-08 01:29:28,803 - PracticalToolset.ContentScheduling - INFO - Starting execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a
+2026-01-08 01:29:28,803 - PracticalToolset.ContentScheduling - INFO - Starting execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a
+2026-01-08 01:29:28,803 - PracticalToolset.ContentScheduling - INFO - Starting execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a
+2026-01-08 01:29:28,803 - PracticalToolset.ContentScheduling - INFO - Starting execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a
+2026-01-08 01:29:28,803 - PracticalToolset.ContentScheduling - INFO - Starting execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Error in ContentScheduling: name 'validate_media_file' is not defined
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Error in ContentScheduling: name 'validate_media_file' is not defined
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Error in ContentScheduling: name 'validate_media_file' is not defined
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Error in ContentScheduling: name 'validate_media_file' is not defined
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Error in ContentScheduling: name 'validate_media_file' is not defined
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a failed after 0.00s
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a failed after 0.00s
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a failed after 0.00s
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a failed after 0.00s
+2026-01-08 01:29:28,804 - PracticalToolset.ContentScheduling - ERROR - Execution 30bd8b2b-15e4-4133-ab08-8ddb5311d17a failed after 0.00s
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - INFO - Starting execution 37a20930-6660-42d8-8441-88c73fd25786
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,062 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:29:29,063 - PracticalToolset.ContentScheduling - INFO - Execution 37a20930-6660-42d8-8441-88c73fd25786 completed successfully in 0.00s
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - INFO - Starting execution e75744c1-59f5-49c1-91a3-4d47dc8f6155
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - INFO - Starting execution e75744c1-59f5-49c1-91a3-4d47dc8f6155
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - INFO - Execution e75744c1-59f5-49c1-91a3-4d47dc8f6155 completed successfully in 0.00s
+2026-01-08 01:31:34,157 - PracticalToolset.ContentScheduling - INFO - Execution e75744c1-59f5-49c1-91a3-4d47dc8f6155 completed successfully in 0.00s
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Starting execution f69531a1-0634-41f1-8d3d-00b84f74e761
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Starting execution f69531a1-0634-41f1-8d3d-00b84f74e761
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Starting execution f69531a1-0634-41f1-8d3d-00b84f74e761
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Starting execution f69531a1-0634-41f1-8d3d-00b84f74e761
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Starting execution f69531a1-0634-41f1-8d3d-00b84f74e761
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Execution f69531a1-0634-41f1-8d3d-00b84f74e761 completed successfully in 0.00s
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Execution f69531a1-0634-41f1-8d3d-00b84f74e761 completed successfully in 0.00s
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Execution f69531a1-0634-41f1-8d3d-00b84f74e761 completed successfully in 0.00s
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Execution f69531a1-0634-41f1-8d3d-00b84f74e761 completed successfully in 0.00s
+2026-01-08 01:31:34,167 - PracticalToolset.ContentScheduling - INFO - Execution f69531a1-0634-41f1-8d3d-00b84f74e761 completed successfully in 0.00s
+2026-01-08 01:31:34,175 - PracticalToolset.ContentScheduling - INFO - Starting execution f7d52443-903a-4a6c-ab91-4d62038bf71b
+2026-01-08 01:31:34,175 - PracticalToolset.ContentScheduling - INFO - Starting execution f7d52443-903a-4a6c-ab91-4d62038bf71b
+2026-01-08 01:31:34,175 - PracticalToolset.ContentScheduling - INFO - Starting execution f7d52443-903a-4a6c-ab91-4d62038bf71b
+2026-01-08 01:31:34,175 - PracticalToolset.ContentScheduling - INFO - Starting execution f7d52443-903a-4a6c-ab91-4d62038bf71b
+2026-01-08 01:31:34,175 - PracticalToolset.ContentScheduling - INFO - Starting execution f7d52443-903a-4a6c-ab91-4d62038bf71b
+2026-01-08 01:31:34,175 - PracticalToolset.ContentScheduling - INFO - Starting execution f7d52443-903a-4a6c-ab91-4d62038bf71b
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to tiktok: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to youtube: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to youtube: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to youtube: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to youtube: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to youtube: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to youtube: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to linkedin: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to linkedin: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to linkedin: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to linkedin: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to linkedin: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to linkedin: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - INFO - Execution f7d52443-903a-4a6c-ab91-4d62038bf71b completed successfully in 0.00s
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - INFO - Execution f7d52443-903a-4a6c-ab91-4d62038bf71b completed successfully in 0.00s
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - INFO - Execution f7d52443-903a-4a6c-ab91-4d62038bf71b completed successfully in 0.00s
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - INFO - Execution f7d52443-903a-4a6c-ab91-4d62038bf71b completed successfully in 0.00s
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - INFO - Execution f7d52443-903a-4a6c-ab91-4d62038bf71b completed successfully in 0.00s
+2026-01-08 01:31:34,176 - PracticalToolset.ContentScheduling - INFO - Execution f7d52443-903a-4a6c-ab91-4d62038bf71b completed successfully in 0.00s
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,284 - PracticalToolset.ContentScheduling - INFO - Starting execution fdca990c-126a-4414-b340-0ebe52ea7c37
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to instagram: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,285 - PracticalToolset.ContentScheduling - INFO - Execution fdca990c-126a-4414-b340-0ebe52ea7c37 completed successfully in 0.00s
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,349 - PracticalToolset.ContentScheduling - INFO - Starting execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,350 - PracticalToolset.ContentScheduling - INFO - Execution 2f9461bc-bcb7-4c33-b60c-6ec665609ac0 completed successfully in 0.00s
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,404 - PracticalToolset.ContentScheduling - INFO - Starting execution 27ae817a-fa64-496e-adb8-800da96ce926
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - ERROR - Failed to schedule to twitter: 'PracticalContentSchedulingTool' object has no attribute '_schedule_twitter_api_v1'
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s
+2026-01-08 01:31:34,405 - PracticalToolset.ContentScheduling - INFO - Execution 27ae817a-fa64-496e-adb8-800da96ce926 completed successfully in 0.00s

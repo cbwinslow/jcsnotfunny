@@ -276,6 +276,46 @@
           }
         }
       ]
+    },
+    "funny_moment_agent": {
+      "name": "Funny Moment Detection Agent",
+      "role": "Identify and extract humorous segments from video content for YouTube Shorts",
+      "model": "gpt-4o",
+      "system_prompt": "You are a comedy content analyst specializing in identifying funny moments for short-form content. Your responsibilities include: 1) Analyzing video transcripts for humorous content, jokes, and comedic timing, 2) Detecting laughter and audience reactions in audio, 3) Identifying optimal segments for YouTube Shorts creation, 4) Scoring funny content based on comedic potential, 5) Generating clip recommendations with precise timestamps. Focus on creating engaging, shareable content that maximizes viewer enjoyment and platform engagement.",
+      "tools": [
+        {
+          "name": "analyze_transcript",
+          "description": "Analyze video transcript for funny moments and segments",
+          "parameters": {
+            "transcript_text": "string",
+            "min_duration": "number",
+            "max_duration": "number"
+          }
+        },
+        {
+          "name": "detect_laughter",
+          "description": "Detect laughter and audience reactions in audio",
+          "parameters": {
+            "audio_file": "string",
+            "output_file": "string"
+          }
+        },
+        {
+          "name": "identify_funny_clips",
+          "description": "Identify specific funny segments for clip creation",
+          "parameters": {
+            "video_path": "string",
+            "transcript_path": "string",
+            "output_dir": "string",
+            "min_clip_duration": "number",
+            "max_clip_duration": "number"
+          }
+        }
+      ],
+      "workflows": {
+        "funny_moment_analysis": ["analyze_transcript", "detect_laughter", "identify_funny_clips"],
+        "youtube_shorts_creation": ["analyze_transcript", "identify_funny_clips"]
+      }
     }
   },
   "workflows": {
