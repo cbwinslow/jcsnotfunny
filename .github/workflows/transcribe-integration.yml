@@ -2,7 +2,7 @@ name: Transcribe integration
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch: {}
 
 jobs:

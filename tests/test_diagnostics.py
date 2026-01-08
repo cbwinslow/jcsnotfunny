@@ -31,3 +31,13 @@ def test_run_snapshot_offline(monkeypatch):
     assert "timestamp" in snapshot
     assert "disk" in snapshot
     assert "stream_endpoints" in snapshot
+
+
+def test_run_checks_basic(monkeypatch):
+    # Ensure basic env checks run without error
+    from scripts.diagnostics.check_env import run_checks
+    report, critical = run_checks()
+    assert 'binaries' in report
+    assert 'python' in report
+    assert 'packages' in report
+    assert isinstance(critical, bool)
