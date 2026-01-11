@@ -56,6 +56,11 @@ def check_internal_link(md_file: Path, link: str, root: Path) -> Tuple[bool, str
         # treat as non-file scheme (not checkable by file existence)
         return True, 'non-file-scheme'
 
+    # Bare tokens (no slash and no dot) are likely symbolic references (e.g., 'error', 'parsed_args', 'url')
+    # Treat them as non-file tokens and do not fail the check.
+    if ("/" not in link_path) and ("." not in link_path):
+        return True, 'non-file-token'
+
     # If link contains file:line (e.g., path/to/file.js:123 or file.py:45:2), try to resolve the file part
     m = re.match(r'^(?P<path>.+?):\d+(?:[:]\d+)?$', link_path)
     if m:

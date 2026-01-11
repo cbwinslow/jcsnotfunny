@@ -29,7 +29,8 @@ docs/agent-development.md -> ../api/agents.md
 docs/agent-development.md -> ../../examples/agents/
 
 docs/agent-development.md -> ../api/
-rulebook-ai/technical.md -> parsed_args
+# rulebook-ai/technical.md -> parsed_args (now ignored by checker)
+
 pydantic-ai-democratic-swarm/README.md -> ./docs/getting-started.md
 pydantic-ai-democratic-swarm/README.md -> ./docs/agent-development.md
 
@@ -153,14 +154,15 @@ rulebook-ai/src/rulebook_ai/packs/heavy-spec/rules/01-rules/01-memory.md -> mdc:
 rulebook-ai/src/rulebook_ai/packs/heavy-spec/rules/01-rules/01-memory.md -> mdc:/rules_template/01-rules/lessons-learned.mdc
 rulebook-ai/src/rulebook_ai/packs/heavy-spec/rules/01-rules/01-memory.md -> mdc:/rules_template/01-rules/lessons-learned.mdc
 rulebook-ai/src/rulebook_ai/packs/heavy-spec/rules/01-rules/01-memory.md -> mdc:/rules_template/01-rules/lessons-learned.md
-docs/toolsets/TOOLSET_SUMMARY.md -> error
-docs/toolsets/TOOLSET_SUMMARY.md -> error
-docs/toolsets/REFERENCE_IMPLEMENTATION.md -> error
-docs/toolsets/REFERENCE_IMPLEMENTATION.md -> error, parameters
-docs/toolsets/REFERENCE_IMPLEMENTATION.md -> result
-docs/toolsets/REFERENCE_IMPLEMENTATION.md -> tool_stats
-docs/toolsets/REFERENCE_IMPLEMENTATION.md -> tool_name
-docs/toolsets/AI_ORCHESTRATION_AGENT.md -> config
-docs/toolsets/AI_ORCHESTRATION_AGENT.md -> error, context
-docs/toolsets/AI_ORCHESTRATION_AGENT.md -> error, context
-docs/toolsets/AI_ORCHESTRATION_AGENT.md -> config
+# toolsets doc tokens such as 'error', 'result', 'tool_stats' and 'config' are now treated as non-file tokens by the checker and do not need to be whitelisted.
+# docs/toolsets/TOOLSET_SUMMARY.md -> error
+# docs/toolsets/TOOLSET_SUMMARY.md -> error
+# docs/toolsets/REFERENCE_IMPLEMENTATION.md -> error
+# docs/toolsets/REFERENCE_IMPLEMENTATION.md -> error, parameters
+# docs/toolsets/REFERENCE_IMPLEMENTATION.md -> result
+# docs/toolsets/REFERENCE_IMPLEMENTATION.md -> tool_stats
+# docs/toolsets/REFERENCE_IMPLEMENTATION.md -> tool_name
+# docs/toolsets/AI_ORCHESTRATION_AGENT.md -> config
+# docs/toolsets/AI_ORCHESTRATION_AGENT.md -> error, context
+# docs/toolsets/AI_ORCHESTRATION_AGENT.md -> error, context
+# docs/toolsets/AI_ORCHESTRATION_AGENT.md -> config
