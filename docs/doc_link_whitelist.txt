@@ -3,10 +3,6 @@
 
 pydantic-ai-swarm-README.md -> ./docs/efficiency-rules.md
 pydantic-ai-swarm-README.md -> ./docs/deployment.md
-README.md -> docs/performance-tuning.md
-README.md -> docs/security.md
-README.md -> docs/extending.md
-README.md -> PYDANTIC_AI_SWARM_DOCUMENTATION.md
 agents.md -> ./scripts/social_media_apis.py
 SEO_ACTION_PLAN.md -> website/pages/index.js:13
 SEO_ACTION_PLAN.md -> agents/social_media_agent.py
