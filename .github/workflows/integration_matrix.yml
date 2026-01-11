@@ -1,0 +1,55 @@
+name: Integration Matrix
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # daily at 04:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+        with_optional_deps: [true, false]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install system packages when optional deps enabled
+        if: matrix.with_optional_deps == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libsndfile1
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          if [ "${{ matrix.with_optional_deps }}" = "true" ]; then
+            python -m pip install whisperx || true
+          fi
+
+      - name: Sync agent configs
+        run: python scripts/sync_agent_configs.py
+
+      - name: Run validator (strict)
+        run: |
+          echo "Running validator with strict mode"
+          python scripts/validate_configs.py || (echo "Config validation failed" && exit 1)
+
+      - name: Run unit + integration tests
+        run: |
+          pytest -q
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-results-${{ matrix.python-version }}-${{ matrix.with_optional_deps }}
+          path: .pytest_cache || .
