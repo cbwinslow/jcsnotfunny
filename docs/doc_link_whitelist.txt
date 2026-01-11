@@ -1,8 +1,8 @@
 # Known broken links baseline - see scripts/doc_link_checker.py output
 # Format: path/to/file.md -> relative/path/to/target.md#anchor
 
-pydantic-ai-swarm-README.md -> ./docs/efficiency-rules.md
-pydantic-ai-swarm-README.md -> ./docs/deployment.md
+# pydantic-ai-swarm references fixed by adding docs/efficiency-rules.md and docs/deployment.md
+
 agents.md -> ./scripts/social_media_apis.py
 SEO_ACTION_PLAN.md -> website/pages/index.js:13
 SEO_ACTION_PLAN.md -> agents/social_media_agent.py

@@ -36,12 +36,42 @@ def is_external(link: str) -> bool:
 
 
 def check_internal_link(md_file: Path, link: str, root: Path) -> Tuple[bool, str]:
-    """Return (ok, reason)."""
+    """Return (ok, reason). Handles file:line anchors and ignores non-file schemes (e.g., mdc:/, url, parsed_args).
+
+    Rules:
+    - If the link is an anchor only ("#foo"), it's considered OK.
+    - If the link uses a non-file scheme (contains a leading word and colon, like 'mdc:/...'), it's ignored as non-file reference.
+    - If the link contains a trailing ':<digits>' (e.g. 'file.js:123'), the path portion before the first ':' is checked for existence.
+    - Otherwise, the resolver behaves as before (relative to doc or repo root for absolute paths).
+    """
     # strip anchor
     link_path = link.split('#', 1)[0]
-    if link_path == '' or link_path.startswith('/'):  # anchor or absolute path — treat as present
-        # For absolute paths, resolve relative to repo root
-        target = (root / link_path.lstrip('/')).resolve() if link_path else md_file
+
+    # empty link (just an anchor) — OK
+    if link_path == '':
+        return True, ''
+
+    # ignore non-file schemes like mdc:/, schema:, url, parsed_args, etc.
+    if re.match(r'^[a-zA-Z0-9_-]+:', link_path):
+        # treat as non-file scheme (not checkable by file existence)
+        return True, 'non-file-scheme'
+
+    # If link contains file:line (e.g., path/to/file.js:123 or file.py:45:2), try to resolve the file part
+    m = re.match(r'^(?P<path>.+?):\d+(?:[:]\d+)?$', link_path)
+    if m:
+        path_only = m.group('path')
+        # treat like a normal path relative to md file
+        if path_only.startswith('/'):
+            target = (root / path_only.lstrip('/')).resolve()
+        else:
+            target = (md_file.parent / path_only).resolve()
+        if target.exists():
+            return True, ''
+        # fall through to check original (in case colon is part of a filename on exotic systems)
+
+    # absolute or relative path handling
+    if link_path.startswith('/'):
+        target = (root / link_path.lstrip('/')).resolve()
     else:
         target = (md_file.parent / link_path).resolve()
 
