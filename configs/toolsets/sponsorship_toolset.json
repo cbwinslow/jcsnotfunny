@@ -1,0 +1,10 @@
+{
+  "toolset": "sponsorship",
+  "schema_version": "1.0",
+  "tools": {
+    "sponsor_research": {"description": "Research potential sponsors"},
+    "create_sponsor_read": {"description": "Generate sponsor advertisements"},
+    "track_performance": {"description": "Monitor campaign performance"},
+    "generate_report": {"description": "Create sponsor performance reports"}
+  }
+}

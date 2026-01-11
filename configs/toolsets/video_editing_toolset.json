@@ -1,0 +1,10 @@
+{
+  "toolset": "video_editing",
+  "schema_version": "1.0",
+  "tools": {
+    "video_analysis": {"description": "Analyze video footage for speaker detection"},
+    "auto_cut": {"description": "Automatically cut between camera angles"},
+    "create_short": {"description": "Generate short-form content"},
+    "add_overlays": {"description": "Add text overlays and visual elements"}
+  }
+}

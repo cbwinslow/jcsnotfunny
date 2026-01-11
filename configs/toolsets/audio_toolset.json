@@ -1,0 +1,10 @@
+{
+  "toolset": "audio",
+  "schema_version": "1.0",
+  "tools": {
+    "audio_cleanup": {"description": "Remove background noise and artifacts"},
+    "voice_enhancement": {"description": "Enhance vocal clarity"},
+    "sponsor_insertion": {"description": "Insert sponsor reads"},
+    "audio_mastering": {"description": "Master final audio"}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "toolset": "tour",
+  "schema_version": "1.0",
+  "tools": {
+    "venue_research": {"description": "Research suitable venues"},
+    "create_tour_schedule": {"description": "Generate tour itinerary"},
+    "manage_tickets": {"description": "Handle ticket sales"},
+    "promote_event": {"description": "Create promotional campaigns"}
+  }
+}
