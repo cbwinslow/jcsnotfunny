@@ -5,9 +5,9 @@
     "generate_platform_posts": {"description": "Produce formatted posts per platform","inputSchema":{"type":"object","required":["content","platforms"],"properties":{"content":{"type":"string"},"platforms":{"type":"array","items":{"type":"string"}}}}},
     "prepare_media": {"description": "Create thumbnails, captions, and media variants","inputSchema":{"type":"object","required":["media_path","platforms"],"properties":{"media_path":{"type":"string"},"platforms":{"type":"array","items":{"type":"string"}}}}},
     "schedule_api_calls": {"description": "Schedule posts via APIs or return scheduled entries for the scheduler","inputSchema":{"type":"object","required":["posts"],"properties":{"posts":{"type":"array"}}}},
-    "create_content_calendar": {"description": "Generate posting schedule"},
-    "schedule_post": {"description": "Schedule posts across platforms"},
-    "engage_audience": {"description": "Monitor and respond to interactions"},
-    "analyze_performance": {"description": "Analyze post performance"}
+    "create_content_calendar": {"description": "Generate posting schedule","inputSchema":{"type":"object","required":["content_items","platforms"],"properties":{"content_items":{"type":"array"},"platforms":{"type":"array"}}}},
+    "schedule_post": {"description": "Schedule posts across platforms","inputSchema":{"type":"object","required":["content","platform","schedule_time"],"properties":{"content":{"type":"string"},"platform":{"type":"string"},"schedule_time":{"type":"string"}}}},
+    "engage_audience": {"description": "Monitor and respond to interactions","inputSchema":{"type":"object","required":["platform"],"properties":{"platform":{"type":"string"}}}},
+    "analyze_performance": {"description": "Analyze post performance","inputSchema":{"type":"object","required":["posts","metrics"],"properties":{"posts":{"type":"array"},"metrics":{"type":"array"}}}}
   }
 }

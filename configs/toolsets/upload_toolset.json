@@ -1,0 +1,12 @@
+{
+  "toolset": "upload",
+  "schema_version": "1.0",
+  "tools": {
+    "upload_to_youtube": {"description": "Upload video with metadata and schedule","inputSchema":{"type":"object","required":["video_path","metadata"],"properties":{"video_path":{"type":"string"},"metadata":{"type":"object"}}}},
+    "upload_to_cloudflare": {"description": "Upload static assets to Cloudflare R2/Pages","inputSchema":{"type":"object","required":["file_path","bucket"],"properties":{"file_path":{"type":"string"},"bucket":{"type":"string"}}}},
+    "validate_media": {"description":"Validate media file constraints and return normalized metadata","inputSchema":{"type":"object","required":["video_path"],"properties":{"video_path":{"type":"string"}}}},
+    "prepare_metadata": {"description":"Prepare YouTube-friendly metadata (title, description, tags, chapters)","inputSchema":{"type":"object","required":["content"],"properties":{"content":{"type":"object"}}}},
+    "upload_api": {"description":"Upload using YouTube API and return upload id","inputSchema":{"type":"object","required":["video_path","metadata"],"properties":{"video_path":{"type":"string"},"metadata":{"type":"object"}}}},
+    "confirm_publish": {"description":"Confirm publish status and return final URL","inputSchema":{"type":"object","required":["upload_id"],"properties":{"upload_id":{"type":"string"}}}}
+  }
+}

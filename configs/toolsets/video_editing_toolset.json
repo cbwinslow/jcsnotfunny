@@ -2,9 +2,9 @@
   "toolset": "video_editing",
   "schema_version": "1.0",
   "tools": {
-    "video_analysis": {"description": "Analyze video footage for speaker detection"},
-    "auto_cut": {"description": "Automatically cut between camera angles"},
-    "create_short": {"description": "Generate short-form content"},
-    "add_overlays": {"description": "Add text overlays and visual elements"}
+    "video_analysis": {"description": "Analyze video footage for speaker detection","inputSchema":{"type":"object","required":["video_path"],"properties":{"video_path":{"type":"string"}}}},
+    "auto_cut": {"description": "Automatically cut between camera angles","inputSchema":{"type":"object","required":["video_path","cuts"],"properties":{"video_path":{"type":"string"},"cuts":{"type":"array"}}}},
+    "create_short": {"description": "Generate short-form content","inputSchema":{"type":"object","required":["video_path","start_time","duration"],"properties":{"video_path":{"type":"string"},"start_time":{"type":"number"},"duration":{"type":"number"}}}},
+    "add_overlays": {"description": "Add text overlays and visual elements","inputSchema":{"type":"object","required":["video_path","overlays"],"properties":{"video_path":{"type":"string"},"overlays":{"type":"array"}}}}
   }
 }

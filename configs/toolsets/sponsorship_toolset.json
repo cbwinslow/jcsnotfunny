@@ -2,9 +2,9 @@
   "toolset": "sponsorship",
   "schema_version": "1.0",
   "tools": {
-    "sponsor_research": {"description": "Research potential sponsors"},
-    "create_sponsor_read": {"description": "Generate sponsor advertisements"},
-    "track_performance": {"description": "Monitor campaign performance"},
-    "generate_report": {"description": "Create sponsor performance reports"}
+    "sponsor_research": {"description": "Research potential sponsors","inputSchema":{"type":"object","required":["criteria"],"properties":{"criteria":{"type":"object"}}}},
+    "create_sponsor_read": {"description": "Generate sponsor advertisements","inputSchema":{"type":"object","required":["sponsor_info"],"properties":{"sponsor_info":{"type":"object"}}}},
+    "track_performance": {"description": "Monitor campaign performance","inputSchema":{"type":"object","required":["campaign_id"],"properties":{"campaign_id":{"type":"string"}}}},
+    "generate_report": {"description": "Create sponsor performance reports","inputSchema":{"type":"object","required":["campaign_data"],"properties":{"campaign_data":{"type":"object"}}}}
   }
 }

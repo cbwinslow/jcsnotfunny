@@ -1,0 +1,10 @@
+{
+  "toolset": "transcription",
+  "schema_version": "1.0",
+  "tools": {
+    "fetch_audio": {"description": "Retrieve audio by URL or from local storage","inputSchema":{"type":"object","required":["source"],"properties":{"source":{"type":"string"}}}},
+    "run_transcription": {"description": "Produce aligned transcript using whisperx or equivalent","inputSchema":{"type":"object","required":["audio_path"],"properties":{"audio_path":{"type":"string"},"language":{"type":"string","default":"en"}}}},
+    "align_transcript": {"description": "Produce WebVTT and diarization records","inputSchema":{"type":"object","required":["raw_transcript_path"],"properties":{"raw_transcript_path":{"type":"string"}}}},
+    "store_vtt": {"description": "Store final VTT and return metadata","inputSchema":{"type":"object","required":["vtt_path","destination"],"properties":{"vtt_path":{"type":"string"},"destination":{"type":"string"}}}}
+  }
+}

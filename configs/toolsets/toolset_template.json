@@ -1,0 +1,11 @@
+{
+  "toolset": "youtube_clip",
+  "schema_version": "1.0",
+  "tools": {
+    "download_video": {"description": "Download a YouTube video to disk","inputSchema":{"type":"object","required":["url","output_dir"],"properties":{"url":{"type":"string"},"output_dir":{"type":"string"}}}},
+    "transcribe_audio": {"description": "Transcribe audio to WebVTT and return path to VTT and raw transcript","inputSchema":{"type":"object","required":["audio_path"],"properties":{"audio_path":{"type":"string"}}}},
+    "detect_funny_moments": {"description": "Return scored segments with start/end times and confidence","inputSchema":{"type":"object","required":["transcript_path"],"properties":{"transcript_path":{"type":"string"}}}},
+    "generate_clip": {"description": "Render a clip from source with transforms","inputSchema":{"type":"object","required":["video_path","start","end","output_path"],"properties":{"video_path":{"type":"string"},"start":{"type":"number"},"end":{"type":"number"},"output_path":{"type":"string"}}}},
+    "format_for_platforms": {"description": "Create platform-optimized variants","inputSchema":{"type":"object","required":["clip_path","platforms"],"properties":{"clip_path":{"type":"string"},"platforms":{"type":"array","items":{"type":"string"}}}}}
+  }
+}

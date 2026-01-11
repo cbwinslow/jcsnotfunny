@@ -1,0 +1,11 @@
+{
+  "toolset": "analytics",
+  "schema_version": "1.0",
+  "tools": {
+    "collect_youtube_analytics": {"description":"Collect YouTube analytics for a video","inputSchema":{"type":"object","required":["video_id","metrics"],"properties":{"video_id":{"type":"string"},"metrics":{"type":"array"}}}},
+    "generate_performance_report": {"description":"Aggregate analytics into a report","inputSchema":{"type":"object","required":["analytics_data"],"properties":{"analytics_data":{"type":"array"}}}},
+    "collect_data": {"description":"Collect analytics from multiple sources (YouTube, Twitter)","inputSchema":{"type":"object","required":["source","params"],"properties":{"source":{"type":"string"},"params":{"type":"object"}}}},
+    "aggregate_metrics": {"description":"Normalize and aggregate metrics across platforms","inputSchema":{"type":"object","required":["raw_data"],"properties":{"raw_data":{"type":"array"}}}},
+    "generate_report": {"description":"Produce a structured analytic report","inputSchema":{"type":"object","required":["aggregated_metrics"],"properties":{"aggregated_metrics":{"type":"object"}}}}
+  }
+}

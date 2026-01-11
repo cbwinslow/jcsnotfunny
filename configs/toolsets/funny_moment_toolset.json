@@ -1,0 +1,9 @@
+{
+  "toolset": "funny_moment",
+  "schema_version": "1.0",
+  "tools": {
+    "analyze_transcript": {"description": "Extract candidate segments from transcript","inputSchema":{"type":"object","required":["transcript_path"],"properties":{"transcript_path":{"type":"string"}}}},
+    "score_segments": {"description": "Score segments for humor and engagement","inputSchema":{"type":"object","required":["segments_file"],"properties":{"segments_file":{"type":"string"}}}},
+    "filter_high_quality": {"description": "Filter segments by audio and length constraints","inputSchema":{"type":"object","required":["segments_file","audio_metadata"],"properties":{"segments_file":{"type":"string"},"audio_metadata":{"type":"object"}}}}
+  }
+}

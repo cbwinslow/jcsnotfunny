@@ -2,9 +2,9 @@
   "toolset": "audio",
   "schema_version": "1.0",
   "tools": {
-    "audio_cleanup": {"description": "Remove background noise and artifacts"},
-    "voice_enhancement": {"description": "Enhance vocal clarity"},
-    "sponsor_insertion": {"description": "Insert sponsor reads"},
-    "audio_mastering": {"description": "Master final audio"}
+    "audio_cleanup": {"description": "Remove background noise and artifacts","inputSchema":{"type":"object","required":["audio_path"],"properties":{"audio_path":{"type":"string"}}}},
+    "voice_enhancement": {"description": "Enhance vocal clarity","inputSchema":{"type":"object","required":["audio_path"],"properties":{"audio_path":{"type":"string"}}}},
+    "sponsor_insertion": {"description": "Insert sponsor reads","inputSchema":{"type":"object","required":["audio_path","sponsor_read","insert_time"],"properties":{"audio_path":{"type":"string"},"sponsor_read":{"type":"string"},"insert_time":{"type":"number"}}}},
+    "audio_mastering": {"description": "Master final audio","inputSchema":{"type":"object","required":["audio_path"],"properties":{"audio_path":{"type":"string"}}}}
   }
 }

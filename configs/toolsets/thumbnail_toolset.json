@@ -1,0 +1,12 @@
+{
+  "toolset": "thumbnail",
+  "schema_version": "1.0",
+  "tools": {
+    "generate_thumbnail": {"description": "Create a thumbnail with overlaid text and branding","inputSchema":{"type":"object","required":["source_frame","text"],"properties":{"source_frame":{"type":"string"},"text":{"type":"string"},"style":{"type":"object"}}}},
+    "resize_variants": {"description": "Create platform-specific variants (9:16, 16:9)","inputSchema":{"type":"object","required":["image_path","platforms"],"properties":{"image_path":{"type":"string"},"platforms":{"type":"array","items":{"type":"string"}}}}},
+    "select_frame": {"description": "Select a representative frame from a video","inputSchema":{"type":"object","required":["video_path"],"properties":{"video_path":{"type":"string"}}}},
+    "render_thumbnail": {"description": "Render thumbnail with overlay, branding and export options","inputSchema":{"type":"object","required":["frame_path","overlay_text"],"properties":{"frame_path":{"type":"string"},"overlay_text":{"type":"string"}}}},
+    "create_variants": {"description": "Create cropped and resized variants","inputSchema":{"type":"object","required":["image_path","variants"],"properties":{"image_path":{"type":"string"},"variants":{"type":"array"}}}},
+    "upload_thumbnail": {"description": "Upload thumbnail to CDN/R2 and return URL","inputSchema":{"type":"object","required":["image_path","bucket"],"properties":{"image_path":{"type":"string"},"bucket":{"type":"string"}}}}
+  }
+}

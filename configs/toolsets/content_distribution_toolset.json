@@ -2,9 +2,9 @@
   "toolset": "content_distribution",
   "schema_version": "1.0",
   "tools": {
-    "publish_episode": {"description": "Publish new episode"},
-    "update_tour_dates": {"description": "Update tour schedule"},
-    "manage_cdn": {"description": "Optimize CDN settings"},
-    "seo_optimization": {"description": "Optimize content for search engines"}
+    "publish_episode": {"description": "Publish new episode","inputSchema":{"type":"object","required":["episode_data"],"properties":{"episode_data":{"type":"object"}}}},
+    "update_tour_dates": {"description": "Update tour schedule","inputSchema":{"type":"object","required":["tour_dates"],"properties":{"tour_dates":{"type":"array"}}}},
+    "manage_cdn": {"description": "Optimize CDN settings","inputSchema":{"type":"object","required":["settings"],"properties":{"settings":{"type":"object"}}}},
+    "seo_optimization": {"description": "Optimize content for search engines","inputSchema":{"type":"object","required":["content","keywords"],"properties":{"content":{"type":"string"},"keywords":{"type":"array"}}}}
   }
 }

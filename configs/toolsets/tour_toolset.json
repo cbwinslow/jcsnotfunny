@@ -2,9 +2,9 @@
   "toolset": "tour",
   "schema_version": "1.0",
   "tools": {
-    "venue_research": {"description": "Research suitable venues"},
-    "create_tour_schedule": {"description": "Generate tour itinerary"},
-    "manage_tickets": {"description": "Handle ticket sales"},
-    "promote_event": {"description": "Create promotional campaigns"}
+    "venue_research": {"description": "Research suitable venues","inputSchema":{"type":"object","required":["location","capacity"],"properties":{"location":{"type":"string"},"capacity":{"type":"number"}}}},
+    "create_tour_schedule": {"description": "Generate tour itinerary","inputSchema":{"type":"object","required":["dates","venues"],"properties":{"dates":{"type":"array"},"venues":{"type":"array"}}}},
+    "manage_tickets": {"description": "Handle ticket sales","inputSchema":{"type":"object","required":["event_id"],"properties":{"event_id":{"type":"string"}}}},
+    "promote_event": {"description": "Create promotional campaigns","inputSchema":{"type":"object","required":["event_info"],"properties":{"event_info":{"type":"object"}}}}
   }
 }
