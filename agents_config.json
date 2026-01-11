@@ -95,6 +95,17 @@
         }
       ]
     },
+    "funny_moment_agent": {
+      "name": "FunnyMomentAgent",
+      "role": "Detect high-likelihood funny segments in transcripts",
+      "model": "gpt-4o",
+      "system_prompt": "You are a humor detection assistant. Given a transcript and audio metadata, return candidate segments with start, end, description, and humor confidence.",
+      "tools": [
+        {"name": "analyze_transcript", "description": "Analyze transcript and return segments"},
+        {"name": "detect_laughter", "description": "Detect laughter segments from audio"},
+        {"name": "identify_funny_clips", "description": "Identify clip start/end times suitable for short form"}
+      ]
+    },
     "social_media_manager": {
       "name": "Social Media Manager",
       "role": "Multi-platform social media content management and scheduling",
