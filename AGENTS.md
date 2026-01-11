@@ -73,10 +73,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`video_analysis`](agents_config.json:11) - Analyze video footage for speaker detection
-- [`auto_cut`](agents_config.json:37) - Automatically cut between camera angles
-- [`create_short`](agents_config.json:65) - Generate short-form content
-- [`add_overlays`](agents_config.json:100) - Add text overlays and visual elements
+- [`video_analysis`](agents_config.json) - Analyze video footage for speaker detection
+- [`auto_cut`](agents_config.json) - Automatically cut between camera angles
+- [`create_short`](agents_config.json) - Generate short-form content
+- [`add_overlays`](agents_config.json) - Add text overlays and visual elements
 
 **Workflows:**
 
@@ -103,10 +103,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`audio_cleanup`](agents_config.json:179) - Remove background noise and artifacts
-- [`voice_enhancement`](agents_config.json:214) - Enhance vocal clarity
-- [`sponsor_insertion`](agents_config.json:248) - Insert sponsor reads at optimal points
-- [`audio_mastering`](agents_config.json:287) - Master final audio for distribution
+- [`audio_cleanup`](agents_config.json) - Remove background noise and artifacts
+- [`voice_enhancement`](agents_config.json) - Enhance vocal clarity
+- [`sponsor_insertion`](agents_config.json) - Insert sponsor reads at optimal points
+- [`audio_mastering`](agents_config.json) - Master final audio for distribution
 
 ---
 
@@ -129,10 +129,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`create_content_calendar`](agents_config.json:339) - Generate posting schedule
-- [`schedule_post`](agents_config.json:383) - Schedule posts across platforms
-- [`engage_audience`](agents_config.json:470) - Monitor and respond to interactions
-- [`analyze_performance`](agents_config.json:510) - Analyze post performance
+- [`create_content_calendar`](agents_config.json) - Generate posting schedule
+- [`schedule_post`](agents_config.json) - Schedule posts across platforms
+- [`engage_audience`](agents_config.json) - Monitor and respond to interactions
+- [`analyze_performance`](agents_config.json) - Analyze post performance
 
 ---
 
@@ -155,10 +155,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`publish_episode`](agents_config.json:618) - Publish new episode
-- [`update_tour_dates`](agents_config.json:679) - Update tour schedule
-- [`manage_cdn`](agents_config.json:715) - Optimize CDN settings
-- [`seo_optimization`](agents_config.json:745) - Optimize content for search engines
+- [`publish_episode`](agents_config.json) - Publish new episode
+- [`update_tour_dates`](agents_config.json) - Update tour schedule
+- [`manage_cdn`](agents_config.json) - Optimize CDN settings
+- [`seo_optimization`](agents_config.json) - Optimize content for search engines
 
 ---
 
@@ -180,10 +180,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`sponsor_research`](agents_config.json:825) - Research potential sponsors
-- [`create_sponsor_read`](agents_config.json:859) - Generate sponsor advertisements
-- [`track_performance`](agents_config.json:903) - Monitor campaign performance
-- [`generate_report`](agents_config.json:936) - Create performance reports
+- [`sponsor_research`](agents_config.json) - Research potential sponsors
+- [`create_sponsor_read`](agents_config.json) - Generate sponsor advertisements
+- [`track_performance`](agents_config.json) - Monitor campaign performance
+- [`generate_report`](agents_config.json) - Create performance reports
 
 ---
 
@@ -205,10 +205,10 @@ The project uses a centralized agent configuration file located at `agents_confi
 
 **Tools:**
 
-- [`venue_research`](agents_config.json:980) - Research suitable venues
-- [`create_tour_schedule`](agents_config.json:1014) - Generate tour itinerary
-- [`manage_tickets`](agents_config.json:1047) - Handle ticket sales
-- [`promote_event`](agents_config.json:1080) - Create promotional campaigns
+- [`venue_research`](agents_config.json) - Research suitable venues
+- [`create_tour_schedule`](agents_config.json) - Generate tour itinerary
+- [`manage_tickets`](agents_config.json) - Handle ticket sales
+- [`promote_event`](agents_config.json) - Create promotional campaigns
 
 ---
 
@@ -406,55 +406,55 @@ Tooling is discovered at runtime; use your MCP client to list available memory t
 
 | Tool             | Agent        | Description                             | Schema                         |
 | ---------------- | ------------ | --------------------------------------- | ------------------------------ |
-| `video_analysis` | Video Editor | Analyze footage for speaker detection   | [View](agents_config.json:11)  |
-| `auto_cut`       | Video Editor | Cut between camera angles automatically | [View](agents_config.json:37)  |
-| `create_short`   | Video Editor | Generate short-form clips               | [View](agents_config.json:65)  |
-| `add_overlays`   | Video Editor | Add text overlays and branding          | [View](agents_config.json:100) |
+| `video_analysis` | Video Editor | Analyze footage for speaker detection   | [View](agents_config.json)  |
+| `auto_cut`       | Video Editor | Cut between camera angles automatically | [View](agents_config.json)  |
+| `create_short`   | Video Editor | Generate short-form clips               | [View](agents_config.json)  |
+| `add_overlays`   | Video Editor | Add text overlays and branding          | [View](agents_config.json) |
 
 ### Audio Production Toolsets
 
 | Tool                | Agent          | Description                 | Schema                         |
 | ------------------- | -------------- | --------------------------- | ------------------------------ |
-| `audio_cleanup`     | Audio Engineer | Noise reduction and cleanup | [View](agents_config.json:179) |
-| `voice_enhancement` | Audio Engineer | Vocal clarity enhancement   | [View](agents_config.json:214) |
-| `sponsor_insertion` | Audio Engineer | Insert sponsor reads        | [View](agents_config.json:248) |
-| `audio_mastering`   | Audio Engineer | Final audio mastering       | [View](agents_config.json:287) |
+| `audio_cleanup`     | Audio Engineer | Noise reduction and cleanup | [View](agents_config.json) |
+| `voice_enhancement` | Audio Engineer | Vocal clarity enhancement   | [View](agents_config.json) |
+| `sponsor_insertion` | Audio Engineer | Insert sponsor reads        | [View](agents_config.json) |
+| `audio_mastering`   | Audio Engineer | Final audio mastering       | [View](agents_config.json) |
 
 ### Social Media Toolsets
 
 | Tool                      | Agent                | Description             | Schema                         |
 | ------------------------- | -------------------- | ----------------------- | ------------------------------ |
-| `create_content_calendar` | Social Media Manager | Plan content schedule   | [View](agents_config.json:339) |
-| `schedule_post`           | Social Media Manager | Schedule posts          | [View](agents_config.json:383) |
-| `engage_audience`         | Social Media Manager | Respond to interactions | [View](agents_config.json:470) |
-| `analyze_performance`     | Social Media Manager | Performance analytics   | [View](agents_config.json:510) |
+| `create_content_calendar` | Social Media Manager | Plan content schedule   | [View](agents_config.json) |
+| `schedule_post`           | Social Media Manager | Schedule posts          | [View](agents_config.json) |
+| `engage_audience`         | Social Media Manager | Respond to interactions | [View](agents_config.json) |
+| `analyze_performance`     | Social Media Manager | Performance analytics   | [View](agents_config.json) |
 
 ### Distribution Toolsets
 
 | Tool                | Agent               | Description      | Schema                         |
 | ------------------- | ------------------- | ---------------- | ------------------------------ |
-| `publish_episode`   | Content Distributor | Publish episodes | [View](agents_config.json:618) |
-| `update_tour_dates` | Content Distributor | Update tour info | [View](agents_config.json:679) |
-| `manage_cdn`        | Content Distributor | CDN management   | [View](agents_config.json:715) |
-| `seo_optimization`  | Content Distributor | SEO optimization | [View](agents_config.json:745) |
+| `publish_episode`   | Content Distributor | Publish episodes | [View](agents_config.json) |
+| `update_tour_dates` | Content Distributor | Update tour info | [View](agents_config.json) |
+| `manage_cdn`        | Content Distributor | CDN management   | [View](agents_config.json) |
+| `seo_optimization`  | Content Distributor | SEO optimization | [View](agents_config.json) |
 
 ### Sponsorship Toolsets
 
 | Tool                  | Agent               | Description      | Schema                         |
 | --------------------- | ------------------- | ---------------- | ------------------------------ |
-| `sponsor_research`    | Sponsorship Manager | Find sponsors    | [View](agents_config.json:825) |
-| `create_sponsor_read` | Sponsorship Manager | Create ads       | [View](agents_config.json:859) |
-| `track_performance`   | Sponsorship Manager | Track ROI        | [View](agents_config.json:903) |
-| `generate_report`     | Sponsorship Manager | Generate reports | [View](agents_config.json:936) |
+| `sponsor_research`    | Sponsorship Manager | Find sponsors    | [View](agents_config.json) |
+| `create_sponsor_read` | Sponsorship Manager | Create ads       | [View](agents_config.json) |
+| `track_performance`   | Sponsorship Manager | Track ROI        | [View](agents_config.json) |
+| `generate_report`     | Sponsorship Manager | Generate reports | [View](agents_config.json) |
 
 ### Tour Management Toolsets
 
 | Tool                   | Agent        | Description     | Schema                          |
 | ---------------------- | ------------ | --------------- | ------------------------------- |
-| `venue_research`       | Tour Manager | Find venues     | [View](agents_config.json:980)  |
-| `create_tour_schedule` | Tour Manager | Plan tour       | [View](agents_config.json:1014) |
-| `manage_tickets`       | Tour Manager | Ticket sales    | [View](agents_config.json:1047) |
-| `promote_event`        | Tour Manager | Event promotion | [View](agents_config.json:1080) |
+| `venue_research`       | Tour Manager | Find venues     | [View](agents_config.json)  |
+| `create_tour_schedule` | Tour Manager | Plan tour       | [View](agents_config.json) |
+| `manage_tickets`       | Tour Manager | Ticket sales    | [View](agents_config.json) |
+| `promote_event`        | Tour Manager | Event promotion | [View](agents_config.json) |
 
 ---
 
