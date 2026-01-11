@@ -1,0 +1,30 @@
+name: Project sync on label
+
+on:
+  issues:
+    types: [labeled]
+
+env:
+  # Set PROJECT_V2_ID as a repository secret with the Project v2 node ID (e.g. PVT_kwHOAIIiXs4BMH6L)
+  PROJECT_V2_ID: ${{ secrets.PROJECT_V2_ID }}
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add to Project v2 when labeled priority/high
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const label = context.payload.label && context.payload.label.name;
+            if (label === 'priority/high') {
+              const projectId = process.env.PROJECT_V2_ID;
+              if (!projectId) {
+                core.setFailed('PROJECT_V2_ID secret not set. Please add your Project v2 node ID to repo secrets.');
+                return;
+              }
+              const contentId = context.payload.issue.node_id;
+              await github.graphql(`mutation($projectId:ID!, $contentId:ID!){ addProjectV2ItemById(input:{projectId:$projectId, contentId:$contentId}){ item{ id } } }`, { projectId, contentId });
+              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: 'Automated: Added this issue to Project v2 because it was labeled `priority/high`.' });
+            }
