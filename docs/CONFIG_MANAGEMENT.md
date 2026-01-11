@@ -29,3 +29,7 @@ Governance checklist (PRs touching configs)
 - [ ] Did `scripts/sync_agent_configs.py` produce the expected `agents_config.json`?
 - [ ] Did `scripts/validate_configs.py` pass with no warnings? (CI is configured to fail on validation warnings; ensure the validator returns exit code 0)
 - [ ] Did you add/update unit tests for schema or reference changes?
+
+Policy & Branch Protection
+- Ensure the repository's branch protection rules require the `Validate & Backup` and `Integration Matrix` workflows to pass before merging to `main`.
+
